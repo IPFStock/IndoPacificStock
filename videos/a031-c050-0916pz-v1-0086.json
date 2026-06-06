@@ -1,0 +1,53 @@
+{
+  "title": "A031 C050 0916pz V1 0086",
+  "category": "Reef Associated Fish",
+  "region": "Raja Ampat",
+  "species": "Marine Life",
+  "format": "8K RED RAW",
+  "nativeFormatBadge": "RAW",
+  "availableSizes": [
+    "8K RED RAW",
+    "4K ProRes 422 HQ",
+    "1080p Master"
+  ],
+  "camera": "RED V-Raptor 8K",
+  "behavior": "Natural history sequence.",
+  "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C050_0916PZ_V1-0086.mp4",
+  "description": "A031 C050 0916pz V1 0086 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.",
+  "keywords": [
+    "0916pz",
+    "8k red raw",
+    "a031",
+    "a031 c050 0916pz v1 0086",
+    "ampat",
+    "associated",
+    "c050",
+    "fish",
+    "indo",
+    "life",
+    "marine",
+    "marine life",
+    "metadata",
+    "pacific",
+    "raja",
+    "raja ampat",
+    "raw",
+    "red",
+    "red v-raptor 8k",
+    "reef",
+    "reef associated fish",
+    "rights-managed",
+    "run ingest after updating your",
+    "sequence",
+    "stock",
+    "v-raptor"
+  ],
+  "technicalSpecs": {
+    "fileName": "A031_C050_0916PZ_V1-0086.mp4",
+    "slug": "a031-c050-0916pz-v1-0086",
+    "sceneCategory": "Underwater",
+    "family": "",
+    "latinName": ""
+  },
+  "syncSource": "github"
+}

@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Indo Pacific Stock — rights-managed natural history footage from the Indo-Pacific region." />
+  <title>Indo Pacific Stock — Rights Managed Footage</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0B0F19;
+      --surface: #111827;
+      --elevated: #1a2234;
+      --border: #2a3548;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #00E5FF;
+      --accent-dim: rgba(0, 229, 255, 0.12);
+      --accent-glow: rgba(0, 229, 255, 0.35);
+      --red-badge: #ef4444;
+      --header-h: 4rem;
+      --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: var(--header-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      background: rgba(11, 15, 25, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo-icon { flex-shrink: 0; }
+
+    .logo-type {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .logo-type .wordmark {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .logo-type .submark {
+      font-size: 0.55rem;
+      font-weight: 300;
+      letter-spacing: 0.52em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .logo-badge {
+      align-self: center;
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red-badge);
+      border: 1px solid rgba(239, 68, 68, 0.45);
+      padding: 0.18rem 0.42rem;
+      border-radius: 2px;
+      margin-left: 0.15rem;
+    }
+
+    .cart-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.45rem 1rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .cart-btn:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 14px var(--accent-dim);
+    }
+
+    /* ── Main ── */
+    main {
+      padding-top: calc(var(--header-h) + 2.5rem);
+      padding-bottom: 4rem;
+    }
+
+    .hero {
+      max-width: 72rem;
+      margin: 0 auto 2rem;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.4rem, 3vw, 1.85rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-tagline {
+      margin-bottom: 1.15rem;
+    }
+
+    .hero-intro {
+      max-width: 44rem;
+      margin: 0 auto 1.85rem;
+      text-align: left;
+    }
+
+    .hero-intro p {
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.68;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .search-matrix {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    .search-input-wrap {
+      flex: 1 1 18rem;
+      max-width: 28rem;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 100%;
+      min-height: 2.75rem;
+      padding: 0 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .search-input::placeholder { color: #64748b; }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-dim);
+    }
+
+    .filter-select {
+      min-width: 8.5rem;
+      padding: 0.6rem 2rem 0.6rem 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      font-size: 0.78rem;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.65rem center;
+      transition: border-color 0.2s;
+    }
+
+    .filter-select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .filter-select:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .taxonomy-panel {
+      width: 100%;
+      flex: 1 1 100%;
+      margin-top: 0.35rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid rgba(42, 53, 72, 0.65);
+    }
+
+    .taxonomy-panel-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .taxonomy-panel-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .taxonomy-panel-note {
+      font-size: 0.68rem;
+      color: #64748b;
+    }
+
+    .taxonomy-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+
+    .filter-select.taxonomy-select {
+      min-width: 0;
+      width: 100%;
+    }
+
+    @media (max-width: 960px) {
+      .taxonomy-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .results-bar {
+      max-width: 72rem;
+      margin: 0 auto 1.25rem;
+      padding: 0 1.5rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* ── Page zones ── */
+    .zone {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .zone-search {
+      margin-bottom: 2rem;
+    }
+
+    .zone-collections {
+      margin-bottom: 2.25rem;
+    }
+
+    .zone-showcase {
+      padding-bottom: 0;
+    }
+
+    .zone-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+    }
+
+    .collection-rail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .collection-tile {
+      position: relative;
+      flex: 1 1 10.5rem;
+      min-width: 10.5rem;
+      max-width: 14rem;
+      height: 7.5rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      padding: 0;
+      background-color: var(--elevated);
+      background-size: cover;
+      background-position: center;
+      text-align: left;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    .collection-tile::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11, 15, 25, 0.15) 0%, rgba(11, 15, 25, 0.88) 72%);
+      transition: background 0.28s ease;
+    }
+
+    .collection-tile:hover,
+    .collection-tile.is-active {
+      transform: scale(1.02);
+      border-color: rgba(0, 255, 170, 0.55);
+      box-shadow: 0 0 22px rgba(0, 255, 170, 0.3);
+    }
+
+    .collection-tile:hover::before,
+    .collection-tile.is-active::before {
+      background: linear-gradient(180deg, rgba(11, 15, 25, 0.05) 0%, rgba(11, 15, 25, 0.82) 70%);
+    }
+
+    .collection-tile-label {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      padding: 0.65rem 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .load-more-wrap {
+      max-width: 72rem;
+      margin: 2rem auto 0;
+      padding: 0 1.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .load-more-btn {
+      display: inline-block;
+      padding: 0.85rem 1.5rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    .load-more-btn:hover:not(:disabled) {
+      border-color: var(--accent);
+      color: var(--text);
+      box-shadow: 0 0 18px var(--accent-dim);
+    }
+
+    .load-more-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .zone-showcase .site-footer {
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 580px) {
+      .collection-tile {
+        flex: 1 1 calc(50% - 0.5rem);
+        min-width: calc(50% - 0.5rem);
+        max-width: none;
+      }
+    }
+
+    /* ── Grid ── */
+    .media-grid {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 960px) {
+      .media-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 580px) {
+      .media-grid { grid-template-columns: 1fr; }
+      .search-matrix { flex-direction: column; }
+      .search-input-wrap { max-width: none; }
+      .filter-select { width: 100%; }
+    }
+
+    .media-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+
+    .media-card:hover {
+      border-color: rgba(0, 229, 255, 0.4);
+      box-shadow: 0 0 28px rgba(0, 229, 255, 0.07);
+      transform: translateY(-2px);
+    }
+
+    .media-card.filtered-out { display: none !important; }
+
+    .video-wrap {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
+
+    .video-wrap.is-loading video { opacity: 0.35; }
+
+    .video-status {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.72rem;
+      line-height: 1.45;
+      color: var(--muted);
+      background: rgba(11, 15, 25, 0.88);
+      pointer-events: none;
+    }
+
+    .video-status[hidden] { display: none; }
+
+    .video-status--error { color: #fca5a5; }
+
+    .play-hint {
+      position: absolute;
+      bottom: 0.65rem;
+      right: 0.65rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      background: rgba(0, 0, 0, 0.55);
+      padding: 0.2rem 0.45rem;
+      border-radius: 2px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .media-card:hover .play-hint { opacity: 1; }
+    .media-card.is-playing .play-hint { opacity: 0; }
+
+    .card-body { padding: 1rem 1.1rem 1.25rem; }
+
+    .card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 0;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .native-format-badge {
+      flex-shrink: 0;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 3.1rem;
+      padding: 0.35rem 0.45rem;
+      border: 1px solid rgba(0, 229, 255, 0.35);
+      border-radius: 4px;
+      background: linear-gradient(180deg, rgba(0, 229, 255, 0.1) 0%, rgba(11, 15, 25, 0.4) 100%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      text-align: center;
+      line-height: 1.05;
+    }
+
+    .native-format-badge .format-k {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--text);
+    }
+
+    .native-format-badge .format-codec {
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-top: 0.12rem;
+    }
+
+    .rm-badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(0, 229, 255, 0.35);
+      padding: 0.28rem 0.55rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .card-desc {
+      font-size: 0.81rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .asset-keywords {
+      margin-top: 0.65rem;
+      padding-top: 0.55rem;
+      border-top: 1px solid rgba(42, 53, 72, 0.55);
+    }
+
+    .keywords-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0;
+      border: none;
+      background: none;
+      font: inherit;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .keywords-toggle:hover,
+    .keywords-toggle:focus-visible {
+      color: var(--accent);
+      outline: none;
+    }
+
+    .keywords-toggle-icon {
+      display: inline-block;
+      font-size: 0.62rem;
+      line-height: 1;
+      opacity: 0.75;
+      transform: rotate(-90deg);
+      transition: transform 0.28s ease, opacity 0.2s ease;
+    }
+
+    .keywords-toggle[aria-expanded="true"] .keywords-toggle-icon {
+      transform: rotate(0deg);
+      opacity: 1;
+    }
+
+    .keywords-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.32s ease;
+    }
+
+    .keywords-panel.is-open {
+      grid-template-rows: 1fr;
+    }
+
+    .keywords-panel-inner {
+      overflow: hidden;
+    }
+
+    .keywords-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      padding-top: 0.55rem;
+    }
+
+    .keyword-tag {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: rgba(248, 250, 252, 0.58);
+      background: rgba(148, 163, 184, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      border-radius: 3px;
+      padding: 0.22rem 0.45rem;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 1rem;
+      color: var(--muted);
+    }
+
+    .empty-state strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0, 0, 0, 0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal-wrap {
+      position: relative;
+      width: min(58rem, 100%);
+      max-height: 92vh;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -0.25rem;
+      right: 0;
+      z-index: 10;
+      transform: translateY(-100%);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.3rem;
+      line-height: 1;
+      transition: border-color 0.2s;
+    }
+
+    .modal-close:hover { border-color: var(--accent); }
+
+    .modal {
+      background: var(--elevated);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 768px) {
+      .modal { grid-template-columns: 1fr; }
+    }
+
+    .modal-left {
+      padding: 1.25rem;
+      border-right: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .modal-left {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+
+    .modal-video {
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .modal-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .meta-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1rem 1.1rem;
+    }
+
+    .meta-box h3 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .meta-box p {
+      font-size: 0.8rem;
+      color: var(--text);
+      line-height: 1.65;
+      white-space: pre-line;
+    }
+
+    .meta-box .meta-resolution {
+      margin-top: 0.85rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text);
+    }
+
+    .meta-box .meta-resolution strong {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .modal-right {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .modal-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .license-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .license-type {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-top: 0.2rem;
+    }
+
+    .tier-select {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      font-size: 0.84rem;
+      cursor: pointer;
+    }
+
+    .tier-select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .checkout-btn {
+      margin-top: auto;
+      padding: 0.95rem 1.25rem;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .checkout-btn:hover {
+      box-shadow: 0 0 22px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(4rem);
+      background: var(--elevated);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.75rem 1.25rem;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s, opacity 0.3s;
+      z-index: 300;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 1.35rem 1.5rem;
+    }
+
+    .site-footer-inner {
+      max-width: 72rem;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .site-footer-copy {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .site-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .site-footer-links a {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .site-footer-links a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 580px) {
+      .site-footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="#" class="logo" aria-label="Indo Pacific Stock home">
+      <svg class="logo-icon" width="38" height="38" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+        <circle cx="19" cy="19" r="17" stroke="#00E5FF" stroke-width="1" opacity="0.35"/>
+        <circle cx="19" cy="19" r="11.5" stroke="#00E5FF" stroke-width="1.2"/>
+        <path d="M19 7.5v23M7.5 19h23" stroke="#00E5FF" stroke-width="0.75" opacity="0.55"/>
+        <circle cx="19" cy="19" r="3.5" fill="#00E5FF"/>
+        <path d="M8 26 Q19 30 30 26" stroke="#00E5FF" stroke-width="0.8" opacity="0.4" fill="none"/>
+      </svg>
+      <div class="logo-type">
+        <span class="wordmark">Indo Pacific</span>
+        <span class="submark">Stock</span>
+      </div>
+      <span class="logo-badge">RED</span>
+    </a>
+    <button type="button" class="cart-btn" id="cart-btn" aria-live="polite">Cart (0)</button>
+  </header>
+
+  <main>
+    <!-- ZONE 1: Tactical Search & Taxonomy Portal -->
+    <section class="zone zone-search hero" id="zone-search" aria-label="Search and filter">
+      <h1>Indo Pacific Stock - Rights Managed Stock Footage</h1>
+      <p class="hero-tagline">Premium natural history from the Indo-Pacific — search by species, behavior, or location.</p>
+
+      <div class="hero-intro">
+        <p>Welcome to an exclusive archive of cinematic quality RED Digital Cinema and high-resolution Aerial drone stock videos, available for broadcast network and commercial rights-managed licensing.</p>
+        <p>Explore a natural history archive of pristine underwater footage captured throughout the most biodiverse marine habitats in the Indo-Pacific; including Raja Ampat, Komodo, Lembeh Strait, Sulawesi, Bali, West Papua, Flores, and the Banda Sea. Our curated library also hosts authentic cultural documentations and dramatic landscape scenes, clearly indexed with and without model releases to serve both commercial advertising campaigns and editorial documentary productions.</p>
+        <p>Can't find the exact sequence your timeline requires? Indo Pacific Stock is available for custom assignment hire, deploying professional cinema systems to shoot specific imagery across the Indo-Pacific and worldwide destinations.</p>
+      </div>
+
+      <div class="search-matrix">
+        <div class="search-input-wrap">
+          <label for="search-input" class="visually-hidden">Search</label>
+          <input
+            type="search"
+            id="search-input"
+            class="search-input"
+            placeholder="Search species, behaviors, or locations..."
+            autocomplete="off"
+          />
+        </div>
+
+        <select id="filter-category" class="filter-select" aria-label="Category">
+          <option value="All">Category: All</option>
+          <option value="Aerial">Aerial</option>
+          <option value="Underwater">Underwater</option>
+          <option value="Landscape">Landscape</option>
+          <option value="Culture">Culture</option>
+        </select>
+
+        <select id="filter-region" class="filter-select" aria-label="Region">
+          <option value="All">Region: All</option>
+          <option value="Raja Ampat">Raja Ampat</option>
+          <option value="Komodo">Komodo</option>
+          <option value="Lembeh Strait">Lembeh Strait</option>
+          <option value="Cenderawasih">Cenderawasih</option>
+          <option value="Sulawesi">Sulawesi</option>
+          <option value="Bali">Bali</option>
+          <option value="Banda">Banda</option>
+          <option value="Sumbawa">Sumbawa</option>
+          <option value="Flores">Flores</option>
+          <option value="Papua">Papua</option>
+        </select>
+
+        <select id="filter-format" class="filter-select" aria-label="Format">
+          <option value="All">Format: All</option>
+          <option value="8K RED RAW">8K RED RAW</option>
+          <option value="6K RED RAW">6K RED RAW</option>
+          <option value="5K RED RAW">5K RED RAW</option>
+          <option value="4K">4K</option>
+        </select>
+
+        <div class="taxonomy-panel" aria-label="Taxonomic search filters">
+          <div class="taxonomy-panel-head">
+            <span class="taxonomy-panel-title">Taxonomic Search</span>
+            <span class="taxonomy-panel-note">Cascading filters — each tier narrows the next</span>
+          </div>
+          <div class="taxonomy-grid">
+            <select id="filter-taxa-category" class="filter-select taxonomy-select" aria-label="Broad category taxa">
+              <option value="Any">Broad Category: Any</option>
+            </select>
+            <select id="filter-taxa-family" class="filter-select taxonomy-select" aria-label="Family grouping">
+              <option value="Any">Family: Any</option>
+            </select>
+            <select id="filter-taxa-common" class="filter-select taxonomy-select" aria-label="Common name">
+              <option value="Any">Common Name: Any</option>
+            </select>
+            <select id="filter-taxa-latin" class="filter-select taxonomy-select" aria-label="Scientific latin name">
+              <option value="Any">Latin Name: Any</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZONE 2: Visual Curated Collections -->
+    <section class="zone zone-collections" id="zone-collections" aria-label="Curated collections">
+      <h2 class="zone-label">Curated Collections</h2>
+      <div class="collection-rail" id="collection-rail">
+        <button
+          type="button"
+          class="collection-tile"
+          data-collection-filter='{"region":"Raja Ampat"}'
+          style="background-image: url('images/covers/raja-ampat.jpg')"
+          aria-label="Filter by Raja Ampat"
+        >
+          <span class="collection-tile-label">Raja Ampat</span>
+        </button>
+        <button
+          type="button"
+          class="collection-tile"
+          data-collection-filter='{"region":"Komodo"}'
+          style="background-image: url('images/covers/komodo.jpg')"
+          aria-label="Filter by Komodo"
+        >
+          <span class="collection-tile-label">Komodo</span>
+        </button>
+        <button
+          type="button"
+          class="collection-tile"
+          data-collection-filter='{"category":"Coastal Landscapes Drone Aerials"}'
+          style="background-image: url('images/covers/aerials.jpg')"
+          aria-label="Filter by Aerials"
+        >
+          <span class="collection-tile-label">Aerials</span>
+        </button>
+        <button
+          type="button"
+          class="collection-tile"
+          data-collection-filter='{"region":"Lembeh Strait"}'
+          style="background-image: url('images/covers/lembeh-strait.jpg')"
+          aria-label="Filter by Lembeh Strait"
+        >
+          <span class="collection-tile-label">Lembeh Strait</span>
+        </button>
+        <button
+          type="button"
+          class="collection-tile"
+          data-collection-filter='{"category":"Marine Megafauna, Reptiles & Ocean Mammals"}'
+          style="background-image: url('images/covers/megafauna.jpg')"
+          aria-label="Filter by Megafauna"
+        >
+          <span class="collection-tile-label">Megafauna</span>
+        </button>
+        <button
+          type="button"
+          class="collection-tile"
+          data-collection-filter='{"category":"Indo-Pacific Cultural Documentations & Editorial Scenes"}'
+          style="background-image: url('images/covers/culture.jpg')"
+          aria-label="Filter by Culture"
+        >
+          <span class="collection-tile-label">Culture</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ZONE 3: Premier Cinematic Showcase Grid -->
+    <section class="zone zone-showcase" id="zone-showcase" aria-label="Footage catalog">
+      <p class="results-bar" id="results-count" aria-live="polite">Loading catalog…</p>
+
+      <div class="media-grid" id="media-grid" aria-busy="true">
+        <!-- Cards injected dynamically from videos/*.json -->
+      </div>
+
+      <div class="load-more-wrap">
+        <button type="button" class="load-more-btn" id="load-more-btn" hidden>
+          [ Load More Cinematic Assets ]
+        </button>
+      </div>
+
+      <footer class="site-footer">
+        <div class="site-footer-inner">
+          <p class="site-footer-copy">© 2026 Indo Pacific Stock. All footage rights reserved.</p>
+          <nav class="site-footer-links" aria-label="Legal">
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+          </nav>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+    <div class="modal-wrap">
+      <button type="button" class="modal-close" id="modal-close" aria-label="Close dialog">&times;</button>
+      <div class="modal">
+        <div class="modal-left">
+          <div class="modal-video">
+            <video id="modal-video" controls playsinline crossorigin="anonymous"></video>
+          </div>
+          <div class="meta-box">
+            <h3>Technical Metadata</h3>
+            <p id="modal-meta"></p>
+            <div class="meta-resolution" id="modal-max-resolution" hidden>
+              <strong>Maximum Resolution</strong>
+              <span id="modal-max-resolution-value"></span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-right">
+          <h2 class="modal-title" id="modal-title"></h2>
+          <div>
+            <p class="license-label">License Type</p>
+            <p class="license-type">Rights Managed (RM)</p>
+          </div>
+          <select id="tier-select" class="tier-select" aria-label="License tier">
+            <option value="150">Digital/Web Promotion ($150)</option>
+            <option value="450">Broadcast / Indie Film ($450)</option>
+            <option value="1500">Worldwide Theatrical / Commercial ($1,500)</option>
+          </select>
+          <button type="button" class="checkout-btn" id="checkout-btn">Request License &amp; Master RAW Files</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <style>
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  <script src="app.js"></script>
+  <script>
+  (async function () {
+    'use strict';
+
+    const GITHUB_OWNER = 'IPFStock';
+    const GITHUB_REPO = 'ip-assets-01';
+    const GITHUB_BRANCH = 'main';
+    const GITHUB_RAW_BASE = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}`;
+    const THUMB_TIME = 0.15;
+
+    const searchInput = document.getElementById('search-input');
+    const filterCategory = document.getElementById('filter-category');
+    const filterRegion = document.getElementById('filter-region');
+    const filterFormat = document.getElementById('filter-format');
+    const filterTaxaCategory = document.getElementById('filter-taxa-category');
+    const filterTaxaFamily = document.getElementById('filter-taxa-family');
+    const filterTaxaCommon = document.getElementById('filter-taxa-common');
+    const filterTaxaLatin = document.getElementById('filter-taxa-latin');
+    const grid = document.getElementById('media-grid');
+    const resultsCount = document.getElementById('results-count');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const collectionRail = document.getElementById('collection-rail');
+    const zoneShowcase = document.getElementById('zone-showcase');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalVideo = document.getElementById('modal-video');
+    const modalMeta = document.getElementById('modal-meta');
+    const modalMaxResolution = document.getElementById('modal-max-resolution');
+    const modalMaxResolutionValue = document.getElementById('modal-max-resolution-value');
+    const modalTitle = document.getElementById('modal-title');
+    const cartBtn = document.getElementById('cart-btn');
+    const toast = document.getElementById('toast');
+    const tierSelect = document.getElementById('tier-select');
+    const checkoutBtn = document.getElementById('checkout-btn');
+
+    const assetCatalog = new Map();
+    let cards = [];
+    let cartCount = 0;
+    let activeAsset = null;
+    let toastTimer = null;
+
+    const filterController = new window.IPFStockFilters.CatalogFilterController({
+      getCards: () => cards,
+      getAssetCatalog: () => assetCatalog,
+      searchInput,
+      filterSceneCategory: filterCategory,
+      filterRegion,
+      filterFormat,
+      grid,
+      resultsCount,
+      loadMoreBtn,
+      zoneShowcase,
+      cardSearchText,
+      taxonomicSelects: {
+        taxaCategory: filterTaxaCategory,
+        taxaFamily: filterTaxaFamily,
+        taxaCommon: filterTaxaCommon,
+        taxaLatin: filterTaxaLatin,
+      },
+    });
+
+    filterController.initCollectionPortal(collectionRail);
+    filterController.bindLegacyFilters();
+
+    function filterArchive(options) {
+      filterController.filterArchive(options);
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    const KEYWORD_STOP_WORDS = new Set([
+      'a', 'an', 'the', 'and', 'or', 'in', 'on', 'at', 'to', 'from', 'with', 'as', 'its', 'of', 'for',
+      'is', 'by', 'through', 'over', 'into', 'under', 'during', 'this', 'that', 'are', 'was', 'be',
+      'been', 'using', 'native', 'inside', 'running', 'captured', 'premium', 'high', 'fidelity',
+      'archival', 'sequence', 'documenting', 'technical', 'profile', 'framework', 'format', 'aspect',
+      'ratio', 'sensor', 'natural', 'history', 'rights', 'managed', 'stock', 'footage', 'indopacific',
+      'video', 'clip', 'run', 'ingest', 'after', 'updating', 'your', 'davinci', 'csv', 'full',
+      'metadata', 'swims', 'swim', 'swimming',
+    ]);
+
+    function normalizeKeywordPhrase(value) {
+      return value.trim().toLowerCase().replace(/\s+/g, ' ');
+    }
+
+    function stripLeadingArticle(phrase) {
+      return phrase.replace(/^(a|an|the)\s+/i, '').trim();
+    }
+
+    function extractKeywordsFromAsset(data) {
+      const keywords = new Set();
+      const spec = data.technicalSpecs || {};
+
+      const add = (value) => {
+        if (!value || typeof value !== 'string') return;
+        const phrase = normalizeKeywordPhrase(stripLeadingArticle(value.replace(/[^\w\s.-]/g, ' ')));
+        if (phrase.length > 2 && !KEYWORD_STOP_WORDS.has(phrase)) keywords.add(phrase);
+      };
+
+      const addToken = (value) => {
+        if (!value || typeof value !== 'string') return;
+        value
+          .toLowerCase()
+          .replace(/[^\w\s.-]/g, ' ')
+          .split(/\s+/)
+          .forEach((word) => {
+            if (/^\d+$/.test(word)) return;
+            if (word.length > 2 && !KEYWORD_STOP_WORDS.has(word)) keywords.add(word);
+          });
+      };
+
+      const addSlugParts = (value) => {
+        if (!value || typeof value !== 'string') return;
+        value.toLowerCase().split(/[-_\s]+/).forEach((word) => {
+          if (word.length > 2 && !KEYWORD_STOP_WORDS.has(word)) keywords.add(word);
+        });
+      };
+
+      [data.region, data.species, data.category, data.format, data.nativeFormatBadge, data.camera]
+        .forEach((value) => {
+          add(value);
+          addToken(value);
+        });
+
+      addToken(data.behavior);
+      addSlugParts(data.title);
+      addToken(spec.codec);
+      addToken(spec.cameraFormat);
+      addToken(spec.cameraType);
+
+      const resLabel = inferMaxResolutionLabel(spec.resolution || data.format || '');
+      if (resLabel) add(resLabel.toLowerCase());
+
+      const codecLabel = inferCodecLabel(spec.codec || '');
+      if (codecLabel) add(codecLabel.toLowerCase());
+
+      if (spec.fps) {
+        const fpsValue = parseFloat(spec.fps);
+        if (!Number.isNaN(fpsValue)) keywords.add(`${fpsValue} fps`);
+      }
+
+      const description = data.description || '';
+      (description.match(/\b[A-Z][a-z]+(?:\s+[a-z]+)+\b/g) || []).forEach((name) => add(name));
+
+      description.split(/[,;]/).forEach((chunk) => {
+        const phrase = normalizeKeywordPhrase(stripLeadingArticle(chunk.replace(/[^\w\s-]/g, ' ')));
+        if (phrase.length > 2 && phrase.split(' ').length <= 6) add(phrase);
+      });
+
+      addToken(description);
+
+      return [...new Set(
+        Array.from(keywords)
+          .map((keyword) => keyword.replace(/\.$/, ''))
+          .filter((keyword) => keyword.length > 2 && !/^\d+$/.test(keyword))
+      )]
+        .sort((a, b) => a.localeCompare(b))
+        .slice(0, 32);
+    }
+
+    function resolveAssetKeywords(data) {
+      if (Array.isArray(data.keywords) && data.keywords.length) return data.keywords;
+      return extractKeywordsFromAsset(data);
+    }
+
+    function formatKeywordTag(keyword) {
+      return keyword.split(' ').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    }
+
+    function buildKeywordsBlockHtml(data) {
+      const keywords = resolveAssetKeywords(data);
+      if (!keywords.length) return '';
+
+      const tags = keywords
+        .map((keyword) => `<span class="keyword-tag" itemprop="keywords">${escapeHtml(formatKeywordTag(keyword))}</span>`)
+        .join('');
+
+      return (
+        `<div class="asset-keywords">` +
+          `<button type="button" class="keywords-toggle" aria-expanded="false" aria-label="View asset indexing keywords">` +
+            `<span class="keywords-toggle-icon" aria-hidden="true">▾</span>` +
+            `<span class="keywords-toggle-label">[+ View Asset Keywords]</span>` +
+          `</button>` +
+          `<div class="keywords-panel">` +
+            `<div class="keywords-panel-inner">` +
+              `<div class="keywords-tags">${tags}</div>` +
+            `</div>` +
+          `</div>` +
+        `</div>`
+      );
+    }
+
+    function updatePageSeoKeywords() {
+      const allKeywords = [];
+      assetCatalog.forEach((data) => {
+        resolveAssetKeywords(data).forEach((keyword) => allKeywords.push(keyword));
+      });
+
+      const unique = [...new Set(allKeywords)].slice(0, 120);
+      let meta = document.querySelector('meta[name="keywords"]');
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.name = 'keywords';
+        document.head.appendChild(meta);
+      }
+      meta.content = unique.join(', ');
+    }
+
+    function normalizeVideoUrl(url, slug, data) {
+      const fileName = data?.technicalSpecs?.fileName || `${slug}.mp4`;
+      if (!url || url === 'https://github.com' || url.endsWith('github.com') || url.includes('githubusercontent.com{')) {
+        return `${GITHUB_RAW_BASE}/${fileName}`;
+      }
+      const match = url.match(/github\.com\/([^/]+)\/([^/]+)\/raw\/(?:refs\/heads\/)?([^/]+)\/(.+)/i);
+      if (match) {
+        return `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${match[3]}/${match[4]}`;
+      }
+      return url;
+    }
+
+    function inferMaxResolutionLabel(resolution) {
+      if (!resolution) return 'HD';
+      const match = resolution.match(/(\d+)\s*[x×]\s*(\d+)/i);
+      const width = match
+        ? Math.max(parseInt(match[1], 10), parseInt(match[2], 10))
+        : parseInt(resolution, 10) || 0;
+
+      if (width >= 7680) return '8K';
+      if (width >= 6144) return '6K';
+      if (width >= 5120) return '5K';
+      if (width >= 4096) return '4K';
+      if (width >= 3840) return '4K';
+      if (width >= 1920) return 'HD';
+      return width ? `${width}P` : 'HD';
+    }
+
+    function inferCodecLabel(codec) {
+      if (!codec) return 'RAW';
+      const value = codec.toLowerCase();
+      if (value.includes('r3d') || value.includes('redcode')) return 'R3D';
+      if (value.includes('prores')) return 'ProRes';
+      return codec.toUpperCase();
+    }
+
+    function getNativeFormatBadge(data) {
+      if (data.nativeFormatBadge) return data.nativeFormatBadge;
+      const spec = data.technicalSpecs || {};
+      return `${inferMaxResolutionLabel(spec.resolution)} ${inferCodecLabel(spec.codec)}`;
+    }
+
+    function renderNativeFormatBadgeHtml(data) {
+      const badge = getNativeFormatBadge(data);
+      const parts = badge.trim().split(/\s+/);
+      const resolutionLabel = parts[0] || 'HD';
+      const codecLabel = parts.slice(1).join(' ') || 'RAW';
+
+      return (
+        `<div class="native-format-badge" aria-label="Native format ${escapeHtml(badge)}">` +
+          `<span class="format-k">${escapeHtml(resolutionLabel)}</span>` +
+          `<span class="format-codec">${escapeHtml(codecLabel)}</span>` +
+        `</div>`
+      );
+    }
+
+    function buildMetaLine(data) {
+      const lines = [
+        `Location: ${data.region} | Camera: ${data.camera} | Behavior: ${data.behavior}`,
+      ];
+      const spec = data.technicalSpecs;
+      if (spec) {
+        lines.push('');
+        lines.push([
+          spec.codec && `Codec: ${spec.codec}`,
+          spec.fps && `FPS: ${spec.fps}`,
+          spec.bitDepth && `Bit Depth: ${spec.bitDepth}-bit`,
+          spec.aspectRatio && `Aspect: ${spec.aspectRatio}`,
+          spec.cameraFormat && `Format: ${spec.cameraFormat}`,
+          spec.date && `Date: ${spec.date}`,
+          spec.originalCameraCode && `Reel ID: ${spec.originalCameraCode}`,
+        ].filter(Boolean).join(' | '));
+      }
+      return lines.join('\n');
+    }
+
+    function assetSearchText(data) {
+      const spec = data.technicalSpecs || {};
+      return [
+        data.title,
+        data.description,
+        data.region,
+        data.category,
+        data.species,
+        data.format,
+        data.nativeFormatBadge,
+        data.camera,
+        data.behavior,
+        spec.resolution,
+        spec.codec,
+        spec.fps,
+        spec.bitDepth,
+        spec.aspectRatio,
+        spec.cameraFormat,
+        spec.originalCameraCode,
+        spec.fileName,
+        spec.family,
+        spec.latinName,
+        resolveAssetKeywords(data).join(' '),
+      ].join(' ').toLowerCase();
+    }
+
+    function safePlay(video) {
+      const playPromise = video.play();
+      if (playPromise && playPromise.catch) {
+        playPromise.catch(() => {});
+      }
+    }
+
+    function showVideoError(wrap) {
+      if (!wrap) return;
+      wrap.classList.remove('is-loading');
+      wrap.classList.add('video-failed');
+      const status = wrap.querySelector('.video-status--error');
+      if (status) status.hidden = false;
+    }
+
+    function configureVideoElement(video, url) {
+      video.src = url;
+      if (/^https?:\/\//i.test(url)) {
+        video.crossOrigin = 'anonymous';
+      } else {
+        video.removeAttribute('crossorigin');
+      }
+    }
+
+    function primeVideoThumb(video, wrap) {
+      const markReady = () => wrap?.classList.remove('is-loading');
+
+      const seekToThumb = () => {
+        if (video.readyState < 1) return;
+        video.currentTime = THUMB_TIME;
+      };
+
+      video.addEventListener('loadedmetadata', seekToThumb, { once: true });
+      video.addEventListener('seeked', () => {
+        if (!video.closest('.media-card')?.classList.contains('is-playing')) {
+          video.pause();
+        }
+        markReady();
+      });
+      video.addEventListener('loadeddata', markReady, { once: true });
+      video.addEventListener('error', () => showVideoError(wrap), { once: true });
+      video.load();
+    }
+
+    function bindCardPreview(card) {
+      const wrap = card.querySelector('.video-wrap');
+      const video = card.querySelector('video');
+
+      card.addEventListener('mouseenter', () => {
+        card.classList.add('is-playing');
+
+        const startPreview = () => {
+          video.currentTime = 0;
+          safePlay(video);
+        };
+
+        if (video.readyState >= 2) {
+          startPreview();
+        } else {
+          video.addEventListener('loadeddata', startPreview, { once: true });
+          video.load();
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.classList.remove('is-playing');
+        video.pause();
+        if (video.readyState >= 1) {
+          video.currentTime = THUMB_TIME;
+        }
+      });
+    }
+
+    function buildCard(data, slug) {
+      const videoUrl = normalizeVideoUrl(data.videoUrl, slug, data);
+      const metaLine = buildMetaLine(data);
+      const keywords = resolveAssetKeywords(data);
+      const enriched = { ...data, videoUrl, slug, keywords };
+      const article = document.createElement('article');
+
+      article.className = 'media-card';
+      article.setAttribute('itemscope', '');
+      article.setAttribute('itemtype', 'https://schema.org/VideoObject');
+      article.dataset.assetId = slug;
+      article.dataset.category = data.category || '';
+      article.dataset.sceneCategory = data.technicalSpecs?.sceneCategory || 'Underwater';
+      article.dataset.region = data.region;
+      article.dataset.species = data.species || '';
+      article.dataset.family = data.technicalSpecs?.family || '';
+      article.dataset.latinName = data.technicalSpecs?.latinName || '';
+      article.dataset.format = data.format;
+      article.dataset.title = data.title;
+      article.dataset.desc = data.description;
+      article.dataset.video = videoUrl;
+      article.dataset.meta = metaLine;
+      article.dataset.keywords = keywords.join(', ');
+      article.dataset.search = assetSearchText(enriched);
+
+      article.innerHTML =
+        `<div class="video-wrap is-loading">` +
+          `<video muted loop playsinline preload="metadata" aria-label="${escapeHtml(data.title)} preview" itemprop="contentUrl"></video>` +
+          `<span class="play-hint">Hover to preview</span>` +
+          `<div class="video-status video-status--error" hidden>Preview unavailable — check that the video URL is public and reachable.</div>` +
+        `</div>` +
+        `<div class="card-body">` +
+          `<meta itemprop="name" content="${escapeHtml(data.title)}">` +
+          `<meta itemprop="description" content="${escapeHtml(data.description)}">` +
+          `<div class="card-head">` +
+            `<h2 class="card-title" itemprop="headline">${escapeHtml(data.title)}</h2>` +
+            renderNativeFormatBadgeHtml(data) +
+          `</div>` +
+          `<span class="rm-badge">Rights Managed (RM)</span>` +
+          `<p class="card-desc">${escapeHtml(data.description)}</p>` +
+          buildKeywordsBlockHtml(enriched) +
+        `</div>`;
+
+      const video = article.querySelector('video');
+      configureVideoElement(video, videoUrl);
+      primeVideoThumb(video, article.querySelector('.video-wrap'));
+      bindCardPreview(article);
+
+      assetCatalog.set(slug, enriched);
+      return article;
+    }
+
+    function mp4FileFromAsset(data) {
+      if (data.technicalSpecs?.fileName) return data.technicalSpecs.fileName.toLowerCase();
+      if (data.videoUrl) {
+        const parts = data.videoUrl.split('/');
+        return parts[parts.length - 1].toLowerCase();
+      }
+      return '';
+    }
+
+    function slugFromMp4(fileName) {
+      return fileName.replace(/\.mp4$/i, '').toLowerCase().replace(/_/g, '-');
+    }
+
+    function titleFromMp4(fileName) {
+      return fileName
+        .replace(/\.mp4$/i, '')
+        .replace(/[-_]/g, ' ')
+        .replace(/\b\w/g, (char) => char.toUpperCase());
+    }
+
+    function buildStubAsset(mp4FileName) {
+      const slug = slugFromMp4(mp4FileName);
+      const title = titleFromMp4(mp4FileName);
+      const taxon = inferTaxonomyFromSlug(slug, title);
+      const stub = {
+        slug,
+        title,
+        category: taxon.category,
+        region: 'Raja Ampat',
+        species: taxon.species,
+        format: '8K RED RAW',
+        nativeFormatBadge: 'RAW',
+        camera: 'RED V-Raptor 8K',
+        behavior: 'Natural history sequence.',
+        videoUrl: `${GITHUB_RAW_BASE}/${mp4FileName}`,
+        description: `${title} — rights-managed stock footage from Indo Pacific Stock.`,
+        technicalSpecs: {
+          fileName: mp4FileName,
+          slug,
+          sceneCategory: taxon.sceneCategory,
+          family: taxon.family,
+          latinName: taxon.latinName,
+        },
+        syncSource: 'github-live',
+      };
+      stub.keywords = extractKeywordsFromAsset(stub);
+      return stub;
+    }
+
+    function inferTaxonomyFromSlug(slug, title) {
+      const haystack = `${slug} ${title}`.toLowerCase();
+      const T = {
+        PELAGIC: 'Pelagic & Open Ocean Schooling Fish',
+        BENTHIC: 'Benthic Reef Aggregations & Schooling Fish',
+        SMALL: 'Small Fish Life & Cryptic Bottom-Dwellers',
+        APEX: 'Apex Marine Predators & Elasmobranchii',
+        MEGFAUNA: 'Marine Megafauna, Reptiles & Ocean Mammals',
+        CEPHALOPODS: 'Cephalopods',
+        MOLLUSKS: 'Mollusks',
+        HABITATS: 'Marine Habitats, Sponges & Corals',
+        REEF: 'Reef Associated Fish',
+        PIPEFISH: 'Pipefish/Seahorses',
+        CRUSTACEANS: 'Crustaceans and Misc Macro Life',
+        WORMS: 'Worms and Echinoderms',
+        TERRESTRIAL_MAMMALS: 'Terrestrial Mammals, Marsupials & Megafauna',
+        TERRESTRIAL_REPTILES: 'Terrestrial Reptiles & Herpetofauna',
+        AVIAN: 'Avian Bird Species',
+        COASTAL: 'Coastal Landscapes Drone Aerials',
+        CULTURAL: 'Indo-Pacific Cultural Documentations & Editorial Scenes',
+      };
+      const rules = [
+        { pattern: /hawksbill|eretmochelys/, category: T.MEGFAUNA, species: 'Hawksbill Turtle', family: 'Cheloniidae (Sea Turtles)', latinName: 'Eretmochelys imbricata' },
+        { pattern: /green.?turtle|turtle|chelonia/, category: T.MEGFAUNA, species: 'Green Turtle', family: 'Cheloniidae (Sea Turtles)', latinName: 'Chelonia mydas' },
+        { pattern: /dolphin|whale/, category: T.MEGFAUNA, species: 'Dolphins', family: 'Delphinidae (Dolphins)', latinName: 'Delphinidae sp.' },
+        { pattern: /moorish|idol|zanclus/, category: T.REEF, species: 'Moorish Idol', family: 'Zanclidae (Moorish Idols)', latinName: 'Zanclus cornutus' },
+        { pattern: /white.?tip|shark|triaenodon|manta/, category: T.APEX, species: 'Whitetip Reef Shark', family: 'Carcharhinidae (Requiem Sharks)', latinName: 'Triaenodon obesus' },
+        { pattern: /sweetlips|ribbon/, category: T.BENTHIC, species: 'Ribboned Sweetlips', family: 'Haemulidae (Sweetlips)', latinName: 'Plectorhinchus polytaenia' },
+        { pattern: /sweeper|golden/, category: T.BENTHIC, species: 'Golden Sweepers', family: 'Pempheridae (Sweepers)', latinName: 'Parapriacanthus ransonneti' },
+        { pattern: /goby|blenny/, category: T.SMALL, species: 'Goby', family: 'Gobiidae (Gobies)', latinName: 'Gobiidae sp.' },
+        { pattern: /pipefish|seahorse/, category: T.PIPEFISH, species: 'Seahorse', family: 'Syngnathidae (Pipefish & Seahorses)', latinName: 'Syngnathidae sp.' },
+        { pattern: /sunset|sunray|landscape|scenery|komodo|drone|aerial/, category: T.COASTAL, species: 'Seascape', family: '', latinName: '' },
+        { pattern: /coral|sponge|reef.?habitat/, category: T.HABITATS, species: 'Coral Reef Habitat', family: '', latinName: '' },
+        { pattern: /octopus|cephalopod/, category: T.CEPHALOPODS, species: 'Octopus', family: 'Octopodidae (Octopuses)', latinName: 'Octopus sp.' },
+        { pattern: /shrimp|crab|crustacean/, category: T.CRUSTACEANS, species: 'Crustacean', family: 'Crustacea', latinName: 'Crustacea sp.' },
+        { pattern: /starfish|sea star|urchin|sea cucumber|brittle star|feather star|echinoderm/, category: T.WORMS, species: 'Echinoderm', family: 'Echinodermata', latinName: 'Echinodermata sp.' },
+        { pattern: /polychaete|fireworm|flatworm|tube.?worm|(?<![a-z])worm/, category: T.WORMS, species: 'Marine Worm', family: 'Annelida (Polychaetes)', latinName: 'Polychaeta sp.' },
+        { pattern: /kangaroo|wallaby|marsupial|orangutan|monkey|babirusa|terrestrial mammal/, category: T.TERRESTRIAL_MAMMALS, species: 'Terrestrial Mammal', family: 'Mammalia', latinName: 'Mammalia sp.' },
+        { pattern: /komodo dragon|varanus komodoensis/, category: T.TERRESTRIAL_REPTILES, species: 'Komodo Dragon', family: 'Varanidae (Monitor Lizards)', latinName: 'Varanus komodoensis' },
+        { pattern: /python|cobra|snake|herpetofauna|monitor lizard|terrestrial reptile/, category: T.TERRESTRIAL_REPTILES, species: 'Terrestrial Reptile', family: 'Reptilia', latinName: 'Reptilia sp.' },
+        { pattern: /bird|eagle|hornbill|parrot|kingfisher|tern|seabird|avian|cockatoo|heron|pelican/, category: T.AVIAN, species: 'Bird', family: 'Aves', latinName: 'Aves sp.' },
+        { pattern: /culture|village|editorial/, category: T.CULTURAL, species: 'Cultural Scene', family: '', latinName: '' },
+      ];
+
+      for (const rule of rules) {
+        if (rule.pattern.test(haystack)) {
+          return {
+            category: rule.category,
+            species: rule.species,
+            family: rule.family,
+            latinName: rule.latinName,
+            sceneCategory: rule.category === T.COASTAL ? 'Landscape' : 'Underwater',
+          };
+        }
+      }
+
+      return {
+        category: T.REEF,
+        species: 'Marine Life',
+        family: '',
+        latinName: '',
+        sceneCategory: 'Underwater',
+      };
+    }
+
+    async function fetchGithubMp4Files() {
+      const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/?ref=${GITHUB_BRANCH}`;
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`GitHub API ${response.status}`);
+      const entries = await response.json();
+      return entries
+        .filter((entry) => entry.type === 'file' && /\.mp4$/i.test(entry.name))
+        .map((entry) => entry.name);
+    }
+
+    async function syncCatalogWithGithub(loadedCards) {
+      try {
+        const githubMp4Files = await fetchGithubMp4Files();
+        const githubSet = new Set(githubMp4Files.map((file) => file.toLowerCase()));
+
+        loadedCards = loadedCards.filter((card) => {
+          const data = assetCatalog.get(card.dataset.assetId);
+          if (!data) return false;
+          const mp4 = mp4FileFromAsset(data);
+          const keep = mp4 && githubSet.has(mp4);
+          if (!keep) assetCatalog.delete(card.dataset.assetId);
+          return keep;
+        });
+
+        const knownMp4 = new Set();
+        loadedCards.forEach((card) => {
+          const data = assetCatalog.get(card.dataset.assetId);
+          if (data) knownMp4.add(mp4FileFromAsset(data));
+        });
+
+        githubMp4Files.forEach((mp4FileName) => {
+          const key = mp4FileName.toLowerCase();
+          if (knownMp4.has(key)) return;
+
+          const data = buildStubAsset(mp4FileName);
+          const card = buildCard(data, data.slug);
+          loadedCards.push(card);
+          knownMp4.add(key);
+        });
+      } catch (err) {
+        console.warn('Live GitHub sync skipped:', err.message);
+      }
+
+      return loadedCards;
+    }
+
+    const catalogCacheBust = () => `?v=${Date.now()}`;
+
+    async function loadCatalog() {
+      grid.innerHTML = '<div class="empty-state"><strong>Loading catalog…</strong>Fetching footage metadata.</div>';
+      grid.setAttribute('aria-busy', 'true');
+
+      let assetFiles = [];
+      try {
+        const manifestRes = await fetch(`videos/manifest.json${catalogCacheBust()}`, { cache: 'no-store' });
+        if (manifestRes.ok) {
+          assetFiles = await manifestRes.json();
+        }
+      } catch (err) {
+        console.warn('Could not load videos/manifest.json', err);
+      }
+
+      if (!Array.isArray(assetFiles) || assetFiles.length === 0) {
+        grid.innerHTML = '<div class="empty-state"><strong>Catalog empty</strong>Add clips via ingest.js or update videos/manifest.json.</div>';
+        resultsCount.textContent = 'Showing 0 clips';
+        grid.removeAttribute('aria-busy');
+        return;
+      }
+
+      let loadedCards = [];
+
+      for (const slug of assetFiles) {
+        try {
+          const response = await fetch(`videos/${slug}.json${catalogCacheBust()}`, { cache: 'no-store' });
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          const data = await response.json();
+          loadedCards.push(buildCard(data, slug));
+        } catch (err) {
+          console.error(`Failed to load videos/${slug}.json`, err);
+        }
+      }
+
+      loadedCards = await syncCatalogWithGithub(loadedCards);
+
+      grid.innerHTML = '';
+      grid.removeAttribute('aria-busy');
+
+      if (loadedCards.length === 0) {
+        grid.innerHTML = '<div class="empty-state"><strong>Catalog unavailable</strong>Could not load footage JSON. Serve this site over HTTP (not file://).</div>';
+        resultsCount.textContent = 'Showing 0 clips';
+        return;
+      }
+
+      loadedCards.sort((a, b) => {
+        const dataA = assetCatalog.get(a.dataset.assetId);
+        const dataB = assetCatalog.get(b.dataset.assetId);
+        const csvA = dataA?.syncSource === 'csv' ? 1 : 0;
+        const csvB = dataB?.syncSource === 'csv' ? 1 : 0;
+        if (csvB !== csvA) return csvB - csvA;
+        return (dataA?.title || '').localeCompare(dataB?.title || '', undefined, { sensitivity: 'base' });
+      });
+
+      cards = loadedCards;
+      updatePageSeoKeywords();
+      filterController.initTaxonomyFromCatalog();
+      filterController.mountCatalog(cards);
+    }
+
+    function cardSearchText(card) {
+      return card.dataset.search || [
+        card.dataset.title,
+        card.dataset.desc,
+        card.dataset.region,
+        card.dataset.category,
+        card.dataset.species,
+        card.dataset.format,
+        card.dataset.meta,
+        card.dataset.family,
+        card.dataset.latinName,
+      ].join(' ').toLowerCase();
+    }
+
+    function openModal(card) {
+      const data = assetCatalog.get(card.dataset.assetId);
+      if (!data) return;
+
+      activeAsset = data;
+      modalTitle.textContent = data.title;
+      modalMeta.textContent = buildMetaLine(data);
+
+      const maxResolution = data.technicalSpecs?.resolution || '';
+      if (maxResolution) {
+        modalMaxResolution.hidden = false;
+        modalMaxResolutionValue.textContent = maxResolution;
+      } else {
+        modalMaxResolution.hidden = true;
+        modalMaxResolutionValue.textContent = '';
+      }
+
+      configureVideoElement(modalVideo, data.videoUrl);
+      modalOverlay.classList.add('open');
+      modalOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      modalVideo.load();
+
+      modalVideo.addEventListener('loadeddata', function onModalReady() {
+        modalVideo.removeEventListener('loadeddata', onModalReady);
+        safePlay(modalVideo);
+      });
+
+      modalVideo.addEventListener('error', function onModalError() {
+        modalVideo.removeEventListener('error', onModalError);
+        showToast('Unable to load this clip — verify the video file is public.');
+      }, { once: true });
+    }
+
+    function closeModal() {
+      modalVideo.pause();
+      modalVideo.removeAttribute('src');
+      modalVideo.load();
+      modalOverlay.classList.remove('open');
+      modalOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      activeAsset = null;
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+    }
+
+    grid.addEventListener('click', (e) => {
+      const toggle = e.target.closest('.keywords-toggle');
+      if (toggle) {
+        e.stopPropagation();
+        const panel = toggle.closest('.asset-keywords')?.querySelector('.keywords-panel');
+        if (!panel) return;
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        panel.classList.toggle('is-open', !open);
+        toggle.querySelector('.keywords-toggle-label').textContent = open
+          ? '[+ View Asset Keywords]'
+          : '[- Hide Asset Keywords]';
+        return;
+      }
+
+      const card = e.target.closest('.media-card');
+      if (card) openModal(card);
+    });
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
+        closeModal();
+      }
+    });
+
+    checkoutBtn.addEventListener('click', () => {
+      if (!activeAsset) return;
+      const tierLabel = tierSelect.options[tierSelect.selectedIndex].text;
+      cartCount += 1;
+      cartBtn.textContent = `Cart (${cartCount})`;
+      showToast(`License request added — ${activeAsset.title} (${tierLabel})`);
+      closeModal();
+    });
+
+    await loadCatalog();
+  })();
+  </script>
+</body>
+</html>
