@@ -34,16 +34,36 @@ function searchTokenMatchesText(text, token) {
   });
 }
 
+const SEARCH_PARTIAL_MIN_LEN = 3;
+
+function cleanSearchToken(token) {
+  return token.replace(/^[^a-z0-9]+|[^a-z0-9]+$/gi, '').toLowerCase();
+}
+
 function significantSearchTokens(query) {
-  return query
-    .split(/\s+/)
-    .map((token) => token.replace(/^[^a-z0-9]+|[^a-z0-9]+$/gi, '').toLowerCase())
+  const hasTrailingSpace = /\s$/.test(query);
+  const parts = String(query || '').toLowerCase().split(/\s+/);
+  let tokens = parts
+    .map(cleanSearchToken)
     .filter((token) => token.length > 0 && !SEARCH_STOP_WORDS.has(token));
+
+  // While typing a multi-word phrase, don't require the in-progress last word yet.
+  if (!hasTrailingSpace && tokens.length > 1) {
+    const lastRaw = cleanSearchToken(parts[parts.length - 1] || '');
+    const lastToken = tokens[tokens.length - 1];
+
+    if (lastRaw === lastToken && lastToken.length < SEARCH_PARTIAL_MIN_LEN) {
+      tokens = tokens.slice(0, -1);
+    }
+  }
+
+  return tokens;
 }
 
 function matchesSearchQuery(haystack, query) {
   const text = String(haystack || '').toLowerCase();
-  const normalized = String(query || '').trim().toLowerCase();
+  const raw = String(query || '');
+  const normalized = raw.trim().toLowerCase();
   if (!normalized) return true;
 
   const quoted = normalized.match(/^"(.+)"$/);
@@ -53,7 +73,7 @@ function matchesSearchQuery(haystack, query) {
 
   if (text.includes(normalized)) return true;
 
-  const tokens = significantSearchTokens(normalized);
+  const tokens = significantSearchTokens(raw);
   if (tokens.length === 0) return true;
 
   return tokens.every((token) => searchTokenMatchesText(text, token));
