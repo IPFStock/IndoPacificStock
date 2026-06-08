@@ -1,0 +1,9 @@
+{
+  "buildCommand": null,
+  "framework": null,
+  "rewrites": [
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/license-terms", "destination": "/license-terms.html" }
+  ]
+}

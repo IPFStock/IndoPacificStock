@@ -1459,7 +1459,7 @@
       <div class="modal">
         <div class="modal-left">
           <div class="modal-video">
-            <video id="modal-video" controls playsinline crossorigin="anonymous"></video>
+            <video id="modal-video" controls playsinline preload="metadata"></video>
           </div>
           <div class="meta-box">
             <h3>Technical Metadata</h3>
@@ -1539,7 +1539,11 @@
     const GITHUB_REPO = 'ip-assets-01';
     const GITHUB_BRANCH = 'main';
     const GITHUB_RAW_BASE = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}`;
+    const VIDEO_CDN_BASE = `https://cdn.jsdelivr.net/gh/${GITHUB_OWNER}/${GITHUB_REPO}@${GITHUB_BRANCH}`;
     const THUMB_TIME = 0.15;
+    const VIDEO_LOAD_CONCURRENCY = 4;
+    let activeVideoLoads = 0;
+    const pendingVideoLoads = [];
 
     const searchInput = document.getElementById('search-input');
     const filterCategory = document.getElementById('filter-category');
@@ -1751,16 +1755,32 @@
       meta.content = unique.join(', ');
     }
 
+    function videoCdnUrl(fileName) {
+      return `${VIDEO_CDN_BASE}/${fileName}`;
+    }
+
     function normalizeVideoUrl(url, slug, data) {
       const fileName = data?.technicalSpecs?.fileName || `${slug}.mp4`;
       if (!url || url === 'https://github.com' || url.endsWith('github.com') || url.includes('githubusercontent.com{')) {
-        return `${GITHUB_RAW_BASE}/${fileName}`;
+        return videoCdnUrl(fileName);
       }
-      const match = url.match(/github\.com\/([^/]+)\/([^/]+)\/raw\/(?:refs\/heads\/)?([^/]+)\/(.+)/i);
-      if (match) {
-        return `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${match[3]}/${match[4]}`;
+
+      const ghRawMatch = url.match(/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\/(.+)/i);
+      if (ghRawMatch) {
+        return `https://cdn.jsdelivr.net/gh/${ghRawMatch[1]}/${ghRawMatch[2]}@${ghRawMatch[3]}/${ghRawMatch[4]}`;
       }
-      return url;
+
+      const ghBlobMatch = url.match(/github\.com\/([^/]+)\/([^/]+)\/raw\/(?:refs\/heads\/)?([^/]+)\/(.+)/i);
+      if (ghBlobMatch) {
+        return `https://cdn.jsdelivr.net/gh/${ghBlobMatch[1]}/${ghBlobMatch[2]}@${ghBlobMatch[3]}/${ghBlobMatch[4]}`;
+      }
+
+      if (/\.mp4$/i.test(url)) {
+        const parts = url.split('/');
+        return videoCdnUrl(parts[parts.length - 1]);
+      }
+
+      return videoCdnUrl(fileName);
     }
 
     function inferMaxResolutionLabel(resolution) {
@@ -1954,16 +1974,56 @@
     }
 
     function configureVideoElement(video, url) {
+      video.removeAttribute('crossorigin');
+      video.referrerPolicy = 'no-referrer';
       video.src = url;
-      if (/^https?:\/\//i.test(url)) {
-        video.crossOrigin = 'anonymous';
-      } else {
-        video.removeAttribute('crossorigin');
+    }
+
+    function queueVideoSource(video, url, wrap) {
+      if (!video || !url) return;
+      if (video.dataset.loadedSrc === url || video.src === url) return;
+
+      pendingVideoLoads.push({ video, url, wrap });
+      drainVideoLoadQueue();
+    }
+
+    function drainVideoLoadQueue() {
+      while (activeVideoLoads < VIDEO_LOAD_CONCURRENCY && pendingVideoLoads.length > 0) {
+        const job = pendingVideoLoads.shift();
+        if (!job?.video || job.video.dataset.loadedSrc === job.url) continue;
+
+        activeVideoLoads += 1;
+        configureVideoElement(job.video, job.url);
+        job.video.dataset.loadedSrc = job.url;
+        primeVideoThumb(job.video, job.wrap, () => {
+          activeVideoLoads -= 1;
+          drainVideoLoadQueue();
+        });
       }
     }
 
-    function primeVideoThumb(video, wrap) {
+    function ensureCardVideoLoaded(card) {
+      const video = card.querySelector('video');
+      const wrap = card.querySelector('.video-wrap');
+      const url = card.dataset.video;
+      if (!video || !url) return;
+
+      if (video.dataset.loadedSrc === url || video.src === url) {
+        if (video.readyState === 0) video.load();
+        return;
+      }
+
+      queueVideoSource(video, url, wrap);
+    }
+
+    function primeVideoThumb(video, wrap, onComplete) {
       const markReady = () => wrap?.classList.remove('is-loading');
+      let completed = false;
+      const finish = () => {
+        if (completed) return;
+        completed = true;
+        if (typeof onComplete === 'function') onComplete();
+      };
 
       const seekToThumb = () => {
         if (video.readyState < 1) return;
@@ -1976,9 +2036,16 @@
           video.pause();
         }
         markReady();
-      });
-      video.addEventListener('loadeddata', markReady, { once: true });
-      video.addEventListener('error', () => showVideoError(wrap), { once: true });
+        finish();
+      }, { once: true });
+      video.addEventListener('loadeddata', () => {
+        markReady();
+        finish();
+      }, { once: true });
+      video.addEventListener('error', () => {
+        showVideoError(wrap);
+        finish();
+      }, { once: true });
       video.load();
     }
 
@@ -1988,6 +2055,7 @@
 
       card.addEventListener('mouseenter', () => {
         card.classList.add('is-playing');
+        ensureCardVideoLoaded(card);
 
         const startPreview = () => {
           video.currentTime = 0;
@@ -1998,7 +2066,7 @@
           startPreview();
         } else {
           video.addEventListener('loadeddata', startPreview, { once: true });
-          video.load();
+          if (video.src) video.load();
         }
       });
 
@@ -2041,7 +2109,7 @@
 
       article.innerHTML =
         `<div class="video-wrap is-loading">` +
-          `<video muted loop playsinline preload="metadata" aria-label="${escapeHtml(data.title)} preview" itemprop="contentUrl"></video>` +
+          `<video muted loop playsinline preload="none" aria-label="${escapeHtml(data.title)} preview" itemprop="contentUrl"></video>` +
           `<span class="play-hint">Hover to preview</span>` +
           `<div class="video-status video-status--error" hidden>Preview unavailable — check that the video URL is public and reachable.</div>` +
         `</div>` +
@@ -2061,8 +2129,7 @@
         `</div>`;
 
       const video = article.querySelector('video');
-      configureVideoElement(video, videoUrl);
-      primeVideoThumb(video, article.querySelector('.video-wrap'));
+      const wrap = article.querySelector('.video-wrap');
       video.addEventListener('loadedmetadata', function onCardDuration() {
         if (resolveClipDuration(enriched)) return;
         captureDurationFromVideo(video, enriched);
@@ -2075,9 +2142,23 @@
         }
       }, { once: true });
       bindCardPreview(article);
+      observeCardVideo(article);
 
       assetCatalog.set(slug, enriched);
       return article;
+    }
+
+    const cardVideoObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        ensureCardVideoLoaded(entry.target);
+        cardVideoObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '120px' });
+
+    function observeCardVideo(card) {
+      if (!card?.querySelector('video')) return;
+      cardVideoObserver.observe(card);
     }
 
     function mp4FileFromAsset(data) {
@@ -2114,7 +2195,7 @@
         nativeFormatBadge: 'RAW',
         camera: 'RED V-Raptor 8K',
         behavior: 'Natural history sequence.',
-        videoUrl: `${GITHUB_RAW_BASE}/${mp4FileName}`,
+        videoUrl: videoCdnUrl(mp4FileName),
         description: `${title} — rights-managed stock footage from Indo Pacific Stock.`,
         licenseType: 'commercial',
         pricingTier: 'standard',
@@ -2340,7 +2421,7 @@
         modalMaxResolutionValue.textContent = '';
       }
 
-      configureVideoElement(modalVideo, data.videoUrl);
+      configureVideoElement(modalVideo, normalizeVideoUrl(data.videoUrl, data.slug, data));
       modalOverlay.classList.add('open');
       modalOverlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
