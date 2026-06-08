@@ -1,17 +1,17 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #0B0F19;
-  --surface: #111827;
-  --elevated: #1a2234;
-  --border: #2a3548;
-  --text: #f8fafc;
-  --muted: #94a3b8;
-  --accent: #00E5FF;
-  --accent-dim: rgba(0, 229, 255, 0.12);
-  --red-badge: #ef4444;
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --elevated: #FFFFFF;
+  --border: #E6E8EA;
+  --text: #0F172A;
+  --muted: #475569;
+  --accent: #059669;
+  --accent-dim: rgba(5, 150, 105, 0.1);
+  --red-badge: #DC2626;
   --header-h: 4rem;
-  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -35,10 +35,11 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 1.5rem;
-  background: rgba(11, 15, 25, 0.94);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
 }
 
 .logo {
@@ -58,10 +59,11 @@ body {
 }
 
 .logo-type .wordmark {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: #334155;
 }
 
 .logo-type .submark {
@@ -135,7 +137,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--text);
+  color: #334155;
   margin: 2rem 0 0.75rem;
 }
 
@@ -185,7 +187,7 @@ body {
 }
 
 .site-footer-copy {
-  font-size: 0.75rem;
+  font-size: 0.88rem;
   color: var(--muted);
 }
 
@@ -196,7 +198,7 @@ body {
 }
 
 .site-footer-links a {
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   color: var(--muted);
   text-decoration: none;
   transition: color 0.2s;

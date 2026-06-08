@@ -280,6 +280,7 @@ class CatalogFilterController {
     this.filterSceneCategory = config.filterSceneCategory;
     this.filterRegion = config.filterRegion;
     this.filterFormat = config.filterFormat;
+    this.filterTier = config.filterTier;
     this.grid = config.grid;
     this.resultsCount = config.resultsCount;
     this.loadMoreBtn = config.loadMoreBtn;
@@ -287,6 +288,7 @@ class CatalogFilterController {
     this.zoneShowcase = config.zoneShowcase;
 
     this.collectionPortal = null;
+    this.activeCollectionFilter = null;
 
     this.taxonomy = new TaxonomicFilterEngine(config.taxonomicSelects, () => this.filterArchive());
 
@@ -306,6 +308,7 @@ class CatalogFilterController {
     });
 
     const clearCollectionHighlight = () => {
+      this.activeCollectionFilter = null;
       this.collectionPortal.clearActiveTiles();
     };
 
@@ -314,6 +317,7 @@ class CatalogFilterController {
       this.filterSceneCategory,
       this.filterRegion,
       this.filterFormat,
+      this.filterTier,
       ...this.taxonomy.chain.map((item) => item.select),
     ];
     inputs.forEach((el) => {
@@ -331,19 +335,46 @@ class CatalogFilterController {
     return selected === 'All' || selected === value;
   }
 
+  matchesCollectionFilter(card) {
+    const filter = this.activeCollectionFilter;
+    if (!filter) return true;
+
+    const checks = [];
+    if (filter.sceneCategory) {
+      checks.push(card.dataset.sceneCategory === filter.sceneCategory);
+    }
+    if (filter.sceneCategories) {
+      checks.push(filter.sceneCategories.includes(card.dataset.sceneCategory || ''));
+    }
+    if (filter.category) {
+      checks.push(card.dataset.category === filter.category);
+    }
+    if (filter.categories) {
+      checks.push(filter.categories.includes(card.dataset.category || ''));
+    }
+    if (filter.region) {
+      checks.push(card.dataset.region === filter.region);
+    }
+
+    return checks.length === 0 || checks.some(Boolean);
+  }
+
   cardMatchesFilters(card) {
     const query = this.searchInput.value.trim().toLowerCase();
     const sceneCategory = this.filterSceneCategory.value;
     const region = this.filterRegion.value;
     const format = this.filterFormat.value;
+    const tier = this.filterTier ? this.filterTier.value : 'All';
 
     const textMatch = !query || this.cardSearchText(card).includes(query);
     const sceneMatch = this.matchesDropdown(sceneCategory, card.dataset.sceneCategory || 'Underwater');
     const regionMatch = this.matchesDropdown(region, card.dataset.region);
     const formatMatch = this.matchesDropdown(format, card.dataset.format);
+    const tierMatch = tier === 'All' || card.dataset.pricingTier === tier;
     const taxonMatch = this.taxonomy.matchesCard(card);
+    const collectionMatch = this.matchesCollectionFilter(card);
 
-    return textMatch && sceneMatch && regionMatch && formatMatch && taxonMatch;
+    return textMatch && sceneMatch && regionMatch && formatMatch && tierMatch && taxonMatch && collectionMatch;
   }
 
   getFilteredCards() {
@@ -351,10 +382,12 @@ class CatalogFilterController {
   }
 
   applyCollectionFilter(filter) {
+    this.activeCollectionFilter = filter;
     this.searchInput.value = '';
     this.filterSceneCategory.value = 'All';
     this.filterRegion.value = 'All';
     this.filterFormat.value = 'All';
+    if (this.filterTier) this.filterTier.value = 'All';
     this.taxonomy.reset();
 
     if (filter.region) {
@@ -363,6 +396,10 @@ class CatalogFilterController {
 
     if (filter.category) {
       this.taxonomy.setCategory(filter.category);
+    }
+
+    if (filter.sceneCategory) {
+      this.filterSceneCategory.value = filter.sceneCategory;
     }
 
     this.filterArchive({ scrollToGrid: true });
@@ -407,6 +444,9 @@ class CatalogFilterController {
     this.filterSceneCategory.addEventListener('change', () => this.filterArchive());
     this.filterRegion.addEventListener('change', () => this.filterArchive());
     this.filterFormat.addEventListener('change', () => this.filterArchive());
+    if (this.filterTier) {
+      this.filterTier.addEventListener('change', () => this.filterArchive());
+    }
   }
 }
 

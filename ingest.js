@@ -1,5 +1,9 @@
 const fs = require('fs');
 const path = require('path');
+const { execFile, execFileSync } = require('child_process');
+const { promisify } = require('util');
+
+const execFileAsync = promisify(execFile);
 
 const outputDir = path.join(__dirname, 'videos');
 const GITHUB_OWNER = 'IPFStock';
@@ -38,6 +42,7 @@ function ingestCliFlags() {
   return {
     useCsvOnly: args.includes('--use-csv-only') || args.includes('--csv-only'),
     forceExport: args.includes('--force-export') || args.includes('--refresh'),
+    skipProbe: args.includes('--skip-probe'),
     help: args.includes('--help') || args.includes('-h'),
   };
 }
@@ -52,8 +57,10 @@ Indo Pacific Stock — ingest
   node ingest.js              Export Numbers → CSV (default), then sync GitHub → videos/
   node ingest.js --refresh    Same as default (always re-export from Numbers)
   node ingest.js --use-csv-only   Skip Numbers export; use existing CSV on disk only
+  node ingest.js --skip-probe     Skip ffprobe MP4 duration enrichment
 
 Requires: macOS with Numbers installed for spreadsheet export.
+Optional: ffmpeg/ffprobe (brew install ffmpeg) probes clip length from GitHub MP4s.
 `);
     process.exit(0);
   }
@@ -704,6 +711,152 @@ function titleFromMp4(fileName) {
     .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
+function resolveFfprobePath() {
+  const candidates = [
+    process.env.FFPROBE_PATH,
+    'ffprobe',
+    '/opt/homebrew/bin/ffprobe',
+    '/usr/local/bin/ffprobe',
+  ].filter(Boolean);
+
+  for (const candidate of candidates) {
+    try {
+      execFileSync(candidate, ['-version'], { stdio: 'pipe', timeout: 5000 });
+      return candidate;
+    } catch (_) {
+      // try next candidate
+    }
+  }
+
+  return null;
+}
+
+function parseFpsValue(fps) {
+  if (!fps) return 24;
+  const value = String(fps).trim();
+  const fraction = value.match(/^(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)$/);
+  if (fraction) {
+    const numerator = parseFloat(fraction[1]);
+    const denominator = parseFloat(fraction[2]);
+    if (denominator > 0) return numerator / denominator;
+  }
+  const numeric = parseFloat(value);
+  return Number.isFinite(numeric) && numeric > 0 ? numeric : 24;
+}
+
+function formatDurationFromSeconds(totalSeconds, fps = 24) {
+  if (!Number.isFinite(totalSeconds) || totalSeconds <= 0) return '';
+
+  const wholeSeconds = Math.floor(totalSeconds);
+  const frameRate = Number.isFinite(fps) && fps > 0 ? fps : 24;
+  const frames = Math.min(Math.max(0, Math.round((totalSeconds - wholeSeconds) * frameRate)), Math.ceil(frameRate) - 1);
+  const pad = (value) => String(value).padStart(2, '0');
+  const hours = Math.floor(wholeSeconds / 3600);
+  const minutes = Math.floor((wholeSeconds % 3600) / 60);
+  const seconds = wholeSeconds % 60;
+
+  return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}:${pad(frames)}`;
+}
+
+async function probeMp4Duration(ffprobePath, mediaUrl) {
+  const { stdout } = await execFileAsync(
+    ffprobePath,
+    [
+      '-v',
+      'error',
+      '-show_entries',
+      'format=duration',
+      '-of',
+      'default=noprint_wrappers=1:nokey=1',
+      mediaUrl,
+    ],
+    { timeout: 45000, maxBuffer: 1024 * 1024 }
+  );
+
+  const seconds = parseFloat(String(stdout).trim());
+  return Number.isFinite(seconds) && seconds > 0 ? seconds : null;
+}
+
+async function enrichCatalogDurations(catalog) {
+  const ffprobePath = resolveFfprobePath();
+  if (!ffprobePath) {
+    console.warn('ffprobe not found — skipping MP4 duration probe.');
+    console.warn('Install ffmpeg to bake clip lengths into JSON: brew install ffmpeg');
+    return { probed: 0, skipped: catalog.size, failed: 0 };
+  }
+
+  const needsProbe = [];
+  catalog.forEach((data) => {
+    const spec = data.technicalSpecs || {};
+    if (spec.duration) return;
+    const fileName = spec.fileName;
+    if (!fileName) return;
+    needsProbe.push({
+      data,
+      url: `${GITHUB_RAW_BASE}/${fileName}`,
+      label: spec.slug || fileName,
+    });
+  });
+
+  if (needsProbe.length === 0) {
+    console.log('All clips already have duration metadata.');
+    return { probed: 0, skipped: catalog.size, failed: 0 };
+  }
+
+  console.log(`Probing ${needsProbe.length} MP4 durations via ffprobe…`);
+  const concurrency = 6;
+  let probed = 0;
+  let failed = 0;
+
+  for (let index = 0; index < needsProbe.length; index += concurrency) {
+    const batch = needsProbe.slice(index, index + concurrency);
+    await Promise.all(
+      batch.map(async ({ data, url, label }) => {
+        try {
+          const seconds = await probeMp4Duration(ffprobePath, url);
+          if (!seconds) {
+            failed += 1;
+            console.warn(`  No duration returned for ${label}`);
+            return;
+          }
+
+          const fps = parseFpsValue(data.technicalSpecs?.fps);
+          const duration = formatDurationFromSeconds(seconds, fps);
+          if (!data.technicalSpecs) data.technicalSpecs = {};
+          data.technicalSpecs.duration = duration;
+          data.technicalSpecs.durationSeconds = Math.round(seconds * 1000) / 1000;
+          data.technicalSpecs.durationSource = 'ffprobe';
+          probed += 1;
+        } catch (err) {
+          failed += 1;
+          console.warn(`  ffprobe failed for ${label}: ${err.message}`);
+        }
+      })
+    );
+
+    if (probed > 0 && (probed % 20 === 0 || index + concurrency >= needsProbe.length)) {
+      console.log(`  Probed ${Math.min(index + concurrency, needsProbe.length)}/${needsProbe.length}… (${probed} durations captured)`);
+    }
+  }
+
+  console.log(`Duration probe complete: ${probed} enriched, ${failed} failed, ${catalog.size - needsProbe.length} already had duration.`);
+  return { probed, skipped: catalog.size - needsProbe.length, failed };
+}
+
+function normalizeLicenseType(raw) {
+  if (!raw) return 'commercial';
+  const value = String(raw).toLowerCase().trim();
+  if (/editorial/.test(value)) return 'editorial';
+  return 'commercial';
+}
+
+function normalizePricingTier(raw) {
+  if (!raw) return 'standard';
+  const value = String(raw).toLowerCase().trim();
+  if (/premium/.test(value)) return 'premium';
+  return 'standard';
+}
+
 async function fetchGithubMp4Files() {
   const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/?ref=${GITHUB_BRANCH}`;
   const response = await fetch(url);
@@ -739,7 +892,9 @@ function parseCsvRows(csvFilePath) {
   const idxDescription = headerIndex(headers, ['Description']);
   const idxLocation = headerIndex(headers, ['Location']);
   const idxCategory = headerIndex(headers, ['Category']);
-  const idxDuration = headerIndex(headers, ['Duration TC']);
+  const idxDuration = headerIndex(headers, ['Duration TC', 'Duration', 'Clip Duration', /Timecode/i]);
+  const idxLicense = headerIndex(headers, ['License', 'License Type', /Editorial/i]);
+  const idxTier = headerIndex(headers, ['Tier', 'Pricing Tier', 'Price Tier']);
 
   const csvByMp4 = new Map();
   const renameCommands = [];
@@ -778,6 +933,8 @@ function parseCsvRows(csvFilePath) {
     const fps = clean(idxFPS);
     const aspectRatio = clean(idxRatio);
     const duration = clean(idxDuration);
+    const licenseType = normalizeLicenseType(clean(idxLicense));
+    const pricingTier = normalizePricingTier(clean(idxTier));
     const shootCategory = clean(idxCategory) || 'Underwater';
     const taxon = resolveTaxonomy({
       description: descriptionText,
@@ -823,6 +980,8 @@ function parseCsvRows(csvFilePath) {
       species: taxon.species,
       format,
       nativeFormatBadge,
+      licenseType,
+      pricingTier,
       availableSizes: ['8K RED RAW', '4K ProRes 422 HQ', '1080p Master'],
       camera: cameraType,
       behavior: keywordMeta.behavior,
@@ -861,6 +1020,64 @@ function parseCsvRows(csvFilePath) {
   }
 
   return { csvByMp4, renameCommands };
+}
+
+function mergeCsvMaps(targetMap, sourceMap) {
+  sourceMap.forEach((entry, mp4Key) => {
+    const existing = targetMap.get(mp4Key);
+    if (!existing) {
+      targetMap.set(mp4Key, entry);
+      return;
+    }
+
+    const existingSpec = existing.data.technicalSpecs || {};
+    const incomingSpec = entry.data.technicalSpecs || {};
+    const mergedSpec = { ...existingSpec };
+
+    Object.keys(incomingSpec).forEach((key) => {
+      if (!mergedSpec[key] && incomingSpec[key]) {
+        mergedSpec[key] = incomingSpec[key];
+      }
+    });
+
+    const merged = {
+      slug: existing.slug || entry.slug,
+      data: {
+        ...existing.data,
+        title: existing.data.title || entry.data.title,
+        description: existing.data.description || entry.data.description,
+        licenseType: existing.data.licenseType || entry.data.licenseType || 'commercial',
+        pricingTier: existing.data.pricingTier || entry.data.pricingTier || 'standard',
+        technicalSpecs: mergedSpec,
+        syncSource: existing.data.syncSource === 'csv' || entry.data.syncSource === 'csv'
+          ? 'csv'
+          : existing.data.syncSource,
+      },
+    };
+
+    targetMap.set(mp4Key, merged);
+  });
+}
+
+function findAllMetadataCsvFiles(primaryCsvPath) {
+  const discovered = fs
+    .readdirSync(__dirname)
+    .filter((file) => {
+      const lower = file.toLowerCase();
+      return lower.endsWith('.csv') && /metadata|davinci|stock|clips/i.test(lower);
+    })
+    .map((file) => path.join(__dirname, file));
+
+  const ordered = [];
+  const seen = new Set();
+
+  [primaryCsvPath, ...discovered.sort()].forEach((filePath) => {
+    if (!filePath || seen.has(filePath) || !fs.existsSync(filePath)) return;
+    seen.add(filePath);
+    ordered.push(filePath);
+  });
+
+  return ordered;
 }
 
 function buildStubFromMp4(mp4FileName) {
@@ -903,6 +1120,8 @@ function buildStubFromMp4(mp4FileName) {
       videoUrl: `${GITHUB_RAW_BASE}/${mp4FileName}`,
       description,
       keywords: extractKeywords(stubMeta),
+      licenseType: 'commercial',
+      pricingTier: 'standard',
       technicalSpecs: stubMeta.technicalSpecs,
       syncSource: 'github',
     },
@@ -932,8 +1151,13 @@ async function main() {
   let renameCommands = [];
 
   if (csvFilePath) {
-    console.log(`Using CSV: ${path.basename(csvFilePath)}`);
-    ({ csvByMp4, renameCommands } = parseCsvRows(csvFilePath));
+    const csvFiles = findAllMetadataCsvFiles(csvFilePath);
+    csvFiles.forEach((filePath, index) => {
+      console.log(`Using CSV${csvFiles.length > 1 ? ` (${index + 1}/${csvFiles.length})` : ''}: ${path.basename(filePath)}`);
+      const parsed = parseCsvRows(filePath);
+      mergeCsvMaps(csvByMp4, parsed.csvByMp4);
+      if (index === 0) renameCommands = parsed.renameCommands;
+    });
   } else {
     console.warn('No CSV found — syncing GitHub MP4s with stub metadata only.');
     console.warn('Add a DaVinci export CSV for full titles, resolution, and format badges.');
@@ -963,6 +1187,13 @@ async function main() {
     }
   });
 
+  const flags = ingestCliFlags();
+  if (!flags.skipProbe) {
+    await enrichCatalogDurations(catalog);
+  } else {
+    console.log('Skipping ffprobe duration enrichment (--skip-probe).');
+  }
+
   const manifest = Array.from(catalog.entries())
     .sort((a, b) => a[1].title.localeCompare(b[1].title))
     .map(([slug]) => slug);
@@ -986,9 +1217,11 @@ async function main() {
   );
   fs.chmodSync(path.join(__dirname, 'rename_videos.sh'), 0o755);
 
+  const durationCount = Array.from(catalog.values()).filter((item) => item.technicalSpecs?.duration).length;
   console.log(`\nSync complete! ${manifest.length} clips in catalog (${githubMp4Files.length} on GitHub).`);
   console.log(`  CSV metadata: ${Array.from(catalog.values()).filter((item) => item.syncSource === 'csv').length}`);
   console.log(`  GitHub stubs: ${Array.from(catalog.values()).filter((item) => item.syncSource === 'github').length}`);
+  console.log(`  With duration: ${durationCount}`);
   console.log('Updated videos/manifest.json');
 }
 

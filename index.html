@@ -9,28 +9,77 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0B0F19;
-      --surface: #111827;
-      --elevated: #1a2234;
-      --border: #2a3548;
+      --color-primary: #e6edf3;
+      --color-on-primary: #0d1117;
+      --color-secondary: #94a3b8;
+      --color-accent: #34d399;
+      --color-background: #0d1117;
+      --color-foreground: #f8fafc;
+      --color-muted-bg: #161b22;
+      --color-border: rgba(248, 250, 252, 0.1);
+      --bg: #0d1117;
+      --surface: #161b22;
+      --elevated: #1c2128;
+      --border: rgba(248, 250, 252, 0.1);
       --text: #f8fafc;
       --muted: #94a3b8;
-      --accent: #00E5FF;
-      --accent-dim: rgba(0, 229, 255, 0.12);
-      --accent-glow: rgba(0, 229, 255, 0.35);
-      --red-badge: #ef4444;
+      --accent: #34d399;
+      --accent-dim: rgba(52, 211, 153, 0.12);
+      --accent-hover: #10b981;
+      --red-badge: #DC2626;
       --header-h: 4rem;
-      --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --layout-max: 75rem;
+      --layout-gutter: 1.5rem;
+      --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --transition: 200ms ease;
     }
 
     html { scroll-behavior: smooth; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
 
     body {
       font-family: var(--font);
       background: var(--bg);
       color: var(--text);
-      line-height: 1.5;
+      line-height: 1.55;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ── Layout rail (shared content width) ── */
+    .layout-rail {
+      width: 100%;
+      max-width: var(--layout-max);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--layout-gutter);
+      padding-right: var(--layout-gutter);
     }
 
     /* ── Header ── */
@@ -41,376 +90,445 @@
       right: 0;
       z-index: 100;
       height: var(--header-h);
+      background: #0d1117;
+      border-bottom: 1px solid rgba(248, 250, 252, 0.08);
+    }
+
+    .site-header-rail {
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 1.5rem;
-      background: rgba(11, 15, 25, 0.94);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 1rem;
       text-decoration: none;
       color: inherit;
-    }
-
-    .logo-icon { flex-shrink: 0; }
-
-    .logo-type {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.05;
-    }
-
-    .logo-type .wordmark {
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-    }
-
-    .logo-type .submark {
-      font-size: 0.55rem;
-      font-weight: 300;
-      letter-spacing: 0.52em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .logo-badge {
-      align-self: center;
-      font-size: 0.52rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--red-badge);
-      border: 1px solid rgba(239, 68, 68, 0.45);
-      padding: 0.18rem 0.42rem;
-      border-radius: 2px;
-      margin-left: 0.15rem;
-    }
-
-    .cart-btn {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.45rem 1rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      font-weight: 500;
       cursor: pointer;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: opacity var(--transition);
     }
 
-    .cart-btn:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 14px var(--accent-dim);
+    .logo:hover { opacity: 0.88; }
+    .logo:focus-visible {
+      outline: 1px solid rgba(248, 250, 252, 0.35);
+      outline-offset: 4px;
+    }
+
+    .logo-icon {
+      flex-shrink: 0;
+      width: 1.25rem;
+      height: 1.25rem;
+      display: block;
+    }
+
+    .logo-wordmark {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #f8fafc;
+      white-space: nowrap;
+    }
+
+    .inquire-link {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: #e6edf3;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .inquire-link:hover {
+      opacity: 0.8;
+    }
+
+    .inquire-link:focus-visible {
+      outline: 1px solid rgba(230, 237, 243, 0.35);
+      outline-offset: 3px;
     }
 
     /* ── Main ── */
     main {
-      padding-top: calc(var(--header-h) + 2.5rem);
-      padding-bottom: 4rem;
+      padding-top: calc(var(--header-h) + 1.25rem);
+      padding-bottom: 3.5rem;
+      flex: 1;
     }
 
-    .hero {
-      max-width: 72rem;
-      margin: 0 auto 2rem;
-      padding: 0 1.5rem;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(1.4rem, 3vw, 1.85rem);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.4rem;
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 0.88rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .hero-tagline {
-      margin-bottom: 1.15rem;
-    }
-
-    .hero-intro {
-      max-width: 44rem;
-      margin: 0 auto 1.85rem;
+    .hero-headline {
+      margin: 0 0 1.5rem;
       text-align: left;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
-    .hero-intro p {
-      color: var(--muted);
-      font-size: 0.84rem;
-      line-height: 1.68;
-      margin-bottom: 0.9rem;
+    .hero-statement {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+      font-weight: 300;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: 0.02em;
+      color: #cbd5e1;
+      white-space: nowrap;
     }
 
-    .hero-intro p:last-child {
-      margin-bottom: 0;
+    @media (max-width: 960px) {
+      .hero-statement { white-space: normal; }
     }
 
-    .search-matrix {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      justify-content: center;
-      align-items: stretch;
+    .search-module {
+      width: 100%;
+      padding: 1.25rem 1.25rem 1.1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
     }
 
     .search-input-wrap {
-      flex: 1 1 18rem;
-      max-width: 28rem;
+      width: 100%;
+      margin-bottom: 1rem;
     }
 
     .search-input {
       width: 100%;
-      height: 100%;
-      min-height: 2.75rem;
-      padding: 0 1rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
+      min-height: 2.5rem;
+      padding: 0.5rem 0;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(248, 250, 252, 0.12);
+      border-radius: 0;
       color: var(--text);
       font-size: 0.88rem;
+      font-weight: 400;
+      font-family: inherit;
       outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color var(--transition);
     }
 
-    .search-input::placeholder { color: #64748b; }
+    .search-input::placeholder { color: #64748b; font-weight: 300; }
 
     .search-input:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px var(--accent-dim);
+      border-bottom-color: rgba(248, 250, 252, 0.35);
+    }
+
+    .taxonomy-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1.75rem;
+    }
+
+    .filter-row--utility {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.85rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(248, 250, 252, 0.08);
     }
 
     .filter-select {
-      min-width: 8.5rem;
-      padding: 0.6rem 2rem 0.6rem 0.75rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      color: var(--text);
-      font-size: 0.78rem;
+      flex: 1 1 auto;
+      min-width: 0;
+      padding: 0.45rem 1.25rem 0.45rem 0;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid transparent;
+      border-radius: 0;
+      color: #94a3b8;
+      font-size: 0.74rem;
+      font-weight: 400;
+      font-family: inherit;
       cursor: pointer;
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 0.65rem center;
-      transition: border-color 0.2s;
+      background-position: right 0 center;
+      transition: border-color var(--transition), color var(--transition);
+    }
+
+    .filter-select:hover {
+      color: #cbd5e1;
+      border-bottom-color: rgba(248, 250, 252, 0.15);
     }
 
     .filter-select:focus {
       outline: none;
-      border-color: var(--accent);
+      border-bottom-color: rgba(248, 250, 252, 0.3);
+      color: #f8fafc;
+    }
+
+    .filter-select option {
+      background: #161b22;
+      color: #f8fafc;
     }
 
     .filter-select:disabled {
-      opacity: 0.45;
+      opacity: 0.4;
       cursor: not-allowed;
     }
 
-    .taxonomy-panel {
-      width: 100%;
-      flex: 1 1 100%;
-      margin-top: 0.35rem;
-      padding-top: 0.9rem;
-      border-top: 1px solid rgba(42, 53, 72, 0.65);
-    }
-
-    .taxonomy-panel-head {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 0.75rem;
-      margin-bottom: 0.65rem;
-    }
-
-    .taxonomy-panel-title {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .taxonomy-panel-note {
-      font-size: 0.68rem;
-      color: #64748b;
-    }
-
-    .taxonomy-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0.65rem;
-    }
-
     .filter-select.taxonomy-select {
-      min-width: 0;
-      width: 100%;
+      flex: 1 1 10rem;
+      min-width: 9rem;
     }
 
-    @media (max-width: 960px) {
-      .taxonomy-grid { grid-template-columns: repeat(2, 1fr); }
+    .filter-row--utility .filter-select {
+      flex: 0 1 auto;
+      min-width: 7rem;
+    }
+
+    @media (max-width: 768px) {
+      .taxonomy-row { gap: 0.35rem 1rem; }
+      .filter-select.taxonomy-select {
+        flex: 1 1 calc(50% - 0.5rem);
+        min-width: calc(50% - 0.5rem);
+      }
     }
 
     .results-bar {
-      max-width: 72rem;
-      margin: 0 auto 1.25rem;
-      padding: 0 1.5rem;
-      font-size: 0.82rem;
-      color: var(--muted);
+      width: 100%;
+      margin-top: 4rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: #94a3b8;
     }
 
     /* ── Page zones ── */
     .zone {
-      max-width: 72rem;
-      margin: 0 auto;
-      padding: 0 1.5rem;
+      width: 100%;
+      max-width: var(--layout-max);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--layout-gutter);
+      padding-right: var(--layout-gutter);
     }
 
-    .zone-search {
-      margin-bottom: 2rem;
-    }
+    .zone-search { margin-bottom: 2.5rem; }
 
     .zone-collections {
-      margin-bottom: 2.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .collections-guide {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #8b949e;
+      text-align: left;
+      line-height: 1;
+    }
+
+    .broadcast-partners {
+      margin-bottom: 0;
+    }
+
+    .broadcast-partners-label {
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #8b949e;
+      text-align: left;
+      line-height: 1;
+    }
+
+    .broadcast-partners-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .broadcast-partner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.4;
+      transition: opacity 0.3s ease;
+      cursor: default;
+    }
+
+    .broadcast-partner:hover {
+      opacity: 0.8;
+    }
+
+    .broadcast-partner-logo {
+      display: block;
+      height: auto;
+      max-height: clamp(2.5rem, 4vw, 3.25rem);
+      width: auto;
+      max-width: 100%;
+      filter: brightness(0) invert(1);
+    }
+
+    @media (max-width: 900px) {
+      .broadcast-partners-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .broadcast-partners-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .broadcast-partner-logo {
+        max-height: 2.25rem;
+      }
     }
 
     .zone-showcase {
       padding-bottom: 0;
     }
 
-    .zone-label {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.85rem;
-    }
-
     .collection-rail {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
     }
 
     .collection-tile {
       position: relative;
-      flex: 1 1 10.5rem;
-      min-width: 10.5rem;
-      max-width: 14rem;
-      height: 7.5rem;
+      min-height: 9rem;
       border: 1px solid var(--border);
-      border-radius: 6px;
+      border-radius: 4px;
       overflow: hidden;
       cursor: pointer;
       padding: 0;
-      background-color: var(--elevated);
+      background-color: var(--color-muted-bg);
       background-size: cover;
       background-position: center;
-      text-align: left;
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      text-align: center;
+      transform: scale(1);
+      transition: all 0.3s ease;
     }
 
     .collection-tile::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(11, 15, 25, 0.15) 0%, rgba(11, 15, 25, 0.88) 72%);
-      transition: background 0.28s ease;
+      z-index: 0;
+      background: rgba(13, 17, 23, 0.62);
+      opacity: 0;
+      transition: all 0.3s ease;
     }
 
     .collection-tile:hover,
     .collection-tile.is-active {
       transform: scale(1.02);
-      border-color: rgba(0, 255, 170, 0.55);
-      box-shadow: 0 0 22px rgba(0, 255, 170, 0.3);
+      border-color: rgba(248, 250, 252, 0.28);
     }
 
     .collection-tile:hover::before,
     .collection-tile.is-active::before {
-      background: linear-gradient(180deg, rgba(11, 15, 25, 0.05) 0%, rgba(11, 15, 25, 0.82) 70%);
+      opacity: 1;
+    }
+
+    .collection-tile:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(248, 250, 252, 0.2);
     }
 
     .collection-tile-label {
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       z-index: 1;
-      padding: 0.65rem 0.75rem;
-      font-size: 0.78rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text);
-      line-height: 1.2;
+      color: #ffffff;
+      line-height: 1.35;
+      text-align: center;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    .collection-tile:hover .collection-tile-label,
+    .collection-tile.is-active .collection-tile-label {
+      text-shadow: none;
+    }
+
+    @media (max-width: 900px) {
+      .collection-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 520px) {
+      .collection-rail { grid-template-columns: 1fr; }
     }
 
     .load-more-wrap {
-      max-width: 72rem;
-      margin: 2rem auto 0;
-      padding: 0 1.5rem 1.5rem;
+      width: 100%;
+      margin-top: 2rem;
+      padding-bottom: 1.5rem;
       text-align: center;
     }
 
     .load-more-btn {
       display: inline-block;
-      padding: 0.85rem 1.5rem;
+      padding: 0.85rem 1.75rem;
       background: transparent;
       border: 1px solid var(--border);
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
       color: var(--muted);
-      font-size: 0.72rem;
+      font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
+      font-family: inherit;
       cursor: pointer;
-      transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
     }
 
     .load-more-btn:hover:not(:disabled) {
-      border-color: var(--accent);
-      color: var(--text);
-      box-shadow: 0 0 18px var(--accent-dim);
+      background: rgba(248, 250, 252, 0.06);
+      color: #f8fafc;
+      border-color: rgba(248, 250, 252, 0.22);
+    }
+
+    .load-more-btn:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(248, 250, 252, 0.12);
     }
 
     .load-more-btn:disabled {
-      opacity: 0.4;
+      opacity: 0.45;
       cursor: not-allowed;
     }
 
-    .zone-showcase .site-footer {
-      margin-top: 2rem;
-    }
-
     @media (max-width: 580px) {
-      .collection-tile {
-        flex: 1 1 calc(50% - 0.5rem);
-        min-width: calc(50% - 0.5rem);
-        max-width: none;
-      }
+      .filter-row--utility .filter-select { flex: 1 1 100%; min-width: 0; }
     }
 
     /* ── Grid ── */
     .media-grid {
-      max-width: 72rem;
-      margin: 0 auto;
-      padding: 0 1.5rem;
+      width: 100%;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
+      gap: 1rem;
     }
 
     @media (max-width: 960px) {
@@ -419,24 +537,23 @@
 
     @media (max-width: 580px) {
       .media-grid { grid-template-columns: 1fr; }
-      .search-matrix { flex-direction: column; }
-      .search-input-wrap { max-width: none; }
-      .filter-select { width: 100%; }
     }
 
     .media-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 6px;
+      border-radius: 4px;
       overflow: hidden;
       cursor: pointer;
-      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+      transition: border-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
 
     .media-card:hover {
-      border-color: rgba(0, 229, 255, 0.4);
-      box-shadow: 0 0 28px rgba(0, 229, 255, 0.07);
-      transform: translateY(-2px);
+      border-color: rgba(248, 250, 252, 0.22);
+    }
+
+    .media-card:focus-within {
+      border-color: rgba(248, 250, 252, 0.35);
     }
 
     .media-card.filtered-out { display: none !important; }
@@ -444,7 +561,7 @@
     .video-wrap {
       position: relative;
       aspect-ratio: 16 / 9;
-      background: #000;
+      background: #0F172A;
       overflow: hidden;
     }
 
@@ -453,10 +570,10 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      background: #000;
+      background: #0F172A;
     }
 
-    .video-wrap.is-loading video { opacity: 0.35; }
+    .video-wrap.is-loading video { opacity: 0.4; }
 
     .video-status {
       position: absolute;
@@ -468,8 +585,8 @@
       text-align: center;
       font-size: 0.72rem;
       line-height: 1.45;
-      color: var(--muted);
-      background: rgba(11, 15, 25, 0.88);
+      color: #cbd5e1;
+      background: rgba(15, 23, 42, 0.88);
       pointer-events: none;
     }
 
@@ -482,20 +599,20 @@
       bottom: 0.65rem;
       right: 0.65rem;
       font-size: 0.6rem;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.7);
-      background: rgba(0, 0, 0, 0.55);
-      padding: 0.2rem 0.45rem;
-      border-radius: 2px;
+      color: rgba(255, 255, 255, 0.9);
+      background: rgba(15, 23, 42, 0.65);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
       opacity: 0;
-      transition: opacity 0.2s;
+      transition: opacity var(--transition);
     }
 
     .media-card:hover .play-hint { opacity: 1; }
     .media-card.is-playing .play-hint { opacity: 0; }
 
-    .card-body { padding: 1rem 1.1rem 1.25rem; }
+    .card-body { padding: 1rem 1.1rem 1.2rem; }
 
     .card-head {
       display: flex;
@@ -507,11 +624,12 @@
 
     .card-title {
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: 600;
       line-height: 1.3;
       margin: 0;
       flex: 1;
       min-width: 0;
+      color: #f8fafc;
     }
 
     .native-format-badge {
@@ -522,10 +640,9 @@
       justify-content: center;
       min-width: 3.1rem;
       padding: 0.35rem 0.45rem;
-      border: 1px solid rgba(0, 229, 255, 0.35);
-      border-radius: 4px;
-      background: linear-gradient(180deg, rgba(0, 229, 255, 0.1) 0%, rgba(11, 15, 25, 0.4) 100%);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      border-radius: 6px;
+      background: var(--accent-dim);
       text-align: center;
       line-height: 1.05;
     }
@@ -533,14 +650,14 @@
     .native-format-badge .format-k {
       font-size: 0.72rem;
       font-weight: 800;
-      letter-spacing: 0.06em;
-      color: var(--text);
+      letter-spacing: 0.04em;
+      color: #e6edf3;
     }
 
     .native-format-badge .format-codec {
       font-size: 0.56rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.1em;
       color: var(--accent);
       margin-top: 0.12rem;
     }
@@ -548,13 +665,23 @@
     .rm-badge {
       display: inline-block;
       font-size: 0.6rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
+      font-weight: 700;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--accent);
-      border: 1px solid rgba(0, 229, 255, 0.35);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      background: var(--accent-dim);
       padding: 0.28rem 0.55rem;
+      border-radius: 4px;
       margin-bottom: 0.65rem;
+    }
+
+    .card-duration {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: #cbd5e1;
+      margin-bottom: 0.55rem;
     }
 
     .card-desc {
@@ -566,7 +693,7 @@
     .asset-keywords {
       margin-top: 0.65rem;
       padding-top: 0.55rem;
-      border-top: 1px solid rgba(42, 53, 72, 0.55);
+      border-top: 1px solid var(--border);
     }
 
     .keywords-toggle {
@@ -579,10 +706,9 @@
       font: inherit;
       font-size: 0.68rem;
       font-weight: 600;
-      letter-spacing: 0.03em;
       color: var(--muted);
       cursor: pointer;
-      transition: color 0.2s ease;
+      transition: color var(--transition);
     }
 
     .keywords-toggle:hover,
@@ -597,7 +723,7 @@
       line-height: 1;
       opacity: 0.75;
       transform: rotate(-90deg);
-      transition: transform 0.28s ease, opacity 0.2s ease;
+      transition: transform 0.28s ease, opacity var(--transition);
     }
 
     .keywords-toggle[aria-expanded="true"] .keywords-toggle-icon {
@@ -608,16 +734,12 @@
     .keywords-panel {
       display: grid;
       grid-template-rows: 0fr;
-      transition: grid-template-rows 0.32s ease;
+      transition: grid-template-rows 0.28s ease;
     }
 
-    .keywords-panel.is-open {
-      grid-template-rows: 1fr;
-    }
+    .keywords-panel.is-open { grid-template-rows: 1fr; }
 
-    .keywords-panel-inner {
-      overflow: hidden;
-    }
+    .keywords-panel-inner { overflow: hidden; }
 
     .keywords-tags {
       display: flex;
@@ -629,11 +751,10 @@
     .keyword-tag {
       font-size: 0.62rem;
       font-weight: 500;
-      letter-spacing: 0.03em;
-      color: rgba(248, 250, 252, 0.58);
-      background: rgba(148, 163, 184, 0.08);
-      border: 1px solid rgba(148, 163, 184, 0.16);
-      border-radius: 3px;
+      color: #cbd5e1;
+      background: rgba(248, 250, 252, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 4px;
       padding: 0.22rem 0.45rem;
     }
 
@@ -642,6 +763,9 @@
       text-align: center;
       padding: 4rem 1rem;
       color: var(--muted);
+      background: var(--surface);
+      border: 1px dashed rgba(248, 250, 252, 0.12);
+      border-radius: var(--radius-md);
     }
 
     .empty-state strong {
@@ -656,7 +780,8 @@
       position: fixed;
       inset: 0;
       z-index: 200;
-      background: rgba(0, 0, 0, 0.88);
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(6px);
       display: none;
       align-items: center;
       justify-content: center;
@@ -680,26 +805,35 @@
       background: var(--surface);
       border: 1px solid var(--border);
       color: var(--text);
-      width: 2.25rem;
-      height: 2.25rem;
-      border-radius: 4px;
+      width: 2.35rem;
+      height: 2.35rem;
+      border-radius: var(--radius-sm);
       cursor: pointer;
       font-size: 1.3rem;
       line-height: 1;
-      transition: border-color 0.2s;
+      transition: border-color var(--transition), color var(--transition);
     }
 
-    .modal-close:hover { border-color: var(--accent); }
+    .modal-close:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .modal-close:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.25);
+    }
 
     .modal {
-      background: var(--elevated);
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-md);
       overflow: hidden;
       display: grid;
       grid-template-columns: 1.15fr 1fr;
       max-height: 92vh;
       overflow-y: auto;
+      box-shadow: var(--shadow-md);
     }
 
     @media (max-width: 768px) {
@@ -720,8 +854,8 @@
 
     .modal-video {
       aspect-ratio: 16 / 9;
-      background: #000;
-      border-radius: 4px;
+      background: #0F172A;
+      border-radius: var(--radius-sm);
       overflow: hidden;
       margin-bottom: 1rem;
     }
@@ -736,14 +870,14 @@
     .meta-box {
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
       padding: 1rem 1.1rem;
     }
 
     .meta-box h3 {
       font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 0.5rem;
@@ -767,7 +901,7 @@
     .meta-box .meta-resolution strong {
       display: block;
       font-size: 0.65rem;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 0.35rem;
@@ -781,14 +915,15 @@
     }
 
     .modal-title {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 700;
       line-height: 1.3;
+      color: #f8fafc;
     }
 
     .license-label {
       font-size: 0.68rem;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
     }
@@ -797,42 +932,140 @@
       font-size: 1.05rem;
       font-weight: 600;
       margin-top: 0.2rem;
+      color: #e6edf3;
     }
 
-    .tier-select {
-      width: 100%;
-      padding: 0.75rem;
-      background: var(--bg);
+    .license-type--editorial {
+      color: #fbbf24;
+    }
+
+    .pricing-block {
+      padding: 1rem;
+      background: rgba(33, 38, 45, 0.65);
       border: 1px solid var(--border);
-      border-radius: 4px;
-      color: var(--text);
-      font-size: 0.84rem;
-      cursor: pointer;
+      border-radius: var(--radius-sm);
     }
 
-    .tier-select:focus {
-      outline: none;
-      border-color: var(--accent);
+    .pricing-tier {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-top: 0.2rem;
+      color: #f8fafc;
+    }
+
+    .pricing-tier--premium {
+      color: #34d399;
+    }
+
+    .pricing-rate {
+      margin-top: 0.45rem;
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: #8b949e;
+      line-height: 1.45;
+    }
+
+    .rate-card {
+      padding: 1rem;
+      background: rgba(13, 17, 23, 0.55);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .rate-card-title {
+      margin: 0 0 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8b949e;
+      line-height: 1.35;
+    }
+
+    .rate-card-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .rate-card-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.72rem;
+      line-height: 1.4;
+    }
+
+    .rate-card-table th,
+    .rate-card-table td {
+      padding: 0.5rem 0.45rem;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(248, 250, 252, 0.06);
+    }
+
+    .rate-card-table th {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #8b949e;
+      white-space: nowrap;
+    }
+
+    .rate-card-table td {
+      color: #cbd5e1;
+    }
+
+    .rate-card-table tbody tr:last-child th,
+    .rate-card-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .rate-card-table .rate-scope {
+      color: #e6edf3;
+      font-weight: 500;
+      min-width: 8.5rem;
+    }
+
+    .rate-card-table .rate-multiplier {
+      color: #94a3b8;
+      white-space: nowrap;
+    }
+
+    .rate-card-table .rate-min {
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .rate-card-table .rate-min.is-active-tier {
+      color: #f8fafc;
+      font-weight: 600;
+    }
+
+    .rate-card-table th.is-active-tier {
+      color: #34d399;
     }
 
     .checkout-btn {
       margin-top: auto;
       padding: 0.95rem 1.25rem;
       background: var(--accent);
-      color: var(--bg);
+      color: #FFFFFF;
       border: none;
-      border-radius: 4px;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.07em;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
+      font-family: inherit;
       cursor: pointer;
-      transition: box-shadow 0.2s, transform 0.15s;
+      transition: background var(--transition), opacity var(--transition);
     }
 
-    .checkout-btn:hover {
-      box-shadow: 0 0 22px var(--accent-glow);
-      transform: translateY(-1px);
+    .checkout-btn:hover { background: var(--accent-hover); }
+
+    .checkout-btn:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.35);
     }
 
     .toast {
@@ -842,14 +1075,16 @@
       transform: translateX(-50%) translateY(4rem);
       background: var(--elevated);
       border: 1px solid var(--border);
-      color: var(--text);
+      color: #f8fafc;
       padding: 0.75rem 1.25rem;
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
       font-size: 0.82rem;
+      font-weight: 600;
       opacity: 0;
       pointer-events: none;
-      transition: transform 0.3s, opacity 0.3s;
+      transition: transform 0.3s ease, opacity 0.3s ease;
       z-index: 300;
+      box-shadow: var(--shadow-md);
     }
 
     .toast.show {
@@ -857,87 +1092,156 @@
       opacity: 1;
     }
 
-    .site-footer {
-      border-top: 1px solid var(--border);
-      background: var(--surface);
-      padding: 1.35rem 1.5rem;
+    /* ── B2B Utility Block ── */
+    .b2b-utility-block {
+      border-top: 1px solid #30363d;
+      padding: 5rem 0;
     }
 
-    .site-footer-inner {
-      max-width: 72rem;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
+    .b2b-utility-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
     }
 
-    .site-footer-copy {
-      font-size: 0.75rem;
-      color: var(--muted);
+    .b2b-utility-column {
+      padding-right: 2rem;
     }
 
-    .site-footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
+    .b2b-utility-column--right {
+      border-left: 1px solid #30363d;
+      padding-left: 2rem;
+      padding-right: 0;
     }
 
-    .site-footer-links a {
-      font-size: 0.78rem;
-      color: var(--muted);
+    .b2b-utility-title {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #f8fafc;
+      line-height: 1.25;
+    }
+
+    .b2b-utility-copy {
+      margin: 0.5rem 0 2rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-weight: 300;
+      font-size: 0.95rem;
+      color: #8b949e;
+      line-height: 1.55;
+    }
+
+    .b2b-utility-cta {
+      display: inline-block;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      background-color: #21262d;
+      color: #f8fafc;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      line-height: 1;
       text-decoration: none;
-      transition: color 0.2s;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
     }
 
-    .site-footer-links a:hover {
-      color: var(--accent);
+    .b2b-utility-cta:hover {
+      background-color: #30363d;
     }
 
-    @media (max-width: 580px) {
-      .site-footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
+    .b2b-utility-cta:focus-visible {
+      outline: 1px solid rgba(248, 250, 252, 0.35);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .b2b-utility-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
       }
+
+      .b2b-utility-column {
+        padding-right: 0;
+      }
+
+      .b2b-utility-column--right {
+        border-left: none;
+        padding-left: 0;
+        padding-top: 3rem;
+        border-top: 1px solid #30363d;
+      }
+    }
+
+    .site-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 0.75rem 1.25rem;
+      background: rgba(13, 17, 23, 0.94);
+      border-top: 1px solid rgba(248, 250, 252, 0.08);
+      text-align: center;
+      opacity: 0.7;
+      transition: opacity var(--transition);
+    }
+
+    .site-footer:hover,
+    .site-footer:focus-within {
+      opacity: 0.92;
+    }
+
+    .site-footer-line {
+      margin: 0;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: #94a3b8;
+      line-height: 1.45;
+    }
+
+    .site-footer-line a {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .site-footer-line a:hover {
+      color: #94a3b8;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
   <header class="site-header">
-    <a href="#" class="logo" aria-label="Indo Pacific Stock home">
-      <svg class="logo-icon" width="38" height="38" viewBox="0 0 38 38" fill="none" aria-hidden="true">
-        <circle cx="19" cy="19" r="17" stroke="#00E5FF" stroke-width="1" opacity="0.35"/>
-        <circle cx="19" cy="19" r="11.5" stroke="#00E5FF" stroke-width="1.2"/>
-        <path d="M19 7.5v23M7.5 19h23" stroke="#00E5FF" stroke-width="0.75" opacity="0.55"/>
-        <circle cx="19" cy="19" r="3.5" fill="#00E5FF"/>
-        <path d="M8 26 Q19 30 30 26" stroke="#00E5FF" stroke-width="0.8" opacity="0.4" fill="none"/>
-      </svg>
-      <div class="logo-type">
-        <span class="wordmark">Indo Pacific</span>
-        <span class="submark">Stock</span>
-      </div>
-      <span class="logo-badge">RED</span>
-    </a>
-    <button type="button" class="cart-btn" id="cart-btn" aria-live="polite">Cart (0)</button>
+    <div class="layout-rail site-header-rail">
+      <a href="#" class="logo" aria-label="Indo Pacific Stock home">
+        <svg class="logo-icon" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <circle cx="19" cy="19" r="17" stroke="#f8fafc" stroke-width="1" opacity="0.25"/>
+          <circle cx="19" cy="19" r="11.5" stroke="#f8fafc" stroke-width="1.2" opacity="0.75"/>
+          <path d="M19 7.5v23M7.5 19h23" stroke="#f8fafc" stroke-width="0.75" opacity="0.45"/>
+          <circle cx="19" cy="19" r="3.5" fill="#f8fafc" opacity="0.9"/>
+          <path d="M8 26 Q19 30 30 26" stroke="#f8fafc" stroke-width="0.8" opacity="0.35" fill="none"/>
+        </svg>
+        <span class="logo-wordmark">Indo Pacific Stock</span>
+      </a>
+      <a href="mailto:licensing@indopacificstock.com" class="inquire-link">Inquire</a>
+    </div>
   </header>
 
   <main>
     <!-- ZONE 1: Tactical Search & Taxonomy Portal -->
-    <section class="zone zone-search hero" id="zone-search" aria-label="Search and filter">
-      <h1>Indo Pacific Stock - Rights Managed Stock Footage</h1>
-      <p class="hero-tagline">Premium natural history from the Indo-Pacific — search by species, behavior, or location.</p>
-
-      <div class="hero-intro">
-        <p>Welcome to an exclusive archive of cinematic quality RED Digital Cinema and high-resolution Aerial drone stock videos, available for broadcast network and commercial rights-managed licensing.</p>
-        <p>Explore a natural history archive of pristine underwater footage captured throughout the most biodiverse marine habitats in the Indo-Pacific; including Raja Ampat, Komodo, Lembeh Strait, Sulawesi, Bali, West Papua, Flores, and the Banda Sea. Our curated library also hosts authentic cultural documentations and dramatic landscape scenes, clearly indexed with and without model releases to serve both commercial advertising campaigns and editorial documentary productions.</p>
-        <p>Can't find the exact sequence your timeline requires? Indo Pacific Stock is available for custom assignment hire, deploying professional cinema systems to shoot specific imagery across the Indo-Pacific and worldwide destinations.</p>
+    <section class="zone zone-search" id="zone-search" aria-label="Search and filter">
+      <div class="hero-headline">
+        <h1 class="hero-statement">Indo Pacific Stock is an exclusive Rights-Managed stock archive specializing in RED Digital and aerial cinematography.</h1>
       </div>
 
-      <div class="search-matrix">
+      <div class="search-module" aria-label="Search catalog and taxonomic filters">
         <div class="search-input-wrap">
-          <label for="search-input" class="visually-hidden">Search</label>
+          <label for="search-input" class="visually-hidden">Search catalog</label>
           <input
             type="search"
             id="search-input"
@@ -947,116 +1251,161 @@
           />
         </div>
 
-        <select id="filter-category" class="filter-select" aria-label="Category">
-          <option value="All">Category: All</option>
-          <option value="Aerial">Aerial</option>
-          <option value="Underwater">Underwater</option>
-          <option value="Landscape">Landscape</option>
-          <option value="Culture">Culture</option>
-        </select>
+        <div class="taxonomy-row" aria-label="Taxonomic search filters">
+          <select id="filter-taxa-category" class="filter-select taxonomy-select" aria-label="Broad category">
+            <option value="Any">Broad Category</option>
+          </select>
+          <select id="filter-taxa-family" class="filter-select taxonomy-select" aria-label="Family">
+            <option value="Any">Family</option>
+          </select>
+          <select id="filter-taxa-common" class="filter-select taxonomy-select" aria-label="Common name">
+            <option value="Any">Common Name</option>
+          </select>
+          <select id="filter-taxa-latin" class="filter-select taxonomy-select" aria-label="Latin name">
+            <option value="Any">Latin Name</option>
+          </select>
+          <select id="filter-tier" class="filter-select taxonomy-select" aria-label="Pricing tier">
+            <option value="All">Tier: All</option>
+            <option value="standard">Standard Clips Only</option>
+            <option value="premium">Premium Clips Only</option>
+          </select>
+        </div>
 
-        <select id="filter-region" class="filter-select" aria-label="Region">
-          <option value="All">Region: All</option>
-          <option value="Raja Ampat">Raja Ampat</option>
-          <option value="Komodo">Komodo</option>
-          <option value="Lembeh Strait">Lembeh Strait</option>
-          <option value="Cenderawasih">Cenderawasih</option>
-          <option value="Sulawesi">Sulawesi</option>
-          <option value="Bali">Bali</option>
-          <option value="Banda">Banda</option>
-          <option value="Sumbawa">Sumbawa</option>
-          <option value="Flores">Flores</option>
-          <option value="Papua">Papua</option>
-        </select>
+        <div class="filter-row--utility">
+          <select id="filter-category" class="filter-select" aria-label="Scene category">
+            <option value="All">Scene: All</option>
+            <option value="Aerial">Aerial</option>
+            <option value="Underwater">Underwater</option>
+            <option value="Landscape">Landscape</option>
+            <option value="Culture">Culture</option>
+          </select>
 
-        <select id="filter-format" class="filter-select" aria-label="Format">
-          <option value="All">Format: All</option>
-          <option value="8K RED RAW">8K RED RAW</option>
-          <option value="6K RED RAW">6K RED RAW</option>
-          <option value="5K RED RAW">5K RED RAW</option>
-          <option value="4K">4K</option>
-        </select>
+          <select id="filter-region" class="filter-select" aria-label="Region">
+            <option value="All">Region: All</option>
+            <option value="Raja Ampat">Raja Ampat</option>
+            <option value="Komodo">Komodo</option>
+            <option value="Lembeh Strait">Lembeh Strait</option>
+            <option value="Cenderawasih">Cenderawasih</option>
+            <option value="Sulawesi">Sulawesi</option>
+            <option value="Bali">Bali</option>
+            <option value="Banda">Banda</option>
+            <option value="Sumbawa">Sumbawa</option>
+            <option value="Flores">Flores</option>
+            <option value="Papua">Papua</option>
+          </select>
 
-        <div class="taxonomy-panel" aria-label="Taxonomic search filters">
-          <div class="taxonomy-panel-head">
-            <span class="taxonomy-panel-title">Taxonomic Search</span>
-            <span class="taxonomy-panel-note">Cascading filters — each tier narrows the next</span>
+          <select id="filter-format" class="filter-select" aria-label="Format">
+            <option value="All">Format: All</option>
+            <option value="8K RED RAW">8K RED RAW</option>
+            <option value="6K RED RAW">6K RED RAW</option>
+            <option value="5K RED RAW">5K RED RAW</option>
+            <option value="4K">4K</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="broadcast-partners" aria-label="Featured broadcast partners">
+        <p class="broadcast-partners-label">Featured Broadcast Partners</p>
+        <div class="broadcast-partners-row">
+          <div class="broadcast-partner">
+            <img
+              class="broadcast-partner-logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/4/41/BBC_Logo_2021.svg"
+              alt="BBC"
+              width="68"
+              height="22"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
-          <div class="taxonomy-grid">
-            <select id="filter-taxa-category" class="filter-select taxonomy-select" aria-label="Broad category taxa">
-              <option value="Any">Broad Category: Any</option>
-            </select>
-            <select id="filter-taxa-family" class="filter-select taxonomy-select" aria-label="Family grouping">
-              <option value="Any">Family: Any</option>
-            </select>
-            <select id="filter-taxa-common" class="filter-select taxonomy-select" aria-label="Common name">
-              <option value="Any">Common Name: Any</option>
-            </select>
-            <select id="filter-taxa-latin" class="filter-select taxonomy-select" aria-label="Scientific latin name">
-              <option value="Any">Latin Name: Any</option>
-            </select>
+          <div class="broadcast-partner">
+            <img
+              class="broadcast-partner-logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/3/31/National_Geographic_Society_logo.svg"
+              alt="National Geographic"
+              width="148"
+              height="22"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="broadcast-partner">
+            <img
+              class="broadcast-partner-logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+              alt="Netflix"
+              width="84"
+              height="22"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="broadcast-partner">
+            <img
+              class="broadcast-partner-logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/f/f5/History_Logo.svg"
+              alt="History Channel"
+              width="108"
+              height="22"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="broadcast-partner">
+            <img
+              class="broadcast-partner-logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg"
+              alt="HBO Max"
+              width="92"
+              height="22"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ZONE 2: Visual Curated Collections -->
-    <section class="zone zone-collections" id="zone-collections" aria-label="Curated collections">
-      <h2 class="zone-label">Curated Collections</h2>
+    <!-- ZONE 2: Category Collections -->
+    <section class="zone zone-collections" id="zone-collections" aria-label="Footage categories">
+      <h2 class="collections-guide">Browse Collections</h2>
+
       <div class="collection-rail" id="collection-rail">
         <button
           type="button"
           class="collection-tile"
-          data-collection-filter='{"region":"Raja Ampat"}'
-          style="background-image: url('images/covers/raja-ampat.jpg')"
-          aria-label="Filter by Raja Ampat"
+          data-collection-filter='{"sceneCategory":"Underwater"}'
+          style="background-image: url('images/Covers/raja-ampat.jpg')"
+          aria-label="Filter by Underwater"
         >
-          <span class="collection-tile-label">Raja Ampat</span>
+          <span class="collection-tile-label">Underwater</span>
         </button>
         <button
           type="button"
           class="collection-tile"
-          data-collection-filter='{"region":"Komodo"}'
-          style="background-image: url('images/covers/komodo.jpg')"
-          aria-label="Filter by Komodo"
+          data-collection-filter='{"sceneCategories":["Aerial","Landscape"],"categories":["Coastal Landscapes Drone Aerials"]}'
+          style="background-image: url('images/Covers/aerials.jpg')"
+          aria-label="Filter by Aerial and Landscape"
         >
-          <span class="collection-tile-label">Komodo</span>
+          <span class="collection-tile-label">Aerial &amp; Landscape</span>
         </button>
         <button
           type="button"
           class="collection-tile"
-          data-collection-filter='{"category":"Coastal Landscapes Drone Aerials"}'
-          style="background-image: url('images/covers/aerials.jpg')"
-          aria-label="Filter by Aerials"
+          data-collection-filter='{"sceneCategories":["Culture"],"categories":["Indo-Pacific Cultural Documentations &amp; Editorial Scenes"]}'
+          style="background-image: url('images/Covers/culture.jpg')"
+          aria-label="Filter by Cultural and Editorial"
         >
-          <span class="collection-tile-label">Aerials</span>
+          <span class="collection-tile-label">Cultural &amp; Editorial</span>
         </button>
         <button
           type="button"
           class="collection-tile"
-          data-collection-filter='{"region":"Lembeh Strait"}'
-          style="background-image: url('images/covers/lembeh-strait.jpg')"
-          aria-label="Filter by Lembeh Strait"
+          data-collection-filter='{"categories":["Terrestrial Mammals, Marsupials &amp; Megafauna","Terrestrial Reptiles &amp; Herpetofauna","Avian Bird Species"]}'
+          style="background-image: url('images/Covers/komodo.jpg')"
+          aria-label="Filter by Terrestrial and Wildlife"
         >
-          <span class="collection-tile-label">Lembeh Strait</span>
-        </button>
-        <button
-          type="button"
-          class="collection-tile"
-          data-collection-filter='{"category":"Marine Megafauna, Reptiles & Ocean Mammals"}'
-          style="background-image: url('images/covers/megafauna.jpg')"
-          aria-label="Filter by Megafauna"
-        >
-          <span class="collection-tile-label">Megafauna</span>
-        </button>
-        <button
-          type="button"
-          class="collection-tile"
-          data-collection-filter='{"category":"Indo-Pacific Cultural Documentations & Editorial Scenes"}'
-          style="background-image: url('images/covers/culture.jpg')"
-          aria-label="Filter by Culture"
-        >
-          <span class="collection-tile-label">Culture</span>
+          <span class="collection-tile-label">Terrestrial &amp; Wildlife</span>
         </button>
       </div>
     </section>
@@ -1075,17 +1424,34 @@
         </button>
       </div>
 
-      <footer class="site-footer">
-        <div class="site-footer-inner">
-          <p class="site-footer-copy">© 2026 Indo Pacific Stock. All footage rights reserved.</p>
-          <nav class="site-footer-links" aria-label="Legal">
-            <a href="terms.html">Terms of Service</a>
-            <a href="privacy.html">Privacy Policy</a>
-          </nav>
+    </section>
+
+    <!-- B2B Utility Block -->
+    <section class="zone b2b-utility-block" id="custom-media-request" aria-label="B2B services">
+      <div class="b2b-utility-grid">
+        <div class="b2b-utility-column">
+          <h2 class="b2b-utility-title">Need help finding the right footage?</h2>
+          <p class="b2b-utility-copy">Submit your shot list. We will compile a curated collection and deliver low-res screening proxies to you.</p>
+          <a
+            href="mailto:licensing@indopacificstock.com?subject=Shot%20List%20Request"
+            class="b2b-utility-cta"
+          >Submit Shot List Request</a>
         </div>
-      </footer>
+        <div class="b2b-utility-column b2b-utility-column--right">
+          <h2 class="b2b-utility-title">Can't find the exact sequence?</h2>
+          <p class="b2b-utility-copy">Indo Pacific Stock is available for custom assignment hire, deploying professional RED cinema cameras and aerial systems to capture specific imagery across regional and global destinations.</p>
+          <a
+            href="mailto:licensing@indopacificstock.com?subject=Assignment%20Hire%20Inquiry"
+            class="b2b-utility-cta"
+          >Inquire About Assignment Hire</a>
+        </div>
+      </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <p class="site-footer-line">© 2026 Indo Pacific Stock · All footage rights reserved · <a href="terms.html">Terms</a> · <a href="license-terms.html">License Terms</a> · <a href="privacy.html">Privacy</a></p>
+  </footer>
 
   <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
     <div class="modal-wrap">
@@ -1106,15 +1472,56 @@
         </div>
         <div class="modal-right">
           <h2 class="modal-title" id="modal-title"></h2>
-          <div>
-            <p class="license-label">License Type</p>
-            <p class="license-type">Rights Managed (RM)</p>
+          <div class="license-block">
+            <p class="license-label">License</p>
+            <p class="license-type" id="modal-license-type">Commercial</p>
           </div>
-          <select id="tier-select" class="tier-select" aria-label="License tier">
-            <option value="150">Digital/Web Promotion ($150)</option>
-            <option value="450">Broadcast / Indie Film ($450)</option>
-            <option value="1500">Worldwide Theatrical / Commercial ($1,500)</option>
-          </select>
+          <div class="pricing-block">
+            <p class="license-label">Pricing Tier</p>
+            <p class="pricing-tier" id="modal-pricing-tier">Standard</p>
+            <p class="pricing-rate" id="modal-pricing-rate">$75 per second · 10-second minimum</p>
+          </div>
+          <div class="rate-card" aria-label="Rights-managed multiplier rate card">
+            <p class="rate-card-title">Rights-Managed Multipliers (10s Minimum Order)</p>
+            <div class="rate-card-table-wrap">
+              <table class="rate-card-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Scope</th>
+                    <th scope="col">Multiplier</th>
+                    <th scope="col" class="rate-min" data-tier-col="standard">Standard Min.</th>
+                    <th scope="col" class="rate-min" data-tier-col="premium">Premium Min.</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="rate-scope">Non-Exclusive (Web / Corporate)</td>
+                    <td class="rate-multiplier">1.0×</td>
+                    <td class="rate-min" data-tier-col="standard">$750 USD</td>
+                    <td class="rate-min" data-tier-col="premium">$1,500 USD</td>
+                  </tr>
+                  <tr>
+                    <td class="rate-scope">Broadcast TV &amp; Streaming (SVOD)</td>
+                    <td class="rate-multiplier">2.5×</td>
+                    <td class="rate-min" data-tier-col="standard">$1,875 USD</td>
+                    <td class="rate-min" data-tier-col="premium">$3,750 USD</td>
+                  </tr>
+                  <tr>
+                    <td class="rate-scope">Theatrical / Commercial Movies</td>
+                    <td class="rate-multiplier">4.0×</td>
+                    <td class="rate-min" data-tier-col="standard">$3,000 USD</td>
+                    <td class="rate-min" data-tier-col="premium">$6,000 USD</td>
+                  </tr>
+                  <tr>
+                    <td class="rate-scope">Category Exclusivity (1-Year)</td>
+                    <td class="rate-multiplier">6.0×</td>
+                    <td class="rate-min" data-tier-col="standard">$4,500 USD</td>
+                    <td class="rate-min" data-tier-col="premium">$9,000 USD</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
           <button type="button" class="checkout-btn" id="checkout-btn">Request License &amp; Master RAW Files</button>
         </div>
       </div>
@@ -1122,20 +1529,6 @@
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-  <style>
-    .visually-hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-  </style>
 
   <script src="app.js"></script>
   <script>
@@ -1156,6 +1549,7 @@
     const filterTaxaFamily = document.getElementById('filter-taxa-family');
     const filterTaxaCommon = document.getElementById('filter-taxa-common');
     const filterTaxaLatin = document.getElementById('filter-taxa-latin');
+    const filterTier = document.getElementById('filter-tier');
     const grid = document.getElementById('media-grid');
     const resultsCount = document.getElementById('results-count');
     const loadMoreBtn = document.getElementById('load-more-btn');
@@ -1167,14 +1561,19 @@
     const modalMaxResolution = document.getElementById('modal-max-resolution');
     const modalMaxResolutionValue = document.getElementById('modal-max-resolution-value');
     const modalTitle = document.getElementById('modal-title');
-    const cartBtn = document.getElementById('cart-btn');
     const toast = document.getElementById('toast');
-    const tierSelect = document.getElementById('tier-select');
+    const modalLicenseType = document.getElementById('modal-license-type');
+    const modalPricingTier = document.getElementById('modal-pricing-tier');
+    const modalPricingRate = document.getElementById('modal-pricing-rate');
     const checkoutBtn = document.getElementById('checkout-btn');
+
+    const PRICING_TIERS = {
+      standard: { label: 'Standard', ratePerSecond: 75, minimumSeconds: 10 },
+      premium: { label: 'Premium', ratePerSecond: 150, minimumSeconds: 10 },
+    };
 
     const assetCatalog = new Map();
     let cards = [];
-    let cartCount = 0;
     let activeAsset = null;
     let toastTimer = null;
 
@@ -1185,6 +1584,7 @@
       filterSceneCategory: filterCategory,
       filterRegion,
       filterFormat,
+      filterTier,
       grid,
       resultsCount,
       loadMoreBtn,
@@ -1200,6 +1600,7 @@
 
     filterController.initCollectionPortal(collectionRail);
     filterController.bindLegacyFilters();
+
 
     function filterArchive(options) {
       filterController.filterArchive(options);
@@ -1406,7 +1807,84 @@
       );
     }
 
+    function resolveLicenseType(data) {
+      const value = String(data?.licenseType || 'commercial').toLowerCase().trim();
+      return value === 'editorial' ? 'editorial' : 'commercial';
+    }
+
+    function resolveLicenseLabel(data) {
+      return resolveLicenseType(data) === 'editorial' ? 'Editorial Use Only' : 'Commercial';
+    }
+
+    function resolvePricingTier(data) {
+      const value = String(data?.pricingTier || 'standard').toLowerCase().trim();
+      return value === 'premium' ? 'premium' : 'standard';
+    }
+
+    function resolvePricingDetails(data) {
+      const tierKey = resolvePricingTier(data);
+      const tier = PRICING_TIERS[tierKey];
+
+      return {
+        tierKey,
+        tierLabel: tier.label,
+        rateLine: `$${tier.ratePerSecond} per second · ${tier.minimumSeconds}-second minimum`,
+      };
+    }
+
+    function updateModalLicensing(data) {
+      const licenseType = resolveLicenseType(data);
+      const pricing = resolvePricingDetails(data);
+      const tierKey = pricing.tierKey;
+
+      modalLicenseType.textContent = resolveLicenseLabel(data);
+      modalLicenseType.classList.toggle('license-type--editorial', licenseType === 'editorial');
+
+      modalPricingTier.textContent = `${pricing.tierLabel} Tier`;
+      modalPricingTier.classList.toggle('pricing-tier--premium', tierKey === 'premium');
+
+      modalPricingRate.textContent = pricing.rateLine;
+
+      document.querySelectorAll('.rate-card-table [data-tier-col]').forEach((cell) => {
+        cell.classList.toggle('is-active-tier', cell.dataset.tierCol === tierKey);
+      });
+    }
+
+    function formatDurationLabel(duration) {
+      if (!duration) return '';
+      if (typeof duration === 'number' && Number.isFinite(duration) && duration > 0) {
+        const totalSeconds = Math.round(duration);
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+        if (hours > 0) {
+          return `${hours}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+        return `${minutes}:${String(seconds).padStart(2, '0')}`;
+      }
+      const value = String(duration).trim();
+      return value.replace(/^00:/, '');
+    }
+
+    function resolveClipDuration(data) {
+      const spec = data?.technicalSpecs || {};
+      return formatDurationLabel(spec.duration || data?.duration || '');
+    }
+
+    function captureDurationFromVideo(video, data) {
+      if (!video || !Number.isFinite(video.duration) || video.duration <= 0) return;
+      const formatted = formatDurationLabel(video.duration);
+      if (!formatted) return;
+
+      data.duration = video.duration;
+      if (!data.technicalSpecs) data.technicalSpecs = {};
+      if (!data.technicalSpecs.duration) {
+        data.technicalSpecs.duration = formatted;
+      }
+    }
+
     function buildMetaLine(data) {
+      const durationLabel = resolveClipDuration(data);
       const lines = [
         `Location: ${data.region} | Camera: ${data.camera} | Behavior: ${data.behavior}`,
       ];
@@ -1414,6 +1892,7 @@
       if (spec) {
         lines.push('');
         lines.push([
+          durationLabel && `Duration: ${durationLabel}`,
           spec.codec && `Codec: ${spec.codec}`,
           spec.fps && `FPS: ${spec.fps}`,
           spec.bitDepth && `Bit Depth: ${spec.bitDepth}-bit`,
@@ -1422,6 +1901,9 @@
           spec.date && `Date: ${spec.date}`,
           spec.originalCameraCode && `Reel ID: ${spec.originalCameraCode}`,
         ].filter(Boolean).join(' | '));
+      } else if (durationLabel) {
+        lines.push('');
+        lines.push(`Duration: ${durationLabel}`);
       }
       return lines.join('\n');
     }
@@ -1436,6 +1918,10 @@
         data.species,
         data.format,
         data.nativeFormatBadge,
+        data.licenseType,
+        data.pricingTier,
+        resolveLicenseLabel(data),
+        resolvePricingTier(data) === 'premium' ? 'premium clips only' : 'standard clips only',
         data.camera,
         data.behavior,
         spec.resolution,
@@ -1527,6 +2013,7 @@
 
     function buildCard(data, slug) {
       const videoUrl = normalizeVideoUrl(data.videoUrl, slug, data);
+      const durationLabel = resolveClipDuration(data);
       const metaLine = buildMetaLine(data);
       const keywords = resolveAssetKeywords(data);
       const enriched = { ...data, videoUrl, slug, keywords };
@@ -1543,6 +2030,8 @@
       article.dataset.family = data.technicalSpecs?.family || '';
       article.dataset.latinName = data.technicalSpecs?.latinName || '';
       article.dataset.format = data.format;
+      article.dataset.licenseType = resolveLicenseType(data);
+      article.dataset.pricingTier = resolvePricingTier(data);
       article.dataset.title = data.title;
       article.dataset.desc = data.description;
       article.dataset.video = videoUrl;
@@ -1564,6 +2053,9 @@
             renderNativeFormatBadgeHtml(data) +
           `</div>` +
           `<span class="rm-badge">Rights Managed (RM)</span>` +
+          (durationLabel
+            ? `<p class="card-duration">Duration: ${escapeHtml(durationLabel)}</p>`
+            : `<p class="card-duration" hidden data-duration-slot></p>`) +
           `<p class="card-desc">${escapeHtml(data.description)}</p>` +
           buildKeywordsBlockHtml(enriched) +
         `</div>`;
@@ -1571,6 +2063,17 @@
       const video = article.querySelector('video');
       configureVideoElement(video, videoUrl);
       primeVideoThumb(video, article.querySelector('.video-wrap'));
+      video.addEventListener('loadedmetadata', function onCardDuration() {
+        if (resolveClipDuration(enriched)) return;
+        captureDurationFromVideo(video, enriched);
+        const durationEl = article.querySelector('[data-duration-slot], .card-duration');
+        const label = resolveClipDuration(enriched);
+        if (durationEl && label) {
+          durationEl.hidden = false;
+          durationEl.textContent = `Duration: ${label}`;
+          article.dataset.meta = buildMetaLine(enriched);
+        }
+      }, { once: true });
       bindCardPreview(article);
 
       assetCatalog.set(slug, enriched);
@@ -1613,6 +2116,8 @@
         behavior: 'Natural history sequence.',
         videoUrl: `${GITHUB_RAW_BASE}/${mp4FileName}`,
         description: `${title} — rights-managed stock footage from Indo Pacific Stock.`,
+        licenseType: 'commercial',
+        pricingTier: 'standard',
         technicalSpecs: {
           fileName: mp4FileName,
           slug,
@@ -1809,6 +2314,8 @@
         card.dataset.category,
         card.dataset.species,
         card.dataset.format,
+        card.dataset.licenseType,
+        card.dataset.pricingTier,
         card.dataset.meta,
         card.dataset.family,
         card.dataset.latinName,
@@ -1822,6 +2329,7 @@
       activeAsset = data;
       modalTitle.textContent = data.title;
       modalMeta.textContent = buildMetaLine(data);
+      updateModalLicensing(data);
 
       const maxResolution = data.technicalSpecs?.resolution || '';
       if (maxResolution) {
@@ -1837,6 +2345,12 @@
       modalOverlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       modalVideo.load();
+
+      modalVideo.addEventListener('loadedmetadata', function onModalDuration() {
+        captureDurationFromVideo(modalVideo, data);
+        modalMeta.textContent = buildMetaLine(data);
+        updateModalLicensing(data);
+      }, { once: true });
 
       modalVideo.addEventListener('loadeddata', function onModalReady() {
         modalVideo.removeEventListener('loadeddata', onModalReady);
@@ -1899,10 +2413,9 @@
 
     checkoutBtn.addEventListener('click', () => {
       if (!activeAsset) return;
-      const tierLabel = tierSelect.options[tierSelect.selectedIndex].text;
-      cartCount += 1;
-      cartBtn.textContent = `Cart (${cartCount})`;
-      showToast(`License request added — ${activeAsset.title} (${tierLabel})`);
+      const licenseLabel = resolveLicenseLabel(activeAsset);
+      const pricing = resolvePricingDetails(activeAsset);
+      showToast(`Inquiry received — ${activeAsset.title} (${licenseLabel}, ${pricing.tierLabel} Tier). Our licensing team will respond shortly.`);
       closeModal();
     });
 
