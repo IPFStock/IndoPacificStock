@@ -158,12 +158,13 @@ class TaxonomicFilterEngine {
 }
 
 class ArchiveGridPaginator {
-  constructor({ grid, loadMoreBtn, batchSize, getFilteredCards, onRenderComplete }) {
+  constructor({ grid, loadMoreBtn, batchSize, getFilteredCards, onRenderComplete, onCardsAppended }) {
     this.grid = grid;
     this.loadMoreBtn = loadMoreBtn;
     this.batchSize = batchSize;
     this.getFilteredCards = getFilteredCards;
     this.onRenderComplete = onRenderComplete;
+    this.onCardsAppended = onCardsAppended;
     this.displayedCount = 0;
 
     this.loadMoreBtn.addEventListener('click', () => this.loadMore());
@@ -223,6 +224,10 @@ class ArchiveGridPaginator {
     slice.forEach((card) => fragment.appendChild(card));
     this.grid.appendChild(fragment);
     this.displayedCount += slice.length;
+
+    if (typeof this.onCardsAppended === 'function') {
+      this.onCardsAppended(slice);
+    }
   }
 
   updateLoadMore(totalFiltered) {
@@ -298,6 +303,7 @@ class CatalogFilterController {
       batchSize: config.batchSize || ARCHIVE_BATCH_SIZE,
       getFilteredCards: () => this.getFilteredCards(),
       onRenderComplete: (total, shown) => this.updateResultsCount(total, shown),
+      onCardsAppended: config.onCardsAppended,
     });
   }
 

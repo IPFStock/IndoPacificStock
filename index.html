@@ -1215,6 +1215,7 @@
   </style>
 </head>
 <body>
+  <!-- deploy: video-cdn-v2 -->
 
   <header class="site-header">
     <div class="layout-rail site-header-rail">
@@ -1594,6 +1595,9 @@
       loadMoreBtn,
       zoneShowcase,
       cardSearchText,
+      onCardsAppended: (appendedCards) => {
+        appendedCards.forEach((card) => ensureCardVideoLoaded(card));
+      },
       taxonomicSelects: {
         taxaCategory: filterTaxaCategory,
         taxaFamily: filterTaxaFamily,
@@ -2109,7 +2113,7 @@
 
       article.innerHTML =
         `<div class="video-wrap is-loading">` +
-          `<video muted loop playsinline preload="none" aria-label="${escapeHtml(data.title)} preview" itemprop="contentUrl"></video>` +
+          `<video muted loop playsinline preload="metadata" aria-label="${escapeHtml(data.title)} preview" itemprop="contentUrl"></video>` +
           `<span class="play-hint">Hover to preview</span>` +
           `<div class="video-status video-status--error" hidden>Preview unavailable — check that the video URL is public and reachable.</div>` +
         `</div>` +
@@ -2142,23 +2146,9 @@
         }
       }, { once: true });
       bindCardPreview(article);
-      observeCardVideo(article);
 
       assetCatalog.set(slug, enriched);
       return article;
-    }
-
-    const cardVideoObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        ensureCardVideoLoaded(entry.target);
-        cardVideoObserver.unobserve(entry.target);
-      });
-    }, { rootMargin: '120px' });
-
-    function observeCardVideo(card) {
-      if (!card?.querySelector('video')) return;
-      cardVideoObserver.observe(card);
     }
 
     function mp4FileFromAsset(data) {
