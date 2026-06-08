@@ -38,7 +38,10 @@
       --transition: 200ms ease;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: clip;
+    }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -58,6 +61,8 @@
       display: flex;
       flex-direction: column;
       -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+      max-width: 100%;
     }
 
     .visually-hidden {
@@ -159,6 +164,9 @@
       padding-top: calc(var(--header-h) + 1.25rem);
       padding-bottom: 3.5rem;
       flex: 1;
+      width: 100%;
+      min-width: 0;
+      overflow-x: clip;
     }
 
     .hero-headline {
@@ -311,12 +319,31 @@
       margin-right: auto;
       padding-left: var(--layout-gutter);
       padding-right: var(--layout-gutter);
+      min-width: 0;
+      overflow-x: clip;
     }
 
     .zone-search { margin-bottom: 2.5rem; }
 
     .zone-collections {
       margin-bottom: 2.5rem;
+    }
+
+    .zone-collections.is-hidden-during-search {
+      display: none;
+    }
+
+    body.is-search-active .zone-collections,
+    body.is-search-active .zone-broadcast-partners {
+      display: none;
+    }
+
+    body.is-search-active .zone-search {
+      margin-bottom: 1rem;
+    }
+
+    body.is-search-active .zone-showcase .results-bar {
+      margin-top: 0.5rem;
     }
 
     .collections-guide {
@@ -334,10 +361,11 @@
 
     .broadcast-partners {
       margin-bottom: 0;
+      padding-bottom: 2.5rem;
     }
 
     .broadcast-partners-label {
-      margin-top: 3rem;
+      margin-top: 2.5rem;
       margin-bottom: 1rem;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 0.75rem;
@@ -483,8 +511,12 @@
     .load-more-wrap {
       width: 100%;
       margin-top: 2rem;
-      padding-bottom: 1.5rem;
+      padding-bottom: 0;
       text-align: center;
+    }
+
+    .zone-broadcast-partners {
+      padding-bottom: 0;
     }
 
     .load-more-btn {
@@ -786,6 +818,9 @@
       align-items: center;
       justify-content: center;
       padding: 1.25rem;
+      overflow-x: clip;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .modal-overlay.open { display: flex; }
@@ -793,6 +828,8 @@
     .modal-wrap {
       position: relative;
       width: min(58rem, 100%);
+      max-width: 100%;
+      min-width: 0;
       max-height: 92vh;
     }
 
@@ -830,14 +867,20 @@
       border-radius: var(--radius-md);
       overflow: hidden;
       display: grid;
-      grid-template-columns: 1.15fr 1fr;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
       max-height: 92vh;
       overflow-y: auto;
+      overflow-x: clip;
       box-shadow: var(--shadow-md);
     }
 
-    @media (max-width: 768px) {
-      .modal { grid-template-columns: 1fr; }
+    .modal-left,
+    .modal-right {
+      min-width: 0;
+      max-width: 100%;
     }
 
     .modal-left {
@@ -846,9 +889,35 @@
     }
 
     @media (max-width: 768px) {
+      .modal-overlay {
+        padding: 0.5rem;
+        align-items: flex-start;
+      }
+
+      .modal-wrap {
+        width: 100%;
+        max-height: calc(100dvh - 1rem);
+      }
+
+      .modal {
+        grid-template-columns: minmax(0, 1fr);
+        max-height: calc(100dvh - 1rem);
+      }
+
       .modal-left {
         border-right: none;
         border-bottom: 1px solid var(--border);
+        padding: 1rem;
+      }
+
+      .modal-right {
+        padding: 1rem 1rem 1.25rem;
+      }
+
+      .modal-close {
+        top: 0.35rem;
+        right: 0.35rem;
+        transform: none;
       }
     }
 
@@ -888,6 +957,8 @@
       color: var(--text);
       line-height: 1.65;
       white-space: pre-line;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     .meta-box .meta-resolution {
@@ -919,6 +990,8 @@
       font-weight: 700;
       line-height: 1.3;
       color: #f8fafc;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     .license-label {
@@ -983,6 +1056,9 @@
     }
 
     .rate-card-table-wrap {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
     }
@@ -1158,6 +1234,72 @@
     }
 
     @media (max-width: 768px) {
+      :root {
+        --layout-gutter: 1rem;
+      }
+
+      .hero-statement {
+        white-space: normal;
+      }
+
+      .search-module {
+        padding: 1rem;
+      }
+
+      body.is-search-active .hero-headline,
+      body.is-search-active .taxonomy-row,
+      body.is-search-active .filter-row--utility {
+        display: none;
+      }
+
+      body.is-search-active .search-module {
+        padding: 0.75rem 1rem;
+      }
+
+      body.is-search-active .search-input-wrap {
+        margin-bottom: 0;
+      }
+
+      .site-header-rail {
+        gap: 0.5rem;
+      }
+
+      .logo {
+        min-width: 0;
+      }
+
+      .logo-wordmark {
+        font-size: 0.82rem;
+        letter-spacing: 0.06em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .inquire-link {
+        flex-shrink: 0;
+        font-size: 0.75rem;
+      }
+
+      .collection-rail {
+        overflow-x: clip;
+      }
+
+      .rate-card-table {
+        font-size: 0.66rem;
+      }
+
+      .rate-card-table th,
+      .rate-card-table .rate-multiplier,
+      .rate-card-table .rate-min {
+        white-space: normal;
+      }
+
+      .rate-card-table .rate-scope {
+        min-width: 0;
+        white-space: normal;
+      }
+
       .b2b-utility-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -1215,7 +1357,7 @@
   </style>
 </head>
 <body>
-  <!-- deploy: video-cdn-v2 -->
+  <!-- deploy: mobile-layout-v1 -->
 
   <header class="site-header">
     <div class="layout-rail site-header-rail">
@@ -1304,67 +1446,6 @@
           </select>
         </div>
       </div>
-
-      <div class="broadcast-partners" aria-label="Featured broadcast partners">
-        <p class="broadcast-partners-label">Featured Broadcast Partners</p>
-        <div class="broadcast-partners-row">
-          <div class="broadcast-partner">
-            <img
-              class="broadcast-partner-logo"
-              src="https://upload.wikimedia.org/wikipedia/commons/4/41/BBC_Logo_2021.svg"
-              alt="BBC"
-              width="68"
-              height="22"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="broadcast-partner">
-            <img
-              class="broadcast-partner-logo"
-              src="https://upload.wikimedia.org/wikipedia/commons/3/31/National_Geographic_Society_logo.svg"
-              alt="National Geographic"
-              width="148"
-              height="22"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="broadcast-partner">
-            <img
-              class="broadcast-partner-logo"
-              src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
-              alt="Netflix"
-              width="84"
-              height="22"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="broadcast-partner">
-            <img
-              class="broadcast-partner-logo"
-              src="https://upload.wikimedia.org/wikipedia/commons/f/f5/History_Logo.svg"
-              alt="History Channel"
-              width="108"
-              height="22"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="broadcast-partner">
-            <img
-              class="broadcast-partner-logo"
-              src="https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg"
-              alt="HBO Max"
-              width="92"
-              height="22"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- ZONE 2: Category Collections -->
@@ -1424,7 +1505,69 @@
           [ Load More Cinematic Assets ]
         </button>
       </div>
+    </section>
 
+    <section class="zone zone-broadcast-partners" aria-label="Featured broadcast partners">
+      <div class="broadcast-partners">
+        <p class="broadcast-partners-label">Featured Broadcast Partners</p>
+        <div class="broadcast-partners-row">
+          <div class="broadcast-partner">
+            <img
+              class="broadcast-partner-logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/4/41/BBC_Logo_2021.svg"
+              alt="BBC"
+              width="68"
+              height="22"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="broadcast-partner">
+            <img
+              class="broadcast-partner-logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/3/31/National_Geographic_Society_logo.svg"
+              alt="National Geographic"
+              width="148"
+              height="22"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="broadcast-partner">
+            <img
+              class="broadcast-partner-logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+              alt="Netflix"
+              width="84"
+              height="22"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="broadcast-partner">
+            <img
+              class="broadcast-partner-logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/f/f5/History_Logo.svg"
+              alt="History Channel"
+              width="108"
+              height="22"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="broadcast-partner">
+            <img
+              class="broadcast-partner-logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg"
+              alt="HBO Max"
+              width="92"
+              height="22"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- B2B Utility Block -->
@@ -1559,6 +1702,7 @@
     const resultsCount = document.getElementById('results-count');
     const loadMoreBtn = document.getElementById('load-more-btn');
     const collectionRail = document.getElementById('collection-rail');
+    const zoneCollections = document.getElementById('zone-collections');
     const zoneShowcase = document.getElementById('zone-showcase');
     const modalOverlay = document.getElementById('modal-overlay');
     const modalVideo = document.getElementById('modal-video');
@@ -1578,9 +1722,33 @@
     };
 
     const assetCatalog = new Map();
+    const cardSearchIndex = new WeakMap();
     let cards = [];
     let activeAsset = null;
     let toastTimer = null;
+
+    function cardSearchText(card) {
+      const indexed = cardSearchIndex.get(card);
+      if (indexed) return indexed;
+
+      const fromAttr = card.getAttribute('data-asset-index');
+      if (fromAttr) return fromAttr;
+
+      return [
+        card.dataset.title,
+        card.dataset.desc,
+        card.dataset.region,
+        card.dataset.category,
+        card.dataset.species,
+        card.dataset.format,
+        card.dataset.licenseType,
+        card.dataset.pricingTier,
+        card.dataset.meta,
+        card.dataset.family,
+        card.dataset.latinName,
+        card.dataset.keywords,
+      ].filter(Boolean).join(' ').toLowerCase();
+    }
 
     const filterController = new window.IPFStockFilters.CatalogFilterController({
       getCards: () => cards,
@@ -1594,6 +1762,7 @@
       resultsCount,
       loadMoreBtn,
       zoneShowcase,
+      zoneCollections,
       cardSearchText,
       onCardsAppended: (appendedCards) => {
         appendedCards.forEach((card) => ensureCardVideoLoaded(card));
@@ -2109,7 +2278,9 @@
       article.dataset.video = videoUrl;
       article.dataset.meta = metaLine;
       article.dataset.keywords = keywords.join(', ');
-      article.dataset.search = assetSearchText(enriched);
+      const searchBlob = assetSearchText(enriched);
+      cardSearchIndex.set(article, searchBlob);
+      article.setAttribute('data-asset-index', searchBlob);
 
       article.innerHTML =
         `<div class="video-wrap is-loading">` +
@@ -2375,22 +2546,6 @@
       updatePageSeoKeywords();
       filterController.initTaxonomyFromCatalog();
       filterController.mountCatalog(cards);
-    }
-
-    function cardSearchText(card) {
-      return card.dataset.search || [
-        card.dataset.title,
-        card.dataset.desc,
-        card.dataset.region,
-        card.dataset.category,
-        card.dataset.species,
-        card.dataset.format,
-        card.dataset.licenseType,
-        card.dataset.pricingTier,
-        card.dataset.meta,
-        card.dataset.family,
-        card.dataset.latinName,
-      ].join(' ').toLowerCase();
     }
 
     function openModal(card) {

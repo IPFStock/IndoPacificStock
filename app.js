@@ -2,6 +2,63 @@
 
 const ARCHIVE_BATCH_SIZE = 24;
 
+const SEARCH_STOP_WORDS = new Set([
+  'a', 'an', 'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with',
+  'by', 'from', 'into', 'over', 'under', 'between', 'through', 'during', 'before',
+  'after', 'above', 'below', 'near', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
+  'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should', 'may',
+  'might', 'must', 'shall', 'can', 'this', 'that', 'these', 'those', 'it', 'its', 'as',
+]);
+
+function singularizeSearchToken(token) {
+  if (token.length <= 3) return token;
+  if (token.endsWith('ies') && token.length > 4) return `${token.slice(0, -3)}y`;
+  if (token.endsWith('es') && token.length > 4) return token.slice(0, -2);
+  if (token.endsWith('s') && !token.endsWith('ss')) return token.slice(0, -1);
+  return token;
+}
+
+function searchTokenVariants(token) {
+  const variants = new Set([token]);
+  const singular = singularizeSearchToken(token);
+  variants.add(singular);
+  if (!token.endsWith('s')) variants.add(`${token}s`);
+  if (singular !== token && !singular.endsWith('s')) variants.add(`${singular}s`);
+  return [...variants];
+}
+
+function searchTokenMatchesText(text, token) {
+  return searchTokenVariants(token).some((variant) => {
+    if (variant.length <= 2) return text.split(/\s+/).includes(variant);
+    return text.includes(variant);
+  });
+}
+
+function significantSearchTokens(query) {
+  return query
+    .split(/\s+/)
+    .map((token) => token.replace(/^[^a-z0-9]+|[^a-z0-9]+$/gi, '').toLowerCase())
+    .filter((token) => token.length > 0 && !SEARCH_STOP_WORDS.has(token));
+}
+
+function matchesSearchQuery(haystack, query) {
+  const text = String(haystack || '').toLowerCase();
+  const normalized = String(query || '').trim().toLowerCase();
+  if (!normalized) return true;
+
+  const quoted = normalized.match(/^"(.+)"$/);
+  if (quoted) {
+    return text.includes(quoted[1].trim());
+  }
+
+  if (text.includes(normalized)) return true;
+
+  const tokens = significantSearchTokens(normalized);
+  if (tokens.length === 0) return true;
+
+  return tokens.every((token) => searchTokenMatchesText(text, token));
+}
+
 /**
  * Multi-tier taxonomic filter engine with cascading dependency chain.
  */
@@ -291,6 +348,7 @@ class CatalogFilterController {
     this.loadMoreBtn = config.loadMoreBtn;
     this.cardSearchText = config.cardSearchText;
     this.zoneShowcase = config.zoneShowcase;
+    this.zoneCollections = config.zoneCollections;
 
     this.collectionPortal = null;
     this.activeCollectionFilter = null;
@@ -367,12 +425,16 @@ class CatalogFilterController {
 
   cardMatchesFilters(card) {
     const query = this.searchInput.value.trim().toLowerCase();
+
+    if (query) {
+      return matchesSearchQuery(this.cardSearchText(card), query);
+    }
+
     const sceneCategory = this.filterSceneCategory.value;
     const region = this.filterRegion.value;
     const format = this.filterFormat.value;
     const tier = this.filterTier ? this.filterTier.value : 'All';
 
-    const textMatch = !query || this.cardSearchText(card).includes(query);
     const sceneMatch = this.matchesDropdown(sceneCategory, card.dataset.sceneCategory || 'Underwater');
     const regionMatch = this.matchesDropdown(region, card.dataset.region);
     const formatMatch = this.matchesDropdown(format, card.dataset.format);
@@ -380,7 +442,7 @@ class CatalogFilterController {
     const taxonMatch = this.taxonomy.matchesCard(card);
     const collectionMatch = this.matchesCollectionFilter(card);
 
-    return textMatch && sceneMatch && regionMatch && formatMatch && tierMatch && taxonMatch && collectionMatch;
+    return sceneMatch && regionMatch && formatMatch && tierMatch && taxonMatch && collectionMatch;
   }
 
   getFilteredCards() {
@@ -390,6 +452,7 @@ class CatalogFilterController {
   applyCollectionFilter(filter) {
     this.activeCollectionFilter = filter;
     this.searchInput.value = '';
+    this.updateSearchChrome();
     this.filterSceneCategory.value = 'All';
     this.filterRegion.value = 'All';
     this.filterFormat.value = 'All';
@@ -411,6 +474,27 @@ class CatalogFilterController {
     this.filterArchive({ scrollToGrid: true });
   }
 
+  updateSearchChrome() {
+    const hasQuery = Boolean(this.searchInput.value.trim());
+    document.body.classList.toggle('is-search-active', hasQuery);
+
+    if (this.zoneCollections) {
+      this.zoneCollections.classList.toggle('is-hidden-during-search', hasQuery);
+    }
+  }
+
+  scrollToResults() {
+    const anchor = this.resultsCount || this.zoneShowcase;
+    if (!anchor) return;
+
+    const headerOffset = Number.parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue('--header-h')
+    ) || 64;
+
+    const top = anchor.getBoundingClientRect().top + window.scrollY - headerOffset - 12;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  }
+
   updateResultsCount(total, shown) {
     const displayShown = shown ?? this.paginator.displayedCount;
     this.resultsCount.textContent = total === 0
@@ -429,8 +513,8 @@ class CatalogFilterController {
 
     this.paginator.resetAndRender();
 
-    if (options.scrollToGrid && this.zoneShowcase) {
-      this.zoneShowcase.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (options.scrollToGrid) {
+      requestAnimationFrame(() => this.scrollToResults());
     }
   }
 
@@ -446,7 +530,20 @@ class CatalogFilterController {
   }
 
   bindLegacyFilters() {
-    this.searchInput.addEventListener('input', () => this.filterArchive());
+    this.searchInput.addEventListener('input', () => {
+      this.updateSearchChrome();
+      this.filterArchive();
+    });
+
+    this.searchInput.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter') return;
+      event.preventDefault();
+
+      this.updateSearchChrome();
+      this.filterArchive({ scrollToGrid: Boolean(this.searchInput.value.trim()) });
+      this.searchInput.blur();
+    });
+
     this.filterSceneCategory.addEventListener('change', () => this.filterArchive());
     this.filterRegion.addEventListener('change', () => this.filterArchive());
     this.filterFormat.addEventListener('change', () => this.filterArchive());
@@ -462,4 +559,5 @@ window.IPFStockFilters = {
   CollectionPortal,
   ArchiveGridPaginator,
   ARCHIVE_BATCH_SIZE,
+  matchesSearchQuery,
 };
