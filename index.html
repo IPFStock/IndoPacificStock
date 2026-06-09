@@ -1206,6 +1206,12 @@
       color: #34d399;
     }
 
+    .rate-card-table .rate-contact {
+      color: #94a3b8;
+      font-style: italic;
+      white-space: normal;
+    }
+
     .checkout-btn {
       margin-top: auto;
       padding: 0.95rem 1.25rem;
@@ -1719,15 +1725,15 @@
             <p class="pricing-rate" id="modal-pricing-rate">$75 per second · 10-second minimum</p>
           </div>
           <div class="rate-card" aria-label="Rights-managed multiplier rate card">
-            <p class="rate-card-title">Rights-Managed Multipliers (10s Minimum Order)</p>
+            <p class="rate-card-title">Rights-Managed Multipliers (10 Sec Minimum Order)</p>
             <div class="rate-card-table-wrap">
               <table class="rate-card-table">
                 <thead>
                   <tr>
                     <th scope="col">Scope</th>
                     <th scope="col">Multiplier</th>
-                    <th scope="col" class="rate-min" data-tier-col="standard">Standard Min.</th>
-                    <th scope="col" class="rate-min" data-tier-col="premium">Premium Min.</th>
+                    <th scope="col" class="rate-min" data-tier-col="standard">Standard</th>
+                    <th scope="col" class="rate-min" data-tier-col="premium">Premium</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1754,6 +1760,10 @@
                     <td class="rate-multiplier">6.0×</td>
                     <td class="rate-min" data-tier-col="standard">$4,500 USD</td>
                     <td class="rate-min" data-tier-col="premium">$9,000 USD</td>
+                  </tr>
+                  <tr>
+                    <td class="rate-scope">Category Exclusivity (longer than 1 year)</td>
+                    <td class="rate-contact" colspan="3">Contact Directly</td>
                   </tr>
                 </tbody>
               </table>
@@ -2045,28 +2055,31 @@
       return `${VIDEO_CDN_BASE}/${fileName}`;
     }
 
+    function githubRawVideoUrl(fileName) {
+      return `${GITHUB_RAW_BASE}/${fileName}`;
+    }
+
+    function mp4FileNameFromAsset(data, slug, url) {
+      if (data?.technicalSpecs?.fileName) return data.technicalSpecs.fileName;
+      if (url) {
+        const ghRawMatch = url.match(/raw\.githubusercontent\.com\/[^/]+\/[^/]+\/[^/]+\/(.+)/i);
+        if (ghRawMatch) return ghRawMatch[1];
+        const ghBlobMatch = url.match(/github\.com\/[^/]+\/[^/]+\/raw\/(?:refs\/heads\/)?[^/]+\/(.+)/i);
+        if (ghBlobMatch) return ghBlobMatch[1];
+        if (/\.mp4$/i.test(url)) return url.split('/').pop();
+      }
+      return `${slug}.mp4`;
+    }
+
+    function videoFallbackUrl(primaryUrl, data, slug) {
+      const fileName = mp4FileNameFromAsset(data, slug, primaryUrl);
+      return fileName ? videoCdnUrl(fileName) : '';
+    }
+
     function normalizeVideoUrl(url, slug, data) {
-      const fileName = data?.technicalSpecs?.fileName || `${slug}.mp4`;
-      if (!url || url === 'https://github.com' || url.endsWith('github.com') || url.includes('githubusercontent.com{')) {
-        return videoCdnUrl(fileName);
-      }
-
-      const ghRawMatch = url.match(/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\/(.+)/i);
-      if (ghRawMatch) {
-        return `https://cdn.jsdelivr.net/gh/${ghRawMatch[1]}/${ghRawMatch[2]}@${ghRawMatch[3]}/${ghRawMatch[4]}`;
-      }
-
-      const ghBlobMatch = url.match(/github\.com\/([^/]+)\/([^/]+)\/raw\/(?:refs\/heads\/)?([^/]+)\/(.+)/i);
-      if (ghBlobMatch) {
-        return `https://cdn.jsdelivr.net/gh/${ghBlobMatch[1]}/${ghBlobMatch[2]}@${ghBlobMatch[3]}/${ghBlobMatch[4]}`;
-      }
-
-      if (/\.mp4$/i.test(url)) {
-        const parts = url.split('/');
-        return videoCdnUrl(parts[parts.length - 1]);
-      }
-
-      return videoCdnUrl(fileName);
+      const fileName = mp4FileNameFromAsset(data, slug, url);
+      // GitHub raw is authoritative — jsDelivr returns 403 on some larger MP4s.
+      return githubRawVideoUrl(fileName);
     }
 
     function inferMaxResolutionLabel(resolution) {
@@ -2259,10 +2272,13 @@
       if (status) status.hidden = false;
     }
 
-    function configureVideoElement(video, url) {
+    function configureVideoElement(video, url, fallbackUrl) {
       video.removeAttribute('crossorigin');
       video.referrerPolicy = 'no-referrer';
       video.src = url;
+      video.dataset.primarySrc = url;
+      video.dataset.fallbackSrc = fallbackUrl || '';
+      video.dataset.fallbackUsed = '';
     }
 
     function queueVideoSource(video, url, wrap) {
@@ -2279,7 +2295,8 @@
         if (!job?.video || job.video.dataset.loadedSrc === job.url) continue;
 
         activeVideoLoads += 1;
-        configureVideoElement(job.video, job.url);
+        const fallback = job.video.closest('.media-card')?.dataset.videoFallback || job.fallbackUrl || '';
+        configureVideoElement(job.video, job.url, fallback);
         job.video.dataset.loadedSrc = job.url;
         primeVideoThumb(job.video, job.wrap, () => {
           activeVideoLoads -= 1;
@@ -2328,10 +2345,32 @@
         markReady();
         finish();
       }, { once: true });
-      video.addEventListener('error', () => {
+      const handleVideoError = () => {
+        const fallback = video.dataset.fallbackSrc;
+        if (fallback && !video.dataset.fallbackUsed) {
+          video.dataset.fallbackUsed = '1';
+          wrap?.classList.remove('video-failed');
+          const status = wrap?.querySelector('.video-status--error');
+          if (status) status.hidden = true;
+          configureVideoElement(video, fallback, '');
+          video.dataset.loadedSrc = fallback;
+          video.addEventListener('loadedmetadata', seekToThumb, { once: true });
+          video.addEventListener('loadeddata', () => {
+            markReady();
+            finish();
+          }, { once: true });
+          video.addEventListener('error', () => {
+            showVideoError(wrap);
+            finish();
+          }, { once: true });
+          video.load();
+          return;
+        }
         showVideoError(wrap);
         finish();
-      }, { once: true });
+      };
+
+      video.addEventListener('error', handleVideoError, { once: true });
       video.load();
     }
 
@@ -2367,6 +2406,7 @@
 
     function buildCard(data, slug) {
       const videoUrl = normalizeVideoUrl(data.videoUrl, slug, data);
+      const videoFallback = videoFallbackUrl(videoUrl, data, slug);
       const durationLabel = resolveClipDuration(data);
       const metaLine = buildMetaLine(data);
       const keywords = resolveAssetKeywords(data);
@@ -2389,6 +2429,7 @@
       article.dataset.title = data.title;
       article.dataset.desc = data.description;
       article.dataset.video = videoUrl;
+      article.dataset.videoFallback = videoFallback;
       article.dataset.meta = metaLine;
       article.dataset.keywords = keywords.join(', ');
       const searchBlob = assetSearchText(enriched);
@@ -2679,7 +2720,8 @@
         modalMaxResolutionValue.textContent = '';
       }
 
-      configureVideoElement(modalVideo, normalizeVideoUrl(data.videoUrl, data.slug, data));
+      const modalVideoUrl = normalizeVideoUrl(data.videoUrl, data.slug, data);
+      configureVideoElement(modalVideo, modalVideoUrl, videoFallbackUrl(modalVideoUrl, data, data.slug));
       modalOverlay.classList.add('open');
       modalOverlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
@@ -2698,6 +2740,21 @@
 
       modalVideo.addEventListener('error', function onModalError() {
         modalVideo.removeEventListener('error', onModalError);
+        const fallback = modalVideo.dataset.fallbackSrc;
+        if (fallback && !modalVideo.dataset.fallbackUsed) {
+          modalVideo.dataset.fallbackUsed = '1';
+          configureVideoElement(modalVideo, fallback, '');
+          modalVideo.load();
+          modalVideo.addEventListener('loadeddata', function onModalFallbackReady() {
+            modalVideo.removeEventListener('loadeddata', onModalFallbackReady);
+            safePlay(modalVideo);
+          });
+          modalVideo.addEventListener('error', function onModalFallbackError() {
+            modalVideo.removeEventListener('error', onModalFallbackError);
+            showToast('Unable to load this clip — verify the video file is public.');
+          }, { once: true });
+          return;
+        }
         showToast('Unable to load this clip — verify the video file is public.');
       }, { once: true });
     }
