@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="How to utilize the Indo Pacific Stock rights-managed motion picture archive — search, licensing tiers, inquiry workflow, and master file delivery." />
+  <title>Licensing Guide — Indo Pacific Stock</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F8FAFC;
+      --surface: #FFFFFF;
+      --border: #E6E8EA;
+      --text: #0F172A;
+      --text-secondary: #334155;
+      --muted: #64748b;
+      --accent: #059669;
+      --header-bg: rgba(255, 255, 255, 0.96);
+      --header-h: 4rem;
+      --layout-max: 75rem;
+      --layout-gutter: 1.5rem;
+      --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --radius-sm: 8px;
+      --transition: 200ms ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .layout-rail {
+      width: 100%;
+      max-width: var(--layout-max);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--layout-gutter);
+      padding-right: var(--layout-gutter);
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: var(--header-h);
+      background: var(--header-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    .site-header-rail {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: opacity var(--transition);
+    }
+
+    .logo:hover { opacity: 0.88; }
+
+    .logo-icon {
+      flex-shrink: 0;
+      width: 1.25rem;
+      height: 1.25rem;
+      display: block;
+    }
+
+    .logo-wordmark {
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.35rem;
+      flex-shrink: 0;
+    }
+
+    .inquire-link {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .inquire-link:hover { color: var(--accent); }
+
+    .inquire-link.is-current {
+      color: var(--accent);
+    }
+
+    main {
+      flex: 1;
+      padding-top: calc(var(--header-h) + 2.5rem);
+      padding-bottom: 4rem;
+    }
+
+    .guide-doc {
+      max-width: 42rem;
+    }
+
+    .guide-kicker {
+      margin: 0 0 0.5rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .guide-title {
+      margin: 0;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text);
+    }
+
+    .guide-subtitle {
+      margin: 0.75rem 0 2.5rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .guide-steps {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .guide-step {
+      padding: 1.25rem 1.35rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .guide-step-label {
+      margin: 0 0 0.65rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .guide-step p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .guide-step p + p {
+      margin-top: 0.75rem;
+    }
+
+    .site-footer {
+      padding: 0.75rem 1.25rem;
+      background: rgba(255, 255, 255, 0.94);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .site-footer-line {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .site-footer-line a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-footer-line a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .logo-wordmark {
+        font-size: 0.82rem;
+        letter-spacing: 0.06em;
+      }
+
+      .header-nav { gap: 0.85rem; }
+
+      .inquire-link { font-size: 0.75rem; }
+
+      main {
+        padding-top: calc(var(--header-h) + 1.5rem);
+      }
+
+      .guide-step {
+        padding: 1rem 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="layout-rail site-header-rail">
+      <a href="index.html" class="logo" aria-label="Indo Pacific Stock home">
+        <svg class="logo-icon" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <circle cx="19" cy="19" r="17" stroke="#059669" stroke-width="1" opacity="0.25"/>
+          <circle cx="19" cy="19" r="11.5" stroke="#059669" stroke-width="1.2" opacity="0.75"/>
+          <path d="M19 7.5v23M7.5 19h23" stroke="#059669" stroke-width="0.75" opacity="0.45"/>
+          <circle cx="19" cy="19" r="3.5" fill="#059669" opacity="0.9"/>
+          <path d="M8 26 Q19 30 30 26" stroke="#059669" stroke-width="0.8" opacity="0.35" fill="none"/>
+        </svg>
+        <span class="logo-wordmark">Indo Pacific Stock</span>
+      </a>
+      <nav class="header-nav" aria-label="Site navigation">
+        <a href="licensing-guide.html" class="inquire-link is-current" aria-current="page">Licensing Guide</a>
+        <a href="mailto:licensing@indopacificstock.com" class="inquire-link">Inquire</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="layout-rail">
+      <article class="guide-doc">
+        <header>
+          <p class="guide-kicker">Archive Workflow</p>
+          <h1 class="guide-title">How to Utilize the Archive</h1>
+          <p class="guide-subtitle">Indo Pacific Stock · Rights Managed Motion Picture Archive</p>
+        </header>
+
+        <div class="guide-steps">
+          <section class="guide-step" aria-labelledby="guide-step-1">
+            <h2 class="guide-step-label" id="guide-step-1">1. Filter by Taxonomy</h2>
+            <p>Use the global search bar input or expand our category dropdown selectors to instantly isolate specific biological species, family classifications, or destinations. Input species name, common name, or behaviours to filter the archive.</p>
+          </section>
+
+          <section class="guide-step" aria-labelledby="guide-step-2">
+            <h2 class="guide-step-label" id="guide-step-2">2. Licensing Tiers</h2>
+            <p>Select any visual asset tile to view its Rights-Managed (RM) rates. Content is categorized into Standard or Premium tiers. Per-second billing rates apply for all tiers; a 10-second minimum rate does apply. Multiplier rates will apply depending on the usage terms, territories, and duration of use. Bulk rates may apply — please inquire directly.</p>
+          </section>
+
+          <section class="guide-step" aria-labelledby="guide-step-3">
+            <h2 class="guide-step-label" id="guide-step-3">3. Direct Inquiry</h2>
+            <p>For a single file, click the “Request License and Master Raw Files” button to communicate with us. This button will inform us of the Reel ID of your particular file. We will then send you the complete clip in low resolution, time-coded format.</p>
+            <p>If you are after more than one clip, compile your required production shot list referencing the Reel IDs. Connect directly with us using the Inquire button at the top to request the full low-resolution time-coded files and custom pricing.</p>
+          </section>
+
+          <section class="guide-step" aria-labelledby="guide-step-4">
+            <h2 class="guide-step-label" id="guide-step-4">4. Submit Timecode Logs</h2>
+            <p>Once you receive your time-stamped low-resolution proxy file, send us the exact “in” and “out” points you wish to license, along with the precise media distribution scope of your project.</p>
+          </section>
+
+          <section class="guide-step" aria-labelledby="guide-step-5">
+            <h2 class="guide-step-label" id="guide-step-5">5. Invoicing &amp; Payment Terms</h2>
+            <p>Upon receiving your shot logs, we will issue a formal corporate invoice in US Dollars (USD). All licensing fees must be settled via direct wire transfer to our designated corporate bank account in Singapore. Other payment options can be discussed.</p>
+          </section>
+
+          <section class="guide-step" aria-labelledby="guide-step-6">
+            <h2 class="guide-step-label" id="guide-step-6">6. Master File Delivery</h2>
+            <p>Upon payment validation, final master files are delivered cleanly without visual watermarks. Standard delivery is executed natively in REDCODE® RAW format for camera masters or Apple ProRes for high-resolution aerial drone files. If your post-production timeline requires a custom format, notify us during your timecode submission.</p>
+          </section>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer-line">© 2026 Indo Pacific Stock · All footage rights reserved · <a href="terms.html">Terms</a> · <a href="license-terms.html">License Terms</a> · <a href="privacy.html">Privacy</a></p>
+  </footer>
+
+</body>
+</html>

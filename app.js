@@ -93,24 +93,6 @@ class TaxonomicFilterEngine {
         select: selectElements.taxaCategory,
         read: (asset) => asset.category || '',
       },
-      {
-        field: 'family',
-        label: 'Family',
-        select: selectElements.taxaFamily,
-        read: (asset) => asset.technicalSpecs?.family || '',
-      },
-      {
-        field: 'species',
-        label: 'Common Name',
-        select: selectElements.taxaCommon,
-        read: (asset) => asset.species || '',
-      },
-      {
-        field: 'latinName',
-        label: 'Latin Name',
-        select: selectElements.taxaLatin,
-        read: (asset) => asset.technicalSpecs?.latinName || '',
-      },
     ];
 
     this.values = Object.fromEntries(this.chain.map(({ field }) => [field, 'Any']));
@@ -359,9 +341,7 @@ class CatalogFilterController {
     this.getCards = config.getCards;
     this.getAssetCatalog = config.getAssetCatalog;
     this.searchInput = config.searchInput;
-    this.filterSceneCategory = config.filterSceneCategory;
     this.filterRegion = config.filterRegion;
-    this.filterFormat = config.filterFormat;
     this.filterTier = config.filterTier;
     this.grid = config.grid;
     this.resultsCount = config.resultsCount;
@@ -398,12 +378,10 @@ class CatalogFilterController {
 
     const inputs = [
       this.searchInput,
-      this.filterSceneCategory,
       this.filterRegion,
-      this.filterFormat,
       this.filterTier,
       ...this.taxonomy.chain.map((item) => item.select),
-    ];
+    ].filter(Boolean);
     inputs.forEach((el) => {
       el.addEventListener('change', clearCollectionHighlight);
       el.addEventListener('input', clearCollectionHighlight);
@@ -450,19 +428,15 @@ class CatalogFilterController {
       return matchesSearchQuery(this.cardSearchText(card), query);
     }
 
-    const sceneCategory = this.filterSceneCategory.value;
     const region = this.filterRegion.value;
-    const format = this.filterFormat.value;
     const tier = this.filterTier ? this.filterTier.value : 'All';
 
-    const sceneMatch = this.matchesDropdown(sceneCategory, card.dataset.sceneCategory || 'Underwater');
     const regionMatch = this.matchesDropdown(region, card.dataset.region);
-    const formatMatch = this.matchesDropdown(format, card.dataset.format);
     const tierMatch = tier === 'All' || card.dataset.pricingTier === tier;
     const taxonMatch = this.taxonomy.matchesCard(card);
     const collectionMatch = this.matchesCollectionFilter(card);
 
-    return sceneMatch && regionMatch && formatMatch && tierMatch && taxonMatch && collectionMatch;
+    return regionMatch && tierMatch && taxonMatch && collectionMatch;
   }
 
   getFilteredCards() {
@@ -473,9 +447,7 @@ class CatalogFilterController {
     this.activeCollectionFilter = filter;
     this.searchInput.value = '';
     this.updateSearchChrome();
-    this.filterSceneCategory.value = 'All';
     this.filterRegion.value = 'All';
-    this.filterFormat.value = 'All';
     if (this.filterTier) this.filterTier.value = 'All';
     this.taxonomy.reset();
 
@@ -485,10 +457,6 @@ class CatalogFilterController {
 
     if (filter.category) {
       this.taxonomy.setCategory(filter.category);
-    }
-
-    if (filter.sceneCategory) {
-      this.filterSceneCategory.value = filter.sceneCategory;
     }
 
     this.filterArchive({ scrollToGrid: true });
@@ -564,9 +532,7 @@ class CatalogFilterController {
       this.searchInput.blur();
     });
 
-    this.filterSceneCategory.addEventListener('change', () => this.filterArchive());
     this.filterRegion.addEventListener('change', () => this.filterArchive());
-    this.filterFormat.addEventListener('change', () => this.filterArchive());
     if (this.filterTier) {
       this.filterTier.addEventListener('change', () => this.filterArchive());
     }
