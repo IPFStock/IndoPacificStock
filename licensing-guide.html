@@ -183,6 +183,24 @@
       margin-top: 0.75rem;
     }
 
+    .guide-step-list {
+      margin: 0.75rem 0 0;
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .guide-step-list li {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .guide-step-list strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
     .site-footer {
       padding: 0.75rem 1.25rem;
       background: rgba(255, 255, 255, 0.94);
@@ -258,8 +276,15 @@
 
         <div class="guide-steps">
           <section class="guide-step" aria-labelledby="guide-step-1">
-            <h2 class="guide-step-label" id="guide-step-1">1. Filter by Taxonomy</h2>
-            <p>Use the global search bar input or expand our category dropdown selectors to instantly isolate specific biological species, family classifications, or destinations. Input species name, common name, or behaviours to filter the archive.</p>
+            <h2 class="guide-step-label" id="guide-step-1">1. Search Bar</h2>
+            <p>Use our global search bar to instantly isolate specific clips. Our search engine is optimized for filtering across Geographic Locations (oceans, seas, regions, specific destinations) and Biological Taxonomy (species, genus, family groups, common names, or Latin scientific names). All clips are captioned with metadata tracking specific animals, behaviours, habitats and locations.</p>
+            <p>To accelerate your search workflow, utilize these protocols:</p>
+            <ul class="guide-step-list">
+              <li><strong>Partial Key Matching:</strong> Case-insensitive partial words work efficiently. Inputting “Barra” will instantly isolate all barracuda clips.</li>
+              <li><strong>Spacing Concerns:</strong> Input the simplest part of the word and results will show up. For example, searching “fan” will simultaneously show both “seafan” and “sea fan” results.</li>
+              <li><strong>Dynamic Inclusions:</strong> Root words will automatically pull relevant sub-taxonomies. Inputting man will isolate manta, manta rays, or “man in the background”.</li>
+              <li><strong>Technical Queries:</strong> For precise timeline matching, you can search by camera resolution or codec (Raw or ProRes).</li>
+            </ul>
           </section>
 
           <section class="guide-step" aria-labelledby="guide-step-2">
