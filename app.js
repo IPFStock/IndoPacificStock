@@ -79,13 +79,166 @@ function matchesSearchQuery(haystack, query) {
   return tokens.every((token) => searchTokenMatchesText(text, token));
 }
 
+const CATEGORY_TERM_BLOCKLIST = new Set([
+  'indonesia', 'pacific', 'ocean', 'national', 'park', 'underwater', 'marine',
+  'footage', 'sequence', 'documenting', 'history', 'natural', 'stock', 'clip',
+  'video', 'camera', 'native', 'format', 'rights', 'managed',
+]);
+
+const BROAD_CATEGORY_TAXONOMY_TERMS = {
+  'Pelagic & Open Ocean Schooling Fish': ['pelagic', 'open ocean', 'schooling fish', 'blue water', 'barracuda'],
+  'Benthic Reef Aggregations & Schooling Fish': ['benthic', 'schooling', 'sweetlips', 'ribbon', 'sweeper', 'golden', 'fusilier', 'batfish', 'aggregation'],
+  'Small Fish Life & Cryptic Bottom-Dwellers': ['goby', 'blenny', 'cryptic', 'bottom-dweller'],
+  'Apex Marine Predators & Elasmobranchii': ['shark', 'whitetip', 'manta', 'elasmobranch', 'triaenodon', 'predator'],
+  'Marine Megafauna, Reptiles & Ocean Mammals': ['turtle', 'hawksbill', 'chelonia', 'eretmochelys', 'dolphin', 'whale', 'megafauna', 'reptile'],
+  'Cephalopods': ['octopus', 'cephalopod', 'squid', 'cuttlefish'],
+  'Mollusks': ['mollusk', 'nudibranch', 'clam', 'snail'],
+  'Marine Habitats, Sponges & Corals': [
+    'coral', 'corals', 'sponge', 'sponges', 'acropora', 'gorgonian', 'seafan',
+    'barrel sponge', 'table coral', 'soft coral', 'hard coral', 'reef habitat',
+  ],
+  'Reef Associated Fish': ['reef fish', 'moorish idol', 'zanclus', 'angelfish', 'anthias', 'butterflyfish', 'damselfish', 'wrasse'],
+  'Pipefish/Seahorses': ['pipefish', 'seahorse', 'syngnathidae'],
+  'Crustaceans and Misc Macro Life': ['shrimp', 'crab', 'crustacean', 'macro'],
+  'Worms and Echinoderms': ['worm', 'polychaete', 'starfish', 'urchin', 'echinoderm', 'sea cucumber', 'brittle star', 'feather star'],
+  'Terrestrial Mammals, Marsupials & Megafauna': ['kangaroo', 'wallaby', 'marsupial', 'orangutan', 'babirusa', 'terrestrial mammal'],
+  'Terrestrial Reptiles & Herpetofauna': ['komodo dragon', 'varanus', 'python', 'cobra', 'snake', 'herpetofauna', 'monitor lizard'],
+  'Avian Bird Species': ['bird', 'avian', 'eagle', 'hornbill', 'parrot', 'kingfisher', 'tern', 'seabird', 'cockatoo', 'heron', 'pelican'],
+  'Coastal Landscapes Drone Aerials': ['aerial', 'drone', 'landscape', 'coastal', 'scenery', 'sunset', 'sunray', 'seascape'],
+  'Indo-Pacific Cultural Documentations & Editorial Scenes': ['culture', 'cultural', 'village', 'editorial'],
+};
+
+function extractSignificantTerms(text) {
+  const terms = new Set();
+  String(text || '')
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, ' ')
+    .split(/\s+/)
+    .map(cleanSearchToken)
+    .filter((token) => token.length >= 3 && !SEARCH_STOP_WORDS.has(token) && !CATEGORY_TERM_BLOCKLIST.has(token))
+    .forEach((token) => terms.add(token));
+  return terms;
+}
+
+function tokenizeCategoryLabel(category) {
+  return extractSignificantTerms(String(category || '').replace(/&/g, ' ').replace(/,/g, ' '));
+}
+
+function collectAssetVocabulary(asset) {
+  const terms = new Set();
+  const spec = asset.technicalSpecs || {};
+  const fields = [
+    asset.title,
+    asset.description,
+    asset.species,
+    spec.family,
+    spec.latinName,
+  ];
+
+  fields.filter(Boolean).forEach((text) => {
+    extractSignificantTerms(text).forEach((term) => terms.add(term));
+  });
+
+  if (Array.isArray(asset.keywords)) {
+    asset.keywords.forEach((keyword) => {
+      const phrase = String(keyword).trim().toLowerCase();
+      if (!phrase || phrase.length < 3) return;
+      if (!SEARCH_STOP_WORDS.has(phrase) && !CATEGORY_TERM_BLOCKLIST.has(phrase)) {
+        terms.add(phrase);
+      }
+      extractSignificantTerms(phrase).forEach((term) => terms.add(term));
+    });
+  }
+
+  return terms;
+}
+
+function buildCategoryTermIndex(assets) {
+  const index = {};
+  const globalTermCounts = new Map();
+  const categoryTermCounts = {};
+
+  const addTerm = (category, term, { force = false } = {}) => {
+    if (!category || !term) return;
+    const normalized = String(term).trim().toLowerCase();
+    if (normalized.length < 3) return;
+    if (!force && (SEARCH_STOP_WORDS.has(normalized) || CATEGORY_TERM_BLOCKLIST.has(normalized))) return;
+    if (!index[category]) index[category] = new Set();
+    index[category].add(normalized);
+  };
+
+  const assetTerms = assets.map((asset) => ({
+    category: asset.category || '',
+    terms: collectAssetVocabulary(asset),
+  }));
+
+  assetTerms.forEach(({ terms }) => {
+    terms.forEach((term) => {
+      globalTermCounts.set(term, (globalTermCounts.get(term) || 0) + 1);
+    });
+  });
+
+  assetTerms.forEach(({ category, terms }) => {
+    if (!category) return;
+    if (!categoryTermCounts[category]) categoryTermCounts[category] = new Map();
+    terms.forEach((term) => {
+      categoryTermCounts[category].set(
+        term,
+        (categoryTermCounts[category].get(term) || 0) + 1,
+      );
+    });
+  });
+
+  const totalAssets = assets.length;
+  const maxUbiquitous = Math.max(3, Math.ceil(totalAssets * 0.22));
+
+  Object.entries(categoryTermCounts).forEach(([category, termCounts]) => {
+    termCounts.forEach((inCategoryCount, term) => {
+      const globalCount = globalTermCounts.get(term) || 0;
+      const outsideCount = globalCount - inCategoryCount;
+      const categoryShare = inCategoryCount / globalCount;
+      const distinctive = inCategoryCount >= 1
+        && globalCount <= maxUbiquitous
+        && (outsideCount === 0 || categoryShare >= 0.55);
+
+      if (distinctive) addTerm(category, term);
+    });
+
+    tokenizeCategoryLabel(category).forEach((term) => addTerm(category, term, { force: true }));
+  });
+
+  Object.entries(BROAD_CATEGORY_TAXONOMY_TERMS).forEach(([category, extras]) => {
+    extras.forEach((term) => addTerm(category, term, { force: true }));
+  });
+
+  return index;
+}
+
+function matchesBroadCategory(card, selectedCategory, getCardSearchText, categoryTermIndex) {
+  if (!selectedCategory || selectedCategory === 'Any') return true;
+  if (card.dataset.category === selectedCategory) return true;
+
+  const terms = categoryTermIndex?.[selectedCategory];
+  if (!terms || terms.size === 0) {
+    return card.dataset.category === selectedCategory;
+  }
+
+  const haystack = typeof getCardSearchText === 'function'
+    ? getCardSearchText(card)
+    : '';
+
+  return [...terms].some((term) => searchTokenMatchesText(haystack, term));
+}
+
 /**
  * Multi-tier taxonomic filter engine with cascading dependency chain.
  */
 class TaxonomicFilterEngine {
-  constructor(selectElements, onChange) {
+  constructor(selectElements, onChange, options = {}) {
     this.onChange = onChange;
+    this.getCardSearchText = options.getCardSearchText || null;
     this.assets = [];
+    this.categoryTermIndex = {};
     this.chain = [
       {
         field: 'category',
@@ -104,6 +257,7 @@ class TaxonomicFilterEngine {
 
   setAssets(assets) {
     this.assets = Array.isArray(assets) ? assets : [];
+    this.categoryTermIndex = buildCategoryTermIndex(this.assets);
     this.syncAllDropdowns(0);
   }
 
@@ -207,7 +361,14 @@ class TaxonomicFilterEngine {
       const selected = this.values[field];
       if (selected === 'Any') return true;
 
-      if (field === 'category') return card.dataset.category === selected;
+      if (field === 'category') {
+        return matchesBroadCategory(
+          card,
+          selected,
+          this.getCardSearchText,
+          this.categoryTermIndex,
+        );
+      }
       if (field === 'species') return card.dataset.species === selected;
       if (field === 'family') return card.dataset.family === selected;
       if (field === 'latinName') return card.dataset.latinName === selected;
@@ -353,7 +514,11 @@ class CatalogFilterController {
     this.collectionPortal = null;
     this.activeCollectionFilter = null;
 
-    this.taxonomy = new TaxonomicFilterEngine(config.taxonomicSelects, () => this.filterArchive());
+    this.taxonomy = new TaxonomicFilterEngine(
+      config.taxonomicSelects,
+      () => this.filterArchive(),
+      { getCardSearchText: config.cardSearchText },
+    );
 
     this.paginator = new ArchiveGridPaginator({
       grid: this.grid,
@@ -546,4 +711,7 @@ window.IPFStockFilters = {
   ArchiveGridPaginator,
   ARCHIVE_BATCH_SIZE,
   matchesSearchQuery,
+  matchesBroadCategory,
+  buildCategoryTermIndex,
+  BROAD_CATEGORY_TAXONOMY_TERMS,
 };

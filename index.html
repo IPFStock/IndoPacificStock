@@ -312,7 +312,8 @@
     }
 
     .search-canvas {
-      background: #161b22;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 4px;
       padding: 1rem 1.25rem 0.9rem;
     }
@@ -329,7 +330,7 @@
       background: transparent;
       border: none;
       border-radius: 0;
-      color: #f8fafc;
+      color: var(--text);
       font-size: 0.92rem;
       font-weight: 400;
       font-family: inherit;
@@ -337,7 +338,7 @@
     }
 
     .search-input::placeholder {
-      color: #8b949e;
+      color: var(--muted);
       font-weight: 300;
     }
 
@@ -361,7 +362,7 @@
       gap: 0.75rem 1.5rem;
       margin-top: 0.65rem;
       padding-top: 0.65rem;
-      border-top: 1px solid rgba(248, 250, 252, 0.08);
+      border-top: 1px solid var(--border);
     }
 
     .filter-select {
@@ -372,7 +373,7 @@
       border: none;
       border-bottom: 1px solid transparent;
       border-radius: 0;
-      color: #8b949e;
+      color: var(--muted);
       font-size: 0.75rem;
       font-weight: 500;
       font-family: inherit;
@@ -380,26 +381,26 @@
       text-transform: uppercase;
       cursor: pointer;
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%238b949e' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 0 center;
       transition: color var(--transition), border-color var(--transition);
     }
 
     .filter-select:hover {
-      color: #cbd5e1;
-      border-bottom-color: rgba(248, 250, 252, 0.12);
+      color: var(--text-secondary);
+      border-bottom-color: var(--border);
     }
 
     .filter-select:focus {
       outline: none;
-      color: #e6edf3;
-      border-bottom-color: rgba(248, 250, 252, 0.22);
+      color: var(--text);
+      border-bottom-color: var(--border-strong);
     }
 
     .filter-select option {
-      background: #161b22;
-      color: #f8fafc;
+      background: var(--surface);
+      color: var(--text);
       text-transform: none;
       letter-spacing: 0;
     }
@@ -431,18 +432,18 @@
         font-size: 0.75rem;
         font-weight: 400;
         letter-spacing: 0.03em;
-        color: #8b949e;
+        color: var(--muted);
         cursor: pointer;
         transition: color var(--transition);
       }
 
       .mobile-filter-toggle:hover,
       .mobile-filter-toggle:focus-visible {
-        color: #cbd5e1;
+        color: var(--text-secondary);
       }
 
       .mobile-filter-toggle:focus-visible {
-        outline: 1px solid rgba(248, 250, 252, 0.2);
+        outline: 1px solid var(--border-strong);
         outline-offset: 3px;
       }
 
@@ -459,7 +460,7 @@
         display: none;
         margin-top: 0.55rem;
         padding-top: 0.55rem;
-        border-top: 1px solid rgba(248, 250, 252, 0.08);
+        border-top: 1px solid var(--border);
       }
 
       .mobile-filter-panel.is-expanded .macro-filters-row {
@@ -1562,7 +1563,7 @@
   </style>
 </head>
 <body>
-  <!-- deploy: minimal-filter-v1 -->
+  <!-- deploy: white-search-v1 -->
 
   <header class="site-header">
     <div class="layout-rail site-header-rail">
@@ -1578,7 +1579,7 @@
       </a>
       <nav class="header-nav" aria-label="Site navigation">
         <div class="licensing-guide-trigger">
-          <a href="licensing-guide.html" class="inquire-link">Licensing Guide</a>
+          <a href="licensing-guide.html" class="inquire-link" target="_blank" rel="noopener noreferrer">How it Works</a>
           <div class="licensing-guide-preview" aria-hidden="true">
             <p class="licensing-guide-preview-title">How to Utilize the Archive</p>
             <p class="licensing-guide-preview-kicker">Indo Pacific Stock · Rights Managed Motion Picture Archive</p>
@@ -1592,10 +1593,10 @@
                 Standard or Premium RM rates with per-second billing and usage multipliers.
               </li>
             </ul>
-            <a href="licensing-guide.html" class="licensing-guide-preview-cta">Open full guide</a>
+            <a href="licensing-guide.html" class="licensing-guide-preview-cta" target="_blank" rel="noopener noreferrer">Open full guide</a>
           </div>
         </div>
-        <a href="mailto:licensing@indopacificstock.com" class="inquire-link">Inquire</a>
+        <a href="mailto:licensing@indopacificstock.com" class="inquire-link" target="_blank" rel="noopener noreferrer">Inquire</a>
       </nav>
     </div>
   </header>
@@ -1788,6 +1789,8 @@
           <a
             href="mailto:licensing@indopacificstock.com?subject=Shot%20List%20Request"
             class="b2b-utility-cta"
+            target="_blank"
+            rel="noopener noreferrer"
           >Submit Shot List Request</a>
         </div>
         <div class="b2b-utility-column b2b-utility-column--right">
@@ -1796,6 +1799,8 @@
           <a
             href="mailto:licensing@indopacificstock.com?subject=Assignment%20Hire%20Inquiry"
             class="b2b-utility-cta"
+            target="_blank"
+            rel="noopener noreferrer"
           >Inquire About Assignment Hire</a>
         </div>
       </div>
@@ -1803,7 +1808,7 @@
   </main>
 
   <footer class="site-footer">
-    <p class="site-footer-line">© 2026 Indo Pacific Stock · All footage rights reserved · <a href="terms.html">Terms</a> · <a href="license-terms.html">License Terms</a> · <a href="privacy.html">Privacy</a></p>
+    <p class="site-footer-line">© 2026 Indo Pacific Stock · All footage rights reserved · <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms</a> · <a href="license-terms.html" target="_blank" rel="noopener noreferrer">License Terms</a> · <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a></p>
   </footer>
 
   <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
