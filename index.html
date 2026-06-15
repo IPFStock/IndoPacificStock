@@ -1261,6 +1261,16 @@
       align-items: center;
     }
 
+    .rate-card[data-active-tier] .rate-card-grid-head,
+    .rate-card[data-active-tier] .rate-card-grid {
+      grid-template-columns: 5.5rem 1fr;
+    }
+
+    .rate-card[data-active-tier='standard'] [data-tier-col='premium'],
+    .rate-card[data-active-tier='premium'] [data-tier-col='standard'] {
+      display: none;
+    }
+
     .rate-card-grid-head {
       margin-bottom: 0.35rem;
       padding-bottom: 0.4rem;
@@ -1498,6 +1508,11 @@
         grid-template-columns: 4.75rem 1fr 1fr;
         column-gap: 0.85rem;
         row-gap: 0.3rem;
+      }
+
+      .rate-card[data-active-tier] .rate-card-grid-head,
+      .rate-card[data-active-tier] .rate-card-grid {
+        grid-template-columns: 4.75rem 1fr;
       }
 
       .rate-scope,
@@ -1839,7 +1854,7 @@
             <p class="pricing-tier" id="modal-pricing-tier">Standard</p>
             <p class="pricing-rate" id="modal-pricing-rate">$75 per second · 10-second minimum</p>
           </div>
-          <div class="rate-card" aria-label="Rights-managed multiplier rate card">
+          <div class="rate-card" id="modal-rate-card" aria-label="Rights-managed multiplier rate card">
             <p class="rate-card-title">Rights-Managed Multipliers (10 Sec Minimum Order)</p>
             <div class="rate-card-body">
               <div class="rate-card-grid-head" aria-hidden="true">
@@ -1928,12 +1943,85 @@
     const modalLicenseType = document.getElementById('modal-license-type');
     const modalPricingTier = document.getElementById('modal-pricing-tier');
     const modalPricingRate = document.getElementById('modal-pricing-rate');
+    const modalRateCard = document.getElementById('modal-rate-card');
     const checkoutBtn = document.getElementById('checkout-btn');
 
     const PRICING_TIERS = {
       standard: { label: 'Standard', ratePerSecond: 75, minimumSeconds: 10 },
       premium: { label: 'Premium', ratePerSecond: 150, minimumSeconds: 10 },
     };
+
+    const LICENSING_EMAIL = 'licensing@indopacificstock.com';
+
+    function getLicenseRequestEmail() {
+      const override = new URLSearchParams(window.location.search).get('licenseEmail');
+      return override && override.includes('@') ? override.trim() : LICENSING_EMAIL;
+    }
+
+    function buildLicenseRequestMailto(asset) {
+      const spec = asset.technicalSpecs || {};
+      const reelId = spec.originalCameraCode || spec.fileName || asset.slug || 'Unknown';
+      const licenseLabel = resolveLicenseLabel(asset);
+      const pricing = resolvePricingDetails(asset);
+      const duration = resolveClipDuration(asset);
+      const subject = `License Request — ${reelId}`;
+      const body = [
+        'Hello Indo Pacific Stock Licensing,',
+        '',
+        'I would like to request license terms and master raw files for the following clip:',
+        '',
+        `Reel ID: ${reelId}`,
+        `Title: ${asset.title}`,
+        `License Type: ${licenseLabel}`,
+        `Pricing Tier: ${pricing.tierLabel}`,
+        duration && `Duration: ${duration}`,
+        spec.resolution && `Resolution: ${spec.resolution}`,
+        asset.region && `Location: ${asset.region}`,
+        asset.description && `Description: ${asset.description}`,
+        '',
+        'Please advise on rates and delivery of low-resolution time-coded review files.',
+        '',
+        '—',
+        '(Sent via Indo Pacific Stock catalog)',
+      ].filter(Boolean).join('\n');
+
+      const recipient = getLicenseRequestEmail();
+      return `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+
+    function previewLicenseRequestEmail(asset) {
+      const spec = asset.technicalSpecs || {};
+      const reelId = spec.originalCameraCode || spec.fileName || asset.slug || 'Unknown';
+      const licenseLabel = resolveLicenseLabel(asset);
+      const pricing = resolvePricingDetails(asset);
+      const duration = resolveClipDuration(asset);
+      const subject = `License Request — ${reelId}`;
+      const body = [
+        'Hello Indo Pacific Stock Licensing,',
+        '',
+        'I would like to request license terms and master raw files for the following clip:',
+        '',
+        `Reel ID: ${reelId}`,
+        `Title: ${asset.title}`,
+        `License Type: ${licenseLabel}`,
+        `Pricing Tier: ${pricing.tierLabel}`,
+        duration && `Duration: ${duration}`,
+        spec.resolution && `Resolution: ${spec.resolution}`,
+        asset.region && `Location: ${asset.region}`,
+        asset.description && `Description: ${asset.description}`,
+        '',
+        'Please advise on rates and delivery of low-resolution time-coded review files.',
+        '',
+        '—',
+        '(Sent via Indo Pacific Stock catalog)',
+      ].filter(Boolean).join('\n');
+
+      return {
+        to: getLicenseRequestEmail(),
+        subject,
+        body,
+      };
+    }
 
     const assetCatalog = new Map();
     const cardSearchIndex = new WeakMap();
@@ -2270,30 +2358,79 @@
 
       modalPricingRate.textContent = pricing.rateLine;
 
-      document.querySelectorAll('.rate-card [data-tier-col]').forEach((cell) => {
-        cell.classList.toggle('is-active-tier', cell.dataset.tierCol === tierKey);
-      });
+      if (modalRateCard) {
+        modalRateCard.dataset.activeTier = tierKey;
+        modalRateCard.querySelectorAll('[data-tier-col]').forEach((cell) => {
+          cell.classList.toggle('is-active-tier', cell.dataset.tierCol === tierKey);
+        });
+      }
     }
 
-    function formatDurationLabel(duration) {
+    function parseClipFps(fps) {
+      if (!fps) return 24;
+      const value = String(fps).trim();
+      const fraction = value.match(/^(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)$/);
+      if (fraction) {
+        const numerator = parseFloat(fraction[1]);
+        const denominator = parseFloat(fraction[2]);
+        if (denominator > 0) return numerator / denominator;
+      }
+      const numeric = parseFloat(value);
+      return Number.isFinite(numeric) && numeric > 0 ? numeric : 24;
+    }
+
+    function parseSmpteFrames(tc, fps) {
+      const match = String(tc).trim().match(/^(\d+):(\d{1,2}):(\d{1,2}):(\d{1,3})$/);
+      if (!match) return null;
+      const frameRate = parseClipFps(fps);
+      const hours = Number(match[1]);
+      const minutes = Number(match[2]);
+      const seconds = Number(match[3]);
+      const frames = Number(match[4]);
+      return Math.round((hours * 3600 + minutes * 60 + seconds) * frameRate + frames);
+    }
+
+    function formatSecondsAsLabel(totalSeconds) {
+      const rounded = Math.max(0, Math.round(totalSeconds));
+      const hours = Math.floor(rounded / 3600);
+      const minutes = Math.floor((rounded % 3600) / 60);
+      const seconds = rounded % 60;
+      if (hours > 0) {
+        return `${hours}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      }
+      return `${minutes}:${String(seconds).padStart(2, '0')}`;
+    }
+
+    function formatDurationLabel(duration, fps = 24) {
       if (!duration) return '';
       if (typeof duration === 'number' && Number.isFinite(duration) && duration > 0) {
-        const totalSeconds = Math.round(duration);
-        const hours = Math.floor(totalSeconds / 3600);
-        const minutes = Math.floor((totalSeconds % 3600) / 60);
-        const seconds = totalSeconds % 60;
-        if (hours > 0) {
-          return `${hours}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-        }
-        return `${minutes}:${String(seconds).padStart(2, '0')}`;
+        return formatSecondsAsLabel(duration);
       }
+
       const value = String(duration).trim();
+      if (/\s-\s/.test(value)) {
+        const parts = value.split(/\s-\s/).map((part) => part.trim());
+        if (parts.length === 2) {
+          const startFrames = parseSmpteFrames(parts[0], fps);
+          const endFrames = parseSmpteFrames(parts[1], fps);
+          if (startFrames != null && endFrames != null) {
+            const frameRate = parseClipFps(fps);
+            return formatSecondsAsLabel(Math.max(0, (endFrames - startFrames) / frameRate));
+          }
+        }
+      }
+
+      const smpteFrames = parseSmpteFrames(value, fps);
+      if (smpteFrames != null) {
+        return formatSecondsAsLabel(smpteFrames / parseClipFps(fps));
+      }
+
       return value.replace(/^00:/, '');
     }
 
     function resolveClipDuration(data) {
       const spec = data?.technicalSpecs || {};
-      return formatDurationLabel(spec.duration || data?.duration || '');
+      return formatDurationLabel(spec.duration || data?.duration || '', spec.fps);
     }
 
     function captureDurationFromVideo(video, data) {
@@ -2303,7 +2440,8 @@
 
       data.duration = video.duration;
       if (!data.technicalSpecs) data.technicalSpecs = {};
-      if (!data.technicalSpecs.duration) {
+      const stored = data.technicalSpecs.duration;
+      if (!stored || /\s-\s/.test(String(stored))) {
         data.technicalSpecs.duration = formatted;
       }
     }
@@ -2673,7 +2811,7 @@
         { pattern: /kangaroo|wallaby|marsupial|orangutan|monkey|babirusa|terrestrial mammal/, category: T.TERRESTRIAL_MAMMALS, species: 'Terrestrial Mammal', family: 'Mammalia', latinName: 'Mammalia sp.' },
         { pattern: /komodo dragon|varanus komodoensis/, category: T.TERRESTRIAL_REPTILES, species: 'Komodo Dragon', family: 'Varanidae (Monitor Lizards)', latinName: 'Varanus komodoensis' },
         { pattern: /python|cobra|snake|herpetofauna|monitor lizard|terrestrial reptile/, category: T.TERRESTRIAL_REPTILES, species: 'Terrestrial Reptile', family: 'Reptilia', latinName: 'Reptilia sp.' },
-        { pattern: /bird|eagle|hornbill|parrot|kingfisher|tern|seabird|avian|cockatoo|heron|pelican/, category: T.AVIAN, species: 'Bird', family: 'Aves', latinName: 'Aves sp.' },
+        { pattern: /bird|eagle|hornbill|parrot|kingfisher|\btern\b|seabird|avian|cockatoo|\bheron\b|pelican/, category: T.AVIAN, species: 'Bird', family: 'Aves', latinName: 'Aves sp.' },
         { pattern: /culture|village|editorial/, category: T.CULTURAL, species: 'Cultural Scene', family: '', latinName: '' },
       ];
 
@@ -2915,11 +3053,22 @@
 
     checkoutBtn.addEventListener('click', () => {
       if (!activeAsset) return;
-      const licenseLabel = resolveLicenseLabel(activeAsset);
-      const pricing = resolvePricingDetails(activeAsset);
-      showToast(`Inquiry received — ${activeAsset.title} (${licenseLabel}, ${pricing.tierLabel} Tier). Our licensing team will respond shortly.`);
+      const mailto = buildLicenseRequestMailto(activeAsset);
+      const usingTestInbox = getLicenseRequestEmail() !== LICENSING_EMAIL;
+      window.location.href = mailto;
+      showToast(
+        usingTestInbox
+          ? `Opening your email app — test message addressed to ${getLicenseRequestEmail()}.`
+          : 'Opening your email app with this clip inquiry…',
+      );
       closeModal();
     });
+
+    window.IPFStockLicensing = {
+      buildLicenseRequestMailto,
+      previewLicenseRequestEmail,
+      getLicenseRequestEmail,
+    };
 
     await loadCatalog();
   })();

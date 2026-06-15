@@ -5,6 +5,8 @@
   "species": "Dolphins",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
+  "licenseType": "commercial",
+  "pricingTier": "standard",
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -59,7 +61,7 @@
     "cameraFormat": "REDcode 8:1",
     "fps": "96",
     "aspectRatio": "1:09",
-    "duration": "",
+    "duration": "00:01:54:10",
     "sceneCategory": "Underwater",
     "family": "Delphinidae (Dolphins)",
     "latinName": "Delphinidae sp."

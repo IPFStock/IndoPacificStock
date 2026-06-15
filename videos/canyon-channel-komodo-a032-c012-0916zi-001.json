@@ -5,6 +5,8 @@
   "species": "Coral Reef Habitat",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
+  "licenseType": "commercial",
+  "pricingTier": "premium",
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -60,7 +62,7 @@
     "cameraFormat": "REDcode 4:1",
     "fps": "59.94",
     "aspectRatio": "2.37",
-    "duration": "",
+    "duration": "00:00:20:08",
     "sceneCategory": "Underwater",
     "family": "",
     "latinName": ""

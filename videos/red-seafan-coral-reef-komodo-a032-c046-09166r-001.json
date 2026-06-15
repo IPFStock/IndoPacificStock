@@ -1,10 +1,12 @@
 {
   "title": "Red Seafan Coral Reef Komodo",
-  "category": "Avian Bird Species",
+  "category": "Reef Associated Fish",
   "region": "Komodo",
-  "species": "Bird",
+  "species": "Marine Life",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
+  "licenseType": "commercial",
+  "pricingTier": "premium",
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -19,9 +21,7 @@
     "5k r3d",
     "5k red raw",
     "afternoon",
-    "avian",
-    "avian bird species",
-    "bird",
+    "associated",
     "close",
     "close up pushing past a red sea fan in afternoon light with tropical fish in the water column",
     "column",
@@ -34,7 +34,10 @@
     "indonesia",
     "komodo",
     "komodo national park",
+    "life",
     "light",
+    "marine",
+    "marine life",
     "national",
     "ocean",
     "pacific",
@@ -45,8 +48,7 @@
     "r3d",
     "raw",
     "red",
-    "red seafan coral reef komodo",
-    "redcode"
+    "red seafan coral reef komodo"
   ],
   "technicalSpecs": {
     "fileName": "A032_C046_09166R.mp4",
@@ -60,10 +62,10 @@
     "cameraFormat": "REDcode 4:1",
     "fps": "59.94",
     "aspectRatio": "2.37",
-    "duration": "",
+    "duration": "00:01:03:00",
     "sceneCategory": "Underwater",
-    "family": "Aves",
-    "latinName": "Aves sp."
+    "family": "",
+    "latinName": ""
   },
   "syncSource": "csv"
 }

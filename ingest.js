@@ -436,7 +436,7 @@ const TAXON_PATTERN_RULES = [
     },
   },
   {
-    pattern: /avian|bird of prey|hornbill|parrot|kingfisher|tern|seabird|cockatoo|heron|egret|pelican|eagle|osprey|frigatebird|(?<![a-z])bird/i,
+    pattern: /avian|bird of prey|hornbill|parrot|kingfisher|\btern\b|seabird|cockatoo|\bheron\b|\begret\b|pelican|eagle|osprey|frigatebird|(?<![a-z])bird/i,
     taxon: {
       category: BROAD_TAXA.AVIAN,
       species: 'Bird',
@@ -744,18 +744,77 @@ function parseFpsValue(fps) {
   return Number.isFinite(numeric) && numeric > 0 ? numeric : 24;
 }
 
-function formatDurationFromSeconds(totalSeconds, fps = 24) {
-  if (!Number.isFinite(totalSeconds) || totalSeconds <= 0) return '';
+function formatDurationFromFrames(totalFrames, fps = 24) {
+  if (!Number.isFinite(totalFrames) || totalFrames <= 0) return '';
 
-  const wholeSeconds = Math.floor(totalSeconds);
-  const frameRate = Number.isFinite(fps) && fps > 0 ? fps : 24;
-  const frames = Math.min(Math.max(0, Math.round((totalSeconds - wholeSeconds) * frameRate)), Math.ceil(frameRate) - 1);
+  const frameRate = parseFpsValue(fps);
+  const frameCount = Math.max(0, Math.round(totalFrames));
+  const frameMod = Math.max(1, Math.round(frameRate));
+  const frames = frameCount % frameMod;
+  const totalSecondsInt = Math.floor(frameCount / frameRate);
   const pad = (value) => String(value).padStart(2, '0');
-  const hours = Math.floor(wholeSeconds / 3600);
-  const minutes = Math.floor((wholeSeconds % 3600) / 60);
-  const seconds = wholeSeconds % 60;
+  const hours = Math.floor(totalSecondsInt / 3600);
+  const minutes = Math.floor((totalSecondsInt % 3600) / 60);
+  const seconds = totalSecondsInt % 60;
 
   return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}:${pad(frames)}`;
+}
+
+function formatDurationFromSeconds(totalSeconds, fps = 24) {
+  if (!Number.isFinite(totalSeconds) || totalSeconds <= 0) return '';
+  const frameRate = parseFpsValue(fps);
+  return formatDurationFromFrames(Math.max(0, Math.round(totalSeconds * frameRate)), frameRate);
+}
+
+const TIMECODE_PATTERN = /^(\d+):(\d{1,2}):(\d{1,2}):(\d{1,3})$/;
+
+function parseTimecodeFrames(tc, fps = 24) {
+  const match = String(tc).trim().match(TIMECODE_PATTERN);
+  if (!match) return null;
+
+  const hours = Number(match[1]);
+  const minutes = Number(match[2]);
+  const seconds = Number(match[3]);
+  const frames = Number(match[4]);
+  const frameRate = parseFpsValue(fps);
+
+  return Math.round((hours * 3600 + minutes * 60 + seconds) * frameRate + frames);
+}
+
+function isTimecodeRange(duration) {
+  return /\s-\s/.test(String(duration || ''));
+}
+
+function durationNeedsNormalization(duration) {
+  if (!duration) return false;
+  const value = String(duration);
+  if (isTimecodeRange(value)) return true;
+  return /\.\d/.test(value);
+}
+
+function normalizeCsvDuration(rawDuration, fps) {
+  if (!rawDuration) return '';
+
+  const value = String(rawDuration).trim();
+  if (isTimecodeRange(value)) {
+    const parts = value.split(/\s-\s/).map((part) => part.trim());
+    if (parts.length !== 2) return value;
+
+    const startFrames = parseTimecodeFrames(parts[0], fps);
+    const endFrames = parseTimecodeFrames(parts[1], fps);
+    if (startFrames == null || endFrames == null) return value;
+
+    const frameRate = parseFpsValue(fps);
+    const frameDiff = Math.max(0, endFrames - startFrames);
+    return formatDurationFromFrames(frameDiff, frameRate);
+  }
+
+  const totalFrames = parseTimecodeFrames(value, fps);
+  if (totalFrames != null) {
+    return formatDurationFromFrames(totalFrames, fps);
+  }
+
+  return value;
 }
 
 async function probeMp4Duration(ffprobePath, mediaUrl) {
@@ -777,7 +836,27 @@ async function probeMp4Duration(ffprobePath, mediaUrl) {
   return Number.isFinite(seconds) && seconds > 0 ? seconds : null;
 }
 
+function normalizeCatalogDurations(catalog) {
+  let normalized = 0;
+  catalog.forEach((data) => {
+    const spec = data.technicalSpecs || {};
+    if (!durationNeedsNormalization(spec.duration)) return;
+    const next = normalizeCsvDuration(spec.duration, spec.fps);
+    if (next && next !== spec.duration) {
+      spec.duration = next;
+      spec.durationSource = 'timecode-range';
+      normalized += 1;
+    }
+  });
+  if (normalized) {
+    console.log(`Normalized ${normalized} timecode-range durations.`);
+  }
+  return normalized;
+}
+
 async function enrichCatalogDurations(catalog) {
+  normalizeCatalogDurations(catalog);
+
   const ffprobePath = resolveFfprobePath();
   if (!ffprobePath) {
     console.warn('ffprobe not found — skipping MP4 duration probe.');
@@ -788,7 +867,7 @@ async function enrichCatalogDurations(catalog) {
   const needsProbe = [];
   catalog.forEach((data) => {
     const spec = data.technicalSpecs || {};
-    if (spec.duration) return;
+    if (spec.duration && !durationNeedsNormalization(spec.duration)) return;
     const fileName = spec.fileName;
     if (!fileName) return;
     needsProbe.push({
@@ -889,7 +968,7 @@ function parseCsvRows(csvFilePath) {
   const idxFPS = headerIndex(headers, ['Camera FPS', 'Shot Frame Rate', 'FPS']);
   const idxRatio = headerIndex(headers, ['Aspect Ratio Notes', 'Aspect Ratio']);
   const idxComments = headerIndex(headers, ['Comments']);
-  const idxDescription = headerIndex(headers, ['Description']);
+  const idxDescription = headerIndex(headers, ['Description', 'Descriptions']);
   const idxLocation = headerIndex(headers, ['Location']);
   const idxCategory = headerIndex(headers, ['Category']);
   const idxDuration = headerIndex(headers, ['Duration TC', 'Duration', 'Clip Duration', /Timecode/i]);
@@ -932,7 +1011,7 @@ function parseCsvRows(csvFilePath) {
     const cameraFormat = clean(idxCamFormat);
     const fps = clean(idxFPS);
     const aspectRatio = clean(idxRatio);
-    const duration = clean(idxDuration);
+    const duration = normalizeCsvDuration(clean(idxDuration), fps);
     const licenseType = normalizeLicenseType(clean(idxLicense));
     const pricingTier = normalizePricingTier(clean(idxTier));
     const shootCategory = clean(idxCategory) || 'Underwater';
@@ -1064,7 +1143,14 @@ function findAllMetadataCsvFiles(primaryCsvPath) {
     .readdirSync(__dirname)
     .filter((file) => {
       const lower = file.toLowerCase();
-      return lower.endsWith('.csv') && /metadata|davinci|stock|clips/i.test(lower);
+      return (
+        lower.endsWith('.csv') &&
+        /metadata|davinci|stock|clips|ipf_stock_footage/i.test(lower) &&
+        !/export\d/i.test(lower) &&
+        !/22 clips/i.test(lower) &&
+        !/\.backup\./i.test(lower) &&
+        !/^stub-/i.test(lower)
+      );
     })
     .map((file) => path.join(__dirname, file));
 
@@ -1188,6 +1274,7 @@ async function main() {
   });
 
   const flags = ingestCliFlags();
+  normalizeCatalogDurations(catalog);
   if (!flags.skipProbe) {
     await enrichCatalogDurations(catalog);
   } else {

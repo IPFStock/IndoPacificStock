@@ -5,6 +5,8 @@
   "species": "Anthias",
   "format": "REDcode 5:1 RED RAW",
   "nativeFormatBadge": "4K R3D",
+  "licenseType": "commercial",
+  "pricingTier": "premium",
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -60,7 +62,7 @@
     "cameraFormat": "REDcode 5:1",
     "fps": "59.94",
     "aspectRatio": "0,095833333",
-    "duration": "",
+    "duration": "00:00:47:07",
     "sceneCategory": "Underwater",
     "family": "Pomacentridae (Damselfish)",
     "latinName": "Pseudanthias sp."

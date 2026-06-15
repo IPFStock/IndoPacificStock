@@ -103,7 +103,7 @@ const BROAD_CATEGORY_TAXONOMY_TERMS = {
   'Worms and Echinoderms': ['worm', 'polychaete', 'starfish', 'urchin', 'echinoderm', 'sea cucumber', 'brittle star', 'feather star'],
   'Terrestrial Mammals, Marsupials & Megafauna': ['kangaroo', 'wallaby', 'marsupial', 'orangutan', 'babirusa', 'terrestrial mammal'],
   'Terrestrial Reptiles & Herpetofauna': ['komodo dragon', 'varanus', 'python', 'cobra', 'snake', 'herpetofauna', 'monitor lizard'],
-  'Avian Bird Species': ['bird', 'avian', 'eagle', 'hornbill', 'parrot', 'kingfisher', 'tern', 'seabird', 'cockatoo', 'heron', 'pelican'],
+  'Avian Bird Species': ['bird', 'avian', 'eagle', 'hornbill', 'parrot', 'kingfisher', 'seabird', 'cockatoo', 'heron', 'pelican'],
   'Coastal Landscapes Drone Aerials': ['aerial', 'drone', 'landscape', 'coastal', 'scenery', 'sunset', 'sunray', 'seascape'],
   'Indo-Pacific Cultural Documentations & Editorial Scenes': ['culture', 'cultural', 'village', 'editorial'],
 };

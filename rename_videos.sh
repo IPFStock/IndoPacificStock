@@ -1,141 +1,69 @@
 #!/bin/bash
 # Run from folder containing exported MP4 files
-# Golden Sweepers School
-mv "A005_D035_0503CO.mp4" "golden-sweepers-school-a005-d035-0503co-001.mp4" 2>/dev/null || mv "A005_D035_0503CO_001.mp4" "A005_D035_0503CO.mp4" 2>/dev/null || true
-# Hawksbill Turtle Foraging
-mv "A005_D004_05032X.mp4" "hawksbill-turtle-foraging-a005-d004-05032x-001.mp4" 2>/dev/null || mv "A005_D004_05032X_001.mp4" "A005_D004_05032X.mp4" 2>/dev/null || true
-# Ribbon Sweetlips School
-mv "A008_D001_0507HF.mp4" "ribbon-sweetlips-school-a008-d001-0507hf-001.mp4" 2>/dev/null || mv "A008_D001_0507HF_001.mp4" "A008_D001_0507HF.mp4" 2>/dev/null || true
-# Green Turtle Swimming From Above
-mv "A032_C146_0918B1.mp4" "green-turtle-swimming-from-above-a032-c146-0918b1-001.mp4" 2>/dev/null || mv "A032_C146_0918B1_001.mp4" "A032_C146_0918B1.mp4" 2>/dev/null || true
-# Komodo Scenery Sunset Boat
-mv "A033_C107_0919KN.mp4" "komodo-scenery-sunset-boat-a033-c107-0919kn-001.mp4" 2>/dev/null || mv "A033_C107_0919KN_001.mp4" "A033_C107_0919KN.mp4" 2>/dev/null || true
-# Sunset Komodo Boat Clouds
-mv "A033_C109_0919S5.mp4" "sunset-komodo-boat-clouds-a033-c109-0919s5-001.mp4" 2>/dev/null || mv "A033_C109_0919S5_001.mp4" "A033_C109_0919S5.mp4" 2>/dev/null || true
-# Speedboat Crossing Sunset Reflection Sea
-mv "A033_C111_0919KW.mp4" "speedboat-crossing-sunset-reflection-sea-a033-c111-0919kw-001.mp4" 2>/dev/null || mv "A033_C111_0919KW_001.mp4" "A033_C111_0919KW.mp4" 2>/dev/null || true
-# Small Group Dolphins Emerging Sea
-mv "A033_C080_091838.mp4" "small-group-dolphins-emerging-sea-a033-c080-091838-001.mp4" 2>/dev/null || mv "A033_C080_091838_001.mp4" "A033_C080_091838.mp4" 2>/dev/null || true
-# Small Group Dolphins Surfacing
-mv "A033_C081_0918B5.mp4" "small-group-dolphins-surfacing-a033-c081-0918b5-001.mp4" 2>/dev/null || mv "A033_C081_0918B5_001.mp4" "A033_C081_0918B5.mp4" 2>/dev/null || true
-# Komodo Lanscape Pan To Right
-mv "A033_C082_0918AC.mp4" "komodo-lanscape-pan-to-right-a033-c082-0918ac-001.mp4" 2>/dev/null || mv "A033_C082_0918AC_001.mp4" "A033_C082_0918AC.mp4" 2>/dev/null || true
-# Small Group Dolphins
-mv "A033_C083_0918MG.mp4" "small-group-dolphins-a033-c083-0918mg-001.mp4" 2>/dev/null || mv "A033_C083_0918MG_001.mp4" "A033_C083_0918MG.mp4" 2>/dev/null || true
-# Small Group Dolphins Surface
-mv "A033_C084_0918P8.mp4" "small-group-dolphins-surface-a033-c084-0918p8-001.mp4" 2>/dev/null || mv "A033_C084_0918P8_001.mp4" "A033_C084_0918P8.mp4" 2>/dev/null || true
-# Turtle Swimming Water Column Sun
-mv "A032_C139_0918JK.mp4" "turtle-swimming-water-column-sun-a032-c139-0918jk-001.mp4" 2>/dev/null || mv "A032_C139_0918JK_001.mp4" "A032_C139_0918JK.mp4" 2>/dev/null || true
-# Turtle Swimming Behind Coral
-mv "A032_C140_0918QW.mp4" "turtle-swimming-behind-coral-a032-c140-0918qw-001.mp4" 2>/dev/null || mv "A032_C140_0918QW_001.mp4" "A032_C140_0918QW.mp4" 2>/dev/null || true
-# Turtle Hiding Behind Coral
-mv "A032_C140_0918QW.mp4" "turtle-hiding-behind-coral-a032-c140-0918qw-001.mp4" 2>/dev/null || mv "A032_C140_0918QW_001.mp4" "A032_C140_0918QW.mp4" 2>/dev/null || true
-# Green Turtle Reveal From Corals
-mv "A032_C140_0918QW.mp4" "green-turtle-reveal-from-corals-a032-c140-0918qw-001.mp4" 2>/dev/null || mv "A032_C140_0918QW_001.mp4" "A032_C140_0918QW.mp4" 2>/dev/null || true
-# Green Turtle Swimming Over Corals Sideview
-mv "A032_C141_0918U7.mp4" "green-turtle-swimming-over-corals-sideview-a032-c141-0918u7-001.mp4" 2>/dev/null || mv "A032_C141_0918U7_001.mp4" "A032_C141_0918U7.mp4" 2>/dev/null || true
-# Green Turtle Swimming Over Corals Sideview
-mv "A032_C141_0918U7.mp4" "green-turtle-swimming-over-corals-sideview-a032-c141-0918u7-001.mp4" 2>/dev/null || mv "A032_C141_0918U7_001.mp4" "A032_C141_0918U7.mp4" 2>/dev/null || true
-# Greenturtle Silohuette Looking Up Bluewater
-mv "A032_C144_0918LN.mp4" "greenturtle-silohuette-looking-up-bluewater-a032-c144-0918ln-001.mp4" 2>/dev/null || mv "A032_C144_0918LN_001.mp4" "A032_C144_0918LN.mp4" 2>/dev/null || true
-# Green Turtle Swimming Up To Surface
-mv "A032_C144_0918LN.mp4" "green-turtle-swimming-up-to-surface-a032-c144-0918ln-001.mp4" 2>/dev/null || mv "A032_C144_0918LN_001.mp4" "A032_C144_0918LN.mp4" 2>/dev/null || true
-# Green Turtle From Below Gliding Watercolumn
-mv "A032_C145_0918Y1.mp4" "green-turtle-from-below-gliding-watercolumn-a032-c145-0918y1-001.mp4" 2>/dev/null || mv "A032_C145_0918Y1_001.mp4" "A032_C145_0918Y1.mp4" 2>/dev/null || true
-# Green Turtle Swimming Over Sand To Corals From Above
-mv "A032_C146_0918B1.mp4" "green-turtle-swimming-over-sand-to-corals-from-above-a032-c146-0918b1-001.mp4" 2>/dev/null || mv "A032_C146_0918B1_001.mp4" "A032_C146_0918B1.mp4" 2>/dev/null || true
-# Following Green Turtle From Behind
-mv "A032_C145_0918Y1.mp4" "following-green-turtle-from-behind-a032-c145-0918y1-001.mp4" 2>/dev/null || mv "A032_C145_0918Y1_001.mp4" "A032_C145_0918Y1.mp4" 2>/dev/null || true
-# Green Turtle Swimming Over Corals Left To Right
-mv "A032_C147_0918U3.mp4" "green-turtle-swimming-over-corals-left-to-right-a032-c147-0918u3-001.mp4" 2>/dev/null || mv "A032_C147_0918U3_001.mp4" "A032_C147_0918U3.mp4" 2>/dev/null || true
-# Green Turtle Swimming Over Corals From Above
-mv "A032_C146_0918B1.mp4" "green-turtle-swimming-over-corals-from-above-a032-c146-0918b1-001.mp4" 2>/dev/null || mv "A032_C146_0918B1_001.mp4" "A032_C146_0918B1.mp4" 2>/dev/null || true
-# Green Turtle Front View Turning In Front Camera
-mv "A032_C147_0918U3.mp4" "green-turtle-front-view-turning-in-front-camera-a032-c147-0918u3-001.mp4" 2>/dev/null || mv "A032_C147_0918U3_001.mp4" "A032_C147_0918U3.mp4" 2>/dev/null || true
-# Sunrays Underwater Afternoon
-mv "A032_C149_0918FB.mp4" "sunrays-underwater-afternoon-a032-c149-0918fb-001.mp4" 2>/dev/null || mv "A032_C149_0918FB_001.mp4" "A032_C149_0918FB.mp4" 2>/dev/null || true
-# Sunrays Underwater Late Afternoon
-mv "A032_C149_0918FB.mp4" "sunrays-underwater-late-afternoon-a032-c149-0918fb-001.mp4" 2>/dev/null || mv "A032_C149_0918FB_001.mp4" "A032_C149_0918FB.mp4" 2>/dev/null || true
-# Sunrays Underwater Afternoon Light
-mv "A032_C149_0918FB.mp4" "sunrays-underwater-afternoon-light-a032-c149-0918fb-001.mp4" 2>/dev/null || mv "A032_C149_0918FB_001.mp4" "A032_C149_0918FB.mp4" 2>/dev/null || true
-# Moorish Idol Fish In Barrel Sponge
-mv "A032_C003_0916O6.mp4" "moorish-idol-fish-in-barrel-sponge-a032-c003-0916o6-001.mp4" 2>/dev/null || mv "A032_C003_0916O6_001.mp4" "A032_C003_0916O6.mp4" 2>/dev/null || true
-# Healthy Corals Barrel Sponges
-mv "A032_C005_0916IW.mp4" "healthy-corals-barrel-sponges-a032-c005-0916iw-001.mp4" 2>/dev/null || mv "A032_C005_0916IW_001.mp4" "A032_C005_0916IW.mp4" 2>/dev/null || true
-# Moorish Idol Group Over Coralhead Barrel Sponges
-mv "A032_C006_0916B8.mp4" "moorish-idol-group-over-coralhead-barrel-sponges-a032-c006-0916b8-001.mp4" 2>/dev/null || mv "A032_C006_0916B8_001.mp4" "A032_C006_0916B8.mp4" 2>/dev/null || true
-# White Tip Reef Shark Overhang Wide
-mv "A032_C007_0916DG.mp4" "white-tip-reef-shark-overhang-wide-a032-c007-0916dg-001.mp4" 2>/dev/null || mv "A032_C007_0916DG_001.mp4" "A032_C007_0916DG.mp4" 2>/dev/null || true
-# White Tip Reef Shark Overhang Mid
-mv "A032_C008_0916UY.mp4" "white-tip-reef-shark-overhang-mid-a032-c008-0916uy-001.mp4" 2>/dev/null || mv "A032_C008_0916UY_001.mp4" "A032_C008_0916UY.mp4" 2>/dev/null || true
-# Canyon Channel Komodo
-mv "A032_C012_0916ZI.mp4" "canyon-channel-komodo-a032-c012-0916zi-001.mp4" 2>/dev/null || mv "A032_C012_0916ZI_001.mp4" "A032_C012_0916ZI.mp4" 2>/dev/null || true
-# Canyon Channel Komodo Corals
-mv "A032_C013_0916YE.mp4" "canyon-channel-komodo-corals-a032-c013-0916ye-001.mp4" 2>/dev/null || mv "A032_C013_0916YE_001.mp4" "A032_C013_0916YE.mp4" 2>/dev/null || true
-# Canyon Channel Komodo Pan
-mv "A032_C014_0916N2.mp4" "canyon-channel-komodo-pan-a032-c014-0916n2-001.mp4" 2>/dev/null || mv "A032_C014_0916N2_001.mp4" "A032_C014_0916N2.mp4" 2>/dev/null || true
-# White Tip Reef Shark Fish Above Canyon Komodo
-mv "A032_C016_0916BO.mp4" "white-tip-reef-shark-fish-above-canyon-komodo-a032-c016-0916bo-001.mp4" 2>/dev/null || mv "A032_C016_0916BO_001.mp4" "A032_C016_0916BO.mp4" 2>/dev/null || true
-# Blue Fin Trevallies Canyon Komodo
-mv "A032_C015_09167P.mp4" "blue-fin-trevallies-canyon-komodo-a032-c015-09167p-001.mp4" 2>/dev/null || mv "A032_C015_09167P_001.mp4" "A032_C015_09167P.mp4" 2>/dev/null || true
-# Anthias Healthy Reef Seafans
-mv "A032_C017_0916CO.mp4" "anthias-healthy-reef-seafans-a032-c017-0916co-001.mp4" 2>/dev/null || mv "A032_C017_0916CO_001.mp4" "A032_C017_0916CO.mp4" 2>/dev/null || true
-# Angelfish Reef Anthias
-mv "A032_C021_0916B4.mp4" "angelfish-reef-anthias-a032-c021-0916b4-001.mp4" 2>/dev/null || mv "A032_C021_0916B4_001.mp4" "A032_C021_0916B4.mp4" 2>/dev/null || true
-# Bigeye Jackfish School Reef Sand
-mv "A032_C022_0916MB.mp4" "bigeye-jackfish-school-reef-sand-a032-c022-0916mb-001.mp4" 2>/dev/null || mv "A032_C022_0916MB_001.mp4" "A032_C022_0916MB.mp4" 2>/dev/null || true
-# Fusilliers Sideview Right To Left
-mv "A032_C030_0916RK.mp4" "fusilliers-sideview-right-to-left-a032-c030-0916rk-001.mp4" 2>/dev/null || mv "A032_C030_0916RK_001.mp4" "A032_C030_0916RK.mp4" 2>/dev/null || true
-# Huge Acropora Tablecoral
-mv "A032_C032_091621.mp4" "huge-acropora-tablecoral-a032-c032-091621-001.mp4" 2>/dev/null || mv "A032_C032_091621_001.mp4" "A032_C032_091621.mp4" 2>/dev/null || true
-# Pristine Coralblock Acropora
-mv "A032_C033_0916GP.mp4" "pristine-coralblock-acropora-a032-c033-0916gp-001.mp4" 2>/dev/null || mv "A032_C033_0916GP_001.mp4" "A032_C033_0916GP.mp4" 2>/dev/null || true
-# Big Table Corals Acropora
-mv "A032_C034_0916MI.mp4" "big-table-corals-acropora-a032-c034-0916mi-001.mp4" 2>/dev/null || mv "A032_C034_0916MI_001.mp4" "A032_C034_0916MI.mp4" 2>/dev/null || true
-# Healthy Diverse Reef Komodo
-mv "A032_C035_0916HL.mp4" "healthy-diverse-reef-komodo-a032-c035-0916hl-001.mp4" 2>/dev/null || mv "A032_C035_0916HL_001.mp4" "A032_C035_0916HL.mp4" 2>/dev/null || true
-# Reef Manta Cruising Left To Right Komodo
-mv "A032_C038_0916EG.mp4" "reef-manta-cruising-left-to-right-komodo-a032-c038-0916eg-001.mp4" 2>/dev/null || mv "A032_C038_0916EG_001.mp4" "A032_C038_0916EG.mp4" 2>/dev/null || true
-# Reef Manta Cruising Left To Right From Above
-mv "A032_C041_0916ML.mp4" "reef-manta-cruising-left-to-right-from-above-a032-c041-0916ml-001.mp4" 2>/dev/null || mv "A032_C041_0916ML_001.mp4" "A032_C041_0916ML.mp4" 2>/dev/null || true
-# Afternoon Light Coral Reef Komodo
-mv "A032_C044_0916DQ.mp4" "afternoon-light-coral-reef-komodo-a032-c044-0916dq-001.mp4" 2>/dev/null || mv "A032_C044_0916DQ_001.mp4" "A032_C044_0916DQ.mp4" 2>/dev/null || true
-# Afternoon Light Coral Reef
-mv "A032_C045_09164T.mp4" "afternoon-light-coral-reef-a032-c045-09164t-001.mp4" 2>/dev/null || mv "A032_C045_09164T_001.mp4" "A032_C045_09164T.mp4" 2>/dev/null || true
-# Red Seafan Coral Reef Komodo
-mv "A032_C046_09166R.mp4" "red-seafan-coral-reef-komodo-a032-c046-09166r-001.mp4" 2>/dev/null || mv "A032_C046_09166R_001.mp4" "A032_C046_09166R.mp4" 2>/dev/null || true
-# Barracuda Small Group Near Bottom Reef
-mv "A030_C031_0915A2.mp4" "barracuda-small-group-near-bottom-reef-a030-c031-0915a2-001.mp4" 2>/dev/null || mv "A030_C031_0915A2_001.mp4" "A030_C031_0915A2.mp4" 2>/dev/null || true
-# Batfish Spadefish Swimming Close To Bottom
-mv "A030_C006_0915PE.mp4" "batfish-spadefish-swimming-close-to-bottom-a030-c006-0915pe-001.mp4" 2>/dev/null || mv "A030_C006_0915PE_001.mp4" "A030_C006_0915PE.mp4" 2>/dev/null || true
-# Batfish Spadefish Hanging By Seafan
-mv "A030_C008_0915OM.mp4" "batfish-spadefish-hanging-by-seafan-a030-c008-0915om-001.mp4" 2>/dev/null || mv "A030_C008_0915OM_001.mp4" "A030_C008_0915OM.mp4" 2>/dev/null || true
-# Fusilliers Near Acropora
-mv "A030_C013_0915EE.mp4" "fusilliers-near-acropora-a030-c013-0915ee-001.mp4" 2>/dev/null || mv "A030_C013_0915EE_001.mp4" "A030_C013_0915EE.mp4" 2>/dev/null || true
-# School Of Fusilliers Near Bottom
-mv "A030_C015_09154U.mp4" "school-of-fusilliers-near-bottom-a030-c015-09154u-001.mp4" 2>/dev/null || mv "A030_C015_09154U_001.mp4" "A030_C015_09154U.mp4" 2>/dev/null || true
-# School Of Fusilliers Near Reef
-mv "A030_C016_09154R.mp4" "school-of-fusilliers-near-reef-a030-c016-09154r-001.mp4" 2>/dev/null || mv "A030_C016_09154R_001.mp4" "A030_C016_09154R.mp4" 2>/dev/null || true
-# Following Barracuda Group From Behind
-mv "A030_C037_0915C8.mp4" "following-barracuda-group-from-behind-a030-c037-0915c8-001.mp4" 2>/dev/null || mv "A030_C037_0915C8_001.mp4" "A030_C037_0915C8.mp4" 2>/dev/null || true
-# Barracuda Group Swimming Upward
-mv "A030_C039_0915LN.mp4" "barracuda-group-swimming-upward-a030-c039-0915ln-001.mp4" 2>/dev/null || mv "A030_C039_0915LN_001.mp4" "A030_C039_0915LN.mp4" 2>/dev/null || true
-# Barracuda Group Blue Water Sideview Right To Left
-mv "A030_C043_0915A9.mp4" "barracuda-group-blue-water-sideview-right-to-left-a030-c043-0915a9-001.mp4" 2>/dev/null || mv "A030_C043_0915A9_001.mp4" "A030_C043_0915A9.mp4" 2>/dev/null || true
-# Compact Barracuda Group Blue Water
-mv "A030_C041_0915DQ.mp4" "compact-barracuda-group-blue-water-a030-c041-0915dq-001.mp4" 2>/dev/null || mv "A030_C041_0915DQ_001.mp4" "A030_C041_0915DQ.mp4" 2>/dev/null || true
-# Compact Barracuda Group Blue Water Front View
-mv "A030_C042_0915IH.mp4" "compact-barracuda-group-blue-water-front-view-a030-c042-0915ih-001.mp4" 2>/dev/null || mv "A030_C042_0915IH_001.mp4" "A030_C042_0915IH.mp4" 2>/dev/null || true
-# Small Anthias Over Coral Reef
-mv "A030_C045_09156T.mp4" "small-anthias-over-coral-reef-a030-c045-09156t-001.mp4" 2>/dev/null || mv "A030_C045_09156T_001.mp4" "A030_C045_09156T.mp4" 2>/dev/null || true
-# Swimming Over Healthy Acropora
-mv "A030_C048_091548.mp4" "swimming-over-healthy-acropora-a030-c048-091548-001.mp4" 2>/dev/null || mv "A030_C048_091548_001.mp4" "A030_C048_091548.mp4" 2>/dev/null || true
-# Acropora Small Fishes
-mv "A030_C049_09154F.mp4" "acropora-small-fishes-a030-c049-09154f-001.mp4" 2>/dev/null || mv "A030_C049_09154F_001.mp4" "A030_C049_09154F.mp4" 2>/dev/null || true
-# Orbit Over Healthy Diverse Reef
-mv "A030_C051_0915ME.mp4" "orbit-over-healthy-diverse-reef-a030-c051-0915me-001.mp4" 2>/dev/null || mv "A030_C051_0915ME_001.mp4" "A030_C051_0915ME.mp4" 2>/dev/null || true
-# Manta Showing Belly
-mv "A030_C058_09158G.mp4" "manta-showing-belly-a030-c058-09158g-001.mp4" 2>/dev/null || mv "A030_C058_09158G_001.mp4" "A030_C058_09158G.mp4" 2>/dev/null || true
-# Manta Wingspan From Above
-mv "A030_C059_09157Z.mp4" "manta-wingspan-from-above-a030-c059-09157z-001.mp4" 2>/dev/null || mv "A030_C059_09157Z_001.mp4" "A030_C059_09157Z.mp4" 2>/dev/null || true
+# Grey Reef Shark Rainbowrunners Wide Mid
+mv "A031_C020_09150A.mp4" "grey-reef-shark-rainbowrunners-wide-mid-a031-c020-09150a-001.mp4" 2>/dev/null || mv "A031_C020_09150A_001.mp4" "A031_C020_09150A.mp4" 2>/dev/null || true
+# Woman Sarongs Village
+mv "A032_C090_0917VL.mp4" "woman-sarongs-village-a032-c090-0917vl-001.mp4" 2>/dev/null || mv "A032_C090_0917VL_001.mp4" "A032_C090_0917VL.mp4" 2>/dev/null || true
+# Local Man Smiling
+mv "A032_C092_09178I.mp4" "local-man-smiling-a032-c092-09178i-001.mp4" 2>/dev/null || mv "A032_C092_09178I_001.mp4" "A032_C092_09178I.mp4" 2>/dev/null || true
+# Slow Push Towards Reef Fish Corals
+mv "A030_C060_0915PM.mp4" "slow-push-towards-reef-fish-corals-a030-c060-0915pm-001.mp4" 2>/dev/null || mv "A030_C060_0915PM_001.mp4" "A030_C060_0915PM.mp4" 2>/dev/null || true
+# Giant Napoleon Wrasse Sideview Right To Left Up
+mv "A031_C010_091568.mp4" "giant-napoleon-wrasse-sideview-right-to-left-up-a031-c010-091568-001.mp4" 2>/dev/null || mv "A031_C010_091568_001.mp4" "A031_C010_091568.mp4" 2>/dev/null || true
+# Goats Sarongs Village Sangeang
+mv "A032_C089_0917AD.mp4" "goats-sarongs-village-sangeang-a032-c089-0917ad-001.mp4" 2>/dev/null || mv "A032_C089_0917AD_001.mp4" "A032_C089_0917AD.mp4" 2>/dev/null || true
+# Grey Reef Shark Turning Camera Front
+mv "A031_C021_09151D.mp4" "grey-reef-shark-turning-camera-front-a031-c021-09151d-001.mp4" 2>/dev/null || mv "A031_C021_09151D_001.mp4" "A031_C021_09151D.mp4" 2>/dev/null || true
+# Sangeang Clouds Landscape
+mv "A032_C085_0917CU.mp4" "sangeang-clouds-landscape-a032-c085-0917cu-001.mp4" 2>/dev/null || mv "A032_C085_0917CU_001.mp4" "A032_C085_0917CU.mp4" 2>/dev/null || true
+# Melibe Nudibranch Feeding
+mv "A032_C083_09176H.mp4" "melibe-nudibranch-feeding-a032-c083-09176h-001.mp4" 2>/dev/null || mv "A032_C083_09176H_001.mp4" "A032_C083_09176H.mp4" 2>/dev/null || true
+# Wide Colorful Local Fabric Hanging In The Wind
+mv "A032_C098_09171M.mp4" "wide-colorful-local-fabric-hanging-in-the-wind-a032-c098-09171m-001.mp4" 2>/dev/null || mv "A032_C098_09171M_001.mp4" "A032_C098_09171M.mp4" 2>/dev/null || true
+# Following Giant Napoleon Wrasse Reef
+mv "A031_C025_0915XL.mp4" "following-giant-napoleon-wrasse-reef-a031-c025-0915xl-001.mp4" 2>/dev/null || mv "A031_C025_0915XL_001.mp4" "A031_C025_0915XL.mp4" 2>/dev/null || true
+# Giant Sweetlip Cleaner Wrasse Wide
+mv "A031_C013_0915D3.mp4" "giant-sweetlip-cleaner-wrasse-wide-a031-c013-0915d3-001.mp4" 2>/dev/null || mv "A031_C013_0915D3_001.mp4" "A031_C013_0915D3.mp4" 2>/dev/null || true
+# Giant Napoleon Wrasse Faceon Towards Camera
+mv "A031_C014_0915UA.mp4" "giant-napoleon-wrasse-faceon-towards-camera-a031-c014-0915ua-001.mp4" 2>/dev/null || mv "A031_C014_0915UA_001.mp4" "A031_C014_0915UA.mp4" 2>/dev/null || true
+# Grey Reef Shark Swims To Surgeonfish School
+mv "A031_C020_09150A.mp4" "grey-reef-shark-swims-to-surgeonfish-school-a031-c020-09150a-001.mp4" 2>/dev/null || mv "A031_C020_09150A_001.mp4" "A031_C020_09150A.mp4" 2>/dev/null || true
+# White Tip Reefshark Reveal Fusillier Background
+mv "A031_C016_09153P.mp4" "white-tip-reefshark-reveal-fusillier-background-a031-c016-09153p-001.mp4" 2>/dev/null || mv "A031_C016_09153P_001.mp4" "A031_C016_09153P.mp4" 2>/dev/null || true
+# Grey Reef Shark Sideview Right To Left Rainbowrunners
+mv "A031_C020_09150A.mp4" "grey-reef-shark-sideview-right-to-left-rainbowrunners-a031-c020-09150a-001.mp4" 2>/dev/null || mv "A031_C020_09150A_001.mp4" "A031_C020_09150A.mp4" 2>/dev/null || true
+# Grey Reef Shark Slow Dive Down
+mv "A031_C022_0915ML.mp4" "grey-reef-shark-slow-dive-down-a031-c022-0915ml-001.mp4" 2>/dev/null || mv "A031_C022_0915ML_001.mp4" "A031_C022_0915ML.mp4" 2>/dev/null || true
+# Grey Reef Shark Rainbowrunners Wide Mid
+mv "A031_C020_09150A.mp4" "grey-reef-shark-rainbowrunners-wide-mid-a031-c020-09150a-001.mp4" 2>/dev/null || mv "A031_C020_09150A_001.mp4" "A031_C020_09150A.mp4" 2>/dev/null || true
+# Big Surgeonfish School
+mv "A031_C023_0915M3.mp4" "big-surgeonfish-school-a031-c023-0915m3-001.mp4" 2>/dev/null || mv "A031_C023_0915M3_001.mp4" "A031_C023_0915M3.mp4" 2>/dev/null || true
+# Wide Shot Surgeonfish School Giant Trevally
+mv "A031_C024_0915R9.mp4" "wide-shot-surgeonfish-school-giant-trevally-a031-c024-0915r9-001.mp4" 2>/dev/null || mv "A031_C024_0915R9_001.mp4" "A031_C024_0915R9.mp4" 2>/dev/null || true
+# Giant Trevallies Swim Left To Right Surgeonfish
+mv "A031_C023_0915M3.mp4" "giant-trevallies-swim-left-to-right-surgeonfish-a031-c023-0915m3-001.mp4" 2>/dev/null || mv "A031_C023_0915M3_001.mp4" "A031_C023_0915M3.mp4" 2>/dev/null || true
+# Local Ladies From Village Hut Front
+mv "A032_C093_09177K.mp4" "local-ladies-from-village-hut-front-a032-c093-09177k-001.mp4" 2>/dev/null || mv "A032_C093_09177K_001.mp4" "A032_C093_09177K.mp4" 2>/dev/null || true
+# Local Woman Betelnut
+mv "A032_C095_09179F.mp4" "local-woman-betelnut-a032-c095-09179f-001.mp4" 2>/dev/null || mv "A032_C095_09179F_001.mp4" "A032_C095_09179F.mp4" 2>/dev/null || true
+# Wide Shot Ladies Villagers Front Of Huts Goat
+mv "A032_C094_09170N.mp4" "wide-shot-ladies-villagers-front-of-huts-goat-a032-c094-09170n-001.mp4" 2>/dev/null || mv "A032_C094_09170N_001.mp4" "A032_C094_09170N.mp4" 2>/dev/null || true
+# Mid Shot Villager Smoking
+mv "A032_C096_09179B.mp4" "mid-shot-villager-smoking-a032-c096-09179b-001.mp4" 2>/dev/null || mv "A032_C096_09179B_001.mp4" "A032_C096_09179B.mp4" 2>/dev/null || true
+# Colorful Local Fabric Hanging In The Wind
+mv "A032_C097_0917QR.mp4" "colorful-local-fabric-hanging-in-the-wind-a032-c097-0917qr-001.mp4" 2>/dev/null || mv "A032_C097_0917QR_001.mp4" "A032_C097_0917QR.mp4" 2>/dev/null || true
+# Pan Colorful Local Fabric Hanging In The Wind
+mv "A032_C099_0917MD.mp4" "pan-colorful-local-fabric-hanging-in-the-wind-a032-c099-0917md-001.mp4" 2>/dev/null || mv "A032_C099_0917MD_001.mp4" "A032_C099_0917MD.mp4" 2>/dev/null || true
+# Local Villager Carpentar Top Boat Being Built Wide
+mv "A032_C101_0917C4.mp4" "local-villager-carpentar-top-boat-being-built-wide--a032-c101-0917c4-001.mp4" 2>/dev/null || mv "A032_C101_0917C4_001.mp4" "A032_C101_0917C4.mp4" 2>/dev/null || true
+# Villager Local Traditional Boat Indonesia Walking Away
+mv "A032_C105_0917PS.mp4" "villager-local-traditional-boat-indonesia-walking-away-a032-c105-0917ps-001.mp4" 2>/dev/null || mv "A032_C105_0917PS_001.mp4" "A032_C105_0917PS.mp4" 2>/dev/null || true
+# Local Villager Carpentar Top Ofboat Being Built Mid
+mv "A032_C101_0917C4.mp4" "local-villager-carpentar-top-ofboat-being-built-mid-a032-c101-0917c4-001.mp4" 2>/dev/null || mv "A032_C101_0917C4_001.mp4" "A032_C101_0917C4.mp4" 2>/dev/null || true
+# Goat Resting By Shipyard Local Village
+mv "A032_C103_0917EB.mp4" "goat-resting-by-shipyard-local-village-a032-c103-0917eb-001.mp4" 2>/dev/null || mv "A032_C103_0917EB_001.mp4" "A032_C103_0917EB.mp4" 2>/dev/null || true
+# Villager Local Traditional Boat Indonesia
+mv "A032_C105_0917PS.mp4" "villager-local-traditional-boat-indonesia-a032-c105-0917ps-001.mp4" 2>/dev/null || mv "A032_C105_0917PS_001.mp4" "A032_C105_0917PS.mp4" 2>/dev/null || true
+# Boat Being Built From Below Up
+mv "A032_C104_09176D.mp4" "boat-being-built-from-below-up-a032-c104-09176d-001.mp4" 2>/dev/null || mv "A032_C104_09176D_001.mp4" "A032_C104_09176D.mp4" 2>/dev/null || true
 echo "Rename pass complete."
