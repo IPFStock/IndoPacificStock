@@ -1,5 +1,5 @@
 {
-  "title": "Sunrays Underwater Afternoon Light",
+  "title": "Sunrays Underwater Afternoon",
   "category": "Coastal Landscapes Drone Aerials",
   "region": "Komodo",
   "species": "Seascape",
@@ -13,9 +13,9 @@
     "1080p Master"
   ],
   "camera": "DSMC2 GEMINI 5K S35",
-  "behavior": "Natural history sequence documenting sunrays underwater afternoon light.",
+  "behavior": "Natural history sequence documenting sunrays underwater afternoon.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C149_0918FB.mp4",
-  "description": "Diffused sun rays in shallow blue water, Komodo National Park, Indonesia, Pacific Ocean",
+  "description": "Shooting the sun rays diffusing in shallow blue water, Komodo National Park, Indonesia, Pacific Ocean",
   "keywords": [
     "59.94 fps",
     "5k r3d",
@@ -25,8 +25,7 @@
     "blue",
     "coastal",
     "coastal landscapes drone aerials",
-    "diffused",
-    "diffused sun rays in shallow blue water",
+    "diffusing",
     "drone",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -35,7 +34,6 @@
     "komodo",
     "komodo national park",
     "landscapes",
-    "light",
     "national",
     "ocean",
     "pacific",
@@ -48,11 +46,13 @@
     "redcode",
     "s35",
     "seascape",
-    "shallow"
+    "shallow",
+    "shooting",
+    "shooting the sun rays diffusing in shallow blue water"
   ],
   "technicalSpecs": {
     "fileName": "A032_C149_0918FB.mp4",
-    "slug": "sunrays-underwater-afternoon-light-a032-c149-0918fb-001",
+    "slug": "sunrays-underwater-afternoon-a032-c149-0918fb-001",
     "originalCameraCode": "A032_C149_0918FB_001.R3D",
     "resolution": "5120 x 2700",
     "codec": "r3d",
