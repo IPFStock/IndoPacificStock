@@ -1919,7 +1919,7 @@
     const GITHUB_RAW_BASE = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}`;
     const VIDEO_CDN_BASE = `https://cdn.jsdelivr.net/gh/${GITHUB_OWNER}/${GITHUB_REPO}@${GITHUB_BRANCH}`;
     const THUMB_TIME = 0.15;
-    const VIDEO_LOAD_CONCURRENCY = 4;
+    const VIDEO_LOAD_CONCURRENCY = 3;
     let activeVideoLoads = 0;
     const pendingVideoLoads = [];
 
@@ -2065,7 +2065,7 @@
       zoneCollections,
       cardSearchText,
       onCardsAppended: (appendedCards) => {
-        appendedCards.forEach((card) => ensureCardVideoLoaded(card));
+        appendedCards.forEach((card) => observeCardVideoPreview(card));
       },
       taxonomicSelects: {
         taxaCategory: filterTaxaCategory,
@@ -2267,13 +2267,13 @@
 
     function videoFallbackUrl(primaryUrl, data, slug) {
       const fileName = mp4FileNameFromAsset(data, slug, primaryUrl);
-      return fileName ? videoCdnUrl(fileName) : '';
+      return fileName ? githubRawVideoUrl(fileName) : '';
     }
 
     function normalizeVideoUrl(url, slug, data) {
       const fileName = mp4FileNameFromAsset(data, slug, url);
-      // GitHub raw is authoritative — jsDelivr returns 403 on some larger MP4s.
-      return githubRawVideoUrl(fileName);
+      // jsDelivr is faster and cached; fall back to GitHub raw if a file is blocked.
+      return videoCdnUrl(fileName);
     }
 
     function inferMaxResolutionLabel(resolution) {
@@ -2525,12 +2525,51 @@
       video.dataset.fallbackUsed = '';
     }
 
-    function queueVideoSource(video, url, wrap) {
+    function queueVideoSource(video, url, wrap, { priority = false } = {}) {
       if (!video || !url) return;
       if (video.dataset.loadedSrc === url || video.src === url) return;
 
-      pendingVideoLoads.push({ video, url, wrap });
+      const job = { video, url, wrap };
+      if (priority) {
+        pendingVideoLoads.unshift(job);
+      } else {
+        pendingVideoLoads.push(job);
+      }
       drainVideoLoadQueue();
+    }
+
+    const videoPreviewObserver = ('IntersectionObserver' in window)
+      ? new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const card = entry.target;
+            ensureCardVideoLoaded(card);
+            videoPreviewObserver.unobserve(card);
+          });
+        }, { rootMargin: '160px 0px', threshold: 0.08 })
+      : null;
+
+    function observeCardVideoPreview(card) {
+      if (!card?.dataset?.video) return;
+      if (videoPreviewObserver) {
+        videoPreviewObserver.observe(card);
+        return;
+      }
+      ensureCardVideoLoaded(card);
+    }
+
+    function ensureCardVideoLoaded(card, { priority = false } = {}) {
+      const video = card.querySelector('video');
+      const wrap = card.querySelector('.video-wrap');
+      const url = card.dataset.video;
+      if (!video || !url) return;
+
+      if (video.dataset.loadedSrc === url || video.src === url) {
+        if (video.readyState === 0) video.load();
+        return;
+      }
+
+      queueVideoSource(video, url, wrap, { priority });
     }
 
     function drainVideoLoadQueue() {
@@ -2547,20 +2586,6 @@
           drainVideoLoadQueue();
         });
       }
-    }
-
-    function ensureCardVideoLoaded(card) {
-      const video = card.querySelector('video');
-      const wrap = card.querySelector('.video-wrap');
-      const url = card.dataset.video;
-      if (!video || !url) return;
-
-      if (video.dataset.loadedSrc === url || video.src === url) {
-        if (video.readyState === 0) video.load();
-        return;
-      }
-
-      queueVideoSource(video, url, wrap);
     }
 
     function primeVideoThumb(video, wrap, onComplete) {
@@ -2624,7 +2649,7 @@
 
       card.addEventListener('mouseenter', () => {
         card.classList.add('is-playing');
-        ensureCardVideoLoaded(card);
+        ensureCardVideoLoaded(card, { priority: true });
 
         const startPreview = () => {
           video.currentTime = 0;
@@ -2682,7 +2707,7 @@
 
       article.innerHTML =
         `<div class="video-wrap is-loading">` +
-          `<video muted loop playsinline preload="metadata" aria-label="${escapeHtml(data.title)} preview" itemprop="contentUrl"></video>` +
+          `<video muted loop playsinline preload="none" aria-label="${escapeHtml(data.title)} preview" itemprop="contentUrl"></video>` +
           `<span class="play-hint">Hover to preview</span>` +
           `<div class="video-status video-status--error" hidden>Preview unavailable — check that the video URL is public and reachable.</div>` +
         `</div>` +
