@@ -2907,15 +2907,33 @@
       return loadedCards;
     }
 
-    const catalogCacheBust = () => `?v=${Date.now()}`;
+    const catalogCacheBust = () => {
+      if (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:') {
+        return `?v=${Date.now()}`;
+      }
+      return '';
+    };
 
-    async function loadCatalog() {
-      grid.innerHTML = '<div class="empty-state"><strong>Loading catalog…</strong>Fetching footage metadata.</div>';
-      grid.setAttribute('aria-busy', 'true');
+    async function fetchCatalogEntries() {
+      const cacheQuery = catalogCacheBust();
+
+      try {
+        const bundleRes = await fetch(`videos/catalog.json${cacheQuery}`);
+        if (bundleRes.ok) {
+          const bundle = await bundleRes.json();
+          if (Array.isArray(bundle?.clips) && bundle.clips.length > 0) {
+            return bundle.clips
+              .filter((entry) => entry?.slug)
+              .map(({ slug, ...data }) => ({ slug, data }));
+          }
+        }
+      } catch (err) {
+        console.warn('Could not load videos/catalog.json', err);
+      }
 
       let assetFiles = [];
       try {
-        const manifestRes = await fetch(`videos/manifest.json${catalogCacheBust()}`, { cache: 'no-store' });
+        const manifestRes = await fetch(`videos/manifest.json${cacheQuery}`);
         if (manifestRes.ok) {
           assetFiles = await manifestRes.json();
         }
@@ -2924,37 +2942,48 @@
       }
 
       if (!Array.isArray(assetFiles) || assetFiles.length === 0) {
+        return [];
+      }
+
+      const concurrency = 12;
+      const entries = [];
+      let index = 0;
+
+      async function worker() {
+        while (index < assetFiles.length) {
+          const slug = assetFiles[index];
+          index += 1;
+          try {
+            const response = await fetch(`videos/${slug}.json${cacheQuery}`);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            entries.push({ slug, data: await response.json() });
+          } catch (err) {
+            console.error(`Failed to load videos/${slug}.json`, err);
+          }
+        }
+      }
+
+      await Promise.all(Array.from({ length: Math.min(concurrency, assetFiles.length) }, () => worker()));
+      return entries;
+    }
+
+    async function loadCatalog() {
+      grid.innerHTML = '<div class="empty-state"><strong>Loading catalog…</strong>Fetching footage metadata.</div>';
+      grid.setAttribute('aria-busy', 'true');
+
+      const catalogEntries = await fetchCatalogEntries();
+
+      if (catalogEntries.length === 0) {
         grid.innerHTML = '<div class="empty-state"><strong>Catalog empty</strong>Add clips via ingest.js or update videos/manifest.json.</div>';
         resultsCount.textContent = 'Showing 0 clips';
         grid.removeAttribute('aria-busy');
         return;
       }
 
-      let loadedCards = [];
-
-      for (const slug of assetFiles) {
-        try {
-          const response = await fetch(`videos/${slug}.json${catalogCacheBust()}`, { cache: 'no-store' });
-          if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-          }
-          const data = await response.json();
-          loadedCards.push(buildCard(data, slug));
-        } catch (err) {
-          console.error(`Failed to load videos/${slug}.json`, err);
-        }
-      }
-
-      loadedCards = await syncCatalogWithGithub(loadedCards);
+      let loadedCards = catalogEntries.map(({ slug, data }) => buildCard(data, slug));
 
       grid.innerHTML = '';
       grid.removeAttribute('aria-busy');
-
-      if (loadedCards.length === 0) {
-        grid.innerHTML = '<div class="empty-state"><strong>Catalog unavailable</strong>Could not load footage JSON. Serve this site over HTTP (not file://).</div>';
-        resultsCount.textContent = 'Showing 0 clips';
-        return;
-      }
 
       loadedCards.sort((a, b) => {
         const dataA = assetCatalog.get(a.dataset.assetId);
@@ -2969,6 +2998,27 @@
       updatePageSeoKeywords();
       filterController.initTaxonomyFromCatalog();
       filterController.mountCatalog(cards);
+
+      try {
+        const syncedCards = await syncCatalogWithGithub(loadedCards);
+        if (syncedCards.length !== loadedCards.length) {
+          loadedCards = syncedCards;
+          loadedCards.sort((a, b) => {
+            const dataA = assetCatalog.get(a.dataset.assetId);
+            const dataB = assetCatalog.get(b.dataset.assetId);
+            const csvA = dataA?.syncSource === 'csv' ? 1 : 0;
+            const csvB = dataB?.syncSource === 'csv' ? 1 : 0;
+            if (csvB !== csvA) return csvB - csvA;
+            return (dataA?.title || '').localeCompare(dataB?.title || '', undefined, { sensitivity: 'base' });
+          });
+          cards = loadedCards;
+          updatePageSeoKeywords();
+          filterController.initTaxonomyFromCatalog();
+          filterController.mountCatalog(cards);
+        }
+      } catch (err) {
+        console.warn('Live GitHub sync skipped:', err.message);
+      }
     }
 
     function openModal(card) {

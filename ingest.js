@@ -1297,6 +1297,17 @@ async function main() {
 
   fs.writeFileSync(path.join(outputDir, 'manifest.json'), JSON.stringify(manifest, null, 2), 'utf8');
 
+  const catalogBundle = {
+    version: manifest.length,
+    generatedAt: new Date().toISOString(),
+    clips: manifest.map((slug) => ({ slug, ...catalog.get(slug) })),
+  };
+  fs.writeFileSync(
+    path.join(outputDir, 'catalog.json'),
+    JSON.stringify(catalogBundle),
+    'utf8'
+  );
+
   fs.writeFileSync(
     path.join(__dirname, 'rename_videos.sh'),
     `#!/bin/bash\n# Run from folder containing exported MP4 files\n${renameCommands.join('\n')}\necho "Rename pass complete."\n`,
@@ -1310,6 +1321,7 @@ async function main() {
   console.log(`  GitHub stubs: ${Array.from(catalog.values()).filter((item) => item.syncSource === 'github').length}`);
   console.log(`  With duration: ${durationCount}`);
   console.log('Updated videos/manifest.json');
+  console.log('Updated videos/catalog.json');
 }
 
 main().catch((err) => {
