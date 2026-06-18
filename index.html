@@ -1857,7 +1857,7 @@
           aria-expanded="false"
           aria-controls="shot-list-drawer"
         >
-          Shot List
+          Cart
           <span class="shot-list-count" id="shot-list-count" hidden>0</span>
         </button>
         <a href="mailto:licensingips@gmail.com" class="inquire-link" target="_blank" rel="noopener noreferrer">Inquire</a>
@@ -2083,15 +2083,15 @@
   <div class="shot-list-drawer-overlay" id="shot-list-drawer-overlay" aria-hidden="true">
     <aside class="shot-list-drawer" id="shot-list-drawer" role="dialog" aria-modal="true" aria-labelledby="shot-list-drawer-title">
       <div class="shot-list-drawer-header">
-        <h2 class="shot-list-drawer-title" id="shot-list-drawer-title">Shot List</h2>
-        <button type="button" class="shot-list-drawer-close" id="shot-list-drawer-close" aria-label="Close shot list">×</button>
+        <h2 class="shot-list-drawer-title" id="shot-list-drawer-title">Cart</h2>
+        <button type="button" class="shot-list-drawer-close" id="shot-list-drawer-close" aria-label="Close cart">×</button>
       </div>
       <div class="shot-list-drawer-body">
-        <p class="shot-list-empty" id="shot-list-empty">No clips added yet. Open a clip and choose Add to Shot List.</p>
+        <p class="shot-list-empty" id="shot-list-empty">No clips added yet. Open a clip and choose Add to Cart.</p>
         <ul class="shot-list-items" id="shot-list-items" hidden></ul>
       </div>
       <div class="shot-list-drawer-footer" id="shot-list-drawer-footer" hidden>
-        <button type="button" class="shot-list-clear-btn" id="shot-list-clear-btn">Clear Shot List</button>
+        <button type="button" class="shot-list-clear-btn" id="shot-list-clear-btn">Clear Cart</button>
         <button type="button" class="shot-list-submit-btn" id="shot-list-submit-btn">Submit License Request</button>
       </div>
     </aside>
@@ -2171,7 +2171,7 @@
               </div>
             </div>
           </div>
-          <button type="button" class="checkout-btn" id="checkout-btn">Add to Shot List</button>
+          <button type="button" class="checkout-btn" id="checkout-btn">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -2283,7 +2283,7 @@
     function updateModalCartButton(asset) {
       if (!asset) return;
       const inCart = licenseCart.has(asset.slug);
-      checkoutBtn.textContent = inCart ? 'In Shot List — Remove' : 'Add to Shot List';
+      checkoutBtn.textContent = inCart ? 'In Cart — Remove' : 'Add to Cart';
       checkoutBtn.classList.toggle('checkout-btn--in-cart', inCart);
       checkoutBtn.setAttribute('aria-pressed', String(inCart));
     }
@@ -2360,16 +2360,16 @@
         navigator.clipboard.writeText(payload.body)
           .then(() => {
             openMailto(window.IPFStockCart.buildFallbackMailto(recipient, items.length));
-            showToast('Shot list copied to clipboard — paste it into your email body.');
+            showToast('Cart copied to clipboard — paste it into your email body.');
             closeShotListDrawer();
           })
           .catch(() => {
-            showToast('Shot list is too long for your email app. Email licensingips@gmail.com directly.');
+            showToast('Cart is too long for your email app. Email licensingips@gmail.com directly.');
           });
         return;
       }
 
-      showToast('Shot list is too long for your email app. Email licensingips@gmail.com directly.');
+      showToast('Cart is too long for your email app. Email licensingips@gmail.com directly.');
     }
 
     licenseCart.onChange(() => updateShotListChrome());
@@ -2394,14 +2394,14 @@
       if (!button) return;
       const slug = button.getAttribute('data-remove-slug');
       if (licenseCart.remove(slug)) {
-        showToast('Removed from shot list.');
+        showToast('Removed from cart.');
       }
     });
 
     shotListClearBtn.addEventListener('click', () => {
       if (licenseCart.count() === 0) return;
       licenseCart.clear();
-      showToast('Shot list cleared.');
+      showToast('Cart cleared.');
     });
 
     shotListSubmitBtn.addEventListener('click', submitShotListRequest);
@@ -3520,11 +3520,11 @@
       const item = buildCartItemFromAsset(activeAsset);
       if (licenseCart.has(item.slug)) {
         licenseCart.remove(item.slug);
-        showToast('Removed from shot list.');
+        showToast('Removed from cart.');
       } else {
         licenseCart.add(item);
         const count = licenseCart.count();
-        showToast(`Added to shot list (${count} clip${count !== 1 ? 's' : ''}).`);
+        showToast(`Added to cart (${count} clip${count !== 1 ? 's' : ''}).`);
       }
       updateModalCartButton(activeAsset);
     });

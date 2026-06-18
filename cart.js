@@ -76,7 +76,7 @@ function buildCartLicenseMailto(items, recipient) {
   const count = items.length;
   const subject = count === 1
     ? `License Request — ${items[0].reelId}`
-    : `License Request — ${count} clips (Shot List)`;
+    : `License Request — ${count} clips (Cart)`;
 
   const clipBlocks = items.map((item, index) => {
     const lines = [
@@ -99,7 +99,7 @@ function buildCartLicenseMailto(items, recipient) {
     'Please advise on rates and delivery of low-resolution time-coded review files.',
     '',
     '—',
-    '(Sent via Indo Pacific Stock catalog shot list)',
+    '(Sent via Indo Pacific Stock catalog cart)',
   ].join('\n');
 
   const mailto = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -113,17 +113,17 @@ function buildCartLicenseMailto(items, recipient) {
 }
 
 function buildFallbackMailto(recipient, count) {
-  const subject = `License Request — ${count} clips (Shot List)`;
+  const subject = `License Request — ${count} clips (Cart)`;
   const body = [
     'Hello Indo Pacific Stock Licensing,',
     '',
-    'I would like to request license terms and master raw files for the clips in my shot list.',
-    'The full shot list details are pasted below from my clipboard.',
+    'I would like to request license terms and master raw files for the clips in my cart.',
+    'The full cart details are pasted below from my clipboard.',
     '',
     'Please advise on rates and delivery of low-resolution time-coded review files.',
     '',
     '—',
-    '(Sent via Indo Pacific Stock catalog shot list)',
+    '(Sent via Indo Pacific Stock catalog cart)',
   ].join('\n');
 
   return `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
