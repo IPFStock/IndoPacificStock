@@ -174,6 +174,245 @@
       flex-shrink: 0;
     }
 
+    .shot-list-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0;
+      background: transparent;
+      border: none;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .shot-list-trigger:hover,
+    .shot-list-trigger:focus-visible {
+      color: var(--accent);
+    }
+
+    .shot-list-trigger:focus-visible {
+      outline: 1px solid var(--border-strong);
+      outline-offset: 3px;
+    }
+
+    .shot-list-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.15rem;
+      height: 1.15rem;
+      padding: 0 0.3rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.62rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .shot-list-count[hidden] {
+      display: none;
+    }
+
+    .shot-list-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 220;
+      display: none;
+      background: rgba(15, 23, 42, 0.35);
+    }
+
+    .shot-list-drawer-overlay.open {
+      display: block;
+    }
+
+    .shot-list-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 221;
+      width: min(24rem, 100vw);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+      border-left: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      transform: translateX(100%);
+      transition: transform 0.28s ease;
+    }
+
+    .shot-list-drawer-overlay.open .shot-list-drawer {
+      transform: translateX(0);
+    }
+
+    .shot-list-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .shot-list-drawer-title {
+      margin: 0;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .shot-list-drawer-close {
+      padding: 0.2rem 0.45rem;
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .shot-list-drawer-close:hover,
+    .shot-list-drawer-close:focus-visible {
+      color: var(--text);
+    }
+
+    .shot-list-drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0.85rem 1.1rem;
+    }
+
+    .shot-list-empty {
+      margin: 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .shot-list-items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .shot-list-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0.5rem;
+      align-items: start;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .shot-list-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .shot-list-item-title {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .shot-list-item-meta {
+      display: block;
+      margin-top: 0.2rem;
+      font-size: 0.68rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .shot-list-item-remove {
+      padding: 0.15rem 0.35rem;
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .shot-list-item-remove:hover,
+    .shot-list-item-remove:focus-visible {
+      color: var(--text);
+    }
+
+    .shot-list-drawer-footer {
+      display: grid;
+      gap: 0.55rem;
+      padding: 0.9rem 1.1rem 1.1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .shot-list-clear-btn,
+    .shot-list-submit-btn {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+    }
+
+    .shot-list-clear-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .shot-list-clear-btn:hover {
+      border-color: var(--border-strong);
+      color: var(--text);
+    }
+
+    .shot-list-submit-btn {
+      background: var(--accent);
+      border: none;
+      color: #fff;
+    }
+
+    .shot-list-submit-btn:hover {
+      background: var(--accent-hover);
+    }
+
+    .shot-list-submit-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .checkout-btn--in-cart {
+      background: var(--elevated);
+      color: var(--text);
+      border: 1px solid var(--border-strong);
+    }
+
+    .checkout-btn--in-cart:hover {
+      background: var(--surface);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .shot-list-drawer {
+        transition: none;
+      }
+    }
+
     .licensing-guide-trigger {
       position: relative;
     }
@@ -1611,6 +1850,16 @@
             <a href="licensing-guide.html" class="licensing-guide-preview-cta" target="_blank" rel="noopener noreferrer">Open full guide</a>
           </div>
         </div>
+        <button
+          type="button"
+          class="shot-list-trigger"
+          id="shot-list-trigger"
+          aria-expanded="false"
+          aria-controls="shot-list-drawer"
+        >
+          Shot List
+          <span class="shot-list-count" id="shot-list-count" hidden>0</span>
+        </button>
         <a href="mailto:licensingips@gmail.com" class="inquire-link" target="_blank" rel="noopener noreferrer">Inquire</a>
       </nav>
     </div>
@@ -1831,6 +2080,23 @@
     <p class="site-footer-line">© 2026 Indo Pacific Stock · All footage rights reserved · <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms</a> · <a href="license-terms.html" target="_blank" rel="noopener noreferrer">License Terms</a> · <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a></p>
   </footer>
 
+  <div class="shot-list-drawer-overlay" id="shot-list-drawer-overlay" aria-hidden="true">
+    <aside class="shot-list-drawer" id="shot-list-drawer" role="dialog" aria-modal="true" aria-labelledby="shot-list-drawer-title">
+      <div class="shot-list-drawer-header">
+        <h2 class="shot-list-drawer-title" id="shot-list-drawer-title">Shot List</h2>
+        <button type="button" class="shot-list-drawer-close" id="shot-list-drawer-close" aria-label="Close shot list">×</button>
+      </div>
+      <div class="shot-list-drawer-body">
+        <p class="shot-list-empty" id="shot-list-empty">No clips added yet. Open a clip and choose Add to Shot List.</p>
+        <ul class="shot-list-items" id="shot-list-items" hidden></ul>
+      </div>
+      <div class="shot-list-drawer-footer" id="shot-list-drawer-footer" hidden>
+        <button type="button" class="shot-list-clear-btn" id="shot-list-clear-btn">Clear Shot List</button>
+        <button type="button" class="shot-list-submit-btn" id="shot-list-submit-btn">Submit License Request</button>
+      </div>
+    </aside>
+  </div>
+
   <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
     <div class="modal-wrap">
       <button type="button" class="modal-close" id="modal-close" aria-label="Close dialog">&times;</button>
@@ -1905,7 +2171,7 @@
               </div>
             </div>
           </div>
-          <button type="button" class="checkout-btn" id="checkout-btn">Request License &amp; Master RAW Files</button>
+          <button type="button" class="checkout-btn" id="checkout-btn">Add to Shot List</button>
         </div>
       </div>
     </div>
@@ -1914,6 +2180,7 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="app.js"></script>
+  <script src="cart.js"></script>
   <script>
   (async function () {
     'use strict';
@@ -1951,6 +2218,15 @@
     const modalPricingRate = document.getElementById('modal-pricing-rate');
     const modalRateCard = document.getElementById('modal-rate-card');
     const checkoutBtn = document.getElementById('checkout-btn');
+    const shotListTrigger = document.getElementById('shot-list-trigger');
+    const shotListCount = document.getElementById('shot-list-count');
+    const shotListDrawerOverlay = document.getElementById('shot-list-drawer-overlay');
+    const shotListDrawerClose = document.getElementById('shot-list-drawer-close');
+    const shotListEmpty = document.getElementById('shot-list-empty');
+    const shotListItems = document.getElementById('shot-list-items');
+    const shotListFooter = document.getElementById('shot-list-drawer-footer');
+    const shotListClearBtn = document.getElementById('shot-list-clear-btn');
+    const shotListSubmitBtn = document.getElementById('shot-list-submit-btn');
 
     const PRICING_TIERS = {
       standard: { label: 'Standard', ratePerSecond: 75, minimumSeconds: 10 },
@@ -1964,76 +2240,175 @@
       return override && override.includes('@') ? override.trim() : LICENSING_EMAIL;
     }
 
-    function buildLicenseRequestMailto(asset) {
-      const spec = asset.technicalSpecs || {};
-      const reelId = spec.originalCameraCode || spec.fileName || asset.slug || 'Unknown';
-      const licenseLabel = resolveLicenseLabel(asset);
-      const pricing = resolvePricingDetails(asset);
-      const duration = resolveClipDuration(asset);
-      const subject = `License Request — ${reelId}`;
-      const body = [
-        'Hello Indo Pacific Stock Licensing,',
-        '',
-        'I would like to request license terms and master raw files for the following clip:',
-        '',
-        `Reel ID: ${reelId}`,
-        `Title: ${asset.title}`,
-        `License Type: ${licenseLabel}`,
-        `Pricing Tier: ${pricing.tierLabel}`,
-        duration && `Duration: ${duration}`,
-        spec.resolution && `Resolution: ${spec.resolution}`,
-        asset.region && `Location: ${asset.region}`,
-        asset.description && `Description: ${asset.description}`,
-        '',
-        'Please advise on rates and delivery of low-resolution time-coded review files.',
-        '',
-        '—',
-        '(Sent via Indo Pacific Stock catalog)',
-      ].filter(Boolean).join('\n');
+    let activeAsset = null;
+    let toastTimer = null;
 
+    function buildCartItemFromAsset(asset) {
+      const spec = asset.technicalSpecs || {};
+      const pricing = resolvePricingDetails(asset);
+      return {
+        slug: asset.slug,
+        reelId: spec.originalCameraCode || spec.fileName || asset.slug || 'Unknown',
+        title: asset.title,
+        licenseLabel: resolveLicenseLabel(asset),
+        tierLabel: pricing.tierLabel,
+        duration: resolveClipDuration(asset),
+        region: asset.region || '',
+      };
+    }
+
+    function buildLicenseRequestMailto(asset) {
       const recipient = getLicenseRequestEmail();
-      return `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      return window.IPFStockCart.buildCartLicenseMailto(
+        [buildCartItemFromAsset(asset)],
+        recipient,
+      ).mailto;
     }
 
     function previewLicenseRequestEmail(asset) {
-      const spec = asset.technicalSpecs || {};
-      const reelId = spec.originalCameraCode || spec.fileName || asset.slug || 'Unknown';
-      const licenseLabel = resolveLicenseLabel(asset);
-      const pricing = resolvePricingDetails(asset);
-      const duration = resolveClipDuration(asset);
-      const subject = `License Request — ${reelId}`;
-      const body = [
-        'Hello Indo Pacific Stock Licensing,',
-        '',
-        'I would like to request license terms and master raw files for the following clip:',
-        '',
-        `Reel ID: ${reelId}`,
-        `Title: ${asset.title}`,
-        `License Type: ${licenseLabel}`,
-        `Pricing Tier: ${pricing.tierLabel}`,
-        duration && `Duration: ${duration}`,
-        spec.resolution && `Resolution: ${spec.resolution}`,
-        asset.region && `Location: ${asset.region}`,
-        asset.description && `Description: ${asset.description}`,
-        '',
-        'Please advise on rates and delivery of low-resolution time-coded review files.',
-        '',
-        '—',
-        '(Sent via Indo Pacific Stock catalog)',
-      ].filter(Boolean).join('\n');
-
+      const recipient = getLicenseRequestEmail();
+      const payload = window.IPFStockCart.buildCartLicenseMailto(
+        [buildCartItemFromAsset(asset)],
+        recipient,
+      );
       return {
-        to: getLicenseRequestEmail(),
-        subject,
-        body,
+        to: recipient,
+        subject: payload.subject,
+        body: payload.body,
       };
     }
+
+    const licenseCart = new window.IPFStockCart.LicenseCart();
+
+    function updateModalCartButton(asset) {
+      if (!asset) return;
+      const inCart = licenseCart.has(asset.slug);
+      checkoutBtn.textContent = inCart ? 'In Shot List — Remove' : 'Add to Shot List';
+      checkoutBtn.classList.toggle('checkout-btn--in-cart', inCart);
+      checkoutBtn.setAttribute('aria-pressed', String(inCart));
+    }
+
+    function renderShotListItems() {
+      const items = licenseCart.items;
+      const count = items.length;
+
+      shotListCount.textContent = String(count);
+      shotListCount.hidden = count === 0;
+      shotListEmpty.hidden = count > 0;
+      shotListItems.hidden = count === 0;
+      shotListFooter.hidden = count === 0;
+      shotListSubmitBtn.disabled = count === 0;
+
+      shotListItems.innerHTML = items.map((item) => (
+        `<li class="shot-list-item" data-cart-slug="${escapeHtml(item.slug)}">` +
+          `<div>` +
+            `<span class="shot-list-item-title">${escapeHtml(item.title)}</span>` +
+            `<span class="shot-list-item-meta">${escapeHtml(item.reelId)} · ${escapeHtml(item.tierLabel)}${item.region ? ` · ${escapeHtml(item.region)}` : ''}</span>` +
+          `</div>` +
+          `<button type="button" class="shot-list-item-remove" data-remove-slug="${escapeHtml(item.slug)}" aria-label="Remove ${escapeHtml(item.title)}">×</button>` +
+        `</li>`
+      )).join('');
+    }
+
+    function updateShotListChrome() {
+      renderShotListItems();
+      if (activeAsset) updateModalCartButton(activeAsset);
+    }
+
+    function openShotListDrawer() {
+      shotListDrawerOverlay.classList.add('open');
+      shotListDrawerOverlay.setAttribute('aria-hidden', 'false');
+      shotListTrigger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeShotListDrawer() {
+      shotListDrawerOverlay.classList.remove('open');
+      shotListDrawerOverlay.setAttribute('aria-hidden', 'true');
+      shotListTrigger.setAttribute('aria-expanded', 'false');
+      if (!modalOverlay.classList.contains('open')) {
+        document.body.style.overflow = '';
+      }
+    }
+
+    function submitShotListRequest() {
+      const items = licenseCart.items;
+      if (items.length === 0) return;
+
+      const recipient = getLicenseRequestEmail();
+      const usingTestInbox = recipient !== LICENSING_EMAIL;
+      const payload = window.IPFStockCart.buildCartLicenseMailto(items, recipient);
+
+      const openMailto = (href) => {
+        window.location.href = href;
+        showToast(
+          usingTestInbox
+            ? `Opening your email app — test message addressed to ${recipient}.`
+            : items.length === 1
+              ? 'Opening your email app with this clip inquiry…'
+              : `Opening your email app with ${items.length} clips…`,
+        );
+      };
+
+      if (!payload.tooLong) {
+        openMailto(payload.mailto);
+        closeShotListDrawer();
+        return;
+      }
+
+      if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(payload.body)
+          .then(() => {
+            openMailto(window.IPFStockCart.buildFallbackMailto(recipient, items.length));
+            showToast('Shot list copied to clipboard — paste it into your email body.');
+            closeShotListDrawer();
+          })
+          .catch(() => {
+            showToast('Shot list is too long for your email app. Email licensingips@gmail.com directly.');
+          });
+        return;
+      }
+
+      showToast('Shot list is too long for your email app. Email licensingips@gmail.com directly.');
+    }
+
+    licenseCart.onChange(() => updateShotListChrome());
+    updateShotListChrome();
+
+    shotListTrigger.addEventListener('click', () => {
+      if (shotListDrawerOverlay.classList.contains('open')) {
+        closeShotListDrawer();
+      } else {
+        openShotListDrawer();
+      }
+    });
+
+    shotListDrawerClose.addEventListener('click', closeShotListDrawer);
+
+    shotListDrawerOverlay.addEventListener('click', (event) => {
+      if (event.target === shotListDrawerOverlay) closeShotListDrawer();
+    });
+
+    shotListItems.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-remove-slug]');
+      if (!button) return;
+      const slug = button.getAttribute('data-remove-slug');
+      if (licenseCart.remove(slug)) {
+        showToast('Removed from shot list.');
+      }
+    });
+
+    shotListClearBtn.addEventListener('click', () => {
+      if (licenseCart.count() === 0) return;
+      licenseCart.clear();
+      showToast('Shot list cleared.');
+    });
+
+    shotListSubmitBtn.addEventListener('click', submitShotListRequest);
 
     const assetCatalog = new Map();
     const cardSearchIndex = new WeakMap();
     let cards = [];
-    let activeAsset = null;
-    let toastTimer = null;
 
     function cardSearchText(card) {
       const indexed = cardSearchIndex.get(card);
@@ -3036,6 +3411,7 @@
       modalTitle.textContent = data.title;
       modalMeta.textContent = buildMetaLine(data);
       updateModalLicensing(data);
+      updateModalCartButton(data);
 
       const maxResolution = data.technicalSpecs?.resolution || '';
       if (maxResolution) {
@@ -3128,22 +3504,29 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
+      if (e.key !== 'Escape') return;
+      if (shotListDrawerOverlay.classList.contains('open')) {
+        closeShotListDrawer();
+        return;
+      }
+      if (modalOverlay.classList.contains('open')) {
         closeModal();
       }
     });
 
     checkoutBtn.addEventListener('click', () => {
       if (!activeAsset) return;
-      const mailto = buildLicenseRequestMailto(activeAsset);
-      const usingTestInbox = getLicenseRequestEmail() !== LICENSING_EMAIL;
-      window.location.href = mailto;
-      showToast(
-        usingTestInbox
-          ? `Opening your email app — test message addressed to ${getLicenseRequestEmail()}.`
-          : 'Opening your email app with this clip inquiry…',
-      );
-      closeModal();
+
+      const item = buildCartItemFromAsset(activeAsset);
+      if (licenseCart.has(item.slug)) {
+        licenseCart.remove(item.slug);
+        showToast('Removed from shot list.');
+      } else {
+        licenseCart.add(item);
+        const count = licenseCart.count();
+        showToast(`Added to shot list (${count} clip${count !== 1 ? 's' : ''}).`);
+      }
+      updateModalCartButton(activeAsset);
     });
 
     window.IPFStockLicensing = {
