@@ -2,6 +2,25 @@
 
 const ARCHIVE_BATCH_SIZE = 24;
 
+const SCENE_FILTER_PROFILES = {
+  underwater: { sceneCategory: 'Underwater' },
+  'aerial-landscape': {
+    sceneCategories: ['Aerial', 'Landscape'],
+    categories: ['Coastal Landscapes Drone Aerials'],
+  },
+  'cultural-editorial': {
+    sceneCategories: ['Culture'],
+    categories: ['Indo-Pacific Cultural Documentations & Editorial Scenes'],
+  },
+  'terrestrial-wildlife': {
+    categories: [
+      'Terrestrial Mammals, Marsupials & Megafauna',
+      'Terrestrial Reptiles & Herpetofauna',
+      'Avian Bird Species',
+    ],
+  },
+};
+
 const SEARCH_STOP_WORDS = new Set([
   'a', 'an', 'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with',
   'by', 'from', 'into', 'over', 'under', 'between', 'through', 'during', 'before',
@@ -778,11 +797,21 @@ class CatalogFilterController {
     const scene = this.filterScene.value;
     if (scene === 'All') return true;
 
-    const cardScene = card.dataset.sceneCategory || '';
-    if (scene === 'underwater') return cardScene === 'Underwater';
-    if (scene === 'topside') return cardScene === 'Culture' || cardScene === 'Landscape';
+    const profile = SCENE_FILTER_PROFILES[scene];
+    if (!profile) return true;
 
-    return cardScene === scene;
+    const checks = [];
+    if (profile.sceneCategory) {
+      checks.push(card.dataset.sceneCategory === profile.sceneCategory);
+    }
+    if (profile.sceneCategories) {
+      checks.push(profile.sceneCategories.includes(card.dataset.sceneCategory || ''));
+    }
+    if (profile.categories) {
+      checks.push(profile.categories.includes(card.dataset.category || ''));
+    }
+
+    return checks.length === 0 || checks.some(Boolean);
   }
 
   matchesMacroFilters(card) {
@@ -935,4 +964,5 @@ window.IPFStockFilters = {
   buildSearchVocabulary,
   suggestFuzzyCorrection,
   BROAD_CATEGORY_TAXONOMY_TERMS,
+  SCENE_FILTER_PROFILES,
 };
