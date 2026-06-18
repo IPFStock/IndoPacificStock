@@ -34,6 +34,100 @@ function searchTokenMatchesText(text, token) {
   });
 }
 
+function damerauLevenshtein(a, b) {
+  const alen = a.length;
+  const blen = b.length;
+  if (alen === 0) return blen;
+  if (blen === 0) return alen;
+
+  const maxDist = alen + blen;
+  const da = Object.create(null);
+  const d = Array.from({ length: alen + 2 }, () => Array(blen + 2).fill(0));
+
+  d[0][0] = maxDist;
+  for (let i = 0; i <= alen; i += 1) {
+    d[i + 1][0] = maxDist;
+    d[i + 1][1] = i;
+  }
+  for (let j = 0; j <= blen; j += 1) {
+    d[0][j + 1] = maxDist;
+    d[1][j + 1] = j;
+  }
+
+  for (let i = 1; i <= alen; i += 1) {
+    let db = 0;
+    for (let j = 1; j <= blen; j += 1) {
+      const i1 = da[b[j - 1]] || 0;
+      const j1 = db;
+      let cost = 1;
+      if (a[i - 1] === b[j - 1]) {
+        cost = 0;
+        db = j;
+      }
+      d[i + 1][j + 1] = Math.min(
+        d[i][j + 1] + 1,
+        d[i + 1][j] + 1,
+        d[i][j] + cost,
+        d[i1][j1] + (i - i1 - 1) + 1 + (j - j1 - 1),
+      );
+    }
+    da[a[i - 1]] = i;
+  }
+
+  return d[alen + 1][blen + 1];
+}
+
+function maxFuzzyEditDistance(tokenLength) {
+  if (tokenLength <= 4) return 1;
+  if (tokenLength <= 8) return 2;
+  return 2;
+}
+
+function tokenLooksLikeVocabularyTerm(token, vocabulary) {
+  return searchTokenVariants(token).some((variant) => vocabulary.has(variant));
+}
+
+function findFuzzyVocabularyMatches(token, vocabulary) {
+  if (!token || token.length < 3 || !vocabulary || vocabulary.size === 0) return [];
+
+  const maxDistance = maxFuzzyEditDistance(token.length);
+  const matches = [];
+
+  vocabulary.forEach((term) => {
+    if (Math.abs(term.length - token.length) > maxDistance) return;
+    if (token.length <= 6 && term[0] !== token[0]) return;
+
+    const distance = damerauLevenshtein(token, term);
+    if (distance === 0 || distance > maxDistance) return;
+
+    matches.push({ term, distance });
+  });
+
+  matches.sort((a, b) => a.distance - b.distance || a.term.length - b.term.length);
+  return matches.map((entry) => entry.term);
+}
+
+function suggestFuzzyCorrection(token, vocabulary) {
+  if (!token || token.length < 3 || !vocabulary || vocabulary.size === 0) return null;
+  if (tokenLooksLikeVocabularyTerm(token, vocabulary)) return null;
+
+  const matches = findFuzzyVocabularyMatches(token, vocabulary);
+  return matches[0] || null;
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function buildCorrectedQueryDisplay(query, corrections) {
+  let result = query;
+  corrections.forEach(({ from, to }) => {
+    const pattern = new RegExp(`(^|[^a-z0-9])(${escapeRegExp(from)})(?=[^a-z0-9]|$)`, 'gi');
+    result = result.replace(pattern, (_, prefix, match) => `${prefix}${match === match.toUpperCase() ? to.toUpperCase() : to}`);
+  });
+  return result;
+}
+
 const SEARCH_PARTIAL_MIN_LEN = 3;
 
 function cleanSearchToken(token) {
@@ -60,7 +154,7 @@ function significantSearchTokens(query) {
   return tokens;
 }
 
-function matchesSearchQuery(haystack, query) {
+function matchesSearchQuery(haystack, query, tokensOverride) {
   const text = String(haystack || '').toLowerCase();
   const raw = String(query || '');
   const normalized = raw.trim().toLowerCase();
@@ -73,10 +167,40 @@ function matchesSearchQuery(haystack, query) {
 
   if (text.includes(normalized)) return true;
 
-  const tokens = significantSearchTokens(raw);
+  const tokens = Array.isArray(tokensOverride) && tokensOverride.length > 0
+    ? tokensOverride
+    : significantSearchTokens(raw);
   if (tokens.length === 0) return true;
 
   return tokens.every((token) => searchTokenMatchesText(text, token));
+}
+
+function buildSearchVocabulary(assets) {
+  const terms = new Set();
+
+  assets.forEach((asset) => {
+    collectAssetVocabulary(asset).forEach((term) => terms.add(term));
+
+    String(asset.slug || '')
+      .split('-')
+      .map(cleanSearchToken)
+      .filter((part) => part.length >= 3 && !SEARCH_STOP_WORDS.has(part))
+      .forEach((part) => terms.add(part));
+
+    String(asset.region || '')
+      .split(/[,/&]+/)
+      .map(cleanSearchToken)
+      .filter((part) => part.length >= 3 && !SEARCH_STOP_WORDS.has(part))
+      .forEach((part) => terms.add(part));
+  });
+
+  Object.values(BROAD_CATEGORY_TAXONOMY_TERMS)
+    .flat()
+    .map(cleanSearchToken)
+    .filter((term) => term.length >= 3)
+    .forEach((term) => terms.add(term));
+
+  return terms;
 }
 
 const CATEGORY_TERM_BLOCKLIST = new Set([
@@ -503,6 +627,7 @@ class CatalogFilterController {
     this.getAssetCatalog = config.getAssetCatalog;
     this.searchInput = config.searchInput;
     this.filterRegion = config.filterRegion;
+    this.filterScene = config.filterScene;
     this.filterTier = config.filterTier;
     this.grid = config.grid;
     this.resultsCount = config.resultsCount;
@@ -513,6 +638,8 @@ class CatalogFilterController {
 
     this.collectionPortal = null;
     this.activeCollectionFilter = null;
+    this.searchVocabulary = new Set();
+    this._searchResolutionCache = { query: '', resolution: null };
 
     this.taxonomy = new TaxonomicFilterEngine(
       config.taxonomicSelects,
@@ -544,6 +671,7 @@ class CatalogFilterController {
     const inputs = [
       this.searchInput,
       this.filterRegion,
+      this.filterScene,
       this.filterTier,
       ...this.taxonomy.chain.map((item) => item.select),
     ].filter(Boolean);
@@ -556,6 +684,64 @@ class CatalogFilterController {
   initTaxonomyFromCatalog() {
     const assets = [...this.getAssetCatalog().values()];
     this.taxonomy.setAssets(assets);
+    this.searchVocabulary = buildSearchVocabulary(assets);
+    this._searchResolutionCache = { query: '', resolution: null };
+  }
+
+  getSearchResolution() {
+    const query = this.searchInput.value.trim();
+    if (this._searchResolutionCache.query === query) {
+      return this._searchResolutionCache.resolution;
+    }
+
+    const resolution = this.computeSearchResolution(query);
+    this._searchResolutionCache = { query, resolution };
+    return resolution;
+  }
+
+  computeSearchResolution(query) {
+    const normalized = String(query || '').trim();
+    if (!normalized) {
+      return { mode: 'none', tokens: [], corrections: [], displayQuery: '' };
+    }
+
+    const rawTokens = significantSearchTokens(normalized);
+    if (rawTokens.length === 0) {
+      return { mode: 'none', tokens: [], corrections: [], displayQuery: normalized };
+    }
+
+    const tokenMatchesAnyCard = (tokens) => this.getCards().some((card) => (
+      matchesSearchQuery(this.cardSearchText(card), normalized, tokens)
+    ));
+
+    if (tokenMatchesAnyCard(rawTokens)) {
+      return { mode: 'exact', tokens: rawTokens, corrections: [], displayQuery: normalized };
+    }
+
+    if (!this.searchVocabulary || this.searchVocabulary.size === 0) {
+      return { mode: 'none', tokens: rawTokens, corrections: [], displayQuery: normalized };
+    }
+
+    const corrections = [];
+    const fuzzyTokens = rawTokens.map((token) => {
+      const corrected = suggestFuzzyCorrection(token, this.searchVocabulary);
+      if (corrected && corrected !== token) {
+        corrections.push({ from: token, to: corrected });
+        return corrected;
+      }
+      return token;
+    });
+
+    if (corrections.length === 0 || !tokenMatchesAnyCard(fuzzyTokens)) {
+      return { mode: 'none', tokens: rawTokens, corrections: [], displayQuery: normalized };
+    }
+
+    return {
+      mode: 'fuzzy',
+      tokens: fuzzyTokens,
+      corrections,
+      displayQuery: buildCorrectedQueryDisplay(normalized, corrections),
+    };
   }
 
   matchesDropdown(selected, value) {
@@ -586,13 +772,20 @@ class CatalogFilterController {
     return checks.length === 0 || checks.some(Boolean);
   }
 
-  cardMatchesFilters(card) {
-    const query = this.searchInput.value.trim().toLowerCase();
+  matchesSceneFilter(card) {
+    if (!this.filterScene) return true;
 
-    if (query) {
-      return matchesSearchQuery(this.cardSearchText(card), query);
-    }
+    const scene = this.filterScene.value;
+    if (scene === 'All') return true;
 
+    const cardScene = card.dataset.sceneCategory || '';
+    if (scene === 'underwater') return cardScene === 'Underwater';
+    if (scene === 'topside') return cardScene === 'Culture' || cardScene === 'Landscape';
+
+    return cardScene === scene;
+  }
+
+  matchesMacroFilters(card) {
     const region = this.filterRegion.value;
     const tier = this.filterTier ? this.filterTier.value : 'All';
 
@@ -600,8 +793,21 @@ class CatalogFilterController {
     const tierMatch = tier === 'All' || card.dataset.pricingTier === tier;
     const taxonMatch = this.taxonomy.matchesCard(card);
     const collectionMatch = this.matchesCollectionFilter(card);
+    const sceneMatch = this.matchesSceneFilter(card);
 
-    return regionMatch && tierMatch && taxonMatch && collectionMatch;
+    return regionMatch && tierMatch && taxonMatch && collectionMatch && sceneMatch;
+  }
+
+  cardMatchesFilters(card) {
+    const query = this.searchInput.value.trim();
+    const filtersMatch = this.matchesMacroFilters(card);
+
+    if (!query) return filtersMatch;
+
+    const resolution = this.getSearchResolution();
+    if (resolution.mode === 'none') return false;
+
+    return matchesSearchQuery(this.cardSearchText(card), query, resolution.tokens) && filtersMatch;
   }
 
   getFilteredCards() {
@@ -613,6 +819,7 @@ class CatalogFilterController {
     this.searchInput.value = '';
     this.updateSearchChrome();
     this.filterRegion.value = 'All';
+    if (this.filterScene) this.filterScene.value = 'All';
     if (this.filterTier) this.filterTier.value = 'All';
     this.taxonomy.reset();
 
@@ -650,9 +857,18 @@ class CatalogFilterController {
 
   updateResultsCount(total, shown) {
     const displayShown = shown ?? this.paginator.displayedCount;
-    this.resultsCount.textContent = total === 0
+    const query = this.searchInput.value.trim();
+    const resolution = query ? this.getSearchResolution() : null;
+
+    let text = total === 0
       ? 'Showing 0 clips'
       : `Showing ${displayShown} of ${total} clip${total !== 1 ? 's' : ''}`;
+
+    if (resolution?.mode === 'fuzzy' && total > 0) {
+      text += ` — results for “${resolution.displayQuery}”`;
+    }
+
+    this.resultsCount.textContent = text;
   }
 
   filterArchive(options = {}) {
@@ -698,6 +914,9 @@ class CatalogFilterController {
     });
 
     this.filterRegion.addEventListener('change', () => this.filterArchive());
+    if (this.filterScene) {
+      this.filterScene.addEventListener('change', () => this.filterArchive());
+    }
     if (this.filterTier) {
       this.filterTier.addEventListener('change', () => this.filterArchive());
     }
@@ -713,5 +932,7 @@ window.IPFStockFilters = {
   matchesSearchQuery,
   matchesBroadCategory,
   buildCategoryTermIndex,
+  buildSearchVocabulary,
+  suggestFuzzyCorrection,
   BROAD_CATEGORY_TAXONOMY_TERMS,
 };

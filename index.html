@@ -453,7 +453,7 @@
       }
 
       .mobile-filter-panel.is-expanded {
-        max-height: 9rem;
+        max-height: 12rem;
       }
 
       .macro-filters-row {
@@ -478,9 +478,9 @@
         background-position: right 0 center;
       }
 
-      body.is-search-active .mobile-filter-toggle,
-      body.is-search-active .mobile-filter-panel {
-        display: none;
+      body.is-search-active .mobile-filter-toggle {
+        margin-top: 0.55rem;
+        color: var(--text-secondary);
       }
     }
 
@@ -1646,6 +1646,11 @@
 
           <div class="mobile-filter-panel" id="mobile-filter-panel">
             <div class="macro-filters-row" aria-label="Macro archive filters">
+              <select id="filter-scene" class="filter-select" aria-label="Scene type">
+                <option value="All">Scene: All</option>
+                <option value="underwater">Underwater</option>
+                <option value="topside">Topside &amp; Land</option>
+              </select>
               <select id="filter-taxa-category" class="filter-select" aria-label="Broad category">
                 <option value="Any">Broad Category</option>
               </select>
@@ -1925,6 +1930,7 @@
 
     const searchInput = document.getElementById('search-input');
     const filterRegion = document.getElementById('filter-region');
+    const filterScene = document.getElementById('filter-scene');
     const filterTaxaCategory = document.getElementById('filter-taxa-category');
     const filterTier = document.getElementById('filter-tier');
     const grid = document.getElementById('media-grid');
@@ -2057,6 +2063,7 @@
       getAssetCatalog: () => assetCatalog,
       searchInput,
       filterRegion,
+      filterScene,
       filterTier,
       grid,
       resultsCount,
