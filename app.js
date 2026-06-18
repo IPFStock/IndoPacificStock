@@ -251,6 +251,14 @@ const BROAD_CATEGORY_TAXONOMY_TERMS = {
   'Indo-Pacific Cultural Documentations & Editorial Scenes': ['culture', 'cultural', 'village', 'editorial'],
 };
 
+const BROAD_CATEGORY_LABELS = {
+  'Coastal Landscapes Drone Aerials': 'Aerials and Landscapes',
+};
+
+function formatBroadCategoryLabel(value) {
+  return BROAD_CATEGORY_LABELS[value] || value;
+}
+
 function extractSignificantTerms(text) {
   const terms = new Set();
   String(text || '')
@@ -445,7 +453,7 @@ class TaxonomicFilterEngine {
     options.forEach((value) => {
       const option = document.createElement('option');
       option.value = value;
-      option.textContent = value;
+      option.textContent = formatBroadCategoryLabel(value);
       select.appendChild(option);
     });
 
@@ -965,4 +973,6 @@ window.IPFStockFilters = {
   suggestFuzzyCorrection,
   BROAD_CATEGORY_TAXONOMY_TERMS,
   SCENE_FILTER_PROFILES,
+  BROAD_CATEGORY_LABELS,
+  formatBroadCategoryLabel,
 };
