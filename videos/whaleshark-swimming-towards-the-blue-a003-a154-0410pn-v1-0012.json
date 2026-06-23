@@ -2,7 +2,7 @@
   "title": "Whaleshark Swimming Towards The Blue",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -26,7 +26,6 @@
     "cendrawasih",
     "cendrawasih bay",
     "deep",
-    "dolphins",
     "down",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -48,7 +47,8 @@
     "raw",
     "red",
     "redcode",
-    "reptiles"
+    "reptiles",
+    "rhincodon"
   ],
   "technicalSpecs": {
     "fileName": "A003_A154_0410PN_V1-0012.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "1.09",
     "duration": "00:02:31:19",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

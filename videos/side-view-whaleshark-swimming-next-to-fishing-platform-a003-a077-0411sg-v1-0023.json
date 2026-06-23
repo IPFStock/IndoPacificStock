@@ -2,7 +2,7 @@
   "title": "Side View Whaleshark Swimming Next To Fishing Platform",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -27,7 +27,6 @@
     "cenderawasih",
     "cendrawasih",
     "cendrawasih bay",
-    "dolphins",
     "drop",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -48,7 +47,8 @@
     "pacific ocean",
     "papua",
     "papua province",
-    "platform"
+    "platform",
+    "province"
   ],
   "technicalSpecs": {
     "fileName": "A003_A077_0411SG_V1-0023.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "1.09",
     "duration": "00:00:42:21",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

@@ -2,7 +2,7 @@
   "title": "Whaleshark Vertical Close To The Fishing Nets View From Behind",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -32,7 +32,6 @@
     "cendrawasih",
     "cendrawasih bay",
     "close",
-    "dolphins",
     "drop",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -48,7 +47,8 @@
     "marine megafauna reptiles ocean mammals",
     "megafauna",
     "net",
-    "nets"
+    "nets",
+    "ocean"
   ],
   "technicalSpecs": {
     "fileName": "A003_A076_0411VP_V1-0021.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "1.09",
     "duration": "00:00:57:05",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

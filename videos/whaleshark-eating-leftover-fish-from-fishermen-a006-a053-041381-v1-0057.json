@@ -2,7 +2,7 @@
   "title": "Whaleshark Eating Leftover Fish From Fishermen",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "REDcode 7:1 RED RAW",
   "nativeFormatBadge": "4K R3D",
   "licenseType": "commercial",
@@ -26,7 +26,6 @@
     "cenderawasih",
     "cendrawasih",
     "cendrawasih bay",
-    "dolphins",
     "drop",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -48,7 +47,8 @@
     "ocean",
     "off",
     "pacific",
-    "pacific ocean"
+    "pacific ocean",
+    "papua"
   ],
   "technicalSpecs": {
     "fileName": "A006_A053_041381_V1-0057.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "191.045",
     "duration": "00:01:11:12",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

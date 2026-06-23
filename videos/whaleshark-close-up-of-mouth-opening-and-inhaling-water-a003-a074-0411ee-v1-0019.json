@@ -2,7 +2,7 @@
   "title": "Whaleshark Close Up Of Mouth Opening And Inhaling Water",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -28,7 +28,6 @@
     "cendrawasih bay",
     "close",
     "close up of a whale shark",
-    "dolphins",
     "drop",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -48,7 +47,8 @@
     "net",
     "ocean",
     "opening",
-    "pacific"
+    "pacific",
+    "pacific ocean"
   ],
   "technicalSpecs": {
     "fileName": "A003_A074_0411EE_V1-0019.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "1.09",
     "duration": "00:00:44:01",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

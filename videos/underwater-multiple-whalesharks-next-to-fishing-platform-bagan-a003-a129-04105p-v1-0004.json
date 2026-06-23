@@ -2,7 +2,7 @@
   "title": "Underwater Multiple Whalesharks Next To Fishing Platform Bagan",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -30,7 +30,6 @@
     "cendrawasih",
     "cendrawasih bay",
     "cobia",
-    "dolphins",
     "drop",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -48,7 +47,8 @@
     "multiple",
     "naucrates",
     "net",
-    "next"
+    "next",
+    "ocean"
   ],
   "technicalSpecs": {
     "fileName": "A003_A129_04105P_V1-0004.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "1.09",
     "duration": "00:01:41:18",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

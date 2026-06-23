@@ -2,7 +2,7 @@
   "title": "Beautiful Whalesharks Covered In Remoras And Fish",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "REDcode 7:1 RED RAW",
   "nativeFormatBadge": "4K R3D",
   "licenseType": "commercial",
@@ -27,7 +27,6 @@
     "cendrawasih",
     "cendrawasih bay",
     "covered",
-    "dolphins",
     "dsmc2",
     "dsmc2 gemini 5k s35",
     "echeneis",
@@ -48,7 +47,8 @@
     "past",
     "province",
     "r3d",
-    "raw"
+    "raw",
+    "red"
   ],
   "technicalSpecs": {
     "fileName": "A006_A045_0413M6_V1-0055.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "191.045",
     "duration": "00:00:50:03",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

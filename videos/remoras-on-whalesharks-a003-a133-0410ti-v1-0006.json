@@ -2,7 +2,7 @@
   "title": "Remoras On Whalesharks",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -28,7 +28,6 @@
     "cendrawasih",
     "cendrawasih bay",
     "cobia",
-    "dolphins",
     "dsmc2",
     "dsmc2 gemini 5k s35",
     "each",
@@ -48,7 +47,8 @@
     "papua",
     "papua province",
     "past",
-    "province"
+    "province",
+    "r3d"
   ],
   "technicalSpecs": {
     "fileName": "A003_A133_0410TI_V1-0006.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "1.09",
     "duration": "00:00:38:10",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

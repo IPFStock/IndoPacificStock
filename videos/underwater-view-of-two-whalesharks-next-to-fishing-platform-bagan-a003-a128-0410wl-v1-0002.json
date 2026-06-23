@@ -2,7 +2,7 @@
   "title": "Underwater View Of Two Whalesharks Next To Fishing Platform Bagan",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -30,7 +30,6 @@
     "cendrawasih",
     "cendrawasih bay",
     "cobia",
-    "dolphins",
     "drop",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -48,7 +47,8 @@
     "megafauna",
     "naucrates",
     "net",
-    "next"
+    "next",
+    "ocean"
   ],
   "technicalSpecs": {
     "fileName": "A003_A128_0410WL_V1-0002.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "1.09",
     "duration": "00:02:18:17",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

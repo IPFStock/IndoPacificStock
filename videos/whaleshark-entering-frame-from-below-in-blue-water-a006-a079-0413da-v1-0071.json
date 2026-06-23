@@ -2,7 +2,7 @@
   "title": "Whaleshark Entering Frame From Below In Blue Water",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "REDcode 7:1 RED RAW",
   "nativeFormatBadge": "4K R3D",
   "licenseType": "commercial",
@@ -27,7 +27,6 @@
     "cenderawasih",
     "cendrawasih",
     "cendrawasih bay",
-    "dolphins",
     "dsmc2",
     "dsmc2 gemini 5k s35",
     "entering",
@@ -48,7 +47,8 @@
     "r3d",
     "raw",
     "red",
-    "redcode"
+    "redcode",
+    "redcode 7 1 red raw"
   ],
   "technicalSpecs": {
     "fileName": "A006_A079_0413DA_V1-0071.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "191.045",
     "duration": "00:00:35:05",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

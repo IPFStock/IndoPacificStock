@@ -2,7 +2,7 @@
   "title": "Whaleshark Crossing With Cameraman And Clearing Frame Above",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "REDcode 7:1 RED RAW",
   "nativeFormatBadge": "4K R3D",
   "licenseType": "commercial",
@@ -30,7 +30,6 @@
     "clearing",
     "covered",
     "crossing",
-    "dolphins",
     "dsmc2",
     "dsmc2 gemini 5k s35",
     "echeneis",
@@ -48,7 +47,8 @@
     "ocean",
     "pacific",
     "pacific ocean",
-    "papua"
+    "papua",
+    "papua province"
   ],
   "technicalSpecs": {
     "fileName": "A006_A066_0413C1_V1-0067.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "191.045",
     "duration": "00:00:10:17",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

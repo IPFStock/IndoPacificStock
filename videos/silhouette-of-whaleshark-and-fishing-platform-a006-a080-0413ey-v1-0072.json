@@ -2,7 +2,7 @@
   "title": "Silhouette Of Whaleshark And Fishing Platform",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "REDcode 7:1 RED RAW",
   "nativeFormatBadge": "4K R3D",
   "licenseType": "commercial",
@@ -25,7 +25,6 @@
     "cenderawasih",
     "cendrawasih",
     "cendrawasih bay",
-    "dolphins",
     "drop",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -48,7 +47,8 @@
     "province",
     "r3d",
     "raw",
-    "red"
+    "red",
+    "redcode"
   ],
   "technicalSpecs": {
     "fileName": "A006_A080_0413EY_V1-0072.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "191.045",
     "duration": "00:00:52:03",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

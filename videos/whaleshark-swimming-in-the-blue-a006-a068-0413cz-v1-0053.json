@@ -2,7 +2,7 @@
   "title": "Whaleshark Swimming In The Blue",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "REDcode 7:1 RED RAW",
   "nativeFormatBadge": "4K R3D",
   "licenseType": "commercial",
@@ -23,7 +23,6 @@
     "blue",
     "cenderawasih",
     "cendrawasih",
-    "dolphins",
     "dsmc2",
     "dsmc2 gemini 5k s35",
     "front",
@@ -48,7 +47,8 @@
     "redcode 7 1 red raw",
     "reptiles",
     "rhincodon",
-    "rhincodon typus"
+    "rhincodon typus",
+    "s35"
   ],
   "technicalSpecs": {
     "fileName": "A006_A068_0413CZ_V1-0053.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "191.045",
     "duration": "00:00:32:18",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

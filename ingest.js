@@ -246,6 +246,12 @@ const TAXON_BY_LATIN = {
     family: 'Cheloniidae (Sea Turtles)',
     latinName: 'Chelonia mydas',
   },
+  'rhincodon typus': {
+    category: BROAD_TAXA.MEGFAUNA,
+    species: 'Whale Shark',
+    family: 'Rhincodontidae (Whale Sharks)',
+    latinName: 'Rhincodon typus',
+  },
   'plectorhinchus polytaenia': {
     category: BROAD_TAXA.BENTHIC_SCHOOLING,
     species: 'Ribboned Sweetlips',
@@ -295,7 +301,11 @@ const TAXON_PATTERN_RULES = [
     },
   },
   {
-    pattern: /dolphin|whale|dugong/i,
+    pattern: /whaleshark|whale\s*shark|rhincodon/i,
+    taxon: TAXON_BY_LATIN['rhincodon typus'],
+  },
+  {
+    pattern: /dolphin|dugong|\bwhale\b/i,
     taxon: {
       category: BROAD_TAXA.MEGFAUNA,
       species: 'Dolphins',

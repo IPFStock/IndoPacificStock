@@ -2,7 +2,7 @@
   "title": "Whaleshark Swimming Below In The Deep",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "REDcode 7:1 RED RAW",
   "nativeFormatBadge": "4K R3D",
   "licenseType": "commercial",
@@ -26,7 +26,6 @@
     "cendrawasih",
     "cendrawasih bay",
     "deep",
-    "dolphins",
     "dsmc2",
     "dsmc2 gemini 5k s35",
     "far",
@@ -48,7 +47,8 @@
     "redcode",
     "redcode 7 1 red raw",
     "reptiles",
-    "rhincodon"
+    "rhincodon",
+    "rhincodon typus"
   ],
   "technicalSpecs": {
     "fileName": "A006_A062_0413WX_V1-0049.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "191.045",
     "duration": "00:01:02:09",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

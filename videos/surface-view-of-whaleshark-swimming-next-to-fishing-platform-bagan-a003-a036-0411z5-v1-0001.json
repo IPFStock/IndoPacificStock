@@ -2,7 +2,7 @@
   "title": "Surface View Of Whaleshark Swimming Next To Fishing Platform Bagan",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -27,7 +27,6 @@
     "cenderawasih",
     "cendrawasih",
     "cendrawasih bay",
-    "dolphins",
     "down",
     "drop",
     "dsmc2",
@@ -48,7 +47,8 @@
     "next",
     "ocean",
     "pacific",
-    "pacific ocean"
+    "pacific ocean",
+    "papua"
   ],
   "technicalSpecs": {
     "fileName": "A003_A036_0411Z5_V1-0001.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "1.09",
     "duration": "00:00:39:14",
     "sceneCategory": "Terrestrial",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

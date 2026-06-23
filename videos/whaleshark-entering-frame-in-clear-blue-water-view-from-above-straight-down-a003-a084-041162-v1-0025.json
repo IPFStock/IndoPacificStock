@@ -2,7 +2,7 @@
   "title": "Whaleshark Entering Frame In Clear Blue Water View From Above Straight Down",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -29,7 +29,6 @@
     "cendrawasih",
     "cendrawasih bay",
     "clear",
-    "dolphins",
     "down",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -48,7 +47,8 @@
     "pacific ocean",
     "papua",
     "papua province",
-    "province"
+    "province",
+    "r3d"
   ],
   "technicalSpecs": {
     "fileName": "A003_A084_041162_V1-0025.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "1.09",
     "duration": "00:00:30:01",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

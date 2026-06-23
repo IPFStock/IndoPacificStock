@@ -233,7 +233,7 @@ const BROAD_CATEGORY_TAXONOMY_TERMS = {
   'Benthic Reef Aggregations & Schooling Fish': ['benthic', 'schooling', 'sweetlips', 'ribbon', 'sweeper', 'golden', 'fusilier', 'batfish', 'aggregation'],
   'Small Fish Life & Cryptic Bottom-Dwellers': ['goby', 'blenny', 'cryptic', 'bottom-dweller'],
   'Apex Marine Predators & Elasmobranchii': ['shark', 'whitetip', 'manta', 'elasmobranch', 'triaenodon', 'predator'],
-  'Marine Megafauna, Reptiles & Ocean Mammals': ['turtle', 'hawksbill', 'chelonia', 'eretmochelys', 'dolphin', 'whale', 'megafauna', 'reptile'],
+  'Marine Megafauna, Reptiles & Ocean Mammals': ['turtle', 'hawksbill', 'chelonia', 'eretmochelys', 'dolphin', 'dugong', 'whaleshark', 'whale shark', 'rhincodon', 'megafauna'],
   'Cephalopods': ['octopus', 'cephalopod', 'squid', 'cuttlefish'],
   'Mollusks': ['mollusk', 'nudibranch', 'clam', 'snail'],
   'Marine Habitats, Sponges & Corals': [
@@ -513,12 +513,7 @@ class TaxonomicFilterEngine {
       if (selected === 'Any') return true;
 
       if (field === 'category') {
-        return matchesBroadCategory(
-          card,
-          selected,
-          this.getCardSearchText,
-          this.categoryTermIndex,
-        );
+        return card.dataset.category === selected;
       }
       if (field === 'species') return card.dataset.species === selected;
       if (field === 'family') return card.dataset.family === selected;

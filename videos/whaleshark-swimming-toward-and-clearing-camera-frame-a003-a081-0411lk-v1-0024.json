@@ -2,7 +2,7 @@
   "title": "Whaleshark Swimming Toward And Clearing Camera Frame",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -27,7 +27,6 @@
     "cendrawasih bay",
     "clearing",
     "column",
-    "dolphins",
     "dsmc2",
     "dsmc2 gemini 5k s35",
     "frame",
@@ -48,7 +47,8 @@
     "raw",
     "red",
     "redcode",
-    "reptiles"
+    "reptiles",
+    "rhincodon"
   ],
   "technicalSpecs": {
     "fileName": "A003_A081_0411LK_V1-0024.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "1.09",
     "duration": "00:00:37:06",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }

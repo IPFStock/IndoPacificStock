@@ -2,7 +2,7 @@
   "title": "Whalesharks Crossing Each Other",
   "category": "Marine Megafauna, Reptiles & Ocean Mammals",
   "region": "Cenderawasih",
-  "species": "Dolphins",
+  "species": "Whale Shark",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -27,7 +27,6 @@
     "cendrawasih",
     "cendrawasih bay",
     "crossing",
-    "dolphins",
     "drop",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -48,7 +47,8 @@
     "other",
     "pacific",
     "pacific ocean",
-    "papua"
+    "papua",
+    "papua province"
   ],
   "technicalSpecs": {
     "fileName": "A003_A160_04107G_V1-0016.mp4",
@@ -64,8 +64,8 @@
     "aspectRatio": "1.09",
     "duration": "00:00:27:24",
     "sceneCategory": "Underwater",
-    "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "family": "Rhincodontidae (Whale Sharks)",
+    "latinName": "Rhincodon typus"
   },
   "syncSource": "csv"
 }
