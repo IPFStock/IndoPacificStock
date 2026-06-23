@@ -206,6 +206,7 @@ function parseRegion(locationStr) {
   const value = locationStr.toLowerCase();
   if (value.includes('komodo')) return 'Komodo';
   if (value.includes('lembeh')) return 'Lembeh Strait';
+  if (value.includes('cenderawasih') || value.includes('cendrawasih')) return 'Cenderawasih';
   if (value.includes('raja ampat')) return 'Raja Ampat';
   if (value.includes('flores')) return 'Flores';
   if (value.includes('bali')) return 'Bali';
@@ -967,13 +968,13 @@ function parseCsvRows(csvFilePath) {
   const idxCamFormat = headerIndex(headers, ['Camera Format']);
   const idxFPS = headerIndex(headers, ['Camera FPS', 'Shot Frame Rate', 'FPS']);
   const idxRatio = headerIndex(headers, ['Aspect Ratio Notes', 'Aspect Ratio']);
-  const idxComments = headerIndex(headers, ['Comments']);
+  const idxComments = headerIndex(headers, ['Comments', 'Title']);
   const idxDescription = headerIndex(headers, ['Description', 'Descriptions']);
   const idxLocation = headerIndex(headers, ['Location']);
   const idxCategory = headerIndex(headers, ['Category']);
   const idxDuration = headerIndex(headers, ['Duration TC', 'Duration', 'Clip Duration', /Timecode/i]);
-  const idxLicense = headerIndex(headers, ['License', 'License Type', /Editorial/i]);
-  const idxTier = headerIndex(headers, ['Tier', 'Pricing Tier', 'Price Tier']);
+  const idxLicense = headerIndex(headers, ['License', 'License Type', 'Scene', /Editorial/i]);
+  const idxTier = headerIndex(headers, ['Tier', 'Pricing Tier', 'Price Tier', 'Shot']);
 
   const csvByMp4 = new Map();
   const renameCommands = [];
@@ -990,7 +991,7 @@ function parseCsvRows(csvFilePath) {
     const rawCameraCode = originalFileName.replace(/\.[^/.]+$/, '').trim();
     const rawSubjectNote = clean(idxComments);
     const descriptionText = clean(idxDescription);
-    const region = parseRegion(clean(idxLocation));
+    const region = parseRegion(clean(idxLocation) || descriptionText);
     const mp4FileName = sourceToMp4FileName(originalFileName);
 
     if (!rawSubjectNote) {
