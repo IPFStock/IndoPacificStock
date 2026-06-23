@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://indopacificstock.com/sitemap.xml
