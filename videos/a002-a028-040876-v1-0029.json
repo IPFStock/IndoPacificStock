@@ -1,5 +1,5 @@
 {
-  "title": "A004 A027 04124y V1 0041",
+  "title": "A002 A028 040876 V1 0029",
   "category": "Reef Associated Fish",
   "region": "Raja Ampat",
   "species": "Marine Life",
@@ -12,14 +12,13 @@
   ],
   "camera": "RED V-Raptor 8K",
   "behavior": "Natural history sequence.",
-  "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A027_04124Y_V1-0041.mp4",
-  "description": "A004 A027 04124y V1 0041 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.",
+  "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A002_A028_040876_V1-0029.mp4",
+  "description": "A002 A028 040876 V1 0029 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.",
   "keywords": [
-    "04124y",
     "8k red raw",
-    "a004",
-    "a004 a027 04124y v1 0041",
-    "a027",
+    "a002",
+    "a002 a028 040876 v1 0029",
+    "a028",
     "ampat",
     "associated",
     "fish",
@@ -45,8 +44,8 @@
   "licenseType": "commercial",
   "pricingTier": "standard",
   "technicalSpecs": {
-    "fileName": "A004_A027_04124Y_V1-0041.mp4",
-    "slug": "a004-a027-04124y-v1-0041",
+    "fileName": "A002_A028_040876_V1-0029.mp4",
+    "slug": "a002-a028-040876-v1-0029",
     "sceneCategory": "Underwater",
     "family": "",
     "latinName": ""

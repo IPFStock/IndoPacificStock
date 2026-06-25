@@ -126,7 +126,8 @@ def mp4_variant_index(name: str) -> int:
 
 def is_davinci_export(headers: list[str]) -> bool:
     normalized = [h.strip() for h in headers]
-    return 'Title' in normalized and 'Description' in normalized and 'File Name' in normalized
+    has_title = 'Title' in normalized or 'Caption' in normalized
+    return has_title and 'Description' in normalized and 'File Name' in normalized
 
 
 def load_export_rows(path: Path) -> list[dict[str, str]]:
@@ -148,15 +149,18 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
         if not file_name or not re.search(r'\.(r3d|mp4|mov)$', file_name, flags=re.I):
             continue
 
-        title = row[index['Title']].strip() if 'Title' in index else ''
+        title_col = 'Title' if 'Title' in index else 'Caption'
+        title = row[index[title_col]].strip() if title_col in index else ''
         description = row[index['Description']].strip() if 'Description' in index else ''
         if not title and not description:
             continue
 
-        duration = row[index['Duration TC']].strip() if 'Duration TC' in index else ''
         fps = row[index['Camera FPS']].strip() if 'Camera FPS' in index else '24'
         start_tc = row[index['Start TC']].strip() if 'Start TC' in index else ''
         end_tc = row[index['End TC']].strip() if 'End TC' in index else ''
+        duration = row[index['Duration TC']].strip() if 'Duration TC' in index else ''
+        if not duration and start_tc and end_tc:
+            duration = f'{start_tc} - {end_tc}'
 
         # Export5 uses Shot/Scene for pricing tier and license type.
         pricing_tier = row[index['Shot']].strip() if 'Shot' in index else 'Standard'
@@ -164,10 +168,13 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
         if pricing_tier.lower() in {'commercial', 'editorial'}:
             pricing_tier, license_type = license_type, pricing_tier
 
-        shoot_category = 'Underwater'
-        trailing = [part.strip() for part in row[15:] if part and part.strip()]
-        if trailing:
-            shoot_category = trailing[-1]
+        if 'Category' in index and row[index['Category']].strip():
+            shoot_category = row[index['Category']].strip()
+        else:
+            shoot_category = 'Underwater'
+            trailing = [part.strip() for part in row[15:] if part and part.strip()]
+            if trailing:
+                shoot_category = trailing[-1]
 
         parsed.append({
             'file_name': file_name,

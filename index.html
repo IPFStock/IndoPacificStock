@@ -3071,6 +3071,7 @@
       const metaLine = buildMetaLine(data);
       const keywords = resolveAssetKeywords(data);
       const enriched = { ...data, videoUrl, slug, keywords };
+      const uploadDate = resolveUploadDate(enriched);
       const article = document.createElement('article');
 
       article.className = 'media-card';
@@ -3105,6 +3106,7 @@
         `<div class="card-body">` +
           `<meta itemprop="name" content="${escapeHtml(data.title)}">` +
           `<meta itemprop="description" content="${escapeHtml(data.description)}">` +
+          `<meta itemprop="uploadDate" content="${escapeHtml(uploadDate)}">` +
           `<div class="card-head">` +
             `<h2 class="card-title" itemprop="headline">${escapeHtml(data.title)}</h2>` +
             renderNativeFormatBadgeHtml(data) +
@@ -3143,6 +3145,48 @@
         return parts[parts.length - 1].toLowerCase();
       }
       return '';
+    }
+
+    const CATALOG_UPLOAD_FALLBACK = '2026-03-01';
+
+    function normalizeCsvDateToIso(dateStr) {
+      if (!dateStr) return '';
+      const trimmed = String(dateStr).trim();
+      const isoMatch = trimmed.match(/^(\d{4})-(\d{2})-(\d{2})/);
+      if (isoMatch) return `${isoMatch[1]}-${isoMatch[2]}-${isoMatch[3]}`;
+      const slashMatch = trimmed.match(/^(\d{1,2})[/-](\d{1,2})[/-](\d{4})/);
+      if (slashMatch) {
+        const mm = slashMatch[1].padStart(2, '0');
+        const dd = slashMatch[2].padStart(2, '0');
+        return `${slashMatch[3]}-${mm}-${dd}`;
+      }
+      return '';
+    }
+
+    function parseUploadDateFromRedFileName(fileName) {
+      if (!fileName) return '';
+      const parts = fileName.replace(/\.mp4$/i, '').split('_');
+      if (parts.length < 3) return '';
+      const code = parts[2].slice(0, 4);
+      if (!/^\d{4}$/.test(code)) return '';
+      const month = Number(code.slice(0, 2));
+      const day = Number(code.slice(2, 4));
+      if (month < 1 || month > 12 || day < 1 || day > 31) return '';
+      let year;
+      if (month === 9 && day >= 15 && day <= 26) year = 2000 + day;
+      else if (month === 4 && day >= 8 && day <= 14) year = 2000 + day;
+      else if (day >= 15 && day <= 26) year = 2000 + day;
+      else if (day >= 8 && day <= 14) year = 2000 + day;
+      else year = 2018;
+      return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    }
+
+    function resolveUploadDate(data) {
+      const fromCsv = normalizeCsvDateToIso(data.technicalSpecs?.date);
+      if (fromCsv) return fromCsv;
+      const fromFile = parseUploadDateFromRedFileName(mp4FileFromAsset(data));
+      if (fromFile) return fromFile;
+      return CATALOG_UPLOAD_FALLBACK;
     }
 
     function slugFromMp4(fileName) {
