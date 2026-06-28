@@ -3163,6 +3163,20 @@
       return '';
     }
 
+    function formatVideoUploadDateIso(dateOnly) {
+      if (!dateOnly || !/^\d{4}-\d{2}-\d{2}$/.test(dateOnly)) return '';
+      const [year, month, day] = dateOnly.split('-').map(Number);
+      const dt = new Date(Date.UTC(year, month - 1, day));
+      if (
+        dt.getUTCFullYear() !== year ||
+        dt.getUTCMonth() !== month - 1 ||
+        dt.getUTCDate() !== day
+      ) {
+        return '';
+      }
+      return `${dateOnly}T00:00:00Z`;
+    }
+
     function parseUploadDateFromRedFileName(fileName) {
       if (!fileName) return '';
       const parts = fileName.replace(/\.mp4$/i, '').split('_');
@@ -3182,11 +3196,16 @@
     }
 
     function resolveUploadDate(data) {
-      const fromCsv = normalizeCsvDateToIso(data.technicalSpecs?.date);
-      if (fromCsv) return fromCsv;
-      const fromFile = parseUploadDateFromRedFileName(mp4FileFromAsset(data));
-      if (fromFile) return fromFile;
-      return CATALOG_UPLOAD_FALLBACK;
+      const candidates = [
+        normalizeCsvDateToIso(data.technicalSpecs?.date),
+        parseUploadDateFromRedFileName(mp4FileFromAsset(data)),
+        CATALOG_UPLOAD_FALLBACK,
+      ];
+      for (const dateOnly of candidates) {
+        const iso = formatVideoUploadDateIso(dateOnly);
+        if (iso) return iso;
+      }
+      return `${CATALOG_UPLOAD_FALLBACK}T00:00:00Z`;
     }
 
     function slugFromMp4(fileName) {
