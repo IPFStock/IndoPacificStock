@@ -15,7 +15,7 @@
   "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting fish market vendor cutting fish.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A002_A022_0408F1_V1-0037.mp4",
-  "description": "Fish market vendor cutting tuna early in the morning in the fish market, Nabire, Central Papua, Indonesia (no MR)",
+  "description": "Fish market vendor cutting tuna early in the morning, Nabire fish market, Central Papua, Indonesia (No Model Release)",
   "keywords": [
     "48 fps",
     "4k r3d",
@@ -28,13 +28,15 @@
     "early",
     "fish",
     "fish market vendor cutting fish",
-    "fish market vendor cutting tuna early in the morning in the fish market",
+    "fish market vendor cutting tuna early in the morning",
     "gemini",
     "indonesia",
-    "indonesia no mr",
+    "indonesia no model release",
     "market",
+    "model",
     "morning",
     "nabire",
+    "nabire fish market",
     "ocean",
     "open",
     "papua",
@@ -46,9 +48,7 @@
     "red",
     "redcode",
     "redcode 8 1 red raw",
-    "s35",
-    "schooling",
-    "tuna"
+    "release"
   ],
   "technicalSpecs": {
     "fileName": "A002_A022_0408F1_V1-0037.mp4",

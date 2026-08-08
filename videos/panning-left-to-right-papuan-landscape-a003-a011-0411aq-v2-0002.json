@@ -15,7 +15,7 @@
   "camera": "Thu Apr 22 11:38:48 2021",
   "behavior": "Natural history sequence documenting panning left to right papuan landscape.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A011_0411AQ_V2-0002.mp4",
-  "description": "Panning left to right across the coastline with flat water, a white beach and green tropical jungle, Cendrawasih Bay, Central Papua, Indonesia, Pacific Ocean",
+  "description": "panning from left to right across the coastline with flat water, a white beach and green tropical jungle, Cenderawasih Bay, Central Papua, Indonesia, Pacific Ocean",
   "keywords": [
     "130-27c-a4b",
     "5k r3d",
@@ -26,8 +26,7 @@
     "bay",
     "beach",
     "cenderawasih",
-    "cendrawasih",
-    "cendrawasih bay",
+    "cenderawasih bay",
     "central",
     "central papua",
     "coastal",
@@ -45,10 +44,11 @@
     "pacific",
     "pacific ocean",
     "panning",
-    "panning left to right across the coastline with flat water",
     "panning left to right papuan landscape",
     "papua",
-    "papuan"
+    "papuan",
+    "r3d",
+    "raw"
   ],
   "technicalSpecs": {
     "fileName": "A003_A011_0411AQ_V2-0002.mp4",

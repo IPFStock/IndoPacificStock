@@ -15,7 +15,7 @@
   "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting small fish at market.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A002_A032_04092F_V1-0032.mp4",
-  "description": "Small fish on a stand for sale in Nabire fresh market, Nabire, Central Papua, Indonesia (no MR)",
+  "description": "Small fish on a stand for sale in Nabire fresh market, Central Papua, Indonesia (No Model Release)",
   "keywords": [
     "48 fps",
     "4k r3d",
@@ -34,8 +34,9 @@
     "indo-pacific",
     "indo-pacific cultural documentations editorial scenes",
     "indonesia",
-    "indonesia no mr",
+    "indonesia no model release",
     "market",
+    "model",
     "nabire",
     "nabire fresh market",
     "papua",
@@ -44,11 +45,10 @@
     "red",
     "redcode",
     "redcode 8 1 red raw",
+    "release",
     "s35",
     "sale",
-    "scene",
-    "scenes",
-    "small"
+    "scene"
   ],
   "technicalSpecs": {
     "fileName": "A002_A032_04092F_V1-0032.mp4",
