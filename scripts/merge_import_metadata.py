@@ -162,11 +162,23 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
         if not duration and start_tc and end_tc:
             duration = f'{start_tc} - {end_tc}'
 
-        # Export5 uses Shot/Scene for pricing tier and license type.
-        pricing_tier = row[index['Shot']].strip() if 'Shot' in index else 'Standard'
-        license_type = row[index['Scene']].strip() if 'Scene' in index else 'Commercial'
+        # Export5 uses Shot/Scene; newer exports use License Type / Pricing Tier columns.
+        pricing_tier = ''
+        license_type = ''
+        if 'Pricing Tier' in index:
+            pricing_tier = row[index['Pricing Tier']].strip()
+        if 'License Type' in index:
+            license_type = row[index['License Type']].strip()
+        elif 'Licence Type' in index:
+            license_type = row[index['Licence Type']].strip()
+        if 'Shot' in index and not pricing_tier:
+            pricing_tier = row[index['Shot']].strip()
+        if 'Scene' in index and not license_type:
+            license_type = row[index['Scene']].strip()
         if pricing_tier.lower() in {'commercial', 'editorial'}:
             pricing_tier, license_type = license_type, pricing_tier
+        pricing_tier = pricing_tier or 'Standard'
+        license_type = license_type or 'Commercial'
 
         if 'Category' in index and row[index['Category']].strip():
             shoot_category = row[index['Category']].strip()
@@ -176,17 +188,22 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
             if trailing:
                 shoot_category = trailing[-1]
 
+        location = row[index['Location']].strip() if 'Location' in index else ''
+        if not location:
+            location = parse_location(description)
+
         parsed.append({
             'file_name': file_name,
             'reel_base': reel_base(file_name),
             'duration': normalize_duration(duration, fps),
             'start_tc': start_tc,
+            'end_tc': end_tc,
             'resolution': row[index['Resolution']].strip() if 'Resolution' in index else '',
             'codec': row[index['Video Codec']].strip() if 'Video Codec' in index else '',
             'title': title,
             'description': description,
             'comments': slugify_title(title),
-            'location': parse_location(description),
+            'location': location,
             'category': shoot_category,
             'camera_type': row[index['Camera Type']].strip() if 'Camera Type' in index else '',
             'camera_format': row[index['Camera Format']].strip() if 'Camera Format' in index else '',
@@ -256,21 +273,29 @@ def build_master_row(entry: dict[str, str], width: int) -> list[str]:
     return row
 
 
-def main() -> int:
-    import_paths = sorted(IMPORTS_DIR.glob('IPF_STOCK_FOOTAGE_export*.csv'))
-    if not import_paths:
-        print('No IPF_STOCK_FOOTAGE_export*.csv files found in imports/.')
-        return 1
+def resolve_import_paths(export_numbers: list[int] | None) -> list[Path]:
+    all_exports = sorted(
+        IMPORTS_DIR.glob('IPF_STOCK_FOOTAGE_export*.csv'),
+        key=lambda path: int(re.search(r'export(\d+)', path.name, flags=re.I).group(1)),
+    )
+    if not all_exports:
+        return []
 
-    latest_import = import_paths[-1]
-    export_rows = load_export_rows(latest_import)
-    if not export_rows:
-        print(f'No mergeable export rows found in {latest_import.name}.')
-        return 1
+    if not export_numbers:
+        return [all_exports[-1]]
 
+    by_number = {
+        int(re.search(r'export(\d+)', path.name, flags=re.I).group(1)): path
+        for path in all_exports
+    }
+    missing = [number for number in export_numbers if number not in by_number]
+    if missing:
+        raise SystemExit(f'Missing export files for: {", ".join(map(str, missing))}')
+    return [by_number[number] for number in export_numbers]
+
+
+def merge_exports_into_master(import_paths: list[Path]) -> tuple[int, int, int, int]:
     github_mp4s = fetch_github_mp4s()
-    assigned = assign_mp4_names(export_rows, github_mp4s)
-
     master_rows = read_csv(MASTER)
     header = master_rows[0]
     width = len(header)
@@ -279,31 +304,63 @@ def main() -> int:
 
     added = 0
     updated = 0
-    for entry in assigned:
-        mp4_key = entry['mp4_name'].lower()
-        new_row = build_master_row(entry, width)
-        if mp4_key in existing:
-            for row in data:
-                if row[0].strip().lower() != mp4_key:
-                    continue
-                for idx, value in enumerate(new_row):
-                    if value and (idx >= len(row) or not row[idx].strip()):
-                        row[idx] = value
-                updated += 1
-                break
+    parsed_total = 0
+
+    for import_path in import_paths:
+        export_rows = load_export_rows(import_path)
+        if not export_rows:
+            print(f'Warning: no mergeable rows in {import_path.name}')
             continue
-        data.append(new_row)
-        existing.add(mp4_key)
-        added += 1
+
+        parsed_total += len(export_rows)
+        assigned = assign_mp4_names(export_rows, github_mp4s)
+
+        for entry in assigned:
+            mp4_key = entry['mp4_name'].lower()
+            new_row = build_master_row(entry, width)
+            if mp4_key in existing:
+                for row in data:
+                    if row[0].strip().lower() != mp4_key:
+                        continue
+                    for idx, value in enumerate(new_row):
+                        if value and (idx >= len(row) or not row[idx].strip()):
+                            row[idx] = value
+                    updated += 1
+                    break
+                continue
+            data.append(new_row)
+            existing.add(mp4_key)
+            added += 1
+
+        print(f'  {import_path.name}: {len(export_rows)} export rows')
+
+    write_csv(MASTER, [header, *data])
+    return added, updated, parsed_total, len(data)
+
+
+def main() -> int:
+    argv = sys.argv[1:]
+    export_numbers: list[int] | None = None
+    if argv:
+        if argv[0] in {'-h', '--help'}:
+            print('Usage: python3 scripts/merge_import_metadata.py [export numbers...]')
+            print('Example: python3 scripts/merge_import_metadata.py 9 10 11')
+            return 0
+        export_numbers = [int(value) for value in argv]
+
+    import_paths = resolve_import_paths(export_numbers)
+    if not import_paths:
+        print('No IPF_STOCK_FOOTAGE_export*.csv files found in imports/.')
+        return 1
 
     shutil.copy2(MASTER, BACKUP)
-    write_csv(MASTER, [header, *data])
+    print('Merging imports:')
+    added, updated, parsed_total, master_count = merge_exports_into_master(import_paths)
 
-    print(f'Import source: {latest_import.name}')
-    print(f'Export rows parsed: {len(export_rows)}')
+    print(f'Export rows parsed: {parsed_total}')
     print(f'Rows added to master: {added}')
     print(f'Rows updated in master: {updated}')
-    print(f'Master clip count: {len(data)}')
+    print(f'Master clip count: {master_count}')
     return 0
 
 
