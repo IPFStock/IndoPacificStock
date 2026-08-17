@@ -4,6 +4,10 @@
   "rewrites": [
     { "source": "/terms", "destination": "/terms.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/license-terms", "destination": "/license-terms.html" }
+    { "source": "/license-terms", "destination": "/license-terms.html" },
+    { "source": "/licensing-guide", "destination": "/licensing-guide.html" },
+    { "source": "/collections", "destination": "/collections/index.html" },
+    { "source": "/collections/:slug", "destination": "/collections/:slug/index.html" },
+    { "source": "/clip/:slug", "destination": "/clip/:slug/index.html" }
   ]
 }

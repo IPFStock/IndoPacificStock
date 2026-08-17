@@ -3,15 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Indo Pacific Stock - Rights-managed Natural History footage from the Indo-Pacific region." />
-  <meta property="og:title" content="Indo Pacific Stock - Rights-managed Natural History footage from the Indo-Pacific region." />
-  <meta property="og:description" content="Indo Pacific Stock - Rights-managed Natural History footage from the Indo-Pacific region." />
+  <meta name="description" content="License 8K RAW footage and rights-managed underwater stock from the Indo-Pacific. Cinema-camera RED masters for documentary, broadcast, and commercial natural history." />
+  <meta name="keywords" content="license 8K RAW footage, underwater stock footage, rights managed wildlife footage, Raja Ampat stock footage, RED Raptor stock footage, Indo-Pacific documentary B-roll" />
+  <link rel="canonical" href="https://indopacificstock.com/" />
+  <meta property="og:title" content="Indo Pacific Stock — License 8K RAW &amp; Rights-Managed Natural History Footage" />
+  <meta property="og:description" content="License 8K RAW footage and rights-managed underwater stock from the Indo-Pacific. Cinema-camera RED masters for documentary, broadcast, and commercial natural history." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://indopacificstock.com/" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Indo Pacific Stock - Rights-managed Natural History footage from the Indo-Pacific region." />
-  <meta name="twitter:description" content="Indo Pacific Stock - Rights-managed Natural History footage from the Indo-Pacific region." />
-  <title>Indo Pacific Stock - Rights-managed Natural History footage from the Indo-Pacific region.</title>
+  <meta property="og:site_name" content="Indo Pacific Stock" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Indo Pacific Stock — License 8K RAW &amp; Rights-Managed Natural History Footage" />
+  <meta name="twitter:description" content="License 8K RAW footage and rights-managed underwater stock from the Indo-Pacific. Cinema-camera RED masters for documentary, broadcast, and commercial natural history." />
+  <title>Indo Pacific Stock — License 8K RAW &amp; Rights-Managed Natural History Footage</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Indo Pacific Stock",
+    "url": "https://indopacificstock.com/",
+    "description": "Rights-managed Indo-Pacific natural history archive. License 8K RAW footage, underwater cinema, and aerial stock for professional productions.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://indopacificstock.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -800,6 +817,24 @@
       line-height: 1;
     }
 
+    .collections-seo-link {
+      margin: -0.35rem 0 1.15rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .collections-seo-link a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .collections-seo-link a:hover {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
     .broadcast-partners {
       margin-bottom: 0;
       padding-bottom: 2.5rem;
@@ -1100,6 +1135,17 @@
       flex: 1;
       min-width: 0;
       color: var(--text);
+    }
+
+    .card-title-link {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .card-title-link:hover {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
 
     .native-format-badge {
@@ -1840,6 +1886,7 @@
       </a>
       <nav class="header-nav" aria-label="Site navigation">
         <div class="licensing-guide-trigger">
+          <a href="collections/" class="inquire-link">Collections</a>
           <a href="licensing-guide.html" class="inquire-link" target="_blank" rel="noopener noreferrer">How it Works</a>
           <div class="licensing-guide-preview" aria-hidden="true">
             <p class="licensing-guide-preview-title">How to Utilize the Archive</p>
@@ -1876,7 +1923,7 @@
     <!-- ZONE 1: Tactical Search & Taxonomy Portal -->
     <section class="zone zone-search" id="zone-search" aria-label="Search and filter">
       <div class="hero-headline">
-        <h1 class="hero-statement">Indo Pacific Stock is an exclusive Rights-Managed stock archive specializing in RED Digital and aerial cinematography.</h1>
+        <h1 class="hero-statement">License 8K RAW footage and rights-managed natural history cinema from the Indo-Pacific — RED Digital underwater and aerial masters.</h1>
       </div>
 
       <div class="search-module" aria-label="Search catalog and macro filters">
@@ -1939,6 +1986,7 @@
     <!-- ZONE 2: Category Collections -->
     <section class="zone zone-collections" id="zone-collections" aria-label="Footage categories">
       <h2 class="collections-guide">Browse Collections</h2>
+      <p class="collections-seo-link">Looking for a topic page? <a href="collections/">License 8K RAW, underwater, Raja Ampat &amp; more</a></p>
 
       <div class="collection-rail" id="collection-rail">
         <button
@@ -2086,7 +2134,7 @@
   </main>
 
   <footer class="site-footer">
-    <p class="site-footer-line">© 2026 Indo Pacific Stock · All footage rights reserved · <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms</a> · <a href="license-terms.html" target="_blank" rel="noopener noreferrer">License Terms</a> · <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a></p>
+    <p class="site-footer-line">© 2026 Indo Pacific Stock · All footage rights reserved · <a href="collections/">Collections</a> · <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms</a> · <a href="license-terms.html" target="_blank" rel="noopener noreferrer">License Terms</a> · <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a></p>
   </footer>
 
   <div class="shot-list-drawer-overlay" id="shot-list-drawer-overlay" aria-hidden="true">
@@ -3108,7 +3156,7 @@
           `<meta itemprop="description" content="${escapeHtml(data.description)}">` +
           `<meta itemprop="uploadDate" content="${escapeHtml(uploadDate)}">` +
           `<div class="card-head">` +
-            `<h2 class="card-title" itemprop="headline">${escapeHtml(data.title)}</h2>` +
+            `<h2 class="card-title" itemprop="headline"><a class="card-title-link" href="clip/${escapeHtml(slug)}/" itemprop="url">${escapeHtml(data.title)}</a></h2>` +
             renderNativeFormatBadgeHtml(data) +
           `</div>` +
           `<span class="rm-badge">Rights Managed (RM)</span>` +
@@ -3565,6 +3613,8 @@
           : '[- Hide Asset Keywords]';
         return;
       }
+
+      if (e.target.closest('.card-title-link')) return;
 
       const card = e.target.closest('.media-card');
       if (card) openModal(card);

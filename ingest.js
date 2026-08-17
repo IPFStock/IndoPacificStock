@@ -1333,6 +1333,21 @@ async function main() {
   console.log(`  With duration: ${durationCount}`);
   console.log('Updated videos/manifest.json');
   console.log('Updated videos/catalog.json');
+
+  try {
+    const { spawnSync } = require('child_process');
+    const seoScript = path.join(__dirname, 'scripts', 'generate_seo_pages.py');
+    const seoResult = spawnSync('python3', [seoScript], {
+      cwd: __dirname,
+      encoding: 'utf8',
+      stdio: 'inherit',
+    });
+    if (seoResult.status !== 0) {
+      console.warn('SEO page generation reported an error — run scripts/generate_seo_pages.py manually.');
+    }
+  } catch (err) {
+    console.warn(`SEO page generation skipped: ${err.message}`);
+  }
 }
 
 main().catch((err) => {
