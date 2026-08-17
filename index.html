@@ -1591,6 +1591,18 @@
       padding-bottom: 0;
     }
 
+    .rate-card[data-license-type='editorial'] [data-license-row='commercial'],
+    .rate-card[data-license-type='commercial'] [data-license-row='editorial'] {
+      display: none;
+    }
+
+    .rate-card-note {
+      margin: 0.75rem 0 0;
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
     .rate-scope {
       margin: 0 0 0.35rem;
       font-size: 0.72rem;
@@ -2176,49 +2188,70 @@
             <p class="pricing-tier" id="modal-pricing-tier">Standard</p>
             <p class="pricing-rate" id="modal-pricing-rate">$75 per second · 10-second minimum per clip</p>
           </div>
-          <div class="rate-card" id="modal-rate-card" aria-label="Rights-managed multiplier rate card">
-            <p class="rate-card-title">Rights-Managed Multipliers (10 Sec Minimum Per Clip)</p>
+          <div class="rate-card" id="modal-rate-card" data-license-type="commercial" aria-label="Rights-managed multiplier rate card">
+            <p class="rate-card-title" id="modal-rate-card-title">Rights-Managed Multipliers (10 Sec Minimum Per Clip)</p>
             <div class="rate-card-body">
               <div class="rate-card-grid-head" aria-hidden="true">
                 <span>Multiplier</span>
                 <span class="rate-min" data-tier-col="standard">Standard</span>
                 <span class="rate-min" data-tier-col="premium">Premium</span>
               </div>
-              <div class="rate-card-entry">
-                <p class="rate-scope">Non-Exclusive (Web / Corporate)</p>
-                <div class="rate-card-grid">
-                  <span class="rate-multiplier">1.0×</span>
-                  <span class="rate-min" data-tier-col="standard">$750</span>
-                  <span class="rate-min" data-tier-col="premium">$1,500</span>
+              <div data-license-row="commercial">
+                <div class="rate-card-entry">
+                  <p class="rate-scope">Non-Exclusive (Web / Corporate)</p>
+                  <div class="rate-card-grid">
+                    <span class="rate-multiplier">1.0×</span>
+                    <span class="rate-min" data-tier-col="standard">$750</span>
+                    <span class="rate-min" data-tier-col="premium">$1,500</span>
+                  </div>
+                </div>
+                <div class="rate-card-entry">
+                  <p class="rate-scope">Broadcast TV &amp; Streaming (SVOD)</p>
+                  <div class="rate-card-grid">
+                    <span class="rate-multiplier">2.5×</span>
+                    <span class="rate-min" data-tier-col="standard">$1,875</span>
+                    <span class="rate-min" data-tier-col="premium">$3,750</span>
+                  </div>
+                </div>
+                <div class="rate-card-entry">
+                  <p class="rate-scope">Theatrical / Commercial Movies</p>
+                  <div class="rate-card-grid">
+                    <span class="rate-multiplier">4.0×</span>
+                    <span class="rate-min" data-tier-col="standard">$3,000</span>
+                    <span class="rate-min" data-tier-col="premium">$6,000</span>
+                  </div>
+                </div>
+                <div class="rate-card-entry">
+                  <p class="rate-scope">Category Exclusivity (1-Year)</p>
+                  <div class="rate-card-grid">
+                    <span class="rate-multiplier">6.0×</span>
+                    <span class="rate-min" data-tier-col="standard">$4,500</span>
+                    <span class="rate-min" data-tier-col="premium">$9,000</span>
+                  </div>
+                </div>
+                <div class="rate-card-entry">
+                  <p class="rate-scope">Category Exclusivity (longer than 1 year)</p>
+                  <p class="rate-contact">Contact Directly</p>
                 </div>
               </div>
-              <div class="rate-card-entry">
-                <p class="rate-scope">Broadcast TV &amp; Streaming (SVOD)</p>
-                <div class="rate-card-grid">
-                  <span class="rate-multiplier">2.5×</span>
-                  <span class="rate-min" data-tier-col="standard">$1,875</span>
-                  <span class="rate-min" data-tier-col="premium">$3,750</span>
+              <div data-license-row="editorial">
+                <div class="rate-card-entry">
+                  <p class="rate-scope">Digital Editorial (Web / News / Education)</p>
+                  <div class="rate-card-grid">
+                    <span class="rate-multiplier">1.0×</span>
+                    <span class="rate-min" data-tier-col="standard">$750</span>
+                    <span class="rate-min" data-tier-col="premium">$750</span>
+                  </div>
                 </div>
-              </div>
-              <div class="rate-card-entry">
-                <p class="rate-scope">Theatrical / Commercial Movies</p>
-                <div class="rate-card-grid">
-                  <span class="rate-multiplier">4.0×</span>
-                  <span class="rate-min" data-tier-col="standard">$3,000</span>
-                  <span class="rate-min" data-tier-col="premium">$6,000</span>
+                <div class="rate-card-entry">
+                  <p class="rate-scope">Documentary Broadcast &amp; SVOD (Netflix / Public TV)</p>
+                  <div class="rate-card-grid">
+                    <span class="rate-multiplier">2.5×</span>
+                    <span class="rate-min" data-tier-col="standard">$1,875</span>
+                    <span class="rate-min" data-tier-col="premium">$1,875</span>
+                  </div>
                 </div>
-              </div>
-              <div class="rate-card-entry">
-                <p class="rate-scope">Category Exclusivity (1-Year)</p>
-                <div class="rate-card-grid">
-                  <span class="rate-multiplier">6.0×</span>
-                  <span class="rate-min" data-tier-col="standard">$4,500</span>
-                  <span class="rate-min" data-tier-col="premium">$9,000</span>
-                </div>
-              </div>
-              <div class="rate-card-entry">
-                <p class="rate-scope">Category Exclusivity (longer than 1 year)</p>
-                <p class="rate-contact">Contact Directly</p>
+                <p class="rate-card-note">Editorial Use Only — not available for advertising, commercial, theatrical, or exclusive licensing.</p>
               </div>
             </div>
           </div>
@@ -2268,6 +2301,7 @@
     const modalPricingTier = document.getElementById('modal-pricing-tier');
     const modalPricingRate = document.getElementById('modal-pricing-rate');
     const modalRateCard = document.getElementById('modal-rate-card');
+    const modalRateCardTitle = document.getElementById('modal-rate-card-title');
     const checkoutBtn = document.getElementById('checkout-btn');
     const shotListTrigger = document.getElementById('shot-list-trigger');
     const shotListCount = document.getElementById('shot-list-count');
@@ -2793,9 +2827,15 @@
 
       if (modalRateCard) {
         modalRateCard.dataset.activeTier = tierKey;
+        modalRateCard.dataset.licenseType = licenseType;
         modalRateCard.querySelectorAll('[data-tier-col]').forEach((cell) => {
           cell.classList.toggle('is-active-tier', cell.dataset.tierCol === tierKey);
         });
+      }
+      if (modalRateCardTitle) {
+        modalRateCardTitle.textContent = licenseType === 'editorial'
+          ? 'Editorial Use Multipliers (10 Sec Minimum Per Clip)'
+          : 'Rights-Managed Multipliers (10 Sec Minimum Per Clip)';
       }
     }
 
