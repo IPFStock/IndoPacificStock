@@ -1892,7 +1892,7 @@
               </li>
               <li>
                 <strong>2. Licensing Tiers</strong>
-                Standard or Premium RM rates with per-second billing and usage multipliers.
+                Standard or Premium RM rates with per-second billing (10-second minimum per clip) and usage multipliers.
               </li>
             </ul>
             <a href="licensing-guide.html" class="licensing-guide-preview-cta" target="_blank" rel="noopener noreferrer">Open full guide</a>
@@ -2174,10 +2174,10 @@
           <div class="pricing-block">
             <p class="license-label">Pricing Tier</p>
             <p class="pricing-tier" id="modal-pricing-tier">Standard</p>
-            <p class="pricing-rate" id="modal-pricing-rate">$75 per second · 10-second minimum</p>
+            <p class="pricing-rate" id="modal-pricing-rate">$75 per second · 10-second minimum per clip</p>
           </div>
           <div class="rate-card" id="modal-rate-card" aria-label="Rights-managed multiplier rate card">
-            <p class="rate-card-title">Rights-Managed Multipliers (10 Sec Minimum Order)</p>
+            <p class="rate-card-title">Rights-Managed Multipliers (10 Sec Minimum Per Clip)</p>
             <div class="rate-card-body">
               <div class="rate-card-grid-head" aria-hidden="true">
                 <span>Multiplier</span>
@@ -2774,7 +2774,7 @@
       return {
         tierKey,
         tierLabel: tier.label,
-        rateLine: `$${tier.ratePerSecond} per second · ${tier.minimumSeconds}-second minimum`,
+        rateLine: `$${tier.ratePerSecond} per second · ${tier.minimumSeconds}-second minimum per clip`,
       };
     }
 
