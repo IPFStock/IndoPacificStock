@@ -344,16 +344,30 @@ def related_clips(clip: dict, catalog: list[dict], limit: int = 6) -> list[dict]
     return picks
 
 
+def master_delivery_label(clip: dict) -> str:
+    """Human-facing master options — R3D at native res, not assumed 8K."""
+    specs = clip.get("technicalSpecs") or {}
+    resolution = (specs.get("resolution") or "").strip()
+    badge = (clip.get("nativeFormatBadge") or clip.get("format") or "").strip()
+    native = ""
+    if resolution:
+        native = f"R3D at native resolution ({resolution})"
+    elif badge and re.search(r"\b([45678]K)\b", badge, re.I):
+        native = f"R3D at native {re.search(r'[45678]K', badge, re.I).group(0)} resolution"
+    else:
+        native = "R3D at native camera resolution (4K–8K depending on the clip)"
+    return f"{native}; 4K ProRes 422 HQ; 1080p Master"
+
+
 def build_clip_page(clip: dict, catalog: list[dict]) -> str:
     slug = clip["slug"]
     title = clip.get("title") or slug
     description = clip.get("description") or (
-        f"{title} — rights-managed Indo-Pacific stock footage available to license in 8K RED RAW."
+        f"{title} — rights-managed Indo-Pacific stock footage available to license as R3D."
     )
-    page_title = f"{title} | License 8K RAW Stock Footage | {SITE_NAME}"
+    page_title = f"{title} | License R3D Stock Footage | {SITE_NAME}"
     meta_desc = description[:155] + ("…" if len(description) > 155 else "")
     specs = clip.get("technicalSpecs") or {}
-    sizes = clip.get("availableSizes") or []
     keywords = clip.get("keywords") or []
     keyword_str = ", ".join(keywords[:24])
     inquire = (
@@ -364,6 +378,7 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
     upload = specs.get("date") or "2026-03-01"
     if not re.match(r"^\d{4}-\d{2}-\d{2}", str(upload)):
         upload = "2026-03-01"
+    masters = master_delivery_label(clip)
     json_ld = {
         "@context": "https://schema.org",
         "@type": "VideoObject",
@@ -378,6 +393,7 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
         "publisher": {"@type": "Organization", "name": SITE_NAME, "url": SITE},
         "isFamilyFriendly": True,
         "license": f"{SITE}/license-terms.html",
+        "encodingFormat": "video/r3d",
     }
     specs_rows = []
     for label, value in [
@@ -389,10 +405,10 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
         ("Camera", clip.get("camera")),
         ("Format", clip.get("format") or clip.get("nativeFormatBadge")),
         ("Resolution", specs.get("resolution")),
-        ("Codec", specs.get("codec")),
+        ("Codec", specs.get("codec") or "r3d"),
         ("Duration", duration),
         ("License", "Rights Managed (RM)"),
-        ("Available masters", ", ".join(sizes) if sizes else "8K RED RAW, 4K ProRes, 1080p"),
+        ("Available masters", masters),
     ]:
         if value:
             specs_rows.append(f"<dt>{esc(label)}</dt><dd>{esc(value)}</dd>")
@@ -411,7 +427,7 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
       <p class="kicker">Rights-managed stock clip</p>
       <h1 class="page-title">{esc(title)}</h1>
       <p class="page-lead">{esc(description)}</p>
-      <span class="badge">License 8K RAW · Rights Managed</span>
+      <span class="badge">License R3D · Rights Managed</span>
 
       <div class="clip-layout">
         <div class="video-panel">
@@ -421,7 +437,7 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
         <aside class="detail-panel">
           <div class="detail-card">
             <h2>License this clip</h2>
-            <p>Request a rights-managed license and master delivery in 8K RED RAW, 4K ProRes 422 HQ, or 1080p. Ideal for documentary, broadcast, and commercial natural-history projects.</p>
+            <p>Request a rights-managed license and master delivery as R3D at the clip’s native resolution (4K, 5K, 6K, or 8K depending on the original capture), plus 4K ProRes 422 HQ or 1080p. Ideal for documentary, broadcast, and commercial natural-history projects.</p>
             <div class="cta-row">
               <a class="btn btn-primary" href="{inquire}">Request license</a>
               <a class="btn btn-secondary" href="/licensing-guide.html">How licensing works</a>
@@ -489,23 +505,23 @@ def collection_defs() -> list[CollectionDef]:
 
     return [
         {
-            "slug": "license-8k-raw-footage",
-            "title": "License 8K RAW Footage",
-            "h1": "License 8K RAW Footage from the Indo-Pacific",
+            "slug": "license-r3d-footage",
+            "title": "License R3D Footage",
+            "h1": "License R3D Footage from the Indo-Pacific",
             "description": (
-                "License cinematic 8K RED RAW stock footage from Indo Pacific Stock — "
-                "rights-managed underwater and aerial masters for documentary and commercial use."
+                "License cinematic R3D stock footage from Indo Pacific Stock — "
+                "rights-managed underwater and aerial masters at native camera resolution for documentary and commercial use."
             ),
-            "keywords": "license 8K RAW footage, 8K RED RAW stock, rights managed 8K video, RED Raptor stock footage",
+            "keywords": "license R3D footage, REDCODE RAW stock, rights managed R3D video, RED Digital stock footage",
             "match": lambda c: True,
             "limit": 48,
             "paragraphs": [
-                "Indo Pacific Stock is a rights-managed archive of cinema-camera masters captured across the Indo-Pacific. Every clip in this collection can be licensed with 8K RED RAW delivery alongside 4K ProRes and 1080p masters.",
-                "Producers searching for “license 8K RAW footage” need camera-original quality for finishing, VFX, and large-format delivery. Our RED-origin masters are built for that workflow — not compressed stock proxies.",
+                "Indo Pacific Stock is a rights-managed archive of cinema-camera masters captured across the Indo-Pacific. Every clip can be licensed as R3D at its native capture resolution — which may be 4K, 5K, 6K, or 8K depending on the camera and project — alongside 4K ProRes and 1080p masters.",
+                "Producers searching for camera-original quality need REDCODE RAW for finishing, VFX, and colour-critical delivery. Our R3D masters are built for that workflow — not compressed stock proxies.",
             ],
             "bullets": [
                 "Rights-managed licensing with clear commercial and broadcast terms",
-                "Native REDCODE RAW masters plus ProRes deliverables",
+                "Native R3D / REDCODE RAW masters plus ProRes deliverables",
                 "Natural-history subjects: reefs, megafauna, schooling fish, cultural scenes, and aerials",
             ],
         },
@@ -515,7 +531,7 @@ def collection_defs() -> list[CollectionDef]:
             "h1": "Underwater Stock Footage — Rights Managed",
             "description": (
                 "Browse rights-managed underwater stock footage from Raja Ampat, Komodo, and Cenderawasih — "
-                "license cinematic reef and marine wildlife clips in 8K RAW."
+                "license cinematic reef and marine wildlife clips as R3D."
             ),
             "keywords": "underwater stock footage, underwater cinema, license underwater video, marine stock footage",
             "match": lambda c: (c.get("category") or "") != "Coastal Landscapes Drone Aerials"
@@ -528,7 +544,7 @@ def collection_defs() -> list[CollectionDef]:
             "bullets": [
                 "Reef fish, megafauna, benthic life, and open-ocean sequences",
                 "Shot across Indonesia’s richest marine regions",
-                "Available to license as 8K RAW / ProRes masters",
+                "Available to license as R3D / ProRes masters",
             ],
         },
         {
@@ -537,7 +553,7 @@ def collection_defs() -> list[CollectionDef]:
             "h1": "Raja Ampat Stock Footage",
             "description": (
                 "License Raja Ampat stock footage — rights-managed underwater cinema from West Papua’s "
-                "coral triangle, available in 8K RED RAW."
+                "coral triangle, available as R3D."
             ),
             "keywords": "Raja Ampat stock footage, Raja Ampat underwater video, West Papua film footage",
             "match": match_region("Raja Ampat"),
@@ -557,13 +573,13 @@ def collection_defs() -> list[CollectionDef]:
             "h1": "Whale Shark Stock Footage",
             "description": (
                 "License whale shark stock footage from Cenderawasih and the Indo-Pacific — "
-                "rights-managed cinematic masters in 8K RAW."
+                "rights-managed cinematic masters available as R3D."
             ),
             "keywords": "whale shark stock footage, whale shark video license, Rhincodon typus footage",
             "match": match_any("whale shark", "whaleshark", "rhincodon"),
             "limit": 48,
             "paragraphs": [
-                "Whale shark sequences from our Indo-Pacific archive are rights-managed for documentary and commercial use, with master delivery in 8K RED RAW or ProRes.",
+                "Whale shark sequences from our Indo-Pacific archive are rights-managed for documentary and commercial use, with master delivery as R3D at native resolution or ProRes.",
             ],
             "bullets": [
                 "Natural swimming and approach behavior",
@@ -577,7 +593,7 @@ def collection_defs() -> list[CollectionDef]:
             "h1": "Coral Reef Stock Footage",
             "description": (
                 "License coral reef stock footage from the Indo-Pacific — rights-managed reefscapes "
-                "and associated marine life in 8K RAW."
+                "and associated marine life available as R3D."
             ),
             "keywords": "coral reef stock footage, reef video license, Indo-Pacific coral footage",
             "match": match_any("coral", "reef"),
@@ -588,25 +604,25 @@ def collection_defs() -> list[CollectionDef]:
             "bullets": [
                 "Reefscapes, benthic detail, and associated fish life",
                 "Rights-managed for broadcast and commercial projects",
-                "8K RAW master options for finishing",
+                "R3D master options for finishing",
             ],
         },
         {
             "slug": "red-raptor-stock-footage",
             "title": "RED Raptor Stock Footage",
-            "h1": "RED Raptor & RED RAW Stock Footage",
+            "h1": "RED Raptor & R3D Stock Footage",
             "description": (
-                "License RED Raptor and RED RAW stock footage from Indo Pacific Stock — "
+                "License RED Raptor and R3D stock footage from Indo Pacific Stock — "
                 "cinema-camera underwater and aerial masters for high-end finishing."
             ),
-            "keywords": "RED Raptor stock footage, RED RAW footage license, V-Raptor underwater footage",
-            "match": match_any("raptor", "red raw", "8k red", "r3d", "redcode"),
+            "keywords": "RED Raptor stock footage, R3D footage license, REDCODE RAW underwater footage",
+            "match": match_any("raptor", "red raw", "r3d", "redcode"),
             "limit": 48,
             "paragraphs": [
-                "If your post pipeline expects REDCODE RAW, this collection highlights clips available as cinema-camera masters — including RED Raptor-origin material — for color and VFX-critical work.",
+                "If your post pipeline expects REDCODE RAW (.R3D), this collection highlights clips available as cinema-camera masters — including RED Raptor-origin material — for colour and VFX-critical work. Native resolution varies by clip (4K–8K).",
             ],
             "bullets": [
-                "Camera-original RAW workflows",
+                "Camera-original R3D workflows",
                 "Paired ProRes and HD masters on request",
                 "Rights-managed licensing for professional productions",
             ],
@@ -669,7 +685,7 @@ def collection_defs() -> list[CollectionDef]:
             "bullets": [
                 "Built for long-form editorial workflows",
                 "Timecode-based rights-managed licensing",
-                "8K RAW and ProRes master delivery",
+                "R3D and ProRes master delivery",
             ],
         },
         {
@@ -678,7 +694,7 @@ def collection_defs() -> list[CollectionDef]:
             "h1": "Komodo Stock Footage",
             "description": (
                 "License Komodo stock footage — rights-managed underwater and marine cinema from "
-                "Komodo National Park and surrounding waters, available in 8K RAW."
+                "Komodo National Park and surrounding waters, available as R3D."
             ),
             "keywords": "Komodo stock footage, Komodo underwater video, Komodo National Park film footage",
             "match": match_region("Komodo"),
@@ -689,7 +705,7 @@ def collection_defs() -> list[CollectionDef]:
             "bullets": [
                 "Location-specific Komodo / Nusa Tenggara waters",
                 "Cinema-camera underwater capture",
-                "Rights-managed licensing with RAW masters",
+                "Rights-managed licensing with R3D masters",
             ],
         },
     ]
@@ -776,7 +792,7 @@ def build_collections_hub(defs: list[CollectionDef], counts: dict[str, int]) -> 
       </nav>
       <p class="kicker">Keyword collections</p>
       <h1 class="page-title">License Indo-Pacific Stock Footage by Topic</h1>
-      <p class="page-lead">Focused landing pages for producers searching to license 8K RAW footage, underwater cinema, location-specific archives, and rights-managed wildlife film.</p>
+      <p class="page-lead">Focused landing pages for producers searching to license R3D footage, underwater cinema, location-specific archives, and rights-managed wildlife film.</p>
       <div class="collection-list">
         {cards}
       </div>
@@ -786,13 +802,13 @@ def build_collections_hub(defs: list[CollectionDef], counts: dict[str, int]) -> 
     return page_shell(
         title=f"Stock Footage Collections | {SITE_NAME}",
         description=(
-            "Browse Indo Pacific Stock collections — license 8K RAW footage, underwater cinema, "
+            "Browse Indo Pacific Stock collections — license R3D footage, underwater cinema, "
             "Raja Ampat, Komodo, whale sharks, and rights-managed wildlife film."
         ),
         canonical=f"{SITE}/collections/",
         body=body,
         active_nav="collections",
-        keywords="license 8K RAW footage, underwater stock footage, Raja Ampat stock footage, rights managed wildlife",
+        keywords="license R3D footage, underwater stock footage, Raja Ampat stock footage, rights managed wildlife",
         json_ld={
             "@context": "https://schema.org",
             "@type": "CollectionPage",
@@ -877,6 +893,27 @@ def main() -> None:
 
     (COLLECTIONS_DIR / "index.html").write_text(
         build_collections_hub(defs, counts), encoding="utf-8"
+    )
+
+    # Keep old 8K collection URL working for anyone who already indexed it.
+    legacy = COLLECTIONS_DIR / "license-8k-raw-footage" / "index.html"
+    legacy.parent.mkdir(parents=True, exist_ok=True)
+    legacy.write_text(
+        """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0; url=/collections/license-r3d-footage/" />
+  <link rel="canonical" href="https://indopacificstock.com/collections/license-r3d-footage/" />
+  <title>Redirecting…</title>
+  <script>location.replace("/collections/license-r3d-footage/");</script>
+</head>
+<body>
+  <p>This page has moved to <a href="/collections/license-r3d-footage/">License R3D Footage</a>.</p>
+</body>
+</html>
+""",
+        encoding="utf-8",
     )
 
     write_sitemap([c["slug"] for c in clips], [d["slug"] for d in defs])

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="License 8K RAW footage and rights-managed underwater stock from the Indo-Pacific. Cinema-camera RED masters for documentary, broadcast, and commercial natural history." />
-  <meta name="keywords" content="license 8K RAW footage, underwater stock footage, rights managed wildlife footage, Raja Ampat stock footage, RED Raptor stock footage, Indo-Pacific documentary B-roll" />
+  <meta name="description" content="License R3D footage and rights-managed underwater stock from the Indo-Pacific. Cinema-camera RED masters at native resolution for documentary, broadcast, and commercial natural history." />
+  <meta name="keywords" content="license R3D footage, REDCODE RAW stock, underwater stock footage, rights managed wildlife footage, Raja Ampat stock footage, RED Digital stock footage, Indo-Pacific documentary B-roll" />
   <link rel="canonical" href="https://indopacificstock.com/" />
-  <meta property="og:title" content="Indo Pacific Stock — License 8K RAW &amp; Rights-Managed Natural History Footage" />
-  <meta property="og:description" content="License 8K RAW footage and rights-managed underwater stock from the Indo-Pacific. Cinema-camera RED masters for documentary, broadcast, and commercial natural history." />
+  <meta property="og:title" content="Indo Pacific Stock — License R3D &amp; Rights-Managed Natural History Footage" />
+  <meta property="og:description" content="License R3D footage and rights-managed underwater stock from the Indo-Pacific. Cinema-camera RED masters at native resolution for documentary, broadcast, and commercial natural history." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://indopacificstock.com/" />
   <meta property="og:site_name" content="Indo Pacific Stock" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Indo Pacific Stock — License 8K RAW &amp; Rights-Managed Natural History Footage" />
-  <meta name="twitter:description" content="License 8K RAW footage and rights-managed underwater stock from the Indo-Pacific. Cinema-camera RED masters for documentary, broadcast, and commercial natural history." />
-  <title>Indo Pacific Stock — License 8K RAW &amp; Rights-Managed Natural History Footage</title>
+  <meta name="twitter:title" content="Indo Pacific Stock — License R3D &amp; Rights-Managed Natural History Footage" />
+  <meta name="twitter:description" content="License R3D footage and rights-managed underwater stock from the Indo-Pacific. Cinema-camera RED masters at native resolution for documentary, broadcast, and commercial natural history." />
+  <title>Indo Pacific Stock — License R3D &amp; Rights-Managed Natural History Footage</title>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Indo Pacific Stock",
     "url": "https://indopacificstock.com/",
-    "description": "Rights-managed Indo-Pacific natural history archive. License 8K RAW footage, underwater cinema, and aerial stock for professional productions.",
+    "description": "Rights-managed Indo-Pacific natural history archive. License R3D footage, underwater cinema, and aerial stock for professional productions.",
     "potentialAction": {
       "@type": "SearchAction",
       "target": "https://indopacificstock.com/?q={search_term_string}",
@@ -547,8 +547,8 @@
     .hero-headline {
       margin: 0 0 1.5rem;
       text-align: left;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+      max-width: 100%;
+      min-width: 0;
     }
 
     .hero-statement {
@@ -560,11 +560,9 @@
       line-height: 1.5;
       letter-spacing: 0.02em;
       color: var(--text-secondary);
-      white-space: nowrap;
-    }
-
-    @media (max-width: 960px) {
-      .hero-statement { white-space: normal; }
+      white-space: normal;
+      overflow-wrap: break-word;
+      max-width: 100%;
     }
 
     .search-module {
@@ -1742,10 +1740,6 @@
         --layout-gutter: 1rem;
       }
 
-      .hero-statement {
-        white-space: normal;
-      }
-
       .search-module {
         padding: 1rem;
       }
@@ -1923,7 +1917,7 @@
     <!-- ZONE 1: Tactical Search & Taxonomy Portal -->
     <section class="zone zone-search" id="zone-search" aria-label="Search and filter">
       <div class="hero-headline">
-        <h1 class="hero-statement">License 8K RAW footage and rights-managed natural history cinema from the Indo-Pacific — RED Digital underwater and aerial masters.</h1>
+        <h1 class="hero-statement">License R3D footage and rights-managed natural history cinema from the Indo-Pacific — RED Digital underwater and aerial masters at native resolution.</h1>
       </div>
 
       <div class="search-module" aria-label="Search catalog and macro filters">
@@ -1986,7 +1980,7 @@
     <!-- ZONE 2: Category Collections -->
     <section class="zone zone-collections" id="zone-collections" aria-label="Footage categories">
       <h2 class="collections-guide">Browse Collections</h2>
-      <p class="collections-seo-link">Looking for a topic page? <a href="collections/">License 8K RAW, underwater, Raja Ampat &amp; more</a></p>
+      <p class="collections-seo-link">Looking for a topic page? <a href="collections/">License R3D, underwater, Raja Ampat &amp; more</a></p>
 
       <div class="collection-rail" id="collection-rail">
         <button
@@ -3277,9 +3271,9 @@
         category: taxon.category,
         region: 'Raja Ampat',
         species: taxon.species,
-        format: '8K RED RAW',
+        format: 'R3D',
         nativeFormatBadge: 'RAW',
-        camera: 'RED V-Raptor 8K',
+        camera: 'RED Digital Cinema',
         behavior: 'Natural history sequence.',
         videoUrl: videoCdnUrl(mp4FileName),
         description: `${title} — rights-managed stock footage from Indo Pacific Stock.`,
