@@ -180,7 +180,7 @@ def mp4_variant_index(name: str) -> int:
 
 def title_column_name(headers: list[str]) -> str | None:
     normalized = [h.strip() for h in headers]
-    for candidate in ('Title', 'Caption', 'Comments'):
+    for candidate in ('Title', 'Caption', 'Comments', 'Title/Comments'):
         if candidate in normalized:
             return candidate
     return None
