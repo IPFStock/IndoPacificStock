@@ -90,11 +90,25 @@ def normalize_license_type(raw: str) -> str:
     return 'Commercial'
 
 
+def normalize_category(raw: str) -> str:
+    value = str(raw or '').strip()
+    if not value:
+        return ''
+    lower = value.lower()
+    if lower in {'cultural', 'culture'}:
+        return 'Culture'
+    if lower == 'underwater':
+        return 'Underwater'
+    if lower == 'landscape':
+        return 'Landscape'
+    return value
+
+
 def infer_category(description: str, license_type: str, raw_category: str, raw_type: str) -> str:
     if raw_category.strip():
-        return raw_category.strip()
+        return normalize_category(raw_category) or raw_category.strip()
     if raw_type.strip():
-        return raw_type.strip()
+        return normalize_category(raw_type) or raw_type.strip()
 
     text = description.lower()
     culture_markers = (
@@ -337,6 +351,10 @@ def resolve_import_paths(export_numbers: list[int] | None) -> list[Path]:
     return [by_number[number] for number in export_numbers]
 
 
+# Always refresh these master columns when re-importing an export batch.
+OVERWRITE_INDICES = {7, 8, 10, 11, 36, 37}
+
+
 def merge_exports_into_master(import_paths: list[Path]) -> tuple[int, int, int, int]:
     github_mp4s = fetch_github_mp4s()
     master_rows = read_csv(MASTER)
@@ -366,7 +384,9 @@ def merge_exports_into_master(import_paths: list[Path]) -> tuple[int, int, int, 
                     if row[0].strip().lower() != mp4_key:
                         continue
                     for idx, value in enumerate(new_row):
-                        if value and (idx >= len(row) or not row[idx].strip()):
+                        if not value:
+                            continue
+                        if idx in OVERWRITE_INDICES or idx >= len(row) or not row[idx].strip():
                             row[idx] = value
                     updated += 1
                     break

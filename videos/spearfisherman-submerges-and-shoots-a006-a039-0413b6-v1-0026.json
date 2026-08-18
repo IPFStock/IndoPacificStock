@@ -1,7 +1,7 @@
 {
   "title": "Spearfisherman Submerges And Shoots",
   "category": "Benthic Reef Aggregations & Schooling Fish",
-  "region": "Nabire",
+  "region": "Cenderawasih",
   "species": "Anthias",
   "format": "REDcode 7:1 RED RAW",
   "nativeFormatBadge": "4K R3D",
@@ -23,6 +23,7 @@
     "anthias",
     "benthic",
     "benthic reef aggregations schooling fish",
+    "cenderawasih",
     "central",
     "central papua",
     "dsmc2",
@@ -47,8 +48,7 @@
     "release",
     "s35",
     "school",
-    "schooling",
-    "shoots"
+    "schooling"
   ],
   "technicalSpecs": {
     "fileName": "A006_A039_0413B6_V1-0026.mp4",
