@@ -49,7 +49,13 @@ def reel_base(name: str) -> str:
 def slugify_title(title: str) -> str:
     value = re.sub(r'[^\w\s-]', '', title.lower())
     value = re.sub(r'[\s_]+', '-', value).strip('-')
-    return value or 'archive'
+    value = value or 'archive'
+    slug_fixes = {
+        'trying-green-line-to-spear-gun': 'tying-green-line-to-spear-gun',
+        'spear-fisheman-submerges-and-shoots': 'spearfisherman-submerges-and-shoots',
+        'tilting-up-to-papuan-mans-face': 'tilting-up-to-papuan-fisherman-face',
+    }
+    return slug_fixes.get(value, value)
 
 
 def parse_location(description: str) -> str:

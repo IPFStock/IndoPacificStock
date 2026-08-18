@@ -1,5 +1,5 @@
 {
-  "title": "Spear Fisheman Submerges And Shoots",
+  "title": "Spearfisherman Submerges And Shoots",
   "category": "Benthic Reef Aggregations & Schooling Fish",
   "region": "Nabire",
   "species": "Anthias",
@@ -13,7 +13,7 @@
     "1080p Master"
   ],
   "camera": "DSMC2 GEMINI 5K S35",
-  "behavior": "Natural history sequence documenting spear fisheman submerges and shoots.",
+  "behavior": "Natural history sequence documenting spearfisherman submerges and shoots.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A039_0413B6_V1-0026.mp4",
   "description": "A local Papuan spear fisherman submerges and shoots into a school of fish, Nabire, Central Papua, Indonesia (No Model Release)",
   "keywords": [
@@ -28,7 +28,6 @@
     "dsmc2",
     "dsmc2 gemini 5k s35",
     "fish",
-    "fisheman",
     "fisherman",
     "gemini",
     "indonesia",
@@ -48,11 +47,12 @@
     "release",
     "s35",
     "school",
-    "schooling"
+    "schooling",
+    "shoots"
   ],
   "technicalSpecs": {
     "fileName": "A006_A039_0413B6_V1-0026.mp4",
-    "slug": "spear-fisheman-submerges-and-shoots-a006-a039-0413b6-v1-0026",
+    "slug": "spearfisherman-submerges-and-shoots-a006-a039-0413b6-v1-0026",
     "originalCameraCode": "A006_A039_0413B6_V1-0026.mp4",
     "resolution": "4608 x 2412",
     "codec": "r3d",
