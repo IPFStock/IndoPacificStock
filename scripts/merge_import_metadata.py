@@ -54,6 +54,8 @@ def slugify_title(title: str) -> str:
 
 def parse_location(description: str) -> str:
     text = description.lower()
+    if 'nabire' in text:
+        return 'Nabire, Indonesia'
     if 'cenderawasih' in text or 'cendrawasih' in text:
         return 'Cenderawasih'
     if 'komodo' in text:
@@ -67,6 +69,38 @@ def parse_location(description: str) -> str:
     if 'papua' in text:
         return 'Papua'
     return 'Cenderawasih'
+
+
+def normalize_license_type(raw: str) -> str:
+    value = str(raw or '').strip()
+    if not value:
+        return 'Commercial'
+    if value.lower().startswith('editorial') or value.lower() == 'editorial':
+        return 'Editorial'
+    if value.lower().startswith('commercial') or value.lower() == 'commercial':
+        return 'Commercial'
+    if value.lower() in {'standard', 'premium'}:
+        return 'Commercial'
+    return 'Commercial'
+
+
+def infer_category(description: str, license_type: str, raw_category: str, raw_type: str) -> str:
+    if raw_category.strip():
+        return raw_category.strip()
+    if raw_type.strip():
+        return raw_type.strip()
+
+    text = description.lower()
+    culture_markers = (
+        'papuan', 'vendor', 'market', 'villager', 'spear gun', 'spearfisher',
+        'fisherman', 'canoe', 'outrigger', 'paddle', 'goggles', 'betel', 'sarong',
+        'village', 'man ', 'men ', 'woman', 'people', 'smiles at the camera',
+    )
+    if license_type == 'Editorial' and any(marker in text for marker in culture_markers):
+        return 'Culture'
+    if 'underwater' in text or 'coral' in text or 'shark' in text or 'fish,' in text:
+        return 'Underwater'
+    return 'Underwater'
 
 
 def parse_fps(raw: str) -> float:
@@ -124,10 +158,17 @@ def mp4_variant_index(name: str) -> int:
     return int(match.group(1)) * 10000 + int(match.group(2))
 
 
+def title_column_name(headers: list[str]) -> str | None:
+    normalized = [h.strip() for h in headers]
+    for candidate in ('Title', 'Caption', 'Comments'):
+        if candidate in normalized:
+            return candidate
+    return None
+
+
 def is_davinci_export(headers: list[str]) -> bool:
     normalized = [h.strip() for h in headers]
-    has_title = 'Title' in normalized or 'Caption' in normalized
-    return has_title and 'Description' in normalized and 'File Name' in normalized
+    return bool(title_column_name(normalized)) and 'Description' in normalized and 'File Name' in normalized
 
 
 def load_export_rows(path: Path) -> list[dict[str, str]]:
@@ -149,7 +190,7 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
         if not file_name or not re.search(r'\.(r3d|mp4|mov)$', file_name, flags=re.I):
             continue
 
-        title_col = 'Title' if 'Title' in index else 'Caption'
+        title_col = title_column_name(headers) or 'Title'
         title = row[index[title_col]].strip() if title_col in index else ''
         description = row[index['Description']].strip() if 'Description' in index else ''
         if not title and not description:
@@ -178,15 +219,11 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
         if pricing_tier.lower() in {'commercial', 'editorial'}:
             pricing_tier, license_type = license_type, pricing_tier
         pricing_tier = pricing_tier or 'Standard'
-        license_type = license_type or 'Commercial'
+        license_type = normalize_license_type(license_type or 'Commercial')
 
-        if 'Category' in index and row[index['Category']].strip():
-            shoot_category = row[index['Category']].strip()
-        else:
-            shoot_category = 'Underwater'
-            trailing = [part.strip() for part in row[15:] if part and part.strip()]
-            if trailing:
-                shoot_category = trailing[-1]
+        raw_category = row[index['Category']].strip() if 'Category' in index else ''
+        raw_type = row[index['Type']].strip() if 'Type' in index else ''
+        shoot_category = infer_category(description, license_type, raw_category, raw_type)
 
         location = row[index['Location']].strip() if 'Location' in index else ''
         if not location:
