@@ -280,6 +280,8 @@ def polish_description(text: str) -> str:
     replacements = [
         (r'\bClose up\b', 'Close-up'),
         (r'\bclose up\b', 'close-up'),
+        (r'\bCloseup\b', 'Close-up'),
+        (r'\bcloseup\b', 'close-up'),
         (r'\bwhite tip reef shark\b', 'whitetip reef shark'),
         (r'\blion fish\b', 'lionfish'),
         (r'\bbutterfly fish\b', 'butterflyfish'),
