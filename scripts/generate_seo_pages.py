@@ -213,6 +213,75 @@ def collection_url(slug: str) -> str:
     return f"{SITE}/collections/{slug}/"
 
 
+def parse_fps(raw: object) -> float:
+    value = str(raw or "").strip()
+    if not value:
+        return 24.0
+    if "/" in value:
+        num, den = value.split("/", 1)
+        try:
+            fps = float(num) / float(den)
+            return fps if fps > 0 else 24.0
+        except ValueError:
+            return 24.0
+    try:
+        fps = float(value)
+        return fps if fps > 0 else 24.0
+    except ValueError:
+        return 24.0
+
+
+def iso8601_duration(duration: object, fps: object = None, duration_seconds: object = None) -> str:
+    """Convert catalog clip length to schema.org / Google ISO 8601 duration (PT#H#M#S)."""
+    total: float | None = None
+    try:
+        if duration_seconds not in (None, ""):
+            parsed = float(duration_seconds)
+            if parsed > 0:
+                total = parsed
+    except (TypeError, ValueError):
+        total = None
+
+    raw = str(duration or "").strip()
+    if total is None and raw:
+        if re.match(r"^PT(?=\d)(?:\d+H)?(?:\d+M)?(?:\d+(?:\.\d+)?S)?$", raw, re.I):
+            return raw.upper()
+
+        match = re.match(r"^(\d+):(\d{1,2}):(\d{1,2})(?::(\d{1,3}))?$", raw)
+        if match:
+            hours = int(match.group(1))
+            minutes = int(match.group(2))
+            seconds = int(match.group(3))
+            frames = int(match.group(4) or 0)
+            frame_rate = parse_fps(fps)
+            total = hours * 3600 + minutes * 60 + seconds + (frames / frame_rate if frames else 0)
+        else:
+            try:
+                parsed = float(raw)
+                if parsed > 0:
+                    total = parsed
+            except ValueError:
+                total = None
+
+    if total is None or total <= 0:
+        return ""
+
+    whole = int(round(total))
+    if whole <= 0:
+        return ""
+
+    hours, remainder = divmod(whole, 3600)
+    minutes, seconds = divmod(remainder, 60)
+    parts = ["PT"]
+    if hours:
+        parts.append(f"{hours}H")
+    if minutes:
+        parts.append(f"{minutes}M")
+    if seconds or len(parts) == 1:
+        parts.append(f"{seconds}S")
+    return "".join(parts)
+
+
 def header_html(active: str | None = None) -> str:
     def nav(href: str, label: str, key: str) -> str:
         cls = "inquire-link is-current" if active == key else "inquire-link"
@@ -375,6 +444,9 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
         f"?subject={quote(f'License request: {title} ({slug})')}"
     )
     duration = specs.get("duration") or ""
+    schema_duration = iso8601_duration(
+        duration, specs.get("fps"), specs.get("durationSeconds")
+    )
     upload = specs.get("date") or "2026-03-01"
     if not re.match(r"^\d{4}-\d{2}-\d{2}", str(upload)):
         upload = "2026-03-01"
@@ -387,7 +459,6 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
         "thumbnailUrl": clip.get("videoUrl"),
         "contentUrl": clip.get("videoUrl"),
         "uploadDate": f"{str(upload)[:10]}T00:00:00Z",
-        "duration": duration,
         "keywords": keywords[:30],
         "author": {"@type": "Organization", "name": SITE_NAME},
         "publisher": {"@type": "Organization", "name": SITE_NAME, "url": SITE},
@@ -395,6 +466,8 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
         "license": f"{SITE}/license-terms.html",
         "encodingFormat": "video/r3d",
     }
+    if schema_duration:
+        json_ld["duration"] = schema_duration
     specs_rows = []
     for label, value in [
         ("Region", clip.get("region")),
