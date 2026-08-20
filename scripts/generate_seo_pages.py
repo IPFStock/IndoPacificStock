@@ -19,6 +19,37 @@ COLLECTIONS_DIR = ROOT / "collections"
 SITEMAP_PATH = ROOT / "sitemap.xml"
 SITE = "https://indopacificstock.com"
 SITE_NAME = "Indo Pacific Stock"
+LOGO_URL = f"{SITE}/images/logo.png"
+
+ICON_LINKS = """  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+"""
+
+ORGANIZATION_LD = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": f"{SITE}/#organization",
+    "name": SITE_NAME,
+    "url": SITE,
+    "logo": {
+        "@type": "ImageObject",
+        "url": LOGO_URL,
+        "width": 512,
+        "height": 512,
+    },
+    "email": "licensingips@gmail.com",
+}
+
+
+def organization_publisher() -> dict:
+    return {
+        "@type": "Organization",
+        "@id": f"{SITE}/#organization",
+        "name": SITE_NAME,
+        "url": SITE,
+        "logo": {"@type": "ImageObject", "url": LOGO_URL, "width": 512, "height": 512},
+    }
 
 SHARED_CSS = """
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -328,13 +359,18 @@ def page_shell(
     keywords_tag = (
         f'  <meta name="keywords" content="{esc(keywords)}" />\n' if keywords else ""
     )
-    ld = ""
+    ld_blocks = [
+        '  <script type="application/ld+json">\n'
+        f"  {json.dumps(ORGANIZATION_LD, ensure_ascii=False)}\n"
+        "  </script>\n"
+    ]
     if json_ld is not None:
-        ld = (
+        ld_blocks.append(
             '  <script type="application/ld+json">\n'
             f"  {json.dumps(json_ld, ensure_ascii=False)}\n"
             "  </script>\n"
         )
+    ld = "".join(ld_blocks)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -343,14 +379,16 @@ def page_shell(
   <title>{esc(title)}</title>
   <meta name="description" content="{esc(description)}" />
 {keywords_tag}  <link rel="canonical" href="{esc(canonical)}" />
-  <meta property="og:title" content="{esc(title)}" />
+{ICON_LINKS}  <meta property="og:title" content="{esc(title)}" />
   <meta property="og:description" content="{esc(description)}" />
   <meta property="og:type" content="{esc(og_type)}" />
   <meta property="og:url" content="{esc(canonical)}" />
   <meta property="og:site_name" content="{esc(SITE_NAME)}" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image" content="{esc(LOGO_URL)}" />
+  <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="{esc(title)}" />
   <meta name="twitter:description" content="{esc(description)}" />
+  <meta name="twitter:image" content="{esc(LOGO_URL)}" />
 {ld}  <style>{SHARED_CSS}</style>
 </head>
 <body>
@@ -461,7 +499,7 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
         "uploadDate": f"{str(upload)[:10]}T00:00:00Z",
         "keywords": keywords[:30],
         "author": {"@type": "Organization", "name": SITE_NAME},
-        "publisher": {"@type": "Organization", "name": SITE_NAME, "url": SITE},
+        "publisher": organization_publisher(),
         "isFamilyFriendly": True,
         "license": f"{SITE}/license-terms.html",
         "encodingFormat": "video/r3d",

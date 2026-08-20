@@ -6,27 +6,51 @@
   <meta name="description" content="License R3D footage and rights-managed underwater stock from the Indo-Pacific. Cinema-camera RED masters at native resolution for documentary, broadcast, and commercial natural history." />
   <meta name="keywords" content="license R3D footage, REDCODE RAW stock, underwater stock footage, rights managed wildlife footage, Raja Ampat stock footage, RED Digital stock footage, Indo-Pacific documentary B-roll" />
   <link rel="canonical" href="https://indopacificstock.com/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta property="og:title" content="Indo Pacific Stock — License R3D &amp; Rights-Managed Natural History Footage" />
   <meta property="og:description" content="License R3D footage and rights-managed underwater stock from the Indo-Pacific. Cinema-camera RED masters at native resolution for documentary, broadcast, and commercial natural history." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://indopacificstock.com/" />
   <meta property="og:site_name" content="Indo Pacific Stock" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image" content="https://indopacificstock.com/images/logo.png" />
+  <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Indo Pacific Stock — License R3D &amp; Rights-Managed Natural History Footage" />
   <meta name="twitter:description" content="License R3D footage and rights-managed underwater stock from the Indo-Pacific. Cinema-camera RED masters at native resolution for documentary, broadcast, and commercial natural history." />
+  <meta name="twitter:image" content="https://indopacificstock.com/images/logo.png" />
   <title>Indo Pacific Stock — License R3D &amp; Rights-Managed Natural History Footage</title>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Indo Pacific Stock",
-    "url": "https://indopacificstock.com/",
-    "description": "Rights-managed Indo-Pacific natural history archive. License R3D footage, underwater cinema, and aerial stock for professional productions.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://indopacificstock.com/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://indopacificstock.com/#organization",
+        "name": "Indo Pacific Stock",
+        "url": "https://indopacificstock.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://indopacificstock.com/images/logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "email": "licensingips@gmail.com"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://indopacificstock.com/#website",
+        "name": "Indo Pacific Stock",
+        "url": "https://indopacificstock.com/",
+        "description": "Rights-managed Indo-Pacific natural history archive. License R3D footage, underwater cinema, and aerial stock for professional productions.",
+        "publisher": { "@id": "https://indopacificstock.com/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://indopacificstock.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
   }
   </script>
   <style>
