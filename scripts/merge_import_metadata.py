@@ -62,7 +62,7 @@ def parse_location(description: str) -> str:
     text = description.lower()
     if 'nabire' in text:
         return 'Nabire, Indonesia'
-    if 'cenderawasih' in text or 'cendrawasih' in text:
+    if 'cenderawasih' in text or 'cendrawasih' in text or 'cenderwasih' in text:
         return 'Cenderawasih'
     if 'komodo' in text:
         return 'Komodo'

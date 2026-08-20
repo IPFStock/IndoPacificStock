@@ -312,6 +312,8 @@ def polish_description(text: str) -> str:
         (r'\bleptolepis,Cendrawasih\b', 'leptolepis, Cenderawasih'),
         (r'\bleptolepis,Cendrawasih\b', 'leptolepis, Cenderawasih'),
         (r'\bCendrawasih Bay\b', 'Cenderawasih Bay'),
+        (r'\bCenderwasih Bay\b', 'Cenderawasih Bay'),
+        (r'\bCenderwasih\b', 'Cenderawasih'),
         (r'\bIndo Pacific Giant Sponges\b', 'Indo-Pacific giant barrel sponges'),
         (r'\bSlow motion\b', 'Slow-motion'),
         (r'\bslow motion\b', 'slow-motion'),

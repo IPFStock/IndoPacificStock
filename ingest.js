@@ -206,7 +206,7 @@ function parseRegion(locationStr) {
   const value = locationStr.toLowerCase();
   if (value.includes('komodo')) return 'Komodo';
   if (value.includes('lembeh')) return 'Lembeh Strait';
-  if (value.includes('cenderawasih') || value.includes('cendrawasih')) return 'Cenderawasih';
+  if (value.includes('cenderawasih') || value.includes('cendrawasih') || value.includes('cenderwasih')) return 'Cenderawasih';
   if (value.includes('raja ampat')) return 'Raja Ampat';
   if (value.includes('flores')) return 'Flores';
   if (value.includes('bali')) return 'Bali';
