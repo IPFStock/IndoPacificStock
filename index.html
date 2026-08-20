@@ -3476,6 +3476,55 @@
       return '';
     };
 
+    function featuredSlugsFromPayload(payload) {
+      if (Array.isArray(payload?.slugs) && payload.slugs.length) {
+        return payload.slugs.filter(Boolean);
+      }
+      const whale = payload?.whaleSharks || [];
+      const reef = payload?.reef || [];
+      const culture = payload?.culture || [];
+      const interleaved = [];
+      const max = Math.max(whale.length, reef.length, culture.length);
+      for (let i = 0; i < max; i += 1) {
+        if (whale[i]) interleaved.push(whale[i]);
+        if (reef[i]) interleaved.push(reef[i]);
+        if (culture[i]) interleaved.push(culture[i]);
+      }
+      return interleaved;
+    }
+
+    async function fetchFeaturedSlugs(cacheQuery) {
+      try {
+        const response = await fetch(`videos/homepage-featured.json${cacheQuery}`);
+        if (!response.ok) return [];
+        return featuredSlugsFromPayload(await response.json());
+      } catch (err) {
+        console.warn('Could not load videos/homepage-featured.json', err);
+        return [];
+      }
+    }
+
+    function sortCatalogCards(cardList, featuredSlugs) {
+      const featuredIndex = new Map(featuredSlugs.map((slug, index) => [slug, index]));
+      cardList.sort((a, b) => {
+        const slugA = a.dataset.assetId;
+        const slugB = b.dataset.assetId;
+        const featuredA = featuredIndex.has(slugA);
+        const featuredB = featuredIndex.has(slugB);
+        if (featuredA && featuredB) return featuredIndex.get(slugA) - featuredIndex.get(slugB);
+        if (featuredA) return -1;
+        if (featuredB) return 1;
+
+        const dataA = assetCatalog.get(slugA);
+        const dataB = assetCatalog.get(slugB);
+        const csvA = dataA?.syncSource === 'csv' ? 1 : 0;
+        const csvB = dataB?.syncSource === 'csv' ? 1 : 0;
+        if (csvB !== csvA) return csvB - csvA;
+        return (dataA?.title || '').localeCompare(dataB?.title || '', undefined, { sensitivity: 'base' });
+      });
+      return cardList;
+    }
+
     async function fetchCatalogEntries() {
       const cacheQuery = catalogCacheBust();
 
@@ -3534,6 +3583,7 @@
       grid.setAttribute('aria-busy', 'true');
 
       const catalogEntries = await fetchCatalogEntries();
+      const featuredSlugs = await fetchFeaturedSlugs(catalogCacheBust());
 
       if (catalogEntries.length === 0) {
         grid.innerHTML = '<div class="empty-state"><strong>Catalog empty</strong>Add clips via ingest.js or update videos/manifest.json.</div>';
@@ -3547,14 +3597,7 @@
       grid.innerHTML = '';
       grid.removeAttribute('aria-busy');
 
-      loadedCards.sort((a, b) => {
-        const dataA = assetCatalog.get(a.dataset.assetId);
-        const dataB = assetCatalog.get(b.dataset.assetId);
-        const csvA = dataA?.syncSource === 'csv' ? 1 : 0;
-        const csvB = dataB?.syncSource === 'csv' ? 1 : 0;
-        if (csvB !== csvA) return csvB - csvA;
-        return (dataA?.title || '').localeCompare(dataB?.title || '', undefined, { sensitivity: 'base' });
-      });
+      loadedCards = sortCatalogCards(loadedCards, featuredSlugs);
 
       cards = loadedCards;
       updatePageSeoKeywords();
@@ -3564,15 +3607,7 @@
       try {
         const syncedCards = await syncCatalogWithGithub(loadedCards);
         if (syncedCards.length !== loadedCards.length) {
-          loadedCards = syncedCards;
-          loadedCards.sort((a, b) => {
-            const dataA = assetCatalog.get(a.dataset.assetId);
-            const dataB = assetCatalog.get(b.dataset.assetId);
-            const csvA = dataA?.syncSource === 'csv' ? 1 : 0;
-            const csvB = dataB?.syncSource === 'csv' ? 1 : 0;
-            if (csvB !== csvA) return csvB - csvA;
-            return (dataA?.title || '').localeCompare(dataB?.title || '', undefined, { sensitivity: 'base' });
-          });
+          loadedCards = sortCatalogCards(syncedCards, featuredSlugs);
           cards = loadedCards;
           updatePageSeoKeywords();
           filterController.initTaxonomyFromCatalog();

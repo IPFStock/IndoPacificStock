@@ -1,0 +1,33 @@
+{
+  "note": "First 24 homepage clips, interleaved whale shark / reef / culture. Edit slugs, then keep this file in the same order you want the grid.",
+  "whaleSharks": [
+    "big-whaleshark-covered-in-remoras-swims-toward-camera-a004-a004-04122w-v1-0031",
+    "two-whalesharks-slowly-moving-toward-camera-a004-a014-04122j-v1-0035",
+    "whaleshark-close-up-eye-contact-with-camera-a006-a083-0413aj-v1-0074",
+    "whaleshark-backlit-with-sunrays-a004-a027-04124y-v1-0041",
+    "whaleshark-swimming-up-towards-shafts-of-light-a004-a022-0412hy-v1-0037",
+    "beautiful-whalesharks-covered-in-remoras-and-fish-a006-a045-0413m6-v1-0055",
+    "whaleshark-eating-at-surface-eye-contact-with-camera-a004-a002-0412n6-v1-0028",
+    "two-whale-shark-feed-beside-nets-a006-a057-0413th-v1-0048"
+  ],
+  "reef": [
+    "healthy-diverse-reef-komodo-a032-c035-0916hl-001",
+    "huge-acropora-tablecoral-a032-c032-091621-001",
+    "anthias-healthy-reef-seafans-a032-c017-0916co-001",
+    "afternoon-light-coral-reef-komodo-a032-c044-0916dq-001",
+    "big-table-corals-acropora-a032-c034-0916mi-001",
+    "closefocus-widescene-over-acropora-with-fish-a033-c024-091725-v1-0098",
+    "moorish-idol-group-over-coralhead-barrel-sponges-a032-c006-0916b8-001",
+    "slow-push-over-healthy-diverse-coral-reef-a033-c001-09177s-v1-0079"
+  ],
+  "culture": [
+    "close-up-of-young-papuan-in-face-paint-a005-a022-04120p-v1-0001",
+    "two-papuan-girls-smile-at-camera-a005-a027-0412ti-v1-0007",
+    "young-papuans-performing-a-traditional-dance-beside-the-sea-a005-a039-0412iv-v1-0012",
+    "papuan-men-in-warrior-paint-performing-dance-a005-a041-041276-v1-0015",
+    "wide-of-young-papuan-in-face-paint-and-feathered-head-gear-a005-a023-041296-v1-0002",
+    "villager-walking-through-colorful-sarongs-a032-c108-091766-v1-0073",
+    "spearfisherman-submerges-and-shoots-a006-a039-0413b6-v1-0026",
+    "papuan-band-performing-song-a005-a038-0412xy-v1-0010"
+  ]
+}
