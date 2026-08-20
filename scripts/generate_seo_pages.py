@@ -20,6 +20,8 @@ SITEMAP_PATH = ROOT / "sitemap.xml"
 SITE = "https://indopacificstock.com"
 SITE_NAME = "Indo Pacific Stock"
 LOGO_URL = f"{SITE}/images/logo.png"
+THUMBS_DIR = ROOT / "thumbs"
+VIDEO_SITEMAP_PATH = ROOT / "video-sitemap.xml"
 
 ICON_LINKS = """  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -244,6 +246,17 @@ def collection_url(slug: str) -> str:
     return f"{SITE}/collections/{slug}/"
 
 
+def thumb_path(slug: str) -> Path:
+    return THUMBS_DIR / f"{slug}.jpg"
+
+
+def thumb_url(slug: str) -> str:
+    path = thumb_path(slug)
+    if path.exists() and path.stat().st_size > 2000:
+        return f"{SITE}/thumbs/{quote(slug)}.jpg"
+    return ""
+
+
 def parse_fps(raw: object) -> float:
     value = str(raw or "").strip()
     if not value:
@@ -262,38 +275,53 @@ def parse_fps(raw: object) -> float:
         return 24.0
 
 
-def iso8601_duration(duration: object, fps: object = None, duration_seconds: object = None) -> str:
-    """Convert catalog clip length to schema.org / Google ISO 8601 duration (PT#H#M#S)."""
-    total: float | None = None
+def clip_duration_seconds(
+    duration: object, fps: object = None, duration_seconds: object = None
+) -> float | None:
     try:
         if duration_seconds not in (None, ""):
             parsed = float(duration_seconds)
             if parsed > 0:
-                total = parsed
+                return parsed
     except (TypeError, ValueError):
-        total = None
+        pass
 
     raw = str(duration or "").strip()
-    if total is None and raw:
-        if re.match(r"^PT(?=\d)(?:\d+H)?(?:\d+M)?(?:\d+(?:\.\d+)?S)?$", raw, re.I):
-            return raw.upper()
+    if not raw:
+        return None
 
-        match = re.match(r"^(\d+):(\d{1,2}):(\d{1,2})(?::(\d{1,3}))?$", raw)
-        if match:
-            hours = int(match.group(1))
-            minutes = int(match.group(2))
-            seconds = int(match.group(3))
-            frames = int(match.group(4) or 0)
-            frame_rate = parse_fps(fps)
-            total = hours * 3600 + minutes * 60 + seconds + (frames / frame_rate if frames else 0)
-        else:
-            try:
-                parsed = float(raw)
-                if parsed > 0:
-                    total = parsed
-            except ValueError:
-                total = None
+    iso = re.match(
+        r"^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?$", raw, re.I
+    )
+    if iso and any(iso.group(i) for i in range(1, 4)):
+        hours = int(iso.group(1) or 0)
+        minutes = int(iso.group(2) or 0)
+        seconds = float(iso.group(3) or 0)
+        total = hours * 3600 + minutes * 60 + seconds
+        return total if total > 0 else None
 
+    match = re.match(r"^(\d+):(\d{1,2}):(\d{1,2})(?::(\d{1,3}))?$", raw)
+    if match:
+        hours = int(match.group(1))
+        minutes = int(match.group(2))
+        seconds = int(match.group(3))
+        frames = int(match.group(4) or 0)
+        frame_rate = parse_fps(fps)
+        total = hours * 3600 + minutes * 60 + seconds + (
+            frames / frame_rate if frames else 0
+        )
+        return total if total > 0 else None
+
+    try:
+        parsed = float(raw)
+        return parsed if parsed > 0 else None
+    except ValueError:
+        return None
+
+
+def iso8601_duration(duration: object, fps: object = None, duration_seconds: object = None) -> str:
+    """Convert catalog clip length to schema.org / Google ISO 8601 duration (PT#H#M#S)."""
+    total = clip_duration_seconds(duration, fps, duration_seconds)
     if total is None or total <= 0:
         return ""
 
@@ -353,12 +381,15 @@ def page_shell(
     body: str,
     json_ld: dict | list | None = None,
     og_type: str = "website",
+    og_image: str | None = None,
     active_nav: str | None = None,
     keywords: str | None = None,
 ) -> str:
     keywords_tag = (
         f'  <meta name="keywords" content="{esc(keywords)}" />\n' if keywords else ""
     )
+    image = og_image or LOGO_URL
+    twitter_card = "summary_large_image" if og_image else "summary"
     ld_blocks = [
         '  <script type="application/ld+json">\n'
         f"  {json.dumps(ORGANIZATION_LD, ensure_ascii=False)}\n"
@@ -384,11 +415,11 @@ def page_shell(
   <meta property="og:type" content="{esc(og_type)}" />
   <meta property="og:url" content="{esc(canonical)}" />
   <meta property="og:site_name" content="{esc(SITE_NAME)}" />
-  <meta property="og:image" content="{esc(LOGO_URL)}" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="{esc(image)}" />
+  <meta name="twitter:card" content="{twitter_card}" />
   <meta name="twitter:title" content="{esc(title)}" />
   <meta name="twitter:description" content="{esc(description)}" />
-  <meta name="twitter:image" content="{esc(LOGO_URL)}" />
+  <meta name="twitter:image" content="{esc(image)}" />
 {ld}  <style>{SHARED_CSS}</style>
 </head>
 <body>
@@ -407,10 +438,12 @@ def clip_card_html(clip: dict) -> str:
     meta_bits = [clip.get("region"), clip.get("nativeFormatBadge") or clip.get("format"), "Rights Managed"]
     meta = " · ".join(bit for bit in meta_bits if bit)
     video = clip.get("videoUrl") or ""
+    poster = thumb_url(slug)
+    poster_attr = f' poster="{esc(poster)}"' if poster else ""
     return f"""
     <a class="clip-card" href="/clip/{esc(slug)}/">
       <div class="clip-card-media">
-        <video muted preload="metadata" playsinline src="{esc(video)}"></video>
+        <video muted preload="metadata" playsinline{poster_attr} src="{esc(video)}"></video>
       </div>
       <div class="clip-card-body">
         <div class="clip-card-title">{esc(title)}</div>
@@ -489,12 +522,12 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
     if not re.match(r"^\d{4}-\d{2}-\d{2}", str(upload)):
         upload = "2026-03-01"
     masters = master_delivery_label(clip)
+    still = thumb_url(slug)
     json_ld = {
         "@context": "https://schema.org",
         "@type": "VideoObject",
         "name": title,
         "description": description,
-        "thumbnailUrl": clip.get("videoUrl"),
         "contentUrl": clip.get("videoUrl"),
         "uploadDate": f"{str(upload)[:10]}T00:00:00Z",
         "keywords": keywords[:30],
@@ -504,6 +537,8 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
         "license": f"{SITE}/license-terms.html",
         "encodingFormat": "video/r3d",
     }
+    if still:
+        json_ld["thumbnailUrl"] = still
     if schema_duration:
         json_ld["duration"] = schema_duration
     specs_rows = []
@@ -526,6 +561,7 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
 
     related = related_clips(clip, catalog)
     related_html = "".join(clip_card_html(item) for item in related)
+    poster_attr = f' poster="{esc(still)}"' if still else ""
 
     body = f"""
   <main>
@@ -542,7 +578,7 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
 
       <div class="clip-layout">
         <div class="video-panel">
-          <video controls playsinline preload="metadata" src="{esc(clip.get('videoUrl'))}"
+          <video controls playsinline preload="metadata"{poster_attr} src="{esc(clip.get('videoUrl'))}"
             aria-label="{esc(title)} preview"></video>
         </div>
         <aside class="detail-panel">
@@ -580,6 +616,7 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
         body=body,
         json_ld=json_ld,
         og_type="video.other",
+        og_image=still or None,
         keywords=keyword_str or None,
     )
 
@@ -1019,6 +1056,72 @@ def write_sitemap(clip_slugs: list[str], collection_slugs: list[str]) -> None:
     SITEMAP_PATH.write_text("\n".join(parts), encoding="utf-8")
 
 
+def xml_text(value: object, limit: int | None = None) -> str:
+    text = str(value or "").strip()
+    if limit is not None:
+        text = text[:limit]
+    return esc(text)
+
+
+def write_video_sitemap(clips: list[dict]) -> int:
+    parts = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+        '        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">',
+    ]
+    included = 0
+    for clip in clips:
+        slug = clip.get("slug")
+        still = thumb_url(slug) if slug else ""
+        content = clip.get("videoUrl") or ""
+        if not slug or not still or not content:
+            continue
+        specs = clip.get("technicalSpecs") or {}
+        title = clip.get("title") or slug
+        description = clip.get("description") or title
+        seconds = clip_duration_seconds(
+            specs.get("duration"), specs.get("fps"), specs.get("durationSeconds")
+        )
+        upload = str(specs.get("date") or "2026-03-01")[:10]
+        if not re.match(r"^\d{4}-\d{2}-\d{2}$", upload):
+            upload = "2026-03-01"
+        parts.append("  <url>")
+        parts.append(f"    <loc>{esc(clip_url(slug))}</loc>")
+        parts.append("    <video:video>")
+        parts.append(f"      <video:thumbnail_loc>{esc(still)}</video:thumbnail_loc>")
+        parts.append(f"      <video:title>{xml_text(title, 100)}</video:title>")
+        parts.append(
+            f"      <video:description>{xml_text(description, 2048)}</video:description>"
+        )
+        parts.append(f"      <video:content_loc>{esc(content)}</video:content_loc>")
+        if seconds:
+            parts.append(f"      <video:duration>{int(round(seconds))}</video:duration>")
+        parts.append(
+            f"      <video:publication_date>{upload}T00:00:00+00:00</video:publication_date>"
+        )
+        parts.append("      <video:family_friendly>yes</video:family_friendly>")
+        parts.append("      <video:requires_subscription>no</video:requires_subscription>")
+        parts.append("      <video:live>no</video:live>")
+        parts.append("    </video:video>")
+        parts.append("  </url>")
+        included += 1
+    parts.append("</urlset>")
+    parts.append("")
+    VIDEO_SITEMAP_PATH.write_text("\n".join(parts), encoding="utf-8")
+    return included
+
+
+def write_robots() -> None:
+    (ROOT / "robots.txt").write_text(
+        "User-agent: *\n"
+        "Allow: /\n"
+        "\n"
+        f"Sitemap: {SITE}/sitemap.xml\n"
+        f"Sitemap: {SITE}/video-sitemap.xml\n",
+        encoding="utf-8",
+    )
+
+
 def reset_dir(path: Path) -> None:
     if path.exists():
         shutil.rmtree(path)
@@ -1086,7 +1189,12 @@ def main() -> None:
     )
 
     write_sitemap([c["slug"] for c in clips], [d["slug"] for d in defs])
-    print(f"Wrote {len(clips)} clip pages, {len(defs)} collections, sitemap.xml")
+    video_count = write_video_sitemap(clips)
+    write_robots()
+    print(
+        f"Wrote {len(clips)} clip pages, {len(defs)} collections, "
+        f"sitemap.xml, video-sitemap.xml ({video_count} videos)"
+    )
 
 
 if __name__ == "__main__":

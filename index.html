@@ -3205,7 +3205,7 @@
 
       article.innerHTML =
         `<div class="video-wrap is-loading">` +
-          `<video muted loop playsinline preload="none" aria-label="${escapeHtml(data.title)} preview" itemprop="contentUrl"></video>` +
+          `<video muted loop playsinline preload="none" poster="thumbs/${encodeURIComponent(slug)}.jpg" aria-label="${escapeHtml(data.title)} preview" itemprop="contentUrl"></video>` +
           `<span class="play-hint">Hover to preview</span>` +
           `<div class="video-status video-status--error" hidden>Preview unavailable — check that the video URL is public and reachable.</div>` +
         `</div>` +
@@ -3213,6 +3213,7 @@
           `<meta itemprop="name" content="${escapeHtml(data.title)}">` +
           `<meta itemprop="description" content="${escapeHtml(data.description)}">` +
           `<meta itemprop="uploadDate" content="${escapeHtml(uploadDate)}">` +
+          `<meta itemprop="thumbnailUrl" content="https://indopacificstock.com/thumbs/${encodeURIComponent(slug)}.jpg">` +
           `<div class="card-head">` +
             `<h2 class="card-title" itemprop="headline"><a class="card-title-link" href="clip/${escapeHtml(slug)}/" itemprop="url">${escapeHtml(data.title)}</a></h2>` +
             renderNativeFormatBadgeHtml(data) +

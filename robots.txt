@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://indopacificstock.com/sitemap.xml
+Sitemap: https://indopacificstock.com/video-sitemap.xml
