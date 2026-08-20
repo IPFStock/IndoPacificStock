@@ -641,6 +641,30 @@ def collection_defs() -> list[CollectionDef]:
             ],
         },
         {
+            "slug": "cenderawasih-stock-footage",
+            "title": "Cenderawasih Bay Stock Footage",
+            "h1": "Cenderawasih Bay Stock Footage",
+            "description": (
+                "License Cenderawasih Bay stock footage — rights-managed whale shark, reef, and "
+                "Papuan cultural cinema from Central Papua, available as R3D."
+            ),
+            "keywords": (
+                "Cenderawasih Bay stock footage, Cendrawasih Bay video, Teluk Cenderawasih footage, "
+                "Nabire stock footage, whale shark Papua footage"
+            ),
+            "match": match_region("Cenderawasih"),
+            "limit": 48,
+            "paragraphs": [
+                "Cenderawasih Bay (also spelled Cendrawasih) is the largest location set in this archive: whale sharks at traditional bagan fishing platforms, reef and seagrass sequences, and editorial cultural scenes from Nabire and Central Papua.",
+                "Productions that need location-accurate Bird’s Head / Cenderawasih imagery can license these clips as R3D at native resolution, plus 4K ProRes or 1080p masters.",
+            ],
+            "bullets": [
+                "Whale sharks, bagans, and Cenderawasih marine life",
+                "Papuan cultural and market scenes (many editorial / no model release)",
+                "Rights-managed licensing with cinema-camera masters",
+            ],
+        },
+        {
             "slug": "whale-shark-stock-footage",
             "title": "Whale Shark Stock Footage",
             "h1": "Whale Shark Stock Footage",
@@ -781,16 +805,50 @@ def collection_defs() -> list[CollectionDef]:
                 "Rights-managed licensing with R3D masters",
             ],
         },
+        {
+            "slug": "sumbawa-stock-footage",
+            "title": "Sumbawa Stock Footage",
+            "h1": "Sumbawa & Sangeang Stock Footage",
+            "description": (
+                "License Sumbawa stock footage — rights-managed cultural and coastal cinema from "
+                "Sangeang Island and Bontoh village, available as R3D."
+            ),
+            "keywords": (
+                "Sumbawa stock footage, Sangeang Island video, Bontoh village footage, "
+                "Sumbawa Indonesia film footage"
+            ),
+            "match": match_region("Sumbawa"),
+            "limit": 48,
+            "paragraphs": [
+                "Sumbawa clips in the archive were filmed around Sangeang Island and Bontoh village: boat building, village life, coastal landscape, and related editorial scenes from eastern Indonesia.",
+            ],
+            "bullets": [
+                "Sangeang Island and Bontoh village cultural scenes",
+                "Coastal and village context for documentary B-roll",
+                "Rights-managed licensing; many clips are editorial / no model release",
+            ],
+        },
     ]
+
+
+REGION_COLLECTION_SLUGS = {
+    "raja-ampat-stock-footage",
+    "cenderawasih-stock-footage",
+    "komodo-stock-footage",
+    "sumbawa-stock-footage",
+}
 
 
 def build_collection_page(defn: CollectionDef, matched: list[dict], all_defs: list[CollectionDef]) -> str:
     cards = "".join(clip_card_html(c) for c in matched[: defn.get("limit", 48)])
     bullets = "".join(f"<li>{esc(b)}</li>" for b in defn.get("bullets") or [])
     paragraphs = "".join(f"<p>{esc(p)}</p>" for p in defn.get("paragraphs") or [])
-    others = [
-        d for d in all_defs if d["slug"] != defn["slug"]
-    ][:6]
+    others = [d for d in all_defs if d["slug"] != defn["slug"]]
+    if defn["slug"] in REGION_COLLECTION_SLUGS:
+        region_others = [d for d in others if d["slug"] in REGION_COLLECTION_SLUGS]
+        rest = [d for d in others if d["slug"] not in REGION_COLLECTION_SLUGS]
+        others = region_others + rest
+    others = others[:6]
     other_links = "".join(
         f'<li><a href="/collections/{esc(d["slug"])}/">{esc(d["title"])}</a></li>'
         for d in others
@@ -876,7 +934,7 @@ def build_collections_hub(defs: list[CollectionDef], counts: dict[str, int]) -> 
         title=f"Stock Footage Collections | {SITE_NAME}",
         description=(
             "Browse Indo Pacific Stock collections — license R3D footage, underwater cinema, "
-            "Raja Ampat, Komodo, whale sharks, and rights-managed wildlife film."
+            "Raja Ampat, Cenderawasih Bay, Komodo, Sumbawa, whale sharks, and rights-managed wildlife film."
         ),
         canonical=f"{SITE}/collections/",
         body=body,
