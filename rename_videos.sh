@@ -850,4 +850,14 @@ mv "A005_A018_0412K7_V1-0008.mp4" "wooden-whaleshark-souvenir-for-sale-a005-a018
 mv "A005_A019_0412ZB_V1-0009.mp4" "handicrafts-for-sale-a005-a019-0412zb-v1-0009.mp4" 2>/dev/null || mv "A005_A019_0412ZB_V1-0009.mp4" "A005_A019_0412ZB_V1-0009.mp4" 2>/dev/null || true
 # Carved Wooden Paddles For Sale
 mv "A005_A021_0412GI_V1-0010.mp4" "carved-wooden-paddles-for-sale-a005-a021-0412gi-v1-0010.mp4" 2>/dev/null || mv "A005_A021_0412GI_V1-0010.mp4" "A005_A021_0412GI_V1-0010.mp4" 2>/dev/null || true
+# Knitting A Papuan Hand Bag
+mv "A003_A022_0408QF_V1-0001.mp4" "knitting-a-papuan-hand-bag-a003-a022-0408qf-v1-0001.mp4" 2>/dev/null || mv "A003_A022_0408QF_V1-0001.mp4" "A003_A022_0408QF_V1-0001.mp4" 2>/dev/null || true
+# Woman Knitting A Papuan Hand Bag
+mv "A003_A026_0408IG_V1-0002.mp4" "woman-knitting-a-papuan-hand-bag-a003-a026-0408ig-v1-0002.mp4" 2>/dev/null || mv "A003_A026_0408IG_V1-0002.mp4" "A003_A026_0408IG_V1-0002.mp4" 2>/dev/null || true
+# Close View Of Knitting A Papuan Hand Bag
+mv "A003_A026_0408IG_V1-0003.mp4" "close-view-of-knitting-a-papuan-hand-bag-a003-a026-0408ig-v1-0003.mp4" 2>/dev/null || mv "A003_A026_0408IG_V1-0003.mp4" "A003_A026_0408IG_V1-0003.mp4" 2>/dev/null || true
+# Close Up Of A Woman Knitting
+mv "A003_A033_0408FD_V1-0004.mp4" "close-up-of-a-woman-knitting-a003-a033-0408fd-v1-0004.mp4" 2>/dev/null || mv "A003_A033_0408FD_V1-0004.mp4" "A003_A033_0408FD_V1-0004.mp4" 2>/dev/null || true
+# Papuan Lady Selling Her Handbags
+mv "A003_A037_0408JT_V1-0005.mp4" "papuan-lady-selling-her-handbags-a003-a037-0408jt-v1-0005.mp4" 2>/dev/null || mv "A003_A037_0408JT_V1-0005.mp4" "A003_A037_0408JT_V1-0005.mp4" 2>/dev/null || true
 echo "Rename pass complete."

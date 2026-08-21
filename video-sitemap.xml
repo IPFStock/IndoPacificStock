@@ -241,19 +241,6 @@
     </video:video>
   </url>
   <url>
-    <loc>https://indopacificstock.com/clip/a003-a022-0408qf-v1-0001/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/a003-a022-0408qf-v1-0001.jpg</video:thumbnail_loc>
-      <video:title>A003 A022 0408qf V1 0001</video:title>
-      <video:description>A003 A022 0408qf V1 0001 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A022_0408QF_V1-0001.mp4</video:content_loc>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
     <loc>https://indopacificstock.com/clip/a003-a022-04117b-v1-0005/</loc>
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/a003-a022-04117b-v1-0005.jpg</video:thumbnail_loc>
@@ -273,32 +260,6 @@
       <video:title>A003 A025 0411m4 V1 0006</video:title>
       <video:description>A003 A025 0411m4 V1 0006 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A025_0411M4_V1-0006.mp4</video:content_loc>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://indopacificstock.com/clip/a003-a026-0408ig-v1-0002/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/a003-a026-0408ig-v1-0002.jpg</video:thumbnail_loc>
-      <video:title>A003 A026 0408ig V1 0002</video:title>
-      <video:description>A003 A026 0408ig V1 0002 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A026_0408IG_V1-0002.mp4</video:content_loc>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://indopacificstock.com/clip/a003-a026-0408ig-v1-0003/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/a003-a026-0408ig-v1-0003.jpg</video:thumbnail_loc>
-      <video:title>A003 A026 0408ig V1 0003</video:title>
-      <video:description>A003 A026 0408ig V1 0003 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A026_0408IG_V1-0003.mp4</video:content_loc>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:requires_subscription>no</video:requires_subscription>
@@ -371,19 +332,6 @@
     </video:video>
   </url>
   <url>
-    <loc>https://indopacificstock.com/clip/a003-a033-0408fd-v1-0004/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/a003-a033-0408fd-v1-0004.jpg</video:thumbnail_loc>
-      <video:title>A003 A033 0408fd V1 0004</video:title>
-      <video:description>A003 A033 0408fd V1 0004 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A033_0408FD_V1-0004.mp4</video:content_loc>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
     <loc>https://indopacificstock.com/clip/a003-a033-0411rj-v1-0012/</loc>
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/a003-a033-0411rj-v1-0012.jpg</video:thumbnail_loc>
@@ -403,19 +351,6 @@
       <video:title>A003 A035 0411ip V1 0013</video:title>
       <video:description>A003 A035 0411ip V1 0013 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A035_0411IP_V1-0013.mp4</video:content_loc>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://indopacificstock.com/clip/a003-a037-0408jt-v1-0005/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/a003-a037-0408jt-v1-0005.jpg</video:thumbnail_loc>
-      <video:title>A003 A037 0408jt V1 0005</video:title>
-      <video:description>A003 A037 0408jt V1 0005 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A037_0408JT_V1-0005.mp4</video:content_loc>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:requires_subscription>no</video:requires_subscription>
@@ -1666,6 +1601,20 @@
     </video:video>
   </url>
   <url>
+    <loc>https://indopacificstock.com/clip/close-up-of-a-woman-knitting-a003-a033-0408fd-v1-0004/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/close-up-of-a-woman-knitting-a003-a033-0408fd-v1-0004.jpg</video:thumbnail_loc>
+      <video:title>Close Up Of A Woman Knitting</video:title>
+      <video:description>Portfolio view of a Papuan lady knitting a handmade bag to sell in the market, Nabire, Central Papua, Indonesia (No Model Release)</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A033_0408FD_V1-0004.mp4</video:content_loc>
+      <video:duration>17</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://indopacificstock.com/clip/close-up-of-wooden-paddle-a006-a043-0413oq-v1-0029/</loc>
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/close-up-of-wooden-paddle-a006-a043-0413oq-v1-0029.jpg</video:thumbnail_loc>
@@ -1729,6 +1678,20 @@
       <video:description>A tight shot of a group of young Papuan men doing a traditional dance, Kwatisore village, Cenderawasih Bay, Central Papua, Indonesia (No Model Release)</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A041_041276_V1-0033.mp4</video:content_loc>
       <video:duration>34</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://indopacificstock.com/clip/close-view-of-knitting-a-papuan-hand-bag-a003-a026-0408ig-v1-0003/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/close-view-of-knitting-a-papuan-hand-bag-a003-a026-0408ig-v1-0003.jpg</video:thumbnail_loc>
+      <video:title>Close View Of Knitting A Papuan Hand Bag</video:title>
+      <video:description>Papuan lady knitting a yellow and black handmade bag to sell in the market, Nabire, Central Papua, Indonesia (No Model Release)</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A026_0408IG_V1-0003.mp4</video:content_loc>
+      <video:duration>23</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:requires_subscription>no</video:requires_subscription>
@@ -2996,6 +2959,20 @@
     </video:video>
   </url>
   <url>
+    <loc>https://indopacificstock.com/clip/knitting-a-papuan-hand-bag-a003-a022-0408qf-v1-0001/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/knitting-a-papuan-hand-bag-a003-a022-0408qf-v1-0001.jpg</video:thumbnail_loc>
+      <video:title>Knitting A Papuan Hand Bag</video:title>
+      <video:description>Papuan lady knitting a handmade bag to sell in the market, Nabire, Central Papua, Indonesia (No Model Release)</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A022_0408QF_V1-0001.mp4</video:content_loc>
+      <video:duration>7</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://indopacificstock.com/clip/komodo-lanscape-pan-to-right-a033-c082-0918ac-001/</loc>
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/komodo-lanscape-pan-to-right-a033-c082-0918ac-001.jpg</video:thumbnail_loc>
@@ -4123,6 +4100,20 @@
       <video:description>A boy dressed in traditional head dress and face paint lifts his eyebrow while looking at the camera, Kwatisore village, Cenderawasih Bay, Central Papua, Indonesia (No Model Release)</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A025_0412S5_V1-0003.mp4</video:content_loc>
       <video:duration>41</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://indopacificstock.com/clip/papuan-lady-selling-her-handbags-a003-a037-0408jt-v1-0005/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/papuan-lady-selling-her-handbags-a003-a037-0408jt-v1-0005.jpg</video:thumbnail_loc>
+      <video:title>Papuan Lady Selling Her Handbags</video:title>
+      <video:description>Papuan lady proudly showing the bags she has for sale in the market, Nabire, Central Papua, Indonesia (No Model Release)</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A037_0408JT_V1-0005.mp4</video:content_loc>
+      <video:duration>5</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:requires_subscription>no</video:requires_subscription>
@@ -6671,6 +6662,20 @@
       <video:description>A wide shot of a group of young Papuan boys and girls doing a traditional dance, Kwatisore village, Cenderawasih Bay, Central Papua, Indonesia (No Model Release)</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A042_0412MF_V1-0035.mp4</video:content_loc>
       <video:duration>29</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://indopacificstock.com/clip/woman-knitting-a-papuan-hand-bag-a003-a026-0408ig-v1-0002/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/woman-knitting-a-papuan-hand-bag-a003-a026-0408ig-v1-0002.jpg</video:thumbnail_loc>
+      <video:title>Woman Knitting A Papuan Hand Bag</video:title>
+      <video:description>Papuan lady knitting a handmade bag to sell in the market, Nabire, Central Papua, Indonesia (No Model Release)</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A026_0408IG_V1-0002.mp4</video:content_loc>
+      <video:duration>23</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:requires_subscription>no</video:requires_subscription>
