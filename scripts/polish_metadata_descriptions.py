@@ -256,6 +256,8 @@ def polish_description(text: str) -> str:
     d = re.sub(r'\s*\(no MR\)\s*', ' (No Model Release)', d, flags=re.I)
     d = re.sub(r'\.?\s*No MR\.?\s*$', ', No Model Release', d, flags=re.I)
     d = re.sub(r'No model release', 'No Model Release', d, flags=re.I)
+    d = re.sub(r'\(\s*no Model Release\s*\)?', '(No Model Release)', d, flags=re.I)
+    d = re.sub(r'\(\s*no Property Release\s*\)?', '(No Property Release)', d, flags=re.I)
 
     # Duplicate trailing location blocks
     d = re.sub(
@@ -280,6 +282,8 @@ def polish_description(text: str) -> str:
     replacements = [
         (r'\bHand made\b', 'Handmade'),
         (r'\bhand made\b', 'handmade'),
+        (r'\bhand held\b', 'handheld'),
+        (r'\bHand held\b', 'Handheld'),
         (r'\(no property release\)', '(No Property Release)'),
         (r'\(no model or property release\)', '(No Model or Property Release)'),
         (r'\bClose up\b', 'Close-up'),

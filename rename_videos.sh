@@ -860,4 +860,34 @@ mv "A003_A026_0408IG_V1-0003.mp4" "close-view-of-knitting-a-papuan-hand-bag-a003
 mv "A003_A033_0408FD_V1-0004.mp4" "close-up-of-a-woman-knitting-a003-a033-0408fd-v1-0004.mp4" 2>/dev/null || mv "A003_A033_0408FD_V1-0004.mp4" "A003_A033_0408FD_V1-0004.mp4" 2>/dev/null || true
 # Papuan Lady Selling Her Handbags
 mv "A003_A037_0408JT_V1-0005.mp4" "papuan-lady-selling-her-handbags-a003-a037-0408jt-v1-0005.mp4" 2>/dev/null || mv "A003_A037_0408JT_V1-0005.mp4" "A003_A037_0408JT_V1-0005.mp4" 2>/dev/null || true
+# Fisherman Pouring Water To A Whaleshark
+mv "A003_A018_0411CY_V1-0001.mp4" "fisherman-pouring-water-to-a-whaleshark-a003-a018-0411cy-v1-0001.mp4" 2>/dev/null || mv "A003_A018_0411CY_V1-0001.mp4" "A003_A018_0411CY_V1-0001.mp4" 2>/dev/null || true
+# Fisherman Pours Water Into A Crate With Fish
+mv "A003_A019_0411B0_V1-0002.mp4" "fisherman-pours-water-into-a-crate-with-fish-a003-a019-0411b0-v1-0002.mp4" 2>/dev/null || mv "A003_A019_0411B0_V1-0002.mp4" "A003_A019_0411B0_V1-0002.mp4" 2>/dev/null || true
+# Fisherman Mixes Water And Fish
+mv "A003_A019_0411B0_V1-0003.mp4" "fisherman-mixes-water-and-fish-a003-a019-0411b0-v1-0003.mp4" 2>/dev/null || mv "A003_A019_0411B0_V1-0003.mp4" "A003_A019_0411B0_V1-0003.mp4" 2>/dev/null || true
+# Fisherman Drops Bucket Into Water Beside Whale Shark
+mv "A003_A020_0411D7_V1-0004.mp4" "fisherman-drops-bucket-into-water-beside-whale-shark-a003-a020-0411d7-v1-0004.mp4" 2>/dev/null || mv "A003_A020_0411D7_V1-0004.mp4" "A003_A020_0411D7_V1-0004.mp4" 2>/dev/null || true
+# Fisherman Feeding A Whale Shark
+mv "A003_A022_04117B_V1-0005.mp4" "fisherman-feeding-a-whale-shark-a003-a022-04117b-v1-0005.mp4" 2>/dev/null || mv "A003_A022_04117B_V1-0005.mp4" "A003_A022_04117B_V1-0005.mp4" 2>/dev/null || true
+# Fisherman Speaking On Radio
+mv "A003_A025_0411M4_V1-0006.mp4" "fisherman-speaking-on-radio-a003-a025-0411m4-v1-0006.mp4" 2>/dev/null || mv "A003_A025_0411M4_V1-0006.mp4" "A003_A025_0411M4_V1-0006.mp4" 2>/dev/null || true
+# Fisherman On Bagan Speaking On Radio
+mv "A003_A027_041184_V1-0007.mp4" "fisherman-on-bagan-speaking-on-radio-a003-a027-041184-v1-0007.mp4" 2>/dev/null || mv "A003_A027_041184_V1-0007.mp4" "A003_A027_041184_V1-0007.mp4" 2>/dev/null || true
+# A Fisherman Pulling A Fish Out Of A Small Net
+mv "A003_A030_0411MG_V1-0008.mp4" "a-fisherman-pulling-a-fish-out-of-a-small-net-a003-a030-0411mg-v1-0008.mp4" 2>/dev/null || mv "A003_A030_0411MG_V1-0008.mp4" "A003_A030_0411MG_V1-0008.mp4" 2>/dev/null || true
+# Local Fisherman Throwing Fishing Line
+mv "A003_A031_041104_V1-0009.mp4" "local-fisherman-throwing-fishing-line-a003-a031-041104-v1-0009.mp4" 2>/dev/null || mv "A003_A031_041104_V1-0009.mp4" "A003_A031_041104_V1-0009.mp4" 2>/dev/null || true
+# Fisherman Pulls Small Fish From Net And Throws To Whale Shark
+mv "A003_A032_0411XX_V1-0010.mp4" "fisherman-pulls-small-fish-from-net-and-throws-to-whale-shark-a003-a032-0411xx-v1-0010.mp4" 2>/dev/null || mv "A003_A032_0411XX_V1-0010.mp4" "A003_A032_0411XX_V1-0010.mp4" 2>/dev/null || true
+# Fisherman Throws Fishing Line
+mv "A003_A032_0411XX_V1-0011.mp4" "fisherman-throws-fishing-line-a003-a032-0411xx-v1-0011.mp4" 2>/dev/null || mv "A003_A032_0411XX_V1-0011.mp4" "A003_A032_0411XX_V1-0011.mp4" 2>/dev/null || true
+# Fisherman Pulling Fishing Line
+mv "A003_A033_0411RJ_V1-0012.mp4" "fisherman-pulling-fishing-line-a003-a033-0411rj-v1-0012.mp4" 2>/dev/null || mv "A003_A033_0411RJ_V1-0012.mp4" "A003_A033_0411RJ_V1-0012.mp4" 2>/dev/null || true
+# Living Quarter Of A Bagan Traditional Boat
+mv "A003_A035_0411IP_V1-0013.mp4" "living-quarter-of-a-bagan-traditional-boat-a003-a035-0411ip-v1-0013.mp4" 2>/dev/null || mv "A003_A035_0411IP_V1-0013.mp4" "A003_A035_0411IP_V1-0013.mp4" 2>/dev/null || true
+# Fisherman Manually Pulls Up Anchor
+mv "A003_A060_0411VK_V1-0014.mp4" "fisherman-manually-pulls-up-anchor-a003-a060-0411vk-v1-0014.mp4" 2>/dev/null || mv "A003_A060_0411VK_V1-0014.mp4" "A003_A060_0411VK_V1-0014.mp4" 2>/dev/null || true
+# Fisherman Manually Pulls On A Winch
+mv "A003_A061_0411IA_V1-0015.mp4" "fisherman-manually-pulls-on-a-winch-a003-a061-0411ia-v1-0015.mp4" 2>/dev/null || mv "A003_A061_0411IA_V1-0015.mp4" "A003_A061_0411IA_V1-0015.mp4" 2>/dev/null || true
 echo "Rename pass complete."
