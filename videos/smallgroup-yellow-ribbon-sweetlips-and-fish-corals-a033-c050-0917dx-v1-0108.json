@@ -15,7 +15,7 @@
   "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting smallgroup yellow ribbon sweetlips and fish corals.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C050_0917DX_V1-0108.mp4",
-  "description": "Parrotfish (Scarus tricolor), sea breams (Monotaxis heterodon), chromis and ribbon sweetlips (Plectorhinchus polytaenia) on a coral reef in Komodo National Park, Indonesia, Pacific Ocean",
+  "description": "Parrotfish (Scarus tricolor), sea bream (Monotaxis heterodon), chromis and ribbon sweetlips (Plectorhinchus polytaenia) on a coral reef, Komodo National Park, Indonesia, Pacific Ocean",
   "keywords": [
     "59.94 fps",
     "5k r3d",
@@ -23,7 +23,7 @@
     "aggregations",
     "benthic",
     "benthic reef aggregations schooling fish",
-    "breams",
+    "bream",
     "chromis",
     "coral",
     "corals",
@@ -34,6 +34,7 @@
     "heterodon",
     "indonesia",
     "komodo",
+    "komodo national park",
     "monotaxis",
     "monotaxis heterodon",
     "national",
@@ -47,8 +48,7 @@
     "plectorhinchus polytaenia",
     "polytaenia",
     "r3d",
-    "raw",
-    "red"
+    "raw"
   ],
   "technicalSpecs": {
     "fileName": "A033_C050_0917DX_V1-0108.mp4",

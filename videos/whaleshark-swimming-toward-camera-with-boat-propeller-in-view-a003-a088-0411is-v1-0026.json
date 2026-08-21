@@ -15,7 +15,7 @@
   "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting whaleshark swimming toward camera with boat propeller in view.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A088_0411IS_V1-0026.mp4",
-  "description": "A whale shark, Rhincodon typus, swims toward the camera underneath a small boat in Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean",
+  "description": "A whale shark, Rhincodon typus, swims towards the camera underneath a small boat in Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean",
   "keywords": [
     "50 fps",
     "5k r3d",
@@ -24,7 +24,6 @@
     "boat",
     "camera",
     "cenderawasih",
-    "cendrawasih",
     "dsmc2",
     "dsmc2 gemini 5k s35",
     "gemini",
@@ -48,7 +47,8 @@
     "rhincodon",
     "rhincodon typus",
     "s35",
-    "shark"
+    "shark",
+    "small"
   ],
   "technicalSpecs": {
     "fileName": "A003_A088_0411IS_V1-0026.mp4",

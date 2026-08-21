@@ -15,7 +15,7 @@
   "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting two whalesharks swimming side by side.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A025_0412N9_V1-0038.mp4",
-  "description": "Two whale sharks, Rhincodon typus, swim side by side past a fishing net and toward the blue, Cendrawasih Bay, Papua, Indonesia, Pacific Ocean",
+  "description": "Two whale sharks, Rhincodon typus, swim side by side past a fishing net and towards the blue, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean",
   "keywords": [
     "50 fps",
     "5k r3d",
@@ -23,8 +23,7 @@
     "bay",
     "blue",
     "cenderawasih",
-    "cendrawasih",
-    "cendrawasih bay",
+    "cenderawasih bay",
     "dsmc2",
     "dsmc2 gemini 5k s35",
     "fishing",
@@ -48,7 +47,8 @@
     "rhincodon",
     "rhincodon typus",
     "s35",
-    "shark"
+    "shark",
+    "sharks"
   ],
   "technicalSpecs": {
     "fileName": "A004_A025_0412N9_V1-0038.mp4",

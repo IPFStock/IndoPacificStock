@@ -15,15 +15,14 @@
   "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting white tip reef shark overhang mid.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C008_0916UY.mp4",
-  "description": "Close up view of a white tip reef shark, Triaenodon obesus, sitting under a ledge in the Komodo National Park, Indonesia, Pacific Ocean",
+  "description": "Close-up view of a whitetip reef shark, Triaenodon obesus, sitting under a ledge in the Komodo National Park, Indonesia, Pacific Ocean",
   "keywords": [
     "59.94 fps",
     "5k r3d",
     "5k red raw",
     "apex",
     "apex marine predators elasmobranchii",
-    "close",
-    "close up view of a white tip reef shark",
+    "close-up",
     "dsmc2",
     "dsmc2 gemini 5k s35",
     "elasmobranchii",
@@ -48,7 +47,8 @@
     "reef",
     "s35",
     "shark",
-    "sitting"
+    "sitting",
+    "tip"
   ],
   "technicalSpecs": {
     "fileName": "A032_C008_0916UY.mp4",

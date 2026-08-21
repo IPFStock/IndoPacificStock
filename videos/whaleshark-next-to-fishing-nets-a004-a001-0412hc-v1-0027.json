@@ -15,7 +15,7 @@
   "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting whaleshark next to fishing nets.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A001_0412HC_V1-0027.mp4",
-  "description": "A whale shark, Rhincodon typus, sucking at a net on the bottom of a boat while doing vertical feeding, Cendrawasih Bay, Papua, Indonesia, Pacific Ocean",
+  "description": "A whale shark, Rhincodon typus, suction-feeding at a net on the bottom of a boat while doing vertical feeding, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean",
   "keywords": [
     "50 fps",
     "5k r3d",
@@ -24,8 +24,7 @@
     "boat",
     "bottom",
     "cenderawasih",
-    "cendrawasih",
-    "cendrawasih bay",
+    "cenderawasih bay",
     "doing",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -48,7 +47,8 @@
     "raw",
     "red",
     "redcode",
-    "reptiles"
+    "reptiles",
+    "rhincodon"
   ],
   "technicalSpecs": {
     "fileName": "A004_A001_0412HC_V1-0027.mp4",

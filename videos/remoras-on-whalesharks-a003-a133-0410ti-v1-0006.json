@@ -15,7 +15,7 @@
   "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting remoras on whalesharks.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A133_0410TI_V1-0006.mp4",
-  "description": "Two whale sharks, Rhincodon typus, with attendant cobia, Rachycentron canadum, and remoras, Echeneis naucrates, swim past each other, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean",
+  "description": "Two whale sharks, Rhincodon typus, with attendant cobia, Rachycentron canadum, and remoras, Echeneis naucrates, swim past each other, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean",
   "keywords": [
     "50 fps",
     "5k r3d",
@@ -25,8 +25,7 @@
     "bay",
     "canadum",
     "cenderawasih",
-    "cendrawasih",
-    "cendrawasih bay",
+    "cenderawasih bay",
     "cobia",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -48,7 +47,8 @@
     "papua province",
     "past",
     "province",
-    "r3d"
+    "r3d",
+    "rachycentron"
   ],
   "technicalSpecs": {
     "fileName": "A003_A133_0410TI_V1-0006.mp4",

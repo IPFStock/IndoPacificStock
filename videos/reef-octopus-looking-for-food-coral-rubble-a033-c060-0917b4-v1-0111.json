@@ -15,7 +15,7 @@
   "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting reef octopus looking for food coral rubble.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C060_0917B4_V1-0111.mp4",
-  "description": "A common reef octopus, Octopus cyanea, hunting for food in coral rubble while small groupers and goatfish watch waiting for potential prey to be flushed out, Komodo National Park, Indonesia, Pacific Ocean",
+  "description": "A common reef octopus, Octopus cyanea, hunting in coral rubble while small groupers and goatfish wait nearby for potential prey to be flushed out, Komodo National Park, Indonesia, Pacific Ocean",
   "keywords": [
     "59.94 fps",
     "5k r3d",
@@ -38,6 +38,7 @@
     "komodo national park",
     "looking",
     "national",
+    "nearby",
     "ocean",
     "octopus",
     "octopus cyanea",
@@ -47,8 +48,7 @@
     "park",
     "potential",
     "prey",
-    "r3d",
-    "raw"
+    "r3d"
   ],
   "technicalSpecs": {
     "fileName": "A033_C060_0917B4_V1-0111.mp4",

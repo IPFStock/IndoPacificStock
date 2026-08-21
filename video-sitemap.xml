@@ -306,19 +306,6 @@
     </video:video>
   </url>
   <url>
-    <loc>https://indopacificstock.com/clip/a003-a027-04081t-v1-0001/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/a003-a027-04081t-v1-0001.jpg</video:thumbnail_loc>
-      <video:title>A003 A027 04081t V1 0001</video:title>
-      <video:description>A003 A027 04081t V1 0001 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A027_04081T_V1-0001.mp4</video:content_loc>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
     <loc>https://indopacificstock.com/clip/a003-a027-041184-v1-0007/</loc>
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/a003-a027-041184-v1-0007.jpg</video:thumbnail_loc>
@@ -332,51 +319,12 @@
     </video:video>
   </url>
   <url>
-    <loc>https://indopacificstock.com/clip/a003-a029-04089m-v1-0002/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/a003-a029-04089m-v1-0002.jpg</video:thumbnail_loc>
-      <video:title>A003 A029 04089m V1 0002</video:title>
-      <video:description>A003 A029 04089m V1 0002 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A029_04089M_V1-0002.mp4</video:content_loc>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://indopacificstock.com/clip/a003-a030-0408tt-v1-0003/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/a003-a030-0408tt-v1-0003.jpg</video:thumbnail_loc>
-      <video:title>A003 A030 0408tt V1 0003</video:title>
-      <video:description>A003 A030 0408tt V1 0003 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A030_0408TT_V1-0003.mp4</video:content_loc>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
     <loc>https://indopacificstock.com/clip/a003-a030-0411mg-v1-0008/</loc>
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/a003-a030-0411mg-v1-0008.jpg</video:thumbnail_loc>
       <video:title>A003 A030 0411mg V1 0008</video:title>
       <video:description>A003 A030 0411mg V1 0008 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A030_0411MG_V1-0008.mp4</video:content_loc>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://indopacificstock.com/clip/a003-a031-040842-v1-0004/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/a003-a031-040842-v1-0004.jpg</video:thumbnail_loc>
-      <video:title>A003 A031 040842 V1 0004</video:title>
-      <video:description>A003 A031 040842 V1 0004 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A031_040842_V1-0004.mp4</video:content_loc>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:requires_subscription>no</video:requires_subscription>
@@ -1034,84 +982,6 @@
     </video:video>
   </url>
   <url>
-    <loc>https://indopacificstock.com/clip/a005-a005-0412ls-v1-0005/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/a005-a005-0412ls-v1-0005.jpg</video:thumbnail_loc>
-      <video:title>A005 A005 0412ls V1 0005</video:title>
-      <video:description>A005 A005 0412ls V1 0005 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A005_0412LS_V1-0005.mp4</video:content_loc>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://indopacificstock.com/clip/a005-a012-0412dx-v1-0006/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/a005-a012-0412dx-v1-0006.jpg</video:thumbnail_loc>
-      <video:title>A005 A012 0412dx V1 0006</video:title>
-      <video:description>A005 A012 0412dx V1 0006 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A012_0412DX_V1-0006.mp4</video:content_loc>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://indopacificstock.com/clip/a005-a014-04124r-v1-0007/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/a005-a014-04124r-v1-0007.jpg</video:thumbnail_loc>
-      <video:title>A005 A014 04124r V1 0007</video:title>
-      <video:description>A005 A014 04124r V1 0007 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A014_04124R_V1-0007.mp4</video:content_loc>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://indopacificstock.com/clip/a005-a018-0412k7-v1-0008/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/a005-a018-0412k7-v1-0008.jpg</video:thumbnail_loc>
-      <video:title>A005 A018 0412k7 V1 0008</video:title>
-      <video:description>A005 A018 0412k7 V1 0008 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A018_0412K7_V1-0008.mp4</video:content_loc>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://indopacificstock.com/clip/a005-a019-0412zb-v1-0009/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/a005-a019-0412zb-v1-0009.jpg</video:thumbnail_loc>
-      <video:title>A005 A019 0412zb V1 0009</video:title>
-      <video:description>A005 A019 0412zb V1 0009 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A019_0412ZB_V1-0009.mp4</video:content_loc>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://indopacificstock.com/clip/a005-a021-0412gi-v1-0010/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/a005-a021-0412gi-v1-0010.jpg</video:thumbnail_loc>
-      <video:title>A005 A021 0412gi V1 0010</video:title>
-      <video:description>A005 A021 0412gi V1 0010 — rights-managed stock footage from Indo Pacific Stock. Run ingest after updating your DaVinci CSV for full metadata.</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A021_0412GI_V1-0010.mp4</video:content_loc>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
     <loc>https://indopacificstock.com/clip/a005-a048-0412dv-v2-0017/</loc>
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/a005-a048-0412dv-v2-0017.jpg</video:thumbnail_loc>
@@ -1352,7 +1222,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/afternoon-light-coral-reef-komodo-a032-c044-0916dq-001.jpg</video:thumbnail_loc>
       <video:title>Afternoon Light Coral Reef Komodo</video:title>
-      <video:description>Camera pushes forward over a healthy hard and soft coral reef with a variety of damselfish, butterfly fish and anthias swimming in front of a red sea fan, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Camera pushes forward over a healthy hard and soft coral reef with a variety of damselfish, butterflyfish and anthias swimming in front of a red sea fan, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C044_0916DQ.mp4</video:content_loc>
       <video:duration>45</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1436,7 +1306,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/barracuda-group-blue-water-sideview-right-to-left-a030-c043-0915a9-001.jpg</video:thumbnail_loc>
       <video:title>Barracuda Group Blue Water Sideview Right To Left</video:title>
-      <video:description>A school of blackfin or chevron barracuda, Sphyraena genie, in the blue water, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A school of blackfin or chevron barracuda, Sphyraena qenie, in the blue water, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A030_C043_0915A9.mp4</video:content_loc>
       <video:duration>68</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1450,7 +1320,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/barracuda-group-swimming-upward-a030-c039-0915ln-001.jpg</video:thumbnail_loc>
       <video:title>Barracuda Group Swimming Upward</video:title>
-      <video:description>A school of blackfin or chevron barracuda, Sphyraena genie, with fusiliers and surgeonfish in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A school of blackfin or chevron barracuda, Sphyraena qenie, with fusiliers and surgeonfish in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A030_C039_0915LN.mp4</video:content_loc>
       <video:duration>38</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1492,7 +1362,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/batfish-spadefish-swimming-close-to-bottom-a030-c006-0915pe-001.jpg</video:thumbnail_loc>
       <video:title>Batfish Spadefish Swimming Close To Bottom</video:title>
-      <video:description>A school of circular spadefish or batfish, Platax orbicularis, swim along a rubble bottom, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A school of circular spadefish or batfish, Platax orbicularis, swims along a rubble bottom, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A030_C006_0915PE.mp4</video:content_loc>
       <video:duration>16</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1520,7 +1390,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/beautiful-whalesharks-covered-in-remoras-and-fish-a006-a045-0413m6-v1-0055.jpg</video:thumbnail_loc>
       <video:title>Beautiful Whalesharks Covered In Remoras And Fish</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims past the camera while covered in remoras, Echeneis naucrates, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims past the camera while covered in remoras, Echeneis naucrates, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A045_0413M6_V1-0055.mp4</video:content_loc>
       <video:duration>50</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1534,7 +1404,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/big-coral-head-with-seafans-a033-c020-09174q-v1-0095.jpg</video:thumbnail_loc>
       <video:title>Big Coral Head With Seafans</video:title>
-      <video:description>Slow motion camera pushing toward a large red seafan with a variety of damselfish and anthias in the water column and large porites coral heads in the background, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Slow-motion camera pushing towards a large red seafan with a variety of damselfish and anthias in the water column and large porites coral heads in the background, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C020_09174Q_V1-0095.mp4</video:content_loc>
       <video:duration>87</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1548,7 +1418,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/big-surgeonfish-school-a031-c023-0915m3-v2-0012.jpg</video:thumbnail_loc>
       <video:title>Big Surgeonfish School</video:title>
-      <video:description>A large school of elongate surgeonfish, Acanthurus mata,with giant trevally, Caranx ignobilis, lurking behind, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A large school of elongate surgeonfish, Acanthurus mata, with giant trevally, Caranx ignobilis, lurking behind, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C023_0915M3_V2-0012.mp4</video:content_loc>
       <video:duration>63</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1576,7 +1446,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/big-whaleshark-covered-in-remoras-swims-toward-camera-a004-a004-04122w-v1-0031.jpg</video:thumbnail_loc>
       <video:title>Big Whaleshark Covered In Remoras Swims Toward Camera</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims up and over the camera showing its white belly and numerous hitchhiking remoras, Echeneis naucrates, Cendrawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims up and over the camera showing its white belly and numerous hitchhiking remoras, Echeneis naucrates, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A004_04122W_V1-0031.mp4</video:content_loc>
       <video:duration>64</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1618,7 +1488,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/boat-being-built-from-below-up-a032-c104-09176d-v2-0031.jpg</video:thumbnail_loc>
       <video:title>Boat Being Built From Below Up</video:title>
-      <video:description>The hull of a wooden fishing boat being built, Bontoh village, Sangeang island, Sumbawa, Indonesia, No Model Release</video:description>
+      <video:description>The hull of a wooden fishing boat under construction, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C104_09176D_V2-0031.mp4</video:content_loc>
       <video:duration>31</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1632,7 +1502,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/boat-builder-descending-ladder-a032-c106-0917gr-v1-0071.jpg</video:thumbnail_loc>
       <video:title>Boat Builder Descending Ladder</video:title>
-      <video:description>A traditional wooden boat builder descends a ladder in Bonto village, Sangeang Island, Sumbawa, Indonesia. No MR</video:description>
+      <video:description>A traditional wooden boat builder descends a ladder in Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C106_0917GR_V1-0071.mp4</video:content_loc>
       <video:duration>42</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1688,7 +1558,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/camera-move-along-whaleshark-body-showing-the-beautful-skin-pattern-a006-a060-0413av-v1-0063.jpg</video:thumbnail_loc>
       <video:title>Camera Move Along Whaleshark Body Showing The Beautful Skin Pattern</video:title>
-      <video:description>A whale shark, Rhincodon typus, vertically feeding under a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, feeding vertically beneath a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A060_0413AV_V1-0063.mp4</video:content_loc>
       <video:duration>69</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1754,11 +1624,25 @@
     </video:video>
   </url>
   <url>
+    <loc>https://indopacificstock.com/clip/carved-wooden-paddles-for-sale-a005-a021-0412gi-v1-0010/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/carved-wooden-paddles-for-sale-a005-a021-0412gi-v1-0010.jpg</video:thumbnail_loc>
+      <video:title>Carved Wooden Paddles For Sale</video:title>
+      <video:description>Locally produced wooden paddles for sale, Nabire, Central Papua, Cenderawasih Bay, Indonesia (No Property Release)</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A021_0412GI_V1-0010.mp4</video:content_loc>
+      <video:duration>10</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://indopacificstock.com/clip/cave-opening-underwater-frame-a031-c047-0916tp-v1-0078/</loc>
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/cave-opening-underwater-frame-a031-c047-0916tp-v1-0078.jpg</video:thumbnail_loc>
       <video:title>Cave Opening Underwater Frame</video:title>
-      <video:description>The silhouetted outline of an underwater cave opening looking from inside of the cave out toward the blue water, Sangeang Island, Sumbawa, Indonesia, Pacific Ocean</video:description>
+      <video:description>Silhouetted outline of an underwater cave opening, viewed from inside the cave looking out towards blue water, Sangeang Island, Sumbawa, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C047_0916TP_V1-0078.mp4</video:content_loc>
       <video:duration>26</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1856,7 +1740,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/closefocus-widescene-over-acropora-with-fish-a033-c024-091725-v1-0098.jpg</video:thumbnail_loc>
       <video:title>Closefocus Widescene Over Acropora With Fish</video:title>
-      <video:description>Slow motion of camera pushing forward and up an over a branching hard coral, Acropora sp, with anthias, damselfish and other tropical fish swimming in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Slow-motion push forward and up over branching hard coral, Acropora sp., with anthias, damselfish and other tropical fish in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C024_091725_V1-0098.mp4</video:content_loc>
       <video:duration>54</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1884,7 +1768,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/colorful-local-fabric-hanging-in-the-wind-a032-c097-0917qr-v2-0025.jpg</video:thumbnail_loc>
       <video:title>Colorful Local Fabric Hanging In The Wind</video:title>
-      <video:description>Close up of colourful sarongs hanging on a line flapping in the wind, Bontoh village, Sangeang island, Sumbawa, Indonesia, No Model Release</video:description>
+      <video:description>Close-up of colourful sarongs hanging on a line flapping in the wind, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C097_0917QR_V2-0025.mp4</video:content_loc>
       <video:duration>38</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1898,7 +1782,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/compact-barracuda-group-blue-water-a030-c041-0915dq-001.jpg</video:thumbnail_loc>
       <video:title>Compact Barracuda Group Blue Water</video:title>
-      <video:description>A school of blackfin or chevron barracuda, Sphyraena genie, silhouetted against the surface, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A school of blackfin or chevron barracuda, Sphyraena qenie, silhouetted against the surface, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A030_C041_0915DQ.mp4</video:content_loc>
       <video:duration>18</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1912,7 +1796,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/compact-barracuda-group-blue-water-front-view-a030-c042-0915ih-001.jpg</video:thumbnail_loc>
       <video:title>Compact Barracuda Group Blue Water Front View</video:title>
-      <video:description>A school of blackfin or chevron barracuda, Sphyraena genie, swim in shallow blue water, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A school of blackfin or chevron barracuda, Sphyraena qenie, swim in shallow blue water, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A030_C042_0915IH.mp4</video:content_loc>
       <video:duration>22</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -1996,7 +1880,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/deep-water-whalesharks-to-reveal-whaleshark-next-to-camera-a006-a062-0413wx-v1-0050.jpg</video:thumbnail_loc>
       <video:title>Deep Water Whalesharks To Reveal Whaleshark Next To Camera</video:title>
-      <video:description>Two whale sharks, Rhincodon typus, swim far below in the blue, panning to a third swimming beside the camera, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Two whale sharks, Rhincodon typus, swim far below in the blue, panning to a third swimming beside the camera, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A062_0413WX_V1-0050.mp4</video:content_loc>
       <video:duration>81</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2220,7 +2104,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/following-barracuda-group-from-behind-a030-c037-0915c8-001.jpg</video:thumbnail_loc>
       <video:title>Following Barracuda Group From Behind</video:title>
-      <video:description>Following a school of blackfin or chevron barracuda, Sphyraena genie, in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Following a school of blackfin or chevron barracuda, Sphyraena qenie, in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A030_C037_0915C8.mp4</video:content_loc>
       <video:duration>19</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2234,7 +2118,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/following-giant-napoleon-wrasse-reef-a031-c025-0915xl-v2-0015.jpg</video:thumbnail_loc>
       <video:title>Following Giant Napoleon Wrasse Reef</video:title>
-      <video:description>A Napoleon wrasse, Cheilinus undulatus, swims along a reef toward a school of Yellowmask surgeonfish, Acanthurus mata, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A Napoleon wrasse, Cheilinus undulatus, swims along a reef towards a school of elongate surgeonfish, Acanthurus mata, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C025_0915XL_V2-0015.mp4</video:content_loc>
       <video:duration>62</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2262,7 +2146,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/following-whale-shark-from-above-and-behind-a006-a057-0413th-v1-0060.jpg</video:thumbnail_loc>
       <video:title>Following Whale Shark From Above And Behind</video:title>
-      <video:description>Following a whale shark, Rhincodon typus, from above and behind, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Following a whale shark, Rhincodon typus, from above and behind, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A057_0413TH_V1-0060.mp4</video:content_loc>
       <video:duration>81</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2360,7 +2244,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/frontal-view-whaleshark-swimming-up-to-fishing-nets-a004-a003-0412ab-v1-0029.jpg</video:thumbnail_loc>
       <video:title>Frontal View Whaleshark Swimming Up To Fishing Nets</video:title>
-      <video:description>A whale shark, Rhincodon typus, rises up from the deep to inspect the fishing nets under a bagan, a traditional net fishing boat in Cendrawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, rises up from the deep to inspect the fishing nets under a bagan, a traditional net fishing boat in Cenderawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A003_0412AB_V1-0029.mp4</video:content_loc>
       <video:duration>114</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2374,7 +2258,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/frontal-view-whaleshark-swimming-up-to-pagan-a004-a003-0412ab-v1-0030.jpg</video:thumbnail_loc>
       <video:title>Frontal View Whaleshark Swimming Up To Pagan</video:title>
-      <video:description>A whale shark, Rhincodon typus, enters from the right with left side of the shark showing its spots to inspect the fishing nets under a bagan, a traditional net fishing boat in Cendrawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, enters from the right, its left flank showing its spot pattern as it inspects fishing nets beneath a bagan, a traditional drop net fishing boat, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A003_0412AB_V1-0030.mp4</video:content_loc>
       <video:duration>114</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2388,7 +2272,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/full-body-whaleshark-swims-away-a004-a007-04128i-v1-0032.jpg</video:thumbnail_loc>
       <video:title>Full Body Whaleshark Swims Away</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims away from the camera into the blue, Cendrawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims away from the camera into the blue, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A007_04128I_V1-0032.mp4</video:content_loc>
       <video:duration>42</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2458,7 +2342,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/giant-melibe-nudibranch-eat-a032-c063-0916zp-v1-0124.jpg</video:thumbnail_loc>
       <video:title>Giant Melibe Nudibranch Eat</video:title>
-      <video:description>A Melibe nudibranch, Melibe viridis, using its unique hooded mouth for “hood feeding” as it uses the cirri inside the mouth to sweep for benthic organisms to eat, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A Melibe nudibranch, Melibe viridis, feeding with its hooded oral veil, sweeping the benthos for prey, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C063_0916ZP_V1-0124.mp4</video:content_loc>
       <video:duration>32</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2472,7 +2356,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/giant-melibe-nudibranch-eating-a032-c064-0916kf-v1-0125.jpg</video:thumbnail_loc>
       <video:title>Giant Melibe Nudibranch Eating</video:title>
-      <video:description>A Melibe nudibranch, Melibe viridis, using its unique hooded mouth for “hood feeding” as it uses the cirri inside the mouth to sweep for benthic organisms to eat, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A Melibe nudibranch, Melibe viridis, feeding with its hooded oral veil, sweeping the benthos for prey, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C064_0916KF_V1-0125.mp4</video:content_loc>
       <video:duration>83</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2486,7 +2370,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/giant-melibe-nudibranch-eating-a032-c065-0916mp-v1-0127.jpg</video:thumbnail_loc>
       <video:title>Giant Melibe Nudibranch Eating</video:title>
-      <video:description>A Melibe nudibranch, Melibe viridis, using its unique hooded mouth for “hood feeding” as it uses the cirri inside the mouth to sweep for benthic organisms to eat, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A Melibe nudibranch, Melibe viridis, feeding with its hooded oral veil, sweeping the benthos for prey, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C065_0916MP_V1-0127.mp4</video:content_loc>
       <video:duration>143</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2500,7 +2384,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/giant-melibe-nudibranch-eating-a032-c065-0916mp-v1-0128.jpg</video:thumbnail_loc>
       <video:title>Giant Melibe Nudibranch Eating</video:title>
-      <video:description>A Melibe nudibranch, Melibe viridis, using its unique hooded mouth for “hood feeding” as it uses the cirri inside the mouth to sweep for benthic organisms to eat, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A Melibe nudibranch, Melibe viridis, feeding with its hooded oral veil, sweeping the benthos for prey, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C065_0916MP_V1-0128.mp4</video:content_loc>
       <video:duration>143</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2514,7 +2398,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/giant-melibe-nudibranch-eating-five-a032-c067-0916p9-v1-0134.jpg</video:thumbnail_loc>
       <video:title>Giant Melibe Nudibranch Eating Five</video:title>
-      <video:description>A Melibe nudibranch, Melibe viridis, using its unique hooded mouth for “hood feeding” as it uses the cirri inside the mouth to eat a skeleton shrimp, Caprella sp.,  Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A Melibe nudibranch, Melibe viridis, feeding with its hooded oral veil on a skeleton shrimp, Caprella sp., Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C067_0916P9_V1-0134.mp4</video:content_loc>
       <video:duration>229</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2528,7 +2412,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/giant-melibe-nudibranch-eating-five-a032-c067-0916p9-v1-0135.jpg</video:thumbnail_loc>
       <video:title>Giant Melibe Nudibranch Eating Five</video:title>
-      <video:description>A Melibe nudibranch, Melibe viridis, using its unique hooded mouth for “hood feeding” as it uses the cirri inside the mouth to eat a skeleton shrimp, Caprella sp.,  Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A Melibe nudibranch, Melibe viridis, feeding with its hooded oral veil on a skeleton shrimp, Caprella sp., Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C067_0916P9_V1-0135.mp4</video:content_loc>
       <video:duration>229</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2542,7 +2426,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/giant-melibe-nudibranch-eating-midshot-from-above-a032-c066-0916s5-v1-0129.jpg</video:thumbnail_loc>
       <video:title>Giant Melibe Nudibranch Eating Midshot From Above</video:title>
-      <video:description>A Melibe nudibranch, Melibe viridis, using its unique hooded mouth for “hood feeding” as it uses the cirri inside the mouth to sweep for benthic organisms to eat, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A Melibe nudibranch, Melibe viridis, feeding with its hooded oral veil, sweeping the benthos for prey, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C066_0916S5_V1-0129.mp4</video:content_loc>
       <video:duration>275</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2556,7 +2440,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/giant-melibe-nudibranch-eating-midshot-from-above-a032-c066-0916s5-v1-0130.jpg</video:thumbnail_loc>
       <video:title>Giant Melibe Nudibranch Eating Midshot From Above</video:title>
-      <video:description>A Melibe nudibranch, Melibe viridis, using its unique hooded mouth for “hood feeding” as it uses the cirri inside the mouth to sweep for benthic organisms to eat, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A Melibe nudibranch, Melibe viridis, feeding with its hooded oral veil, sweeping the benthos for prey, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C066_0916S5_V1-0130.mp4</video:content_loc>
       <video:duration>275</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2570,7 +2454,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/giant-melibe-nudibranch-eating-midshot-from-above-a032-c066-0916s5-v1-0131.jpg</video:thumbnail_loc>
       <video:title>Giant Melibe Nudibranch Eating Midshot From Above</video:title>
-      <video:description>A Melibe nudibranch, Melibe viridis, using its unique hooded mouth for “hood feeding” as it uses the cirri inside the mouth to sweep for benthic organisms to eat, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A Melibe nudibranch, Melibe viridis, feeding with its hooded oral veil, sweeping the benthos for prey, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C066_0916S5_V1-0131.mp4</video:content_loc>
       <video:duration>275</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2584,7 +2468,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/giant-melibe-nudibranch-eating-midshot-from-above-a032-c066-0916s5-v1-0132.jpg</video:thumbnail_loc>
       <video:title>Giant Melibe Nudibranch Eating Midshot From Above</video:title>
-      <video:description>A Melibe nudibranch, Melibe viridis, using its unique hooded mouth for “hood feeding” as it uses the cirri inside the mouth to sweep for benthic organisms to eat, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A Melibe nudibranch, Melibe viridis, feeding with its hooded oral veil, sweeping the benthos for prey, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C066_0916S5_V1-0132.mp4</video:content_loc>
       <video:duration>275</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2598,7 +2482,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/giant-melibe-nudibranch-eating-midshot-from-above-a032-c066-0916s5-v1-0133.jpg</video:thumbnail_loc>
       <video:title>Giant Melibe Nudibranch Eating Midshot From Above</video:title>
-      <video:description>A Melibe nudibranch, Melibe viridis, using its unique hooded mouth for “hood feeding” as it uses the cirri inside the mouth to sweep for benthic organisms to eat, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A Melibe nudibranch, Melibe viridis, feeding with its hooded oral veil, sweeping the benthos for prey, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C066_0916S5_V1-0133.mp4</video:content_loc>
       <video:duration>275</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2612,7 +2496,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/giant-melibe-nudibranch-eats-a032-c064-0916kf-v1-0126.jpg</video:thumbnail_loc>
       <video:title>Giant Melibe Nudibranch Eats</video:title>
-      <video:description>A Melibe nudibranch, Melibe viridis, using its unique hooded mouth for “hood feeding” as it uses the cirri inside the mouth to sweep for benthic organisms to eat, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A Melibe nudibranch, Melibe viridis, feeding with its hooded oral veil, sweeping the benthos for prey, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C064_0916KF_V1-0126.mp4</video:content_loc>
       <video:duration>83</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2626,7 +2510,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/giant-napoleon-wrasse-faceon-towards-camera-a031-c014-0915ua-v2-0004.jpg</video:thumbnail_loc>
       <video:title>Giant Napoleon Wrasse Faceon Towards Camera</video:title>
-      <video:description>A Napoleon wrasse, Cheilinus undulatus, swims toward and inspects the camera, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A Napoleon wrasse, Cheilinus undulatus, swims towards and inspects the camera, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C014_0915UA_V2-0004.mp4</video:content_loc>
       <video:duration>59</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2654,7 +2538,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/giant-sweetlip-cleaner-wrasse-wide-a031-c013-0915d3-v2-0003.jpg</video:thumbnail_loc>
       <video:title>Giant Sweetlip Cleaner Wrasse Wide</video:title>
-      <video:description>Moving toward a giant sweetlips, Plectorhinchus albovittatus, with a trigger fish and an angelfish in the background, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Push towards a giant sweetlips, Plectorhinchus albovittatus, with a triggerfish and an angelfish in the background, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C013_0915D3_V2-0003.mp4</video:content_loc>
       <video:duration>69</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2668,7 +2552,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/giant-trevallies-swim-left-to-right-surgeonfish-a031-c023-0915m3-v2-0013.jpg</video:thumbnail_loc>
       <video:title>Giant Trevallies Swim Left To Right Surgeonfish</video:title>
-      <video:description>A large school of elongate surgeonfish, Acanthurus mata,with giant trevally, Caranx ignobilis, lurking behind, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A large school of elongate surgeonfish, Acanthurus mata, with giant trevally, Caranx ignobilis, lurking behind, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C023_0915M3_V2-0013.mp4</video:content_loc>
       <video:duration>48</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2682,7 +2566,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/girls-villagers-playing-in-the-sea-a032-c138-09178q-v1-0077.jpg</video:thumbnail_loc>
       <video:title>Girls Villagers Playing In The Sea</video:title>
-      <video:description>Two young girls playing in the sea, Bontoh village, Sangeang Island, Sumbawa, Indonesia. No MR</video:description>
+      <video:description>Two young girls playing in the sea, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C138_09178Q_V1-0077.mp4</video:content_loc>
       <video:duration>41</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2696,7 +2580,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/goat-resting-by-shipyard-local-village-a032-c103-0917eb-v2-0030.jpg</video:thumbnail_loc>
       <video:title>Goat Resting By Shipyard Local Village</video:title>
-      <video:description>A black goat rest atop wooden boards, Bontoh village, Sangeang island, Sumbawa, Indonesia</video:description>
+      <video:description>A black goat rests atop wooden boards, Bontoh village, Sangeang Island, Sumbawa, Indonesia</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C103_0917EB_V2-0030.mp4</video:content_loc>
       <video:duration>17</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2710,7 +2594,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/goats-sarongs-village-sangeang-a032-c089-0917ad-v2-0018.jpg</video:thumbnail_loc>
       <video:title>Goats Sarongs Village Sangeang</video:title>
-      <video:description>A pair of goats walk along the beach in front of a colourful sarongs on a laundry line, Bontoh village, Sangeang Island, Sumbawa, Indonesia</video:description>
+      <video:description>A pair of goats walks along the beach in front of colourful sarongs on a laundry line, Bontoh village, Sangeang Island, Sumbawa, Indonesia</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C089_0917AD_V2-0018.mp4</video:content_loc>
       <video:duration>34</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2738,7 +2622,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/green-turtle-front-view-turning-in-front-camera-a032-c147-0918u3-001.jpg</video:thumbnail_loc>
       <video:title>Green Turtle Front View Turning In Front Camera</video:title>
-      <video:description>A green turtle, Chelonia mydas, swims toward the camera before turning and swimming away, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A green turtle, Chelonia mydas, swims towards the camera before turning and swimming away, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C147_0918U3.mp4</video:content_loc>
       <video:duration>39</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2794,7 +2678,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/green-turtle-swimming-up-to-surface-a032-c144-0918ln-001.jpg</video:thumbnail_loc>
       <video:title>Green Turtle Swimming Up To Surface</video:title>
-      <video:description>A green turtle, Chelonia mydas, swims toward the surface in the late afternoon, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A green turtle, Chelonia mydas, swims towards the surface in the late afternoon, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C144_0918LN.mp4</video:content_loc>
       <video:duration>66</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2808,7 +2692,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/grey-reef-shark-rainbowrunners-wide-mid-a031-c020-09150a-v2-0010.jpg</video:thumbnail_loc>
       <video:title>Grey Reef Shark Rainbowrunners Wide Mid</video:title>
-      <video:description>A grey reef shark, Carcharhinus amblyrhynchos, surrounded by a school of rainbow runners, Elagatis bipinnulata, who rub against the shark to remove parasites from their skin, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A grey reef shark, Carcharhinus amblyrhynchos, surrounded by a school of rainbow runners, Elagatis bipinnulata, rubbing against it, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C020_09150A_V2-0010.mp4</video:content_loc>
       <video:duration>150</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2822,7 +2706,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/grey-reef-shark-rainbowrunners-wide-mid-a031-c020-09150a-v2-0011.jpg</video:thumbnail_loc>
       <video:title>Grey Reef Shark Rainbowrunners Wide Mid</video:title>
-      <video:description>A grey reef shark, Carcharhinus amblyrhynchos, surrounded by a school of rainbow runners, Elagatis bipinnulata, who rub against the shark to remove parasites from their skin, with blue and yellow fusiliers, Caesio teres, in the background, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A grey reef shark, Carcharhinus amblyrhynchos, surrounded by a school of rainbow runners, Elagatis bipinnulata, rubbing against it, with blue and yellow fusiliers, Caesio teres, in the background, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C020_09150A_V2-0011.mp4</video:content_loc>
       <video:duration>150</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2836,7 +2720,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/grey-reef-shark-sideview-right-to-left-rainbowrunners-a031-c020-09150a-v2-0006.jpg</video:thumbnail_loc>
       <video:title>Grey Reef Shark Sideview Right To Left Rainbowrunners</video:title>
-      <video:description>A grey reef shark, Carcharhinus amblyrhynchos, surrounded by a school of rainbow runners, Elagatis bipinnulata, who rub against the shark to remove parasites from their skin, with blue and yellow fusiliers, Caesio teres, in the background, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A grey reef shark, Carcharhinus amblyrhynchos, surrounded by a school of rainbow runners, Elagatis bipinnulata, rubbing against it, with blue and yellow fusiliers, Caesio teres, in the background, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C020_09150A_V2-0006.mp4</video:content_loc>
       <video:duration>57</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2850,7 +2734,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/grey-reef-shark-slow-dive-down-a031-c022-0915ml-v2-0009.jpg</video:thumbnail_loc>
       <video:title>Grey Reef Shark Slow Dive Down</video:title>
-      <video:description>A grey reef shark, Carcharhinus amblyrhynchos, surrounded by a school of rainbow runners, Elagatis bipinnulata, who rub against the shark to remove parasites from their skin, with blue and yellow fusiliers, Caesio teres, in the background, the shark dives down after the rainbow runners annoy it, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A grey reef shark, Carcharhinus amblyrhynchos, surrounded by a school of rainbow runners, Elagatis bipinnulata, rubbing against it; the shark dives down as the runners disperse, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C022_0915ML_V2-0009.mp4</video:content_loc>
       <video:duration>40</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2864,7 +2748,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/grey-reef-shark-swims-to-surgeonfish-school-a031-c020-09150a-v2-0007.jpg</video:thumbnail_loc>
       <video:title>Grey Reef Shark Swims To Surgeonfish School</video:title>
-      <video:description>A grey reef shark, Carcharhinus amblyrhynchos, swims toward a school of elongate surgeonfish, Acanthurus mata, and a giant trevally, Caranx ignobilis, before turning away, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A grey reef shark, Carcharhinus amblyrhynchos, swims towards a school of elongate surgeonfish, Acanthurus mata, and a giant trevally, Caranx ignobilis, before turning away, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C020_09150A_V2-0007.mp4</video:content_loc>
       <video:duration>73</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2895,6 +2779,34 @@
       <video:description>The hand of a Papuan man reaches out to grab a spear gun, Nabire, Central Papua, Indonesia (No Model Release)</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A009_0413QE_V1-0003.mp4</video:content_loc>
       <video:duration>23</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://indopacificstock.com/clip/handicraft-bags-on-sale-a003-a027-04081t-v1-0001/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/handicraft-bags-on-sale-a003-a027-04081t-v1-0001.jpg</video:thumbnail_loc>
+      <video:title>Handicraft Bags On Sale</video:title>
+      <video:description>Handmade cloth handbag souvenirs on sale, Nabire, Central Papua, Cenderawasih Bay, Indonesia (No Property Release)</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A027_04081T_V1-0001.mp4</video:content_loc>
+      <video:duration>16</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://indopacificstock.com/clip/handicrafts-for-sale-a005-a019-0412zb-v1-0009/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/handicrafts-for-sale-a005-a019-0412zb-v1-0009.jpg</video:thumbnail_loc>
+      <video:title>Handicrafts For Sale</video:title>
+      <video:description>Locally produced handicrafts for sale, Nabire, Central Papua, Cenderawasih Bay, Indonesia (No Property Release)</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A019_0412ZB_V1-0009.mp4</video:content_loc>
+      <video:duration>7</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:requires_subscription>no</video:requires_subscription>
@@ -2934,7 +2846,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/hawksbill-turtle-foraging-a005-d004-05032x-001.jpg</video:thumbnail_loc>
       <video:title>Hawksbill Turtle Foraging</video:title>
-      <video:description>Eretmochelys imbricata, foraging on the reef in Raja Ampat, Indonesia, Pacific Ocean</video:description>
+      <video:description>A hawksbill turtle, Eretmochelys imbricata, foraging on the reef, Raja Ampat, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_D004_05032X.mp4</video:content_loc>
       <video:duration>50</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -2962,7 +2874,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/healthy-diverse-reef-komodo-a032-c035-0916hl-001.jpg</video:thumbnail_loc>
       <video:title>Healthy Diverse Reef Komodo</video:title>
-      <video:description>Healthy hard coral garden with anthias, surgeon and damsel fish swimming above the staghorn branching corals, Acropora sp., Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Healthy hard coral garden with anthias, surgeon and damselfish swimming above the staghorn branching corals, Acropora sp., Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C035_0916HL.mp4</video:content_loc>
       <video:duration>12</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3004,7 +2916,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/honeycomb-moray-leopard-overhang-glass-sweeper-a031-c058-0916ew-v1-0099.jpg</video:thumbnail_loc>
       <video:title>Honeycomb Moray Leopard Overhang Glass Sweeper</video:title>
-      <video:description>Camera pushes toward a honeycomb moray, Gymnothorax favagineus, looking out from an overhang surrounded by a school of ring-tailed cardinal fish, Ostorhinchus aureus, and other cardinal species, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Camera pushes towards a honeycomb moray, Gymnothorax favagineus, looking out from an overhang, surrounded by a school of ringtail cardinalfish, Ostorhinchus aureus, and other cardinalfish, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C058_0916EW_V1-0099.mp4</video:content_loc>
       <video:duration>26</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3018,7 +2930,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/honeycomb-moray-leopard-overhang-glassy-sweepers-a031-c060-0916xj-v1-0101.jpg</video:thumbnail_loc>
       <video:title>Honeycomb Moray Leopard Overhang Glassy Sweepers</video:title>
-      <video:description>A honeycomb moray, Gymnothorax favagineus, looks out from an overhang surrounded by a school of ring-tailed cardinal fish, Ostorhinchus aureus, and other cardinal species, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A honeycomb moray, Gymnothorax favagineus, looks out from an overhang surrounded by a school of ringtail cardinalfish, Ostorhinchus aureus, and other cardinalfish, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C060_0916XJ_V1-0101.mp4</video:content_loc>
       <video:duration>106</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3088,7 +3000,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/komodo-lanscape-pan-to-right-a033-c082-0918ac-001.jpg</video:thumbnail_loc>
       <video:title>Komodo Lanscape Pan To Right</video:title>
-      <video:description>Landscape of the brown islands of Komodo National Park, panning the camera from left to right, Komodo Island, Indonesia, Pacific Ocean</video:description>
+      <video:description>Landscape of the arid islands of Komodo National Park, panning from left to right, Komodo Island, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C082_0918AC.mp4</video:content_loc>
       <video:duration>43</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3116,7 +3028,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/laced-moray-leopard-overhang-glassy-sweepers-fish-a031-c062-0916fq-v1-0103.jpg</video:thumbnail_loc>
       <video:title>Laced Moray Leopard Overhang Glassy Sweepers Fish</video:title>
-      <video:description>A honeycomb moray, Gymnothorax favagineus, lit from the left, looks out from an overhang surrounded by a school of ring-tailed cardinal fish, Ostorhinchus aureus, and other cardinal species, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A honeycomb moray, Gymnothorax favagineus, lit from the left, looks out from an overhang, surrounded by a school of ringtail cardinalfish, Ostorhinchus aureus, and other cardinalfish, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C062_0916FQ_V1-0103.mp4</video:content_loc>
       <video:duration>210</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3158,7 +3070,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/litlle-girl-villager-playing-in-the-sea-a032-c136-0917me-v1-0075.jpg</video:thumbnail_loc>
       <video:title>Litlle Girl Villager Playing In The Sea</video:title>
-      <video:description>A young girl happily playing in the sea, Bontoh village, Sangeang Island, Sumbawa, Indonesia. No MR</video:description>
+      <video:description>A young girl playing happily in the sea, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C136_0917ME_V1-0075.mp4</video:content_loc>
       <video:duration>43</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3200,7 +3112,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/local-man-smiling-a032-c092-09178i-v2-0020.jpg</video:thumbnail_loc>
       <video:title>Local Man Smiling</video:title>
-      <video:description>A local man sitting in front of his wooden house smiles at the camera, Bontoh village, Sangeang Island, Sumbawa, Indonesia. No model release</video:description>
+      <video:description>A local man sitting in front of his wooden house smiles at the camera, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C092_09178I_V2-0020.mp4</video:content_loc>
       <video:duration>20</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3214,7 +3126,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/local-villager-carpentar-top-boat-being-built-wide--a032-c101-0917c4-v2-0028.jpg</video:thumbnail_loc>
       <video:title>Local Villager Carpentar Top Boat Being Built Wide</video:title>
-      <video:description>A carpenter stands atop a local boat being built, Bontoh village, Sangeang island, Sumbawa, Indonesia, No Model Release</video:description>
+      <video:description>A carpenter stands atop a local boat under construction, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C101_0917C4_V2-0028.mp4</video:content_loc>
       <video:duration>19</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3228,7 +3140,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/local-villager-carpentar-top-ofboat-being-built-mid-a032-c101-0917c4-v2-0029.jpg</video:thumbnail_loc>
       <video:title>Local Villager Carpentar Top Ofboat Being Built Mid</video:title>
-      <video:description>Close up of a carpenter standing atop a boat being built, Bontoh village, Sangeang island, Sumbawa, Indonesia, No Model Release</video:description>
+      <video:description>Close-up of a carpenter standing atop a boat under construction, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C101_0917C4_V2-0029.mp4</video:content_loc>
       <video:duration>18</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3256,7 +3168,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/looking-up-at-multiple-whalesharks-swimming-under-bagan-a003-a149-0410zm-v1-0007.jpg</video:thumbnail_loc>
       <video:title>Looking Up At Multiple Whalesharks Swimming Under Bagan</video:title>
-      <video:description>Four whale sharks, Rhincodon typus, swimming under a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Four whale sharks, Rhincodon typus, swimming under a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A149_0410ZM_V1-0007.mp4</video:content_loc>
       <video:duration>53</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3270,7 +3182,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/looking-up-at-whalesharks-around-fishing-platforms-a006-a081-0413ln-v1-0073.jpg</video:thumbnail_loc>
       <video:title>Looking Up At Whalesharks Around Fishing Platforms</video:title>
-      <video:description>Silhouette of a whale shark, Rhincodon typus, swimming overhead with a second shark coming in from the side, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Silhouette of a whale shark, Rhincodon typus, swimming overhead with a second shark coming in from the side, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A081_0413LN_V1-0073.mp4</video:content_loc>
       <video:duration>49</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3340,7 +3252,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/macro-yellow-ornate-ghostpipefish-algaes-seagrass-a032-c054-09165w-v1-0122.jpg</video:thumbnail_loc>
       <video:title>Macro Yellow Ornate Ghostpipefish Algaes Seagrass</video:title>
-      <video:description>Close up of the head and fins of an ornate ghost pipefish, Solenostomus paradoxus, hovering over a field of algae, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Close-up of the head and fins of an ornate ghost pipefish, Solenostomus paradoxus, hovering over a field of algae, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C054_09165W_V1-0122.mp4</video:content_loc>
       <video:duration>36</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3602,11 +3514,25 @@
     </video:video>
   </url>
   <url>
+    <loc>https://indopacificstock.com/clip/market-street-selling-handbags-in-nabire-a003-a029-04089m-v1-0002/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/market-street-selling-handbags-in-nabire-a003-a029-04089m-v1-0002.jpg</video:thumbnail_loc>
+      <video:title>Market Street Selling Handbags In Nabire</video:title>
+      <video:description>Handmade cloth handbags and other souvenirs on sale, Nabire, Central Papua, Cenderawasih Bay, Indonesia (No Property Release)</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A029_04089M_V1-0002.mp4</video:content_loc>
+      <video:duration>8</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://indopacificstock.com/clip/melibe-nudibranch-feeding-a032-c083-09176h-v2-0016/</loc>
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/melibe-nudibranch-feeding-a032-c083-09176h-v2-0016.jpg</video:thumbnail_loc>
       <video:title>Melibe Nudibranch Feeding</video:title>
-      <video:description>A Melibe nudibranch, Melibe viridis, using its unique hooded mouth for “hood feeding” as it uses the cirri inside the mouth to sweep for benthic organisms to eat, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A Melibe nudibranch, Melibe viridis, feeding with its hooded oral veil, sweeping the benthos for prey, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C083_09176H_V2-0016.mp4</video:content_loc>
       <video:duration>5</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3634,7 +3560,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/mid-shot-villager-smoking-a032-c096-09179b-v2-0024.jpg</video:thumbnail_loc>
       <video:title>Mid Shot Villager Smoking</video:title>
-      <video:description>Smoking local man interacts with his daughter, Bontoh village, Sangeang island, Sumbawa, Indonesia, No Model Release</video:description>
+      <video:description>A local man smoking interacts with his daughter, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C096_09179B_V2-0024.mp4</video:content_loc>
       <video:duration>36</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3662,7 +3588,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/mood-shot-whaleshark-in-deep-water-a006-a084-0413lt-v1-0075.jpg</video:thumbnail_loc>
       <video:title>Mood Shot Whaleshark In Deep Water</video:title>
-      <video:description>Looking down on a whale shark, Rhincodon typus, swimming away from the camera , Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Looking down on a whale shark, Rhincodon typus, swimming away from the camera, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A084_0413LT_V1-0075.mp4</video:content_loc>
       <video:duration>41</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3690,7 +3616,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/moorish-idol-group-over-coralhead-barrel-sponges-a032-c006-0916b8-001.jpg</video:thumbnail_loc>
       <video:title>Moorish Idol Group Over Coralhead Barrel Sponges</video:title>
-      <video:description>Moorish idols, Zanius cornutus, and anthias swim around red barrel sponges, Xestospongia muta, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Moorish idols, Zanclus cornutus, and anthias swim around red barrel sponges, Xestospongia muta, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C006_0916B8.mp4</video:content_loc>
       <video:duration>49</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3704,7 +3630,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/moray-leopard-overhang-glass-sweepers-a031-c059-0916bq-v1-0100.jpg</video:thumbnail_loc>
       <video:title>Moray Leopard Overhang Glass Sweepers</video:title>
-      <video:description>A honeycomb moray, Gymnothorax favagineus, looks out from an overhang surrounded by a school of ring-tailed cardinal fish, Ostorhinchus aureus, and other cardinal species, and a lion fish above, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A honeycomb moray, Gymnothorax favagineus, looks out from an overhang, surrounded by a school of ringtail cardinalfish, Ostorhinchus aureus, and other cardinalfish, with a lionfish above, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C059_0916BQ_V1-0100.mp4</video:content_loc>
       <video:duration>43</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3718,7 +3644,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/moray-leopard-overhang-glass-sweepers-a031-c061-091653-v1-0102.jpg</video:thumbnail_loc>
       <video:title>Moray Leopard Overhang Glass Sweepers</video:title>
-      <video:description>A honeycomb moray, Gymnothorax favagineus, looks out from an overhang surrounded by a school of ring-tailed cardinal fish, Ostorhinchus aureus, and other cardinal species, and a lion fish above, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A honeycomb moray, Gymnothorax favagineus, looks out from an overhang, surrounded by a school of ringtail cardinalfish, Ostorhinchus aureus, and other cardinalfish, with a lionfish above, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C061_091653_V1-0102.mp4</video:content_loc>
       <video:duration>50</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3746,7 +3672,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/multiple-whalesharks-swimming-towards-net-with-fish-a003-a153-0410ip-v1-0008.jpg</video:thumbnail_loc>
       <video:title>Multiple Whalesharks Swimming Towards Net With Fish</video:title>
-      <video:description>Following a whale shark, Rhincodon typus, as it swims toward a second whale shark under a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Following a whale shark, Rhincodon typus, as it swims towards a second whale shark under a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A153_0410IP_V1-0008.mp4</video:content_loc>
       <video:duration>252</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3886,7 +3812,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/orbit-slomo-coralreef-wide-scene-damselfish-a033-c018-0917mv-v1-0094.jpg</video:thumbnail_loc>
       <video:title>Orbit Slomo Coralreef Wide Scene Damselfish</video:title>
-      <video:description>Slow motion camera pushing forward and orbiting a healthy shallow hard and soft coral reef with a variety of Acropora and Porites species such as table coral and branching corals along with damselfish and anthias, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Slow-motion camera pushing forward and orbiting a healthy shallow hard and soft coral reef with a variety of Acropora and Porites species such as table coral and branching corals along with damselfish and anthias, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C018_0917MV_V1-0094.mp4</video:content_loc>
       <video:duration>46</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3914,7 +3840,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/overhead-pass-of-whaleshark-with-remora-a003-a155-0410ar-v1-0014.jpg</video:thumbnail_loc>
       <video:title>Overhead Pass Of Whaleshark With Remora</video:title>
-      <video:description>A whale shark, Rhincodon typus, with many remoras, Echeneis naucrates, passes overhead with a second whale shark feeding under a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, with many remoras, Echeneis naucrates, passes overhead with a second whale shark feeding under a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A155_0410AR_V1-0014.mp4</video:content_loc>
       <video:duration>95</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3956,7 +3882,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/pan-colorful-local-fabric-hanging-in-the-wind-a032-c099-0917md-v2-0027.jpg</video:thumbnail_loc>
       <video:title>Pan Colorful Local Fabric Hanging In The Wind</video:title>
-      <video:description>Left to right pan of traditional sarongs hanging on a line in the wind, Bontoh village, Sangeang island, Sumbawa, Indonesia, No Model Release</video:description>
+      <video:description>Pan from left to right across traditional sarongs hanging on a line in the wind, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C099_0917MD_V2-0027.mp4</video:content_loc>
       <video:duration>26</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -3970,7 +3896,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/pan-to-right-boat-shipyard-a032-c106-0917gr-v1-0070.jpg</video:thumbnail_loc>
       <video:title>Pan To Right Boat Shipyard</video:title>
-      <video:description>Traditional wooden boat being built in Bonto village, Sangeang Island, Sumbawa, Indonesia</video:description>
+      <video:description>Traditional wooden boat being built in Bontoh village, Sangeang Island, Sumbawa, Indonesia</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C106_0917GR_V1-0070.mp4</video:content_loc>
       <video:duration>16</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4036,6 +3962,20 @@
     </video:video>
   </url>
   <url>
+    <loc>https://indopacificstock.com/clip/panning-handbags-for-sale-a003-a031-040842-v1-0004/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/panning-handbags-for-sale-a003-a031-040842-v1-0004.jpg</video:thumbnail_loc>
+      <video:title>Panning Handbags For Sale</video:title>
+      <video:description>Handmade cloth handbag souvenirs on sale, Nabire, Central Papua, Cenderawasih Bay, Indonesia (No Property Release)</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A031_040842_V1-0004.mp4</video:content_loc>
+      <video:duration>10</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://indopacificstock.com/clip/panning-left-to-right-from-ocean-to-jungle-a005-a104-04146p-v2-0005/</loc>
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/panning-left-to-right-from-ocean-to-jungle-a005-a104-04146p-v2-0005.jpg</video:thumbnail_loc>
@@ -4054,9 +3994,23 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/panning-left-to-right-papuan-landscape-a003-a011-0411aq-v2-0002.jpg</video:thumbnail_loc>
       <video:title>Panning Left To Right Papuan Landscape</video:title>
-      <video:description>panning from left to right across the coastline with flat water, a white beach and green tropical jungle, Cenderawasih Bay, Central Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>Panning from left to right across the coastline with flat water, a white beach and green tropical jungle, Cenderawasih Bay, Central Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A011_0411AQ_V2-0002.mp4</video:content_loc>
       <video:duration>11</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://indopacificstock.com/clip/panning-market-street-selling-handbags-in-nabire-a003-a030-0408tt-v1-0003/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/panning-market-street-selling-handbags-in-nabire-a003-a030-0408tt-v1-0003.jpg</video:thumbnail_loc>
+      <video:title>Panning Market Street Selling Handbags In Nabire</video:title>
+      <video:description>Panning from left to right showing handmade cloth handbags and other souvenirs on sale, Nabire, Central Papua, Cenderawasih Bay, Indonesia (No Property Release)</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A030_0408TT_V1-0003.mp4</video:content_loc>
+      <video:duration>7</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:requires_subscription>no</video:requires_subscription>
@@ -4372,6 +4326,20 @@
     </video:video>
   </url>
   <url>
+    <loc>https://indopacificstock.com/clip/papuan-woman-displaying-baskets-for-sale-a005-a014-04124r-v1-0007/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/papuan-woman-displaying-baskets-for-sale-a005-a014-04124r-v1-0007.jpg</video:thumbnail_loc>
+      <video:title>Papuan Woman Displaying Baskets For Sale</video:title>
+      <video:description>Papuan woman displays stacks of handmade woven baskets for sale, Nabire, Central Papua, Cenderawasih Bay, Indonesia (No Model or Property Release)</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A014_04124R_V1-0007.mp4</video:content_loc>
+      <video:duration>25</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://indopacificstock.com/clip/papuan-women-performing-traditional-dance-a005-a041-041276-v1-0031/</loc>
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/papuan-women-performing-traditional-dance-a005-a041-041276-v1-0031.jpg</video:thumbnail_loc>
@@ -4470,6 +4438,20 @@
     </video:video>
   </url>
   <url>
+    <loc>https://indopacificstock.com/clip/proud-papuan-woman-displaying-her-crafts-a005-a012-0412dx-v1-0006/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/proud-papuan-woman-displaying-her-crafts-a005-a012-0412dx-v1-0006.jpg</video:thumbnail_loc>
+      <video:title>Proud Papuan Woman Displaying Her Crafts</video:title>
+      <video:description>Papuan woman displaying wooden handicrafts for sale, Nabire, Central Papua, Cenderawasih Bay, Indonesia (No Model or Property Release)</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A012_0412DX_V1-0006.mp4</video:content_loc>
+      <video:duration>18</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://indopacificstock.com/clip/pulling-goggle-from-shelf-a006-a014-04137a-v1-0007/</loc>
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/pulling-goggle-from-shelf-a006-a014-04137a-v1-0007.jpg</video:thumbnail_loc>
@@ -4544,7 +4526,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/purple-tipped-costasiella-shawn-the-sheep-nudibranch-a032-c057-0916gn-v1-0123.jpg</video:thumbnail_loc>
       <video:title>Purple Tipped Costasiella Shawn The Sheep Nudibranch</video:title>
-      <video:description>Purple-tipped Costasiella sp3., also known as rouged cheeks sheep, or Ikea/Swedish sea slug sitting on a stalk of sea grass, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Purple-tipped Costasiella nudibranch (Shaun the Sheep slug) on a seagrass blade, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C057_0916GN_V1-0123.mp4</video:content_loc>
       <video:duration>25</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4558,7 +4540,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/push-towards-big-barrel-sponge-a033-c052-0917mg-v1-0109.jpg</video:thumbnail_loc>
       <video:title>Push Towards Big Barrel Sponge</video:title>
-      <video:description>Forward push toward two different species of giant sponge, the orange Clathria flabellifera in the foreground and the barrel sponge, Xestospongia testudinaria, in the background, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Forward push towards two different species of giant sponge, the orange Clathria flabellifera in the foreground and the barrel sponge, Xestospongia testudinaria, in the background, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C052_0917MG_V1-0109.mp4</video:content_loc>
       <video:duration>38</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4656,7 +4638,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/red-seafan-coral-reef-komodo-a032-c046-09166r-001.jpg</video:thumbnail_loc>
       <video:title>Red Seafan Coral Reef Komodo</video:title>
-      <video:description>Close up pushing past a red sea fan in afternoon light with tropical fish in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Close-up pushing past a red sea fan in afternoon light with tropical fish in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C046_09166R.mp4</video:content_loc>
       <video:duration>63</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4698,7 +4680,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/reef-octopus-looking-for-food-coral-rubble-a033-c060-0917b4-v1-0111.jpg</video:thumbnail_loc>
       <video:title>Reef Octopus Looking For Food Coral Rubble</video:title>
-      <video:description>A common reef octopus, Octopus cyanea, hunting for food in coral rubble while small groupers and goatfish watch waiting for potential prey to be flushed out, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A common reef octopus, Octopus cyanea, hunting in coral rubble while small groupers and goatfish wait nearby for potential prey to be flushed out, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C060_0917B4_V1-0111.mp4</video:content_loc>
       <video:duration>429</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4712,7 +4694,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/reef-octopus-looking-for-food-coral-rubble-a033-c060-0917b4-v1-0112.jpg</video:thumbnail_loc>
       <video:title>Reef Octopus Looking For Food Coral Rubble</video:title>
-      <video:description>A common reef octopus, Octopus cyanea, hunting for food in coral rubble while small groupers and goatfish watch waiting for potential prey to be flushed out, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A common reef octopus, Octopus cyanea, hunting in coral rubble while small groupers and goatfish wait nearby for potential prey to be flushed out, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C060_0917B4_V1-0112.mp4</video:content_loc>
       <video:duration>429</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4726,7 +4708,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/reef-octopus-looking-for-food-coral-rubble-from-above-a033-c061-09176i-v1-0113.jpg</video:thumbnail_loc>
       <video:title>Reef Octopus Looking For Food Coral Rubble From Above</video:title>
-      <video:description>A common reef octopus, Octopus cyanea, hunting for food using tent or parachute fishing technique in coral rubble while small groupers and goatfish watch waiting for potential prey to be flushed out, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A common reef octopus, Octopus cyanea, hunting in coral rubble using a tent or parachute feeding technique, while small groupers and goatfish wait nearby for potential prey to be flushed out, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C061_09176I_V1-0113.mp4</video:content_loc>
       <video:duration>257</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4740,7 +4722,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/reef-octopus-looking-for-food-coral-rubble-from-above-a033-c061-09176i-v1-0114.jpg</video:thumbnail_loc>
       <video:title>Reef Octopus Looking For Food Coral Rubble From Above</video:title>
-      <video:description>A common reef octopus, Octopus cyanea, hunting for food using tent or parachute fishing technique in coral rubble while small groupers and goatfish watch waiting for potential prey to be flushed out, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A common reef octopus, Octopus cyanea, hunting in coral rubble using a tent or parachute feeding technique, while small groupers and goatfish wait nearby for potential prey to be flushed out, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C061_09176I_V1-0114.mp4</video:content_loc>
       <video:duration>257</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4754,7 +4736,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/reef-octopus-looking-for-food-coral-rubble-from-above-a033-c061-09176i-v1-0115.jpg</video:thumbnail_loc>
       <video:title>Reef Octopus Looking For Food Coral Rubble From Above</video:title>
-      <video:description>A common reef octopus, Octopus cyanea, hunting for food using tent or parachute fishing technique in coral rubble while small groupers and goatfish watch waiting for potential prey to be flushed out, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A common reef octopus, Octopus cyanea, hunting in coral rubble using a tent or parachute feeding technique, while small groupers and goatfish wait nearby for potential prey to be flushed out, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C061_09176I_V1-0115.mp4</video:content_loc>
       <video:duration>257</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4768,7 +4750,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/reef-octopus-looking-for-food-coral-rubble-from-above-a033-c061-09176i-v1-0116.jpg</video:thumbnail_loc>
       <video:title>Reef Octopus Looking For Food Coral Rubble From Above</video:title>
-      <video:description>A common reef octopus, Octopus cyanea, hunting for food using tent or parachute fishing technique in coral rubble while small groupers and goatfish watch waiting for potential prey to be flushed out, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A common reef octopus, Octopus cyanea, hunting in coral rubble using a tent or parachute feeding technique, while small groupers and goatfish wait nearby for potential prey to be flushed out, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C061_09176I_V1-0116.mp4</video:content_loc>
       <video:duration>257</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4782,7 +4764,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/remoras-on-whalesharks-a003-a133-0410ti-v1-0006.jpg</video:thumbnail_loc>
       <video:title>Remoras On Whalesharks</video:title>
-      <video:description>Two whale sharks, Rhincodon typus, with attendant cobia, Rachycentron canadum, and remoras, Echeneis naucrates, swim past each other, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Two whale sharks, Rhincodon typus, with attendant cobia, Rachycentron canadum, and remoras, Echeneis naucrates, swim past each other, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A133_0410TI_V1-0006.mp4</video:content_loc>
       <video:duration>38</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4810,7 +4792,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/roughsnout-ghostpipefish-sideview-seagrass-a032-c081-091688-v1-0146.jpg</video:thumbnail_loc>
       <video:title>Roughsnout Ghostpipefish Sideview Seagrass</video:title>
-      <video:description>A roughsnout pipefish, Solenostomus paegnius, hiding in seagrass, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A roughsnout pipefish, Solenostomus paenia, hiding in seagrass, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C081_091688_V1-0146.mp4</video:content_loc>
       <video:duration>34</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4824,7 +4806,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/roughsnout-ghostpipefish-sideview-seagrass-one-a032-c082-0916es-v1-0147.jpg</video:thumbnail_loc>
       <video:title>Roughsnout Ghostpipefish Sideview Seagrass One</video:title>
-      <video:description>A roughsnout pipefish, Solenostomus paegnius, hiding in seagrass, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A roughsnout pipefish, Solenostomus paenia, hiding in seagrass, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C082_0916ES_V1-0147.mp4</video:content_loc>
       <video:duration>44</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4838,7 +4820,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/sangeang-clouds-landscape-a032-c085-0917cu-v2-0017.jpg</video:thumbnail_loc>
       <video:title>Sangeang Clouds Landscape</video:title>
-      <video:description>A landscape view of low clouds drifting over the volcanic peaks of Sangeang island, Sumbawa, Indonesia</video:description>
+      <video:description>A landscape view of low clouds drifting over the volcanic peaks of Sangeang Island, Sumbawa, Indonesia</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C085_0917CU_V2-0017.mp4</video:content_loc>
       <video:duration>5</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4880,7 +4862,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/school-of-fusilliers-near-bottom-a030-c015-09154u-001.jpg</video:thumbnail_loc>
       <video:title>School Of Fusilliers Near Bottom</video:title>
-      <video:description>Camera pushes through a school of blue streak fusiliers, Pterocaesio tile, swimming over a bare current swept bottom, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Camera pushes through a school of blue streak fusiliers, Pterocaesio tile, swimming over a bare current-swept bottom, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A030_C015_09154U.mp4</video:content_loc>
       <video:duration>44</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4964,7 +4946,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/side-view-whaleshark-swimming-next-to-fishing-platform-a003-a077-0411sg-v1-0023.jpg</video:thumbnail_loc>
       <video:title>Side View Whaleshark Swimming Next To Fishing Platform</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims under a small boat with its left side to the camera toward a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims under a small boat with its left side to the camera towards a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A077_0411SG_V1-0023.mp4</video:content_loc>
       <video:duration>42</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -4978,7 +4960,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/silhouette-of-whaleshark-and-fishing-platform-a006-a080-0413ey-v1-0072.jpg</video:thumbnail_loc>
       <video:title>Silhouette Of Whaleshark And Fishing Platform</video:title>
-      <video:description>Silhouette of a whale shark, Rhincodon typus, swimming under a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Silhouette of a whale shark, Rhincodon typus, swimming under a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A080_0413EY_V1-0072.mp4</video:content_loc>
       <video:duration>52</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5048,7 +5030,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/slow-orbit-slomo-over-coral-reef-a033-c009-0917zy-v1-0084.jpg</video:thumbnail_loc>
       <video:title>Slow Orbit Slomo Over Coral Reef</video:title>
-      <video:description>Camera pushing forward over a variety of healthy Acropora sp., corals including table and stag horn varieties. Leather coral and soft corals cover the reef with damsel fish, anthers and chromis in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Camera pushing forward over a variety of healthy Acropora sp. corals, including table and staghorn forms; leather corals and soft corals cover the reef, with damselfish, anthias and chromis in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C009_0917ZY_V1-0084.mp4</video:content_loc>
       <video:duration>44</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5076,7 +5058,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/slow-push-over-healthy-diverse-coral-reef-a033-c001-09177s-v1-0079.jpg</video:thumbnail_loc>
       <video:title>Slow Push Over Healthy Diverse Coral Reef</video:title>
-      <video:description>Camera pushing forward over a variety of healthy Acropora sp., corals including table and stag horn varieties. Leather coral and soft corals cover the reef with damsel fish and chromis in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Camera pushing forward over a variety of healthy Acropora sp. corals, including table and staghorn forms; leather corals and soft corals cover the reef, with damselfish and chromis in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C001_09177S_V1-0079.mp4</video:content_loc>
       <video:duration>101</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5090,7 +5072,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/slow-push-over-soft-corals-reef-a033-c006-0917ey-v1-0081.jpg</video:thumbnail_loc>
       <video:title>Slow Push Over Soft Corals Reef</video:title>
-      <video:description>Slow motion of camera pushing toward stag horn corals and Xenia corals with a resident group of damselfish swimming in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Slow-motion push towards staghorn and Xenia corals with a resident group of damselfish in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C006_0917EY_V1-0081.mp4</video:content_loc>
       <video:duration>27</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5104,7 +5086,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/slow-push-slomo-over-coral-reef-damselfish-a033-c006-0917ey-v1-0082.jpg</video:thumbnail_loc>
       <video:title>Slow Push Slomo Over Coral Reef Damselfish</video:title>
-      <video:description>Slow motion of camera pushing toward stag horn corals and Xenia corals with a resident group of damselfish swimming in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Slow-motion push towards staghorn and Xenia corals with a resident group of damselfish in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C006_0917EY_V1-0082.mp4</video:content_loc>
       <video:duration>36</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5118,7 +5100,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/slow-push-slomo-over-healthy-corals-a033-c011-0917nz-v1-0087.jpg</video:thumbnail_loc>
       <video:title>Slow Push Slomo Over Healthy Corals</video:title>
-      <video:description>Slow motion forward push over healthy hard and soft corals in beautiful blue water with a variety of damselfish and surgeonfish in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Slow-motion forward push over healthy hard and soft corals in clear blue water, with damselfish and surgeonfish in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C011_0917NZ_V1-0087.mp4</video:content_loc>
       <video:duration>83</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5132,7 +5114,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/slow-push-slomo-to-coral-reef-with-damselfish-a033-c006-0917ey-v1-0083.jpg</video:thumbnail_loc>
       <video:title>Slow Push Slomo To Coral Reef With Damselfish</video:title>
-      <video:description>Slow motion of camera pushing toward stag horn corals and Xenia corals with a resident group of damselfish swimming in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Slow-motion push towards staghorn and Xenia corals with a resident group of damselfish in the water column, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C006_0917EY_V1-0083.mp4</video:content_loc>
       <video:duration>25</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5146,7 +5128,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/slow-push-towards-reef-fish-corals-a030-c060-0915pm-v2-0001.jpg</video:thumbnail_loc>
       <video:title>Slow Push Towards Reef Fish Corals</video:title>
-      <video:description>Pushing toward a healthy coral reef with a large variety of tropical fish including a pair of panda butterflyfish, Chaetodon adiergastos, anthias, damselfish and more, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Pushing towards a healthy coral reef with a large variety of tropical fish including a pair of panda butterflyfish, Chaetodon adiergastos, anthias, damselfish and more, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A030_C060_0915PM_V2-0001.mp4</video:content_loc>
       <video:duration>50</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5244,7 +5226,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/smallgroup-yellow-ribbon-sweetlips-and-fish-corals-a033-c050-0917dx-v1-0108.jpg</video:thumbnail_loc>
       <video:title>Smallgroup Yellow Ribbon Sweetlips And Fish Corals</video:title>
-      <video:description>Parrotfish (Scarus tricolor), sea breams (Monotaxis heterodon), chromis and ribbon sweetlips (Plectorhinchus polytaenia) on a coral reef in Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Parrotfish (Scarus tricolor), sea bream (Monotaxis heterodon), chromis and ribbon sweetlips (Plectorhinchus polytaenia) on a coral reef, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C050_0917DX_V1-0108.mp4</video:content_loc>
       <video:duration>44</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5356,7 +5338,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/speedboat-crossing-sunset-reflection-sea-a033-c111-0919kw-001.jpg</video:thumbnail_loc>
       <video:title>Speedboat Crossing Sunset Reflection Sea</video:title>
-      <video:description>Sunset over the waters of Komodo National Park with a speedboat crossing in front of a traditional phinisi boat in the foreground, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Sunset over the waters of Komodo National Park, with a speedboat crossing in front of a traditional phinisi boat, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C111_0919KW.mp4</video:content_loc>
       <video:duration>47</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5426,7 +5408,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/sunrays-underwater-afternoon-a032-c149-0918fb-001.jpg</video:thumbnail_loc>
       <video:title>Sunrays Underwater Afternoon</video:title>
-      <video:description>Shooting the sun rays diffusing in shallow blue water, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Sun rays diffusing through shallow blue water, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C149_0918FB.mp4</video:content_loc>
       <video:duration>52</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5454,7 +5436,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/surface-view-of-whaleshark-swimming-next-to-fishing-platform-bagan-a003-a036-0411z5-v1-0001.jpg</video:thumbnail_loc>
       <video:title>Surface View Of Whaleshark Swimming Next To Fishing Platform Bagan</video:title>
-      <video:description>Looking down from a boat at a whale shark, Rhincodon typus, feeding at the surface beside a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Looking down from a boat at a whale shark, Rhincodon typus, feeding at the surface beside a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A036_0411Z5_V1-0001.mp4</video:content_loc>
       <video:duration>39</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5552,7 +5534,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/tight-shot-boat-builder-going-down-ladder-a032-c107-0917b5-v1-0072.jpg</video:thumbnail_loc>
       <video:title>Tight Shot Boat Builder Going Down Ladder</video:title>
-      <video:description>A local boatbuilder with a cigarette in his mouth walks down a ladder from a boat he is building, Sangeang Island, Sumbawa, Indonesia. No MR</video:description>
+      <video:description>A local boatbuilder with a cigarette in his mouth walks down a ladder from a boat under construction, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C107_0917B5_V1-0072.mp4</video:content_loc>
       <video:duration>41</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5650,7 +5632,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/two-whale-shark-feed-beside-nets-a006-a057-0413th-v1-0048.jpg</video:thumbnail_loc>
       <video:title>Two Whale Shark Feed Beside Nets</video:title>
-      <video:description>Two whale sharks, Rhincodon typus, feeding beside the nets of a bagan, a traditional drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Two whale sharks, Rhincodon typus, feeding beside the nets of a bagan, a traditional drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A057_0413TH_V1-0048.mp4</video:content_loc>
       <video:duration>139</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5664,7 +5646,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/two-whalesharks-slowly-moving-toward-camera-a004-a014-04122j-v1-0035.jpg</video:thumbnail_loc>
       <video:title>Two Whalesharks Slowly Moving Toward Camera</video:title>
-      <video:description>Two whale sharks, Rhincodon typus, moving toward the camera under a bagan, traditional drop net fishing boat, Cendrawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>Two whale sharks, Rhincodon typus, moving towards the camera under a bagan, traditional drop net fishing boat, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A014_04122J_V1-0035.mp4</video:content_loc>
       <video:duration>74</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5678,7 +5660,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/two-whalesharks-swimming-next-to-fishing-net-a004-a026-0412mj-v1-0040.jpg</video:thumbnail_loc>
       <video:title>Two Whalesharks Swimming Next To Fishing Net</video:title>
-      <video:description>Two whale sharks, Rhincodon typus, swim down into the blue, Cendrawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>Two whale sharks, Rhincodon typus, swim down into the blue, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A026_0412MJ_V1-0040.mp4</video:content_loc>
       <video:duration>110</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5692,7 +5674,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/two-whalesharks-swimming-next-to-fishing-nets-a004-a026-0412mj-v1-0039.jpg</video:thumbnail_loc>
       <video:title>Two Whalesharks Swimming Next To Fishing Nets</video:title>
-      <video:description>Two whale sharks, Rhincodon typus, swim past a large fishing net hanging under a bagan, Cendrawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>Two whale sharks, Rhincodon typus, swim past a large fishing net hanging under a bagan, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A026_0412MJ_V1-0039.mp4</video:content_loc>
       <video:duration>110</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5706,7 +5688,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/two-whalesharks-swimming-side-by-side-a004-a025-0412n9-v1-0038.jpg</video:thumbnail_loc>
       <video:title>Two Whalesharks Swimming Side By Side</video:title>
-      <video:description>Two whale sharks, Rhincodon typus, swim side by side past a fishing net and toward the blue, Cendrawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>Two whale sharks, Rhincodon typus, swim side by side past a fishing net and towards the blue, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A025_0412N9_V1-0038.mp4</video:content_loc>
       <video:duration>46</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5762,7 +5744,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/underwater-multiple-whalesharks-next-to-fishing-platform-bagan-a003-a129-04105p-v1-0004.jpg</video:thumbnail_loc>
       <video:title>Underwater Multiple Whalesharks Next To Fishing Platform Bagan</video:title>
-      <video:description>Two whale sharks, Rhincodon typus, with attendant cobia, Rachycentron canadum, and remoras, Echeneis naucrates, swimming under a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Two whale sharks, Rhincodon typus, with attendant cobia, Rachycentron canadum, and remoras, Echeneis naucrates, swimming under a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A129_04105P_V1-0004.mp4</video:content_loc>
       <video:duration>101</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5776,7 +5758,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/underwater-view-of-two-whalesharks-next-to-fishing-platform-bagan-a003-a128-0410wl-v1-0002.jpg</video:thumbnail_loc>
       <video:title>Underwater View Of Two Whalesharks Next To Fishing Platform Bagan</video:title>
-      <video:description>Two whale sharks, Rhincodon typus, with attendant cobia, Rachycentron canadum, and remoras, Echeneis naucrates, pass each other under a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Two whale sharks, Rhincodon typus, with attendant cobia, Rachycentron canadum, and remoras, Echeneis naucrates, pass each other under a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A128_0410WL_V1-0002.mp4</video:content_loc>
       <video:duration>138</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5888,7 +5870,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/village-girls-playing-in-the-sea-a032-c135-0917xi-v1-0076.jpg</video:thumbnail_loc>
       <video:title>Village Girls Playing In The Sea</video:title>
-      <video:description>Two young girls playing in the sea, Bontoh village, Sangeang Island, Sumbawa, Indonesia. No MR</video:description>
+      <video:description>Two young girls playing in the sea, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C135_0917XI_V1-0076.mp4</video:content_loc>
       <video:duration>27</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5902,7 +5884,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/villager-local-traditional-boat-indonesia-a032-c105-0917ps-v2-0032.jpg</video:thumbnail_loc>
       <video:title>Villager Local Traditional Boat Indonesia</video:title>
-      <video:description>Village man pushing his small wooden boat to sea, Bontoh village, Sangeang island, Sumbawa, Indonesia, No Model Release</video:description>
+      <video:description>A village man pushes his small wooden boat out to sea, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C105_0917PS_V2-0032.mp4</video:content_loc>
       <video:duration>54</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5916,7 +5898,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/villager-local-traditional-boat-indonesia-walking-away-a032-c105-0917ps-v2-0033.jpg</video:thumbnail_loc>
       <video:title>Villager Local Traditional Boat Indonesia Walking Away</video:title>
-      <video:description>Local man walks away from his small boat across the beach to the village, Bontoh village, Sangeang island, Sumbawa, Indonesia, No Model Release</video:description>
+      <video:description>A local man walks away from his small boat across the beach towards the village, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C105_0917PS_V2-0033.mp4</video:content_loc>
       <video:duration>54</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5930,7 +5912,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/villager-walking-through-colorful-sarongs-a032-c108-091766-v1-0073.jpg</video:thumbnail_loc>
       <video:title>Villager Walking Through Colorful Sarongs</video:title>
-      <video:description>A man walks under a drying line filled with colourful sorongs, Bonto village, Sangeang Island, Sumbawa, Indonesia. No MR</video:description>
+      <video:description>A man walks beneath a drying line hung with colourful sarongs, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C108_091766_V1-0073.mp4</video:content_loc>
       <video:duration>19</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5944,7 +5926,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/volcanic-activity-swell-black-sand-underwater-a031-c051-09160c-v1-0088.jpg</video:thumbnail_loc>
       <video:title>Volcanic Activity Swell Black Sand Underwater</video:title>
-      <video:description>Streams of volcanic bubbles rise from the black sand seafloor of Sangeang island, Sumbawa, Indonesia, Pacific Ocean</video:description>
+      <video:description>Streams of volcanic bubbles rise from the black sand seafloor of Sangeang Island, Sumbawa, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C051_09160C_V1-0088.mp4</video:content_loc>
       <video:duration>44</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5958,7 +5940,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/volcanic-activity-underwater-black-sand-a031-c049-0916a2-v1-0085.jpg</video:thumbnail_loc>
       <video:title>Volcanic Activity Underwater Black Sand</video:title>
-      <video:description>Wide slow motion shot of volcanic bubbles streaming out of the black sand at Sangeang Island, Sumbawa, Indonesia, Pacific Ocean</video:description>
+      <video:description>Wide slow-motion shot of volcanic bubbles streaming out of the black sand at Sangeang Island, Sumbawa, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C049_0916A2_V1-0085.mp4</video:content_loc>
       <video:duration>12</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -5972,7 +5954,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/volcanic-bubble-activity-underwater-black-sand-a031-c050-0916pz-v1-0086.jpg</video:thumbnail_loc>
       <video:title>Volcanic Bubble Activity Underwater Black Sand</video:title>
-      <video:description>Slow motion pushing forward over streams of volcanic bubbles rising from the black sand seabed at Sangeang Volcano, Sumbawa, Indonesia, Pacific Ocean</video:description>
+      <video:description>Slow-motion pushing forward over streams of volcanic bubbles rising from the black sand seabed at Sangeang Volcano, Sumbawa, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C050_0916PZ_V1-0086.mp4</video:content_loc>
       <video:duration>61</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6014,7 +5996,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-and-shafts-of-sunlight-on-bagan-a004-a021-0412hq-v1-0036.jpg</video:thumbnail_loc>
       <video:title>Whaleshark And Shafts Of Sunlight On Bagan</video:title>
-      <video:description>Looking up at a whale shark, Rhincodon typus, circling under a bagan, a traditional drop net fishing boat in Cendrawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>Looking up at a whale shark, Rhincodon typus, circling under a bagan, a traditional drop net fishing boat in Cenderawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A021_0412HQ_V1-0036.mp4</video:content_loc>
       <video:duration>32</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6028,7 +6010,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-backlit-with-sunrays-a004-a027-04124y-v1-0041.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Backlit With Sunrays</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims under a bagan with sun rays and a second shark in the background, Cendrawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims under a bagan with sun rays and a second shark in the background, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A027_04124Y_V1-0041.mp4</video:content_loc>
       <video:duration>54</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6042,7 +6024,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-belly-covered-in-remora-fish-a006-a056-04133j-v1-0059.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Belly Covered In Remora Fish</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims over the camera while covered in remoras, Echeneis naucrates, with a second whale shark behind, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims over the camera while covered in remoras, Echeneis naucrates, with a second whale shark behind, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A056_04133J_V1-0059.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6056,7 +6038,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-close-up-eye-contact-with-camera-a006-a083-0413aj-v1-0074.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Close Up Eye Contact With Camera</video:title>
-      <video:description>Close up of a whale shark, Rhincodon typus, rises up to the surface for feeding, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Close-up of a whale shark, Rhincodon typus, rising to the surface to feed, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A083_0413AJ_V1-0074.mp4</video:content_loc>
       <video:duration>39</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6070,7 +6052,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-close-up-of-mouth-opening-and-inhaling-water-a003-a074-0411ee-v1-0019.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Close Up Of Mouth Opening And Inhaling Water</video:title>
-      <video:description>Close up of a whale shark, Rhincodon typus, suction feeding showing the water going into its mouth under a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Close-up of a whale shark, Rhincodon typus, suction feeding showing the water going into its mouth under a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A074_0411EE_V1-0019.mp4</video:content_loc>
       <video:duration>44</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6084,7 +6066,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-coming-up-towards-the-nets-a006-a044-04136p-v1-0054.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Coming Up Towards The Nets</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims up toward the surface under a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims up towards the surface under a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A044_04136P_V1-0054.mp4</video:content_loc>
       <video:duration>56</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6098,7 +6080,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-crossing-with-cameraman-and-clearing-frame-above-a006-a066-0413c1-v1-0067.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Crossing With Cameraman And Clearing Frame Above</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims over the camera while covered in remoras, Echeneis naucrates, with fishing nets behind, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims over the camera while covered in remoras, Echeneis naucrates, with fishing nets behind, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A066_0413C1_V1-0067.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6112,7 +6094,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-eating-at-surface-eye-contact-with-camera-a004-a002-0412n6-v1-0028.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Eating At Surface Eye Contact With Camera</video:title>
-      <video:description>Whale shark, Rhincodon typus, approaches the camera and turns toward the fishing nets to feed, Cendrawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, approaches the camera and turns towards the fishing nets to feed, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A002_0412N6_V1-0028.mp4</video:content_loc>
       <video:duration>33</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6126,7 +6108,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-eating-by-fishing-nets-a003-a075-0411ax-v1-0045.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Eating By Fishing Nets</video:title>
-      <video:description>A whale shark, Rhincodon typus, opens its mouth in front of the camera while swimming under a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, opens its mouth in front of the camera while swimming under a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A075_0411AX_V1-0045.mp4</video:content_loc>
       <video:duration>126</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6140,7 +6122,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-eating-leftover-bait-thrown-from-fishermen-a006-a077-0413sw-v1-0070.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Eating Leftover Bait Thrown From Fishermen</video:title>
-      <video:description>A whale shark, Rhincodon typus, eats baitfish while swimming under a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, eats baitfish while swimming under a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A077_0413SW_V1-0070.mp4</video:content_loc>
       <video:duration>76</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6154,7 +6136,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-eating-leftover-fish-from-fishermen-a006-a053-041381-v1-0057.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Eating Leftover Fish From Fishermen</video:title>
-      <video:description>Two whale sharks, Rhincodon typus, eat small bait fish thrown by fishermen off of a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Two whale sharks, Rhincodon typus, feed on small bait fish thrown by fishermen from a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A053_041381_V1-0057.mp4</video:content_loc>
       <video:duration>71</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6168,7 +6150,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-eating-on-the-surface-vertical-position-a003-a073-04111r-v1-0018.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Eating On The Surface Vertical Position</video:title>
-      <video:description>A whale shark, Rhincodon typus,  feeds vertically in the water column on small fish thrown by fishermen on a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, feeds vertically in the water column on small fish thrown by fishermen on a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A073_04111R_V1-0018.mp4</video:content_loc>
       <video:duration>114</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6182,7 +6164,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-entering-and-clearing-frame-diagonally-a006-a061-0413p3-v1-0064.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Entering And Clearing Frame Diagonally</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims into and out of the frame, shot from above looking at the top of the shark, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims into and out of the frame, shot from above looking at the top of the shark, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A061_0413P3_V1-0064.mp4</video:content_loc>
       <video:duration>30</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6196,7 +6178,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-entering-frame-from-below-in-blue-water-a006-a079-0413da-v1-0071.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Entering Frame From Below In Blue Water</video:title>
-      <video:description>A whale shark, Rhincodon typus, enters the frame from the bottom with camera showcasing the spots on the top of the shark, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, enters the frame from the bottom with camera highlighting the spot pattern on the top of the shark, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A079_0413DA_V1-0071.mp4</video:content_loc>
       <video:duration>35</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6210,7 +6192,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-entering-frame-going-towards-the-nets-a006-a069-04136t-v1-0068.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Entering Frame Going Towards The Nets</video:title>
-      <video:description>A whale shark, Rhincodon typus, enters the frame from the right in front of a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, enters the frame from the right in front of a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A069_04136T_V1-0068.mp4</video:content_loc>
       <video:duration>42</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6224,7 +6206,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-entering-frame-in-clear-blue-water-view-from-above-straight-down-a003-a084-041162-v1-0025.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Entering Frame In Clear Blue Water View From Above Straight Down</video:title>
-      <video:description>Looking down on a whale shark, Rhincodon typus, swimming away from the camera , Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Looking down on a whale shark, Rhincodon typus, swimming away from the camera, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A084_041162_V1-0025.mp4</video:content_loc>
       <video:duration>30</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6238,7 +6220,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-eye-contact-up-close-to-camera-a004-a081-0412ag-v1-0042.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Eye Contact Up Close To Camera</video:title>
-      <video:description>Silhouette of a whale shark, Rhincodon typus, swimming overhead with a second shark coming in from the side, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Silhouette of a whale shark, Rhincodon typus, swimming overhead with a second shark coming in from the side, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A081_0412AG_V1-0042.mp4</video:content_loc>
       <video:duration>8</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6252,7 +6234,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-face-close-up-a003-a075-0411ax-v1-0020.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Face Close Up</video:title>
-      <video:description>A whale shark, Rhincodon typus, opens its mouth in front of the camera while swimming under a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, opens its mouth in front of the camera while swimming under a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A075_0411AX_V1-0020.mp4</video:content_loc>
       <video:duration>63</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6266,7 +6248,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-next-to-fishing-nets-a004-a001-0412hc-v1-0027.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Next To Fishing Nets</video:title>
-      <video:description>A whale shark, Rhincodon typus, sucking at a net on the bottom of a boat while doing vertical feeding, Cendrawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, suction-feeding at a net on the bottom of a boat while doing vertical feeding, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A001_0412HC_V1-0027.mp4</video:content_loc>
       <video:duration>69</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6280,7 +6262,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-silhouette-swimming-and-filling-the-frame-a006-a089-04138a-v1-0044.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Silhouette Swimming And Filling The Frame</video:title>
-      <video:description>A whale shark, Rhincodon typus, enters the frame in front of a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, enters the frame in front of a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A089_04138A_V1-0044.mp4</video:content_loc>
       <video:duration>65</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6294,7 +6276,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-swimming-below-in-deep-water-a006-a087-0413wa-v1-0043.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Swimming Below In Deep Water</video:title>
-      <video:description>Looking down on a whale shark, Rhincodon typus, swimming in the open ocean, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Looking down on a whale shark, Rhincodon typus, swimming in the open ocean, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A087_0413WA_V1-0043.mp4</video:content_loc>
       <video:duration>187</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6308,7 +6290,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-swimming-below-in-the-deep-a006-a062-0413wx-v1-0049.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Swimming Below In The Deep</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims far below in the blue, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims far below in the blue, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A062_0413WX_V1-0049.mp4</video:content_loc>
       <video:duration>62</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6322,7 +6304,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-swimming-in-blue-water-a006-a058-0413ed-v1-0061.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Swimming In Blue Water</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims past the camera with right side of the shark showing its spots, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims past the camera with its right flank showing its spot pattern, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A058_0413ED_V1-0061.mp4</video:content_loc>
       <video:duration>44</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6336,7 +6318,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-swimming-in-the-blue-a006-a068-0413cz-v1-0053.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Swimming In The Blue</video:title>
-      <video:description>The front left side of a whale shark, Rhincodon typus, as it swims in the blue Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>The front left flank of a whale shark, Rhincodon typus, swimming in blue water, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A068_0413CZ_V1-0053.mp4</video:content_loc>
       <video:duration>32</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6350,7 +6332,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-swimming-next-to-nets-with-sunrays-a004-a008-0412nb-v1-0033.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Swimming Next To Nets With Sunrays</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims away from the net under a bagan, a traditional drop net fishing boat, Cendrawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims away from the net under a bagan, a traditional drop net fishing boat, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A008_0412NB_V1-0033.mp4</video:content_loc>
       <video:duration>124</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6364,7 +6346,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-swimming-next-to-nets-with-sunrays-and-particles-a004-a008-0412nb-v1-0034.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Swimming Next To Nets With Sunrays And Particles</video:title>
-      <video:description>A whale shark, Rhincodon typus, approaches a bagan boat to feed on bait fish while two more sharks approach behind, Cendrawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, approaches a bagan boat to feed on bait fish while two more sharks approach behind, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A008_0412NB_V1-0034.mp4</video:content_loc>
       <video:duration>124</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6378,7 +6360,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-swimming-through-frame-looking-from-above-a006-a059-0413zl-v1-0062.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Swimming Through Frame Looking From Above</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims into the frame from the top and exits from the bottom as seen from above, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, enters the frame from above and exits below, viewed from above, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A059_0413ZL_V1-0062.mp4</video:content_loc>
       <video:duration>31</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6392,7 +6374,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-swimming-toward-and-clearing-camera-frame-a003-a081-0411lk-v1-0024.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Swimming Toward And Clearing Camera Frame</video:title>
-      <video:description>A whale shark, Rhincodon typus, swimming in the open water column under the camera, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swimming in the open water column under the camera, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A081_0411LK_V1-0024.mp4</video:content_loc>
       <video:duration>37</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6406,7 +6388,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-swimming-toward-camera-with-boat-propeller-in-view-a003-a088-0411is-v1-0026.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Swimming Toward Camera With Boat Propeller In View</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims toward the camera underneath a small boat in Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims towards the camera underneath a small boat in Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A088_0411IS_V1-0026.mp4</video:content_loc>
       <video:duration>34</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6420,7 +6402,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-swimming-towards-and-over-the-camera-a006-a054-04133l-v1-0058.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Swimming Towards And Over The Camera</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims over the camera while covered in remoras, Echeneis naucrates, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims over the camera while covered in remoras, Echeneis naucrates, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A054_04133L_V1-0058.mp4</video:content_loc>
       <video:duration>18</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6434,7 +6416,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-swimming-towards-camera-and-clear-frame-a003-a162-04108g-v1-0017.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Swimming Towards Camera And Clear Frame</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims under the camera showing off the unique spots on its back, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims under the camera showing off the unique spots on its back, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A162_04108G_V1-0017.mp4</video:content_loc>
       <video:duration>32</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6448,7 +6430,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-swimming-towards-camera-and-clearing-frame-a006-a049-0413ws-v1-0056.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Swimming Towards Camera And Clearing Frame</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims past the camera while covered in remoras, Echeneis naucrates, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims past the camera while covered in remoras, Echeneis naucrates, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A049_0413WS_V1-0056.mp4</video:content_loc>
       <video:duration>31</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6462,7 +6444,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-swimming-towards-camera-in-the-shadow-of-the-silhouetted-fishing-platform-a006-a071-0413mx-v1-0069.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Swimming Towards Camera In The Shadow Of The Silhouetted Fishing Platform</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims in the shadows under a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims in the shadows under a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A071_0413MX_V1-0069.mp4</video:content_loc>
       <video:duration>41</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6476,7 +6458,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-swimming-towards-the-blue-a003-a154-0410pn-v1-0012.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Swimming Towards The Blue</video:title>
-      <video:description>Looking down at a whale shark, Rhincodon typus, as it swims down into the deep, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Looking down at a whale shark, Rhincodon typus, as it swims down into the deep, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A154_0410PN_V1-0012.mp4</video:content_loc>
       <video:duration>151</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6490,7 +6472,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-swimming-up-towards-shafts-of-light-a004-a022-0412hy-v1-0037.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Swimming Up Towards Shafts Of Light</video:title>
-      <video:description>A whale shark, Rhincodon typus, swims up from the depths toward a bagan drop net fishing boat, Cendrawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, swims up from the depths towards a bagan drop net fishing boat, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A022_0412HY_V1-0037.mp4</video:content_loc>
       <video:duration>87</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6504,7 +6486,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-vertical-close-to-the-fishing-nets-view-from-behind-a003-a076-0411vp-v1-0021.jpg</video:thumbnail_loc>
       <video:title>Whaleshark Vertical Close To The Fishing Nets View From Behind</video:title>
-      <video:description>Camera pans up from the fins along the back of a whale shark, Rhincodon typus, vertically feeding in the water under a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Camera pans up along the dorsal surface of a whale shark, Rhincodon typus, vertically feeding in the water under a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A076_0411VP_V1-0021.mp4</video:content_loc>
       <video:duration>57</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6518,7 +6500,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whaleshark-with-satellite-tag-swimming-toward-camera-in-blue-water-a006-a064-0413b4-v1-0066.jpg</video:thumbnail_loc>
       <video:title>Whaleshark With Satellite Tag Swimming Toward Camera In Blue Water</video:title>
-      <video:description>A whale shark, Rhincodon typus, with a satellite tag on its dorsal fin swims just below the surface, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whale shark, Rhincodon typus, with a satellite tag on its dorsal fin swims just below the surface, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A064_0413B4_V1-0066.mp4</video:content_loc>
       <video:duration>38</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6532,7 +6514,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whalesharks-crossing-each-other-a003-a160-04107g-v1-0016.jpg</video:thumbnail_loc>
       <video:title>Whalesharks Crossing Each Other</video:title>
-      <video:description>Three whale sharks, Rhincodon typus, feeding under a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Three whale sharks, Rhincodon typus, feeding under a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A160_04107G_V1-0016.mp4</video:content_loc>
       <video:duration>27</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6546,7 +6528,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/whalesharks-swimming-along-together-a006-a063-04131t-v1-0065.jpg</video:thumbnail_loc>
       <video:title>Whalesharks Swimming Along Together</video:title>
-      <video:description>Two whale sharks, Rhincodon typus, swim past each other in the blue water under a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
+      <video:description>Two whale sharks, Rhincodon typus, swim past each other in the blue water under a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A063_04131T_V1-0065.mp4</video:content_loc>
       <video:duration>55</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6560,7 +6542,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/white-tip-reef-shark-fish-above-canyon-komodo-a032-c016-0916bo-001.jpg</video:thumbnail_loc>
       <video:title>White Tip Reef Shark Fish Above Canyon Komodo</video:title>
-      <video:description>Several species of fish such as trevally and a white tip reef shark,Triaenodon obesus, are silhouetted while swimming in an underwater canyon. Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Several species of fish such as trevally and a whitetip reef shark, Triaenodon obesus, are silhouetted while swimming in an underwater canyon, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C016_0916BO.mp4</video:content_loc>
       <video:duration>14</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6574,7 +6556,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/white-tip-reef-shark-overhang-mid-a032-c008-0916uy-001.jpg</video:thumbnail_loc>
       <video:title>White Tip Reef Shark Overhang Mid</video:title>
-      <video:description>Close up view of a white tip reef shark, Triaenodon obesus, sitting under a ledge in the Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Close-up view of a whitetip reef shark, Triaenodon obesus, sitting under a ledge in the Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C008_0916UY.mp4</video:content_loc>
       <video:duration>17</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6588,7 +6570,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/white-tip-reef-shark-overhang-wide-a032-c007-0916dg-001.jpg</video:thumbnail_loc>
       <video:title>White Tip Reef Shark Overhang Wide</video:title>
-      <video:description>A white tip reef shark, Triaenodon obesus, sits under a ledge in the Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whitetip reef shark, Triaenodon obesus, sits under a ledge in the Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C007_0916DG.mp4</video:content_loc>
       <video:duration>24</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6602,7 +6584,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/white-tip-reefshark-reveal-fusillier-background-a031-c016-09153p-v2-0005.jpg</video:thumbnail_loc>
       <video:title>White Tip Reefshark Reveal Fusillier Background</video:title>
-      <video:description>A white tip reef shark, Triaenodon obesus, swims in the water column surrounded by schools of fusiliers including Caesio xanthonota and Caesio teres, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A whitetip reef shark, Triaenodon obesus, swims in the water column surrounded by schools of fusiliers including Caesio xanthonota and Caesio teres, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C016_09153P_V2-0005.mp4</video:content_loc>
       <video:duration>34</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6644,7 +6626,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/wide-shot-ladies-villagers-front-of-huts-goat-a032-c094-09170n-v2-0022.jpg</video:thumbnail_loc>
       <video:title>Wide Shot Ladies Villagers Front Of Huts Goat</video:title>
-      <video:description>Pan left to right of two women standing in front of local homes with goats and chickens, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
+      <video:description>Pan from left to right across two women standing in front of local homes with goats and chickens, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C094_09170N_V2-0022.mp4</video:content_loc>
       <video:duration>12</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6658,7 +6640,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/wide-shot-surgeonfish-school-giant-trevally-a031-c024-0915r9-v2-0014.jpg</video:thumbnail_loc>
       <video:title>Wide Shot Surgeonfish School Giant Trevally</video:title>
-      <video:description>A large school of elongate surgeonfish, Acanthurus mata,with giant trevally, Caranx ignobilis, lurking behind, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>A large school of elongate surgeonfish, Acanthurus mata, with giant trevally, Caranx ignobilis, lurking behind, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A031_C024_0915R9_V2-0014.mp4</video:content_loc>
       <video:duration>78</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6700,9 +6682,37 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/woman-sarongs-village-a032-c090-0917vl-v2-0019.jpg</video:thumbnail_loc>
       <video:title>Woman Sarongs Village</video:title>
-      <video:description>A smiling local woman shows off her brightly colour sarongs, Bonto village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
+      <video:description>A smiling local woman shows off her brightly coloured sarongs, Bontoh village, Sangeang Island, Sumbawa, Indonesia, No Model Release</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C090_0917VL_V2-0019.mp4</video:content_loc>
       <video:duration>9</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://indopacificstock.com/clip/wooden-whaleshark-souvenir-for-sale-a005-a018-0412k7-v1-0008/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/wooden-whaleshark-souvenir-for-sale-a005-a018-0412k7-v1-0008.jpg</video:thumbnail_loc>
+      <video:title>Wooden Whaleshark Souvenir For Sale</video:title>
+      <video:description>Painted wooden whale shark souvenir for sale, Nabire, Central Papua, Cenderawasih Bay, Indonesia (No Property Release)</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A018_0412K7_V1-0008.mp4</video:content_loc>
+      <video:duration>14</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://indopacificstock.com/clip/woven-baskets-for-sale-a005-a005-0412ls-v1-0005/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/woven-baskets-for-sale-a005-a005-0412ls-v1-0005.jpg</video:thumbnail_loc>
+      <video:title>Woven Baskets For Sale</video:title>
+      <video:description>Handmade woven baskets for food stacked and for sale, Nabire, Central Papua, Cenderawasih Bay, Indonesia (No Property Release)</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A005_0412LS_V1-0005.mp4</video:content_loc>
+      <video:duration>4</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:requires_subscription>no</video:requires_subscription>
@@ -6742,7 +6752,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/yellow-thorny-seahorse-macro-mid-a032-c079-09162s-v1-0144.jpg</video:thumbnail_loc>
       <video:title>Yellow Thorny Seahorse Macro Mid</video:title>
-      <video:description>Close up of a yellow thorny seahorse, Hippocampus histrix, perched on seagrass, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Close-up of a yellow thorny seahorse, Hippocampus histrix, perched on seagrass, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C079_09162S_V1-0144.mp4</video:content_loc>
       <video:duration>33</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
@@ -6756,7 +6766,7 @@
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/yellow-thorny-seahorse-macro-wide-a032-c078-09169v-v1-0143.jpg</video:thumbnail_loc>
       <video:title>Yellow Thorny Seahorse Macro Wide</video:title>
-      <video:description>Wider view of a yellow thorny seahorse, Hippocampus histrix, perched on seagrass, Komodo National Park, Indonesia, Pacific Ocean</video:description>
+      <video:description>Wide view of a yellow thorny seahorse, Hippocampus histrix, perched on seagrass, Komodo National Park, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A032_C078_09169V_V1-0143.mp4</video:content_loc>
       <video:duration>55</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>

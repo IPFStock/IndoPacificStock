@@ -15,7 +15,7 @@
   "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting whaleshark swimming in blue water.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A058_0413ED_V1-0061.mp4",
-  "description": "A whale shark, Rhincodon typus, swims past the camera with right side of the shark showing its spots, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean",
+  "description": "A whale shark, Rhincodon typus, swims past the camera with its right flank showing its spot pattern, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean",
   "keywords": [
     "4k r3d",
     "50 fps",
@@ -23,10 +23,10 @@
     "blue",
     "camera",
     "cenderawasih",
-    "cendrawasih",
-    "cendrawasih bay",
+    "cenderawasih bay",
     "dsmc2",
     "dsmc2 gemini 5k s35",
+    "flank",
     "gemini",
     "indonesia",
     "mammals",
@@ -39,6 +39,7 @@
     "papua",
     "papua province",
     "past",
+    "pattern",
     "province",
     "r3d",
     "raw",
@@ -47,8 +48,7 @@
     "redcode 7 1 red raw",
     "reptiles",
     "rhincodon",
-    "rhincodon typus",
-    "right"
+    "rhincodon typus"
   ],
   "technicalSpecs": {
     "fileName": "A006_A058_0413ED_V1-0061.mp4",

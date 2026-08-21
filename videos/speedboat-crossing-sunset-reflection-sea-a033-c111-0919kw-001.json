@@ -15,7 +15,7 @@
   "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting speedboat crossing sunset reflection sea.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A033_C111_0919KW.mp4",
-  "description": "Sunset over the waters of Komodo National Park with a speedboat crossing in front of a traditional phinisi boat in the foreground, Komodo National Park, Indonesia, Pacific Ocean",
+  "description": "Sunset over the waters of Komodo National Park, with a speedboat crossing in front of a traditional phinisi boat, Komodo National Park, Indonesia, Pacific Ocean",
   "keywords": [
     "59.94 fps",
     "5k r3d",
@@ -28,7 +28,6 @@
     "drone",
     "dsmc2",
     "dsmc2 gemini 5k s35",
-    "foreground",
     "front",
     "gemini",
     "indonesia",
@@ -40,7 +39,6 @@
     "pacific",
     "pacific ocean",
     "park",
-    "park with a speedboat crossing in front of a traditional phinisi boat in the foreground",
     "phinisi",
     "r3d",
     "raw",
@@ -48,7 +46,9 @@
     "redcode",
     "reflection",
     "s35",
-    "sea"
+    "sea",
+    "seascape",
+    "speedboat"
   ],
   "technicalSpecs": {
     "fileName": "A033_C111_0919KW.mp4",

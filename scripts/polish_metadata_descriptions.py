@@ -278,6 +278,10 @@ def polish_description(text: str) -> str:
     d = re.sub(r'\band and\b', 'and', d, flags=re.I)
 
     replacements = [
+        (r'\bHand made\b', 'Handmade'),
+        (r'\bhand made\b', 'handmade'),
+        (r'\(no property release\)', '(No Property Release)'),
+        (r'\(no model or property release\)', '(No Model or Property Release)'),
         (r'\bClose up\b', 'Close-up'),
         (r'\bclose up\b', 'close-up'),
         (r'\bCloseup\b', 'Close-up'),

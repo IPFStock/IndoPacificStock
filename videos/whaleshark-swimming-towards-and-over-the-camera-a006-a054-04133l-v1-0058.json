@@ -15,15 +15,14 @@
   "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting whaleshark swimming towards and over the camera.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A054_04133L_V1-0058.mp4",
-  "description": "A whale shark, Rhincodon typus, swims over the camera while covered in remoras, Echeneis naucrates, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean",
+  "description": "A whale shark, Rhincodon typus, swims over the camera while covered in remoras, Echeneis naucrates, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean",
   "keywords": [
     "4k r3d",
     "50 fps",
     "bay",
     "camera",
     "cenderawasih",
-    "cendrawasih",
-    "cendrawasih bay",
+    "cenderawasih bay",
     "covered",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -48,7 +47,8 @@
     "redcode",
     "redcode 7 1 red raw",
     "remoras",
-    "reptiles"
+    "reptiles",
+    "rhincodon"
   ],
   "technicalSpecs": {
     "fileName": "A006_A054_04133L_V1-0058.mp4",

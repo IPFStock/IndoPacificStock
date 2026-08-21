@@ -187,6 +187,7 @@ def title_column_name(headers: list[str]) -> str | None:
         'Title/Comments',
         'Comments/Title',
         'Title Comments',
+        'Comments Title',
     ):
         if candidate in normalized:
             return candidate

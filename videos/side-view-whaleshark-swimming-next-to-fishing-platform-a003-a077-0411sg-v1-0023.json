@@ -15,7 +15,7 @@
   "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting side view whaleshark swimming next to fishing platform.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A077_0411SG_V1-0023.mp4",
-  "description": "A whale shark, Rhincodon typus, swims under a small boat with its left side to the camera toward a bagan, a traditional Indonesian drop net fishing boat, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean",
+  "description": "A whale shark, Rhincodon typus, swims under a small boat with its left side to the camera towards a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean",
   "keywords": [
     "50 fps",
     "5k r3d",
@@ -25,8 +25,7 @@
     "boat",
     "camera",
     "cenderawasih",
-    "cendrawasih",
-    "cendrawasih bay",
+    "cenderawasih bay",
     "drop",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -48,7 +47,8 @@
     "papua",
     "papua province",
     "platform",
-    "province"
+    "province",
+    "r3d"
   ],
   "technicalSpecs": {
     "fileName": "A003_A077_0411SG_V1-0023.mp4",

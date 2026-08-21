@@ -12,9 +12,11 @@ const GITHUB_BRANCH = 'main';
 const GITHUB_RAW_BASE = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}`;
 
 function findNumbersFile() {
-  return fs
+  const files = fs
     .readdirSync(__dirname)
-    .find((file) => file.toLowerCase().endsWith('.numbers') && /metadata|stock|clips|davinci/i.test(file));
+    .filter((file) => file.toLowerCase().endsWith('.numbers') && /metadata|stock|clips|davinci/i.test(file));
+  const master = files.find((file) => /^Raja Stock Clips 3 Clips Metadata\.numbers$/i.test(file));
+  return master || files[0] || undefined;
 }
 
 function exportNumbersToCsv(numbersFileName) {
@@ -70,6 +72,12 @@ Optional: ffmpeg/ffprobe (brew install ffmpeg) probes clip length from GitHub MP
     return preferred;
   }
 
+  const masterCsv = path.join(__dirname, 'Raja Stock Clips 3 Clips Metadata.csv');
+  if (flags.useCsvOnly && fs.existsSync(masterCsv)) {
+    console.log('Using master CSV (--use-csv-only): Raja Stock Clips 3 Clips Metadata.csv');
+    return masterCsv;
+  }
+
   const numbersFile = findNumbersFile();
   const csvFromNumbers = numbersFile
     ? path.join(__dirname, numbersFile.replace(/\.numbers$/i, '.csv'))
@@ -100,9 +108,25 @@ Optional: ffmpeg/ffprobe (brew install ffmpeg) probes clip length from GitHub MP
 
   if (fs.existsSync(preferred)) return preferred;
 
+  const preferredMaster = fs
+    .readdirSync(__dirname)
+    .find((file) => /^Raja Stock Clips 3 Clips Metadata\.csv$/i.test(file));
+  if (preferredMaster) {
+    console.log(`Using master CSV: ${preferredMaster}`);
+    return path.join(__dirname, preferredMaster);
+  }
+
   const csvFiles = fs
     .readdirSync(__dirname)
-    .filter((file) => file.toLowerCase().endsWith('.csv'))
+    .filter((file) => {
+      const lower = file.toLowerCase();
+      return (
+        lower.endsWith('.csv') &&
+        !/copy/i.test(lower) &&
+        !/\.backup\./i.test(lower) &&
+        !/export\d/i.test(lower)
+      );
+    })
     .sort();
 
   if (csvFiles.length === 0) return null;
@@ -1160,6 +1184,7 @@ function findAllMetadataCsvFiles(primaryCsvPath) {
         !/export\d/i.test(lower) &&
         !/22 clips/i.test(lower) &&
         !/\.backup\./i.test(lower) &&
+        !/copy/i.test(lower) &&
         !/^stub-/i.test(lower)
       );
     })
@@ -1227,7 +1252,8 @@ function buildStubFromMp4(mp4FileName) {
 
 function pruneStaleJson(activeSlugs) {
   const active = new Set(activeSlugs);
-  const existing = fs.readdirSync(outputDir).filter((file) => file.endsWith('.json') && file !== 'manifest.json');
+  const keep = new Set(['manifest.json', 'catalog.json', 'homepage-featured.json']);
+  const existing = fs.readdirSync(outputDir).filter((file) => file.endsWith('.json') && !keep.has(file));
 
   existing.forEach((file) => {
     const slug = file.replace(/\.json$/, '');

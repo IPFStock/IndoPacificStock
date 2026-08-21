@@ -15,7 +15,7 @@
   "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting whaleshark swimming below in the deep.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A062_0413WX_V1-0049.mp4",
-  "description": "A whale shark, Rhincodon typus, swims far below in the blue, Cendrawasih Bay, Papua Province, Indonesia, Pacific Ocean",
+  "description": "A whale shark, Rhincodon typus, swims far below in the blue, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean",
   "keywords": [
     "4k r3d",
     "50 fps",
@@ -23,8 +23,7 @@
     "below",
     "blue",
     "cenderawasih",
-    "cendrawasih",
-    "cendrawasih bay",
+    "cenderawasih bay",
     "deep",
     "dsmc2",
     "dsmc2 gemini 5k s35",
@@ -48,7 +47,8 @@
     "redcode 7 1 red raw",
     "reptiles",
     "rhincodon",
-    "rhincodon typus"
+    "rhincodon typus",
+    "s35"
   ],
   "technicalSpecs": {
     "fileName": "A006_A062_0413WX_V1-0049.mp4",
