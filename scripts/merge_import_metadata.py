@@ -224,7 +224,10 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
         if not title and not description:
             continue
 
-        fps = row[index['Camera FPS']].strip() if 'Camera FPS' in index else '24'
+        fps = row[index['Camera FPS']].strip() if 'Camera FPS' in index else ''
+        if not fps and 'Shot Frame Rate' in index:
+            fps = row[index['Shot Frame Rate']].strip()
+        fps = fps or '24'
         start_tc = row[index['Start TC']].strip() if 'Start TC' in index else ''
         end_tc = row[index['End TC']].strip() if 'End TC' in index else ''
         duration = row[index['Duration TC']].strip() if 'Duration TC' in index else ''
@@ -282,6 +285,7 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
 
 
 def assign_mp4_names(exports: list[dict[str, str]], github_mp4s: list[str]) -> list[dict[str, str]]:
+    github_lookup = {name.lower(): name for name in github_mp4s}
     by_reel: dict[str, list[str]] = {}
     for mp4 in github_mp4s:
         by_reel.setdefault(reel_base(mp4), []).append(mp4)
@@ -290,13 +294,27 @@ def assign_mp4_names(exports: list[dict[str, str]], github_mp4s: list[str]) -> l
         names.sort(key=mp4_variant_index)
 
     assigned: list[dict[str, str]] = []
-    grouped: dict[str, list[dict[str, str]]] = {}
+    used_global: set[str] = set()
+    remaining: list[dict[str, str]] = []
+
     for entry in exports:
+        file_name = entry['file_name']
+        if re.search(r'\.mp4$', file_name, flags=re.I):
+            match = github_lookup.get(file_name.lower()) or file_name
+            merged = dict(entry)
+            merged['mp4_name'] = match
+            assigned.append(merged)
+            used_global.add(match.lower())
+            continue
+        remaining.append(entry)
+
+    grouped: dict[str, list[dict[str, str]]] = {}
+    for entry in remaining:
         grouped.setdefault(entry['reel_base'], []).append(entry)
 
     for reel, entries in grouped.items():
         entries.sort(key=lambda item: item.get('start_tc') or item['file_name'])
-        candidates = list(by_reel.get(reel, []))
+        candidates = [name for name in by_reel.get(reel, []) if name.lower() not in used_global]
         used: set[str] = set()
 
         for entry in entries:
@@ -311,6 +329,7 @@ def assign_mp4_names(exports: list[dict[str, str]], github_mp4s: list[str]) -> l
             if not mp4_name:
                 mp4_name = f"{entry['reel_base']}.mp4"
             used.add(mp4_name)
+            used_global.add(mp4_name.lower())
             merged = dict(entry)
             merged['mp4_name'] = mp4_name
             assigned.append(merged)
@@ -338,21 +357,36 @@ def build_master_row(entry: dict[str, str], width: int) -> list[str]:
     return row
 
 
+def export_number_from_name(name: str) -> int | None:
+    match = re.search(r'export\s*(\d+)', name, flags=re.I)
+    return int(match.group(1)) if match else None
+
+
+def discover_export_files() -> dict[int, Path]:
+    found: dict[int, Path] = {}
+    if not IMPORTS_DIR.exists():
+        return found
+    for path in IMPORTS_DIR.iterdir():
+        if path.suffix.lower() != '.csv':
+            continue
+        number = export_number_from_name(path.name)
+        if number is None:
+            continue
+        existing = found.get(number)
+        if existing is None or path.name.lower().startswith('ipf_'):
+            found[number] = path
+    return found
+
+
 def resolve_import_paths(export_numbers: list[int] | None) -> list[Path]:
-    all_exports = sorted(
-        IMPORTS_DIR.glob('IPF_STOCK_FOOTAGE_export*.csv'),
-        key=lambda path: int(re.search(r'export(\d+)', path.name, flags=re.I).group(1)),
-    )
-    if not all_exports:
+    by_number = discover_export_files()
+    if not by_number:
         return []
 
     if not export_numbers:
-        return [all_exports[-1]]
+        latest = max(by_number)
+        return [by_number[latest]]
 
-    by_number = {
-        int(re.search(r'export(\d+)', path.name, flags=re.I).group(1)): path
-        for path in all_exports
-    }
     missing = [number for number in export_numbers if number not in by_number]
     if missing:
         raise SystemExit(f'Missing export files for: {", ".join(map(str, missing))}')
@@ -421,7 +455,7 @@ def main() -> int:
 
     import_paths = resolve_import_paths(export_numbers)
     if not import_paths:
-        print('No IPF_STOCK_FOOTAGE_export*.csv files found in imports/.')
+        print('No export CSV files found in imports/.')
         return 1
 
     shutil.copy2(MASTER, BACKUP)

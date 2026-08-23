@@ -890,4 +890,136 @@ mv "A003_A035_0411IP_V1-0013.mp4" "living-quarter-of-a-bagan-traditional-boat-a0
 mv "A003_A060_0411VK_V1-0014.mp4" "fisherman-manually-pulls-up-anchor-a003-a060-0411vk-v1-0014.mp4" 2>/dev/null || mv "A003_A060_0411VK_V1-0014.mp4" "A003_A060_0411VK_V1-0014.mp4" 2>/dev/null || true
 # Fisherman Manually Pulls On A Winch
 mv "A003_A061_0411IA_V1-0015.mp4" "fisherman-manually-pulls-on-a-winch-a003-a061-0411ia-v1-0015.mp4" 2>/dev/null || mv "A003_A061_0411IA_V1-0015.mp4" "A003_A061_0411IA_V1-0015.mp4" 2>/dev/null || true
+# Group Of Men Fishing On Jetty
+mv "A002_A003_0408FB_V2-0006.mp4" "group-of-men-fishing-on-jetty-a002-a003-0408fb-v2-0006.mp4" 2>/dev/null || mv "A002_A003_0408FB_V2-0006.mp4" "A002_A003_0408FB_V2-0006.mp4" 2>/dev/null || true
+# Sunset And Fishing
+mv "A002_A004_0408BX_V2-0007.mp4" "sunset-and-fishing-a002-a004-0408bx-v2-0007.mp4" 2>/dev/null || mv "A002_A004_0408BX_V2-0007.mp4" "A002_A004_0408BX_V2-0007.mp4" 2>/dev/null || true
+# Plane Coming In To Land
+mv "A002_A037_0409MP_V2-0001.mp4" "plane-coming-in-to-land-a002-a037-0409mp-v2-0001.mp4" 2>/dev/null || mv "A002_A037_0409MP_V2-0001.mp4" "A002_A037_0409MP_V2-0001.mp4" 2>/dev/null || true
+# Wings Air Plane Landing
+mv "A002_A037_0409MP_V2-0002.mp4" "wings-air-plane-landing-a002-a037-0409mp-v2-0002.mp4" 2>/dev/null || mv "A002_A037_0409MP_V2-0002.mp4" "A002_A037_0409MP_V2-0002.mp4" 2>/dev/null || true
+# Small Speed Boat At Anchor On Beach
+mv "A003_A001_0411BY_V2-0009.mp4" "small-speed-boat-at-anchor-on-beach-a003-a001-0411by-v2-0009.mp4" 2>/dev/null || mv "A003_A001_0411BY_V2-0009.mp4" "A003_A001_0411BY_V2-0009.mp4" 2>/dev/null || true
+# Small Speed Boat At Anchor In Shallows
+mv "A003_A002_04112G_V2-0010.mp4" "small-speed-boat-at-anchor-in-shallows-a003-a002-04112g-v2-0010.mp4" 2>/dev/null || mv "A003_A002_04112G_V2-0010.mp4" "A003_A002_04112G_V2-0010.mp4" 2>/dev/null || true
+# The Jetty Of Kali Lemon Resort
+mv "A003_A004_0411EO_V2-0008.mp4" "the-jetty-of-kali-lemon-resort-a003-a004-0411eo-v2-0008.mp4" 2>/dev/null || mv "A003_A004_0411EO_V2-0008.mp4" "A003_A004_0411EO_V2-0008.mp4" 2>/dev/null || true
+# Kali Lemon Resort
+mv "A003_A007_0411ZF_V2-0011.mp4" "kali-lemon-resort-a003-a007-0411zf-v2-0011.mp4" 2>/dev/null || mv "A003_A007_0411ZF_V2-0011.mp4" "A003_A007_0411ZF_V2-0011.mp4" 2>/dev/null || true
+# Flat Calm Sea
+mv "A003_A012_0411AV_V2-0012.mp4" "flat-calm-sea-a003-a012-0411av-v2-0012.mp4" 2>/dev/null || mv "A003_A012_0411AV_V2-0012.mp4" "A003_A012_0411AV_V2-0012.mp4" 2>/dev/null || true
+# Fishing Boats On Anchor
+mv "A003_A063_0408XO_V2-0003.mp4" "fishing-boats-on-anchor-a003-a063-0408xo-v2-0003.mp4" 2>/dev/null || mv "A003_A063_0408XO_V2-0003.mp4" "A003_A063_0408XO_V2-0003.mp4" 2>/dev/null || true
+# Fishing Boats On Anchor In The Distance
+mv "A003_A065_0408XE_V2-0004.mp4" "fishing-boats-on-anchor-in-the-distance-a003-a065-0408xe-v2-0004.mp4" 2>/dev/null || mv "A003_A065_0408XE_V2-0004.mp4" "A003_A065_0408XE_V2-0004.mp4" 2>/dev/null || true
+# Pink Clouds At Dusk Over The Ocean
+mv "A003_A068_0408L6_V2-0005.mp4" "pink-clouds-at-dusk-over-the-ocean-a003-a068-0408l6-v2-0005.mp4" 2>/dev/null || mv "A003_A068_0408L6_V2-0005.mp4" "A003_A068_0408L6_V2-0005.mp4" 2>/dev/null || true
+# Whale Shark Sucks Water At The Surface
+mv "A003_A075_0411AX_V1-0046.mp4" "whale-shark-sucks-water-at-the-surface-a003-a075-0411ax-v1-0046.mp4" 2>/dev/null || mv "A003_A075_0411AX_V1-0046.mp4" "A003_A075_0411AX_V1-0046.mp4" 2>/dev/null || true
+# Whale Shark Gills And Head
+mv "A003_A075_0411AX_V1-0047.mp4" "whale-shark-gills-and-head-a003-a075-0411ax-v1-0047.mp4" 2>/dev/null || mv "A003_A075_0411AX_V1-0047.mp4" "A003_A075_0411AX_V1-0047.mp4" 2>/dev/null || true
+# Panning Vertically Down A Whale Shark
+mv "A003_A076_0411VP_V1-0022.mp4" "panning-vertically-down-a-whale-shark-a003-a076-0411vp-v1-0022.mp4" 2>/dev/null || mv "A003_A076_0411VP_V1-0022.mp4" "A003_A076_0411VP_V1-0022.mp4" 2>/dev/null || true
+# Fish Swimming In A Net
+mv "A003_A082_04114B_V2-0013.mp4" "fish-swimming-in-a-net-a003-a082-04114b-v2-0013.mp4" 2>/dev/null || mv "A003_A082_04114B_V2-0013.mp4" "A003_A082_04114B_V2-0013.mp4" 2>/dev/null || true
+# Looking Up At A School Of Fish Swimming In A Net
+mv "A003_A083_0411R9_V2-0014.mp4" "looking-up-at-a-school-of-fish-swimming-in-a-net-a003-a083-0411r9-v2-0014.mp4" 2>/dev/null || mv "A003_A083_0411R9_V2-0014.mp4" "A003_A083_0411R9_V2-0014.mp4" 2>/dev/null || true
+# Close Up Of A School Of Fish Swimming In A Net
+mv "A003_A083_0411R9_V2-0016.mp4" "close-up-of-a-school-of-fish-swimming-in-a-net-a003-a083-0411r9-v2-0016.mp4" 2>/dev/null || mv "A003_A083_0411R9_V2-0016.mp4" "A003_A083_0411R9_V2-0016.mp4" 2>/dev/null || true
+# Two Whale Sharks Swimming
+mv "A003_A128_0410WL_V1-0003.mp4" "two-whale-sharks-swimming-a003-a128-0410wl-v1-0003.mp4" 2>/dev/null || mv "A003_A128_0410WL_V1-0003.mp4" "A003_A128_0410WL_V1-0003.mp4" 2>/dev/null || true
+# Whale Sharks Cobias And Remoras
+mv "A003_A129_04105P_V1-0005.mp4" "whale-sharks-cobias-and-remoras-a003-a129-04105p-v1-0005.mp4" 2>/dev/null || mv "A003_A129_04105P_V1-0005.mp4" "A003_A129_04105P_V1-0005.mp4" 2>/dev/null || true
+# Three Whale Sharks Feeding
+mv "A003_A153_0410IP_V1-0009.mp4" "three-whale-sharks-feeding-a003-a153-0410ip-v1-0009.mp4" 2>/dev/null || mv "A003_A153_0410IP_V1-0009.mp4" "A003_A153_0410IP_V1-0009.mp4" 2>/dev/null || true
+# Whale Sharks Under A Fishing Net
+mv "A003_A153_0410IP_V1-0010.mp4" "whale-sharks-under-a-fishing-net-a003-a153-0410ip-v1-0010.mp4" 2>/dev/null || mv "A003_A153_0410IP_V1-0010.mp4" "A003_A153_0410IP_V1-0010.mp4" 2>/dev/null || true
+# Whale Sharks Feeding
+mv "A003_A153_0410IP_V1-0011.mp4" "whale-sharks-feeding-a003-a153-0410ip-v1-0011.mp4" 2>/dev/null || mv "A003_A153_0410IP_V1-0011.mp4" "A003_A153_0410IP_V1-0011.mp4" 2>/dev/null || true
+# Whale Shark Swimming Up To A Bagan
+mv "A003_A154_0410PN_V1-0013.mp4" "whale-shark-swimming-up-to-a-bagan-a003-a154-0410pn-v1-0013.mp4" 2>/dev/null || mv "A003_A154_0410PN_V1-0013.mp4" "A003_A154_0410PN_V1-0013.mp4" 2>/dev/null || true
+# Whale Shark Swimming Away
+mv "A003_A155_0410AR_V1-0015.mp4" "whale-shark-swimming-away-a003-a155-0410ar-v1-0015.mp4" 2>/dev/null || mv "A003_A155_0410AR_V1-0015.mp4" "A003_A155_0410AR_V1-0015.mp4" 2>/dev/null || true
+# Whale Shark Stuck In Fishing Net
+mv "A004_A013_0412Q2_V2-0001.mp4" "whale-shark-stuck-in-fishing-net-a004-a013-0412q2-v2-0001.mp4" 2>/dev/null || mv "A004_A013_0412Q2_V2-0001.mp4" "A004_A013_0412Q2_V2-0001.mp4" 2>/dev/null || true
+# Whale Shark In A Fishing Net
+mv "A004_A013_0412Q2_V2-0008.mp4" "whale-shark-in-a-fishing-net-a004-a013-0412q2-v2-0008.mp4" 2>/dev/null || mv "A004_A013_0412Q2_V2-0008.mp4" "A004_A013_0412Q2_V2-0008.mp4" 2>/dev/null || true
+# Panning Around A Whale Shark In Fishing Net
+mv "A004_A015_04124K_V2-0009.mp4" "panning-around-a-whale-shark-in-fishing-net-a004-a015-04124k-v2-0009.mp4" 2>/dev/null || mv "A004_A015_04124K_V2-0009.mp4" "A004_A015_04124K_V2-0009.mp4" 2>/dev/null || true
+# Whale Shark In Fishing Net With Sunrays
+mv "A004_A017_0412JO_V2-0002.mp4" "whale-shark-in-fishing-net-with-sunrays-a004-a017-0412jo-v2-0002.mp4" 2>/dev/null || mv "A004_A017_0412JO_V2-0002.mp4" "A004_A017_0412JO_V2-0002.mp4" 2>/dev/null || true
+# Whale Shark In Net
+mv "A004_A024_0412JO_V2-0003.mp4" "whale-shark-in-net-a004-a024-0412jo-v2-0003.mp4" 2>/dev/null || mv "A004_A024_0412JO_V2-0003.mp4" "A004_A024_0412JO_V2-0003.mp4" 2>/dev/null || true
+# Fishermen Pulling Up Net With Whaleshark
+mv "A004_A031_0412B1_V2-0004.mp4" "fishermen-pulling-up-net-with-whaleshark-a004-a031-0412b1-v2-0004.mp4" 2>/dev/null || mv "A004_A031_0412B1_V2-0004.mp4" "A004_A031_0412B1_V2-0004.mp4" 2>/dev/null || true
+# Split Shot Of Fishermen Pulling Up Net With Whaleshark
+mv "A004_A031_0412B1_V2-0010.mp4" "split-shot-of-fishermen-pulling-up-net-with-whaleshark-a004-a031-0412b1-v2-0010.mp4" 2>/dev/null || mv "A004_A031_0412B1_V2-0010.mp4" "A004_A031_0412B1_V2-0010.mp4" 2>/dev/null || true
+# Whale Shark Swimming Into A Net
+mv "A004_A033_0412FT_V2-0005.mp4" "whale-shark-swimming-into-a-net-a004-a033-0412ft-v2-0005.mp4" 2>/dev/null || mv "A004_A033_0412FT_V2-0005.mp4" "A004_A033_0412FT_V2-0005.mp4" 2>/dev/null || true
+# Whale Shark Trying To Escape From A Net
+mv "A004_A033_0412FT_V2-0011.mp4" "whale-shark-trying-to-escape-from-a-net-a004-a033-0412ft-v2-0011.mp4" 2>/dev/null || mv "A004_A033_0412FT_V2-0011.mp4" "A004_A033_0412FT_V2-0011.mp4" 2>/dev/null || true
+# Whale Shark Lying In A Net
+mv "A004_A035_0412B9_V2-0006.mp4" "whale-shark-lying-in-a-net-a004-a035-0412b9-v2-0006.mp4" 2>/dev/null || mv "A004_A035_0412B9_V2-0006.mp4" "A004_A035_0412B9_V2-0006.mp4" 2>/dev/null || true
+# Whale Shark In Net
+mv "A004_A054_0412ZL_V2-0012.mp4" "whale-shark-in-net-a004-a054-0412zl-v2-0012.mp4" 2>/dev/null || mv "A004_A054_0412ZL_V2-0012.mp4" "A004_A054_0412ZL_V2-0012.mp4" 2>/dev/null || true
+# Close Up Of Whale Shark In Net
+mv "A004_A079_041265_V2-0007.mp4" "close-up-of-whale-shark-in-net-a004-a079-041265-v2-0007.mp4" 2>/dev/null || mv "A004_A079_041265_V2-0007.mp4" "A004_A079_041265_V2-0007.mp4" 2>/dev/null || true
+# Whale Shark Moving In A Net
+mv "A004_A079_041265_V2-0013.mp4" "whale-shark-moving-in-a-net-a004-a079-041265-v2-0013.mp4" 2>/dev/null || mv "A004_A079_041265_V2-0013.mp4" "A004_A079_041265_V2-0013.mp4" 2>/dev/null || true
+# Fish Swim Around Artificial Reef Under A Platform
+mv "A004_A086_0412F7_V1-0001.mp4" "fish-swim-around-artificial-reef-under-a-platform-a004-a086-0412f7-v1-0001.mp4" 2>/dev/null || mv "A004_A086_0412F7_V1-0001.mp4" "A004_A086_0412F7_V1-0001.mp4" 2>/dev/null || true
+# Pushing Through Underwater Artificial Reef
+mv "A004_A086_0412F7_V1-0008.mp4" "pushing-through-underwater-artificial-reef-a004-a086-0412f7-v1-0008.mp4" 2>/dev/null || mv "A004_A086_0412F7_V1-0008.mp4" "A004_A086_0412F7_V1-0008.mp4" 2>/dev/null || true
+# Schooling Fish And Fish Attraction Platform
+mv "A004_A087_0412HC_V1-0002.mp4" "schooling-fish-and-fish-attraction-platform-a004-a087-0412hc-v1-0002.mp4" 2>/dev/null || mv "A004_A087_0412HC_V1-0002.mp4" "A004_A087_0412HC_V1-0002.mp4" 2>/dev/null || true
+# Panning Up To Whale Shark Centre
+mv "A004_A087_0412HC_V1-0009.mp4" "panning-up-to-whale-shark-centre-a004-a087-0412hc-v1-0009.mp4" 2>/dev/null || mv "A004_A087_0412HC_V1-0009.mp4" "A004_A087_0412HC_V1-0009.mp4" 2>/dev/null || true
+# Panning Down From Whale Shark Centre
+mv "A004_A087_0412HC_V1-0010.mp4" "panning-down-from-whale-shark-centre-a004-a087-0412hc-v1-0010.mp4" 2>/dev/null || mv "A004_A087_0412HC_V1-0010.mp4" "A004_A087_0412HC_V1-0010.mp4" 2>/dev/null || true
+# Underwater Fish Attraction Device
+mv "A004_A090_0412Q1_V1-0003.mp4" "underwater-fish-attraction-device-a004-a090-0412q1-v1-0003.mp4" 2>/dev/null || mv "A004_A090_0412Q1_V1-0003.mp4" "A004_A090_0412Q1_V1-0003.mp4" 2>/dev/null || true
+# Fish Attraction Device Made Of Pipes
+mv "A004_A091_0412PC_V1-0011.mp4" "fish-attraction-device-made-of-pipes-a004-a091-0412pc-v1-0011.mp4" 2>/dev/null || mv "A004_A091_0412PC_V1-0011.mp4" "A004_A091_0412PC_V1-0011.mp4" 2>/dev/null || true
+# Damsel Fish Swimming Around Fish Attraction Device
+mv "A004_A093_041220_V1-0012.mp4" "damsel-fish-swimming-around-fish-attraction-device-a004-a093-041220-v1-0012.mp4" 2>/dev/null || mv "A004_A093_041220_V1-0012.mp4" "A004_A093_041220_V1-0012.mp4" 2>/dev/null || true
+# Fish Attraction Device In Water Column
+mv "A004_A095_0412LN_V1-0004.mp4" "fish-attraction-device-in-water-column-a004-a095-0412ln-v1-0004.mp4" 2>/dev/null || mv "A004_A095_0412LN_V1-0004.mp4" "A004_A095_0412LN_V1-0004.mp4" 2>/dev/null || true
+# Hanging Fish Attraction Lines
+mv "A004_A096_0412EJ_V1-0005.mp4" "hanging-fish-attraction-lines-a004-a096-0412ej-v1-0005.mp4" 2>/dev/null || mv "A004_A096_0412EJ_V1-0005.mp4" "A004_A096_0412EJ_V1-0005.mp4" 2>/dev/null || true
+# Two Fish Attraction Devices
+mv "A004_A096_0412EJ_V1-0006.mp4" "two-fish-attraction-devices-a004-a096-0412ej-v1-0006.mp4" 2>/dev/null || mv "A004_A096_0412EJ_V1-0006.mp4" "A004_A096_0412EJ_V1-0006.mp4" 2>/dev/null || true
+# Sun Rays Under The Whale Shark Centre
+mv "A004_A099_0412TL_V1-0007.mp4" "sun-rays-under-the-whale-shark-centre-a004-a099-0412tl-v1-0007.mp4" 2>/dev/null || mv "A004_A099_0412TL_V1-0007.mp4" "A004_A099_0412TL_V1-0007.mp4" 2>/dev/null || true
+# Sunlight Lighting Leaves
+mv "A005_A048_0412DV_V2-0017.mp4" "sunlight-lighting-leaves-a005-a048-0412dv-v2-0017.mp4" 2>/dev/null || mv "A005_A048_0412DV_V2-0017.mp4" "A005_A048_0412DV_V2-0017.mp4" 2>/dev/null || true
+# Panning Right To Left Across Papuan Jungle
+mv "A005_A059_0412OE_V2-0026.mp4" "panning-right-to-left-across-papuan-jungle-a005-a059-0412oe-v2-0026.mp4" 2>/dev/null || mv "A005_A059_0412OE_V2-0026.mp4" "A005_A059_0412OE_V2-0026.mp4" 2>/dev/null || true
+# Central Papuan Jungle
+mv "A005_A066_041256_V2-0027.mp4" "central-papuan-jungle-a005-a066-041256-v2-0027.mp4" 2>/dev/null || mv "A005_A066_041256_V2-0027.mp4" "A005_A066_041256_V2-0027.mp4" 2>/dev/null || true
+# Photographers In The Jungle
+mv "A005_A074_0412IV_V2-0028.mp4" "photographers-in-the-jungle-a005-a074-0412iv-v2-0028.mp4" 2>/dev/null || mv "A005_A074_0412IV_V2-0028.mp4" "A005_A074_0412IV_V2-0028.mp4" 2>/dev/null || true
+# Papuan Beach
+mv "A005_A100_0414R2_V2-0018.mp4" "papuan-beach-a005-a100-0414r2-v2-0018.mp4" 2>/dev/null || mv "A005_A100_0414R2_V2-0018.mp4" "A005_A100_0414R2_V2-0018.mp4" 2>/dev/null || true
+# Papuan Ocean And Beach
+mv "A005_A104_04146P_V2-0019.mp4" "papuan-ocean-and-beach-a005-a104-04146p-v2-0019.mp4" 2>/dev/null || mv "A005_A104_04146P_V2-0019.mp4" "A005_A104_04146P_V2-0019.mp4" 2>/dev/null || true
+# Waves Breaking On The Beach
+mv "A005_A105_0414EK_V2-0020.mp4" "waves-breaking-on-the-beach-a005-a105-0414ek-v2-0020.mp4" 2>/dev/null || mv "A005_A105_0414EK_V2-0020.mp4" "A005_A105_0414EK_V2-0020.mp4" 2>/dev/null || true
+# Sunlight On Breaking Waves
+mv "A005_A105_0414EK_V2-0021.mp4" "sunlight-on-breaking-waves-a005-a105-0414ek-v2-0021.mp4" 2>/dev/null || mv "A005_A105_0414EK_V2-0021.mp4" "A005_A105_0414EK_V2-0021.mp4" 2>/dev/null || true
+# Painted Crocodile Skull
+mv "A006_A001_0413CQ_V2-0023.mp4" "painted-crocodile-skull-a006-a001-0413cq-v2-0023.mp4" 2>/dev/null || mv "A006_A001_0413CQ_V2-0023.mp4" "A006_A001_0413CQ_V2-0023.mp4" 2>/dev/null || true
+# Shells And A Painting On A Shelf
+mv "A006_A004_04138S_V2-0022.mp4" "shells-and-a-painting-on-a-shelf-a006-a004-04138s-v2-0022.mp4" 2>/dev/null || mv "A006_A004_04138S_V2-0022.mp4" "A006_A004_04138S_V2-0022.mp4" 2>/dev/null || true
+# Shells Crocodile Skull And A Painting On A Shelf
+mv "A006_A004_04138S_V2-0024.mp4" "shells-crocodile-skull-and-a-painting-on-a-shelf-a006-a004-04138s-v2-0024.mp4" 2>/dev/null || mv "A006_A004_04138S_V2-0024.mp4" "A006_A004_04138S_V2-0024.mp4" 2>/dev/null || true
+# Traditional Goggles Hanging From A Shelf
+mv "A006_A013_0413DN_V2-0025.mp4" "traditional-goggles-hanging-from-a-shelf-a006-a013-0413dn-v2-0025.mp4" 2>/dev/null || mv "A006_A013_0413DN_V2-0025.mp4" "A006_A013_0413DN_V2-0025.mp4" 2>/dev/null || true
+# Whale Shark Swims To Net
+mv "A006_A062_0413WX_V1-0051.mp4" "whale-shark-swims-to-net-a006-a062-0413wx-v1-0051.mp4" 2>/dev/null || mv "A006_A062_0413WX_V1-0051.mp4" "A006_A062_0413WX_V1-0051.mp4" 2>/dev/null || true
+# Whale Shark Under The Surface
+mv "A006_A062_0413WX_V1-0052.mp4" "whale-shark-under-the-surface-a006-a062-0413wx-v1-0052.mp4" 2>/dev/null || mv "A006_A062_0413WX_V1-0052.mp4" "A006_A062_0413WX_V1-0052.mp4" 2>/dev/null || true
+# Looking Up At A Bagan
+mv "A006_A085_0413B2_V2-0015.mp4" "looking-up-at-a-bagan-a006-a085-0413b2-v2-0015.mp4" 2>/dev/null || mv "A006_A085_0413B2_V2-0015.mp4" "A006_A085_0413B2_V2-0015.mp4" 2>/dev/null || true
+# Split Level Under A Bagan
+mv "A006_A089_04138A_V2-0029.mp4" "split-level-under-a-bagan-a006-a089-04138a-v2-0029.mp4" 2>/dev/null || mv "A006_A089_04138A_V2-0029.mp4" "A006_A089_04138A_V2-0029.mp4" 2>/dev/null || true
 echo "Rename pass complete."
