@@ -2,7 +2,8 @@
 
 const CART_STORAGE_KEY = 'ipfstock-license-cart-v1';
 const LICENSING_EMAIL = 'licensingips@gmail.com';
-const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${LICENSING_EMAIL}`;
+const FORMSUBMIT_FORM_ID = 'f13b39a2abe541b291710278c32fe684';
+const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${FORMSUBMIT_FORM_ID}`;
 
 function $(id) {
   return document.getElementById(id);
