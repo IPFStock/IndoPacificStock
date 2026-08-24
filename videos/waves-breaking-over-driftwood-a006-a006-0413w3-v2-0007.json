@@ -12,7 +12,7 @@
     "4K ProRes 422 HQ",
     "1080p Master"
   ],
-  "camera": "Fri Apr 23 11:58:58 2021",
+  "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting waves breaking over driftwood.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A006_A006_0413W3_V2-0007.mp4",
   "description": "Small waves break over a piece of driftwood on the beach, Cenderawasih Bay, Central Papua, Indonesia, Pacific Ocean",
@@ -20,7 +20,6 @@
     "130-27c-a4b",
     "5k r3d",
     "5k red raw",
-    "apr",
     "associated",
     "bay",
     "beach",
@@ -32,8 +31,6 @@
     "central papua",
     "driftwood",
     "fish",
-    "fri",
-    "fri apr 23 11 58 58 2021",
     "indonesia",
     "life",
     "marine",
@@ -48,7 +45,10 @@
     "red",
     "reef",
     "reef associated fish",
-    "small"
+    "small",
+    "dsmc2",
+    "gemini",
+    "dsmc2 gemini 5k s35"
   ],
   "technicalSpecs": {
     "fileName": "A006_A006_0413W3_V2-0007.mp4",
@@ -58,7 +58,7 @@
     "codec": "r3d",
     "date": "",
     "bitDepth": "16",
-    "cameraType": "Fri Apr 23 11:58:58 2021",
+    "cameraType": "DSMC2 GEMINI 5K S35",
     "cameraFormat": "130-27C-A4B",
     "fps": "A",
     "aspectRatio": "40",

@@ -12,13 +12,12 @@
     "4K ProRes 422 HQ",
     "1080p Master"
   ],
-  "camera": "A005_A076_04149A_001.R3D",
+  "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting tracking forward over seagrass.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A076_04149A_V1-0018.mp4",
   "description": "Camera tracking forward over tropical eelgrass, Enhalus acoroides, on a shallow sandy bottom, Cenderawasih Bay, Central Papua, Indonesia, Pacific Ocean",
   "keywords": [
     "4k r3d",
-    "a005_a076_04149a_001.r3d",
     "acoroides",
     "associated",
     "bay",
@@ -48,7 +47,10 @@
     "red",
     "red raw",
     "reef",
-    "reef associated fish"
+    "reef associated fish",
+    "dsmc2",
+    "gemini",
+    "dsmc2 gemini 5k s35"
   ],
   "technicalSpecs": {
     "fileName": "A005_A076_04149A_V1-0018.mp4",
@@ -58,7 +60,7 @@
     "codec": "r3d",
     "date": "",
     "bitDepth": "16",
-    "cameraType": "A005_A076_04149A_001.R3D",
+    "cameraType": "DSMC2 GEMINI 5K S35",
     "cameraFormat": "A",
     "fps": "REDcode 7:1",
     "aspectRatio": "20",

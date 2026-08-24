@@ -20,21 +20,35 @@ TAIL_BYTES = 4 * 1024 * 1024
 USER_AGENT = 'IPFStock-duration-probe/1.0'
 
 
+SKIP_JSON = {'catalog.json', 'manifest.json', 'homepage-featured.json'}
+
+
 def parse_fps(raw: str) -> float:
     if not raw:
-        return 24.0
+        return 0.0
     value = str(raw).strip()
     if '/' in value:
         num, den = value.split('/', 1)
         try:
-            return float(num) / float(den)
+            fps = float(num) / float(den)
+            return fps if fps > 0 else 0.0
         except ValueError:
-            pass
+            return 0.0
     try:
         fps = float(value)
-        return fps if fps > 0 else 24.0
+        return fps if fps > 0 else 0.0
     except ValueError:
-        return 24.0
+        return 0.0
+
+
+def infer_fps(file_name: str, spec: dict) -> float:
+    parsed = parse_fps(spec.get('fps', ''))
+    if parsed >= 18:
+        return parsed
+    prefix = (file_name or '').upper()[:4]
+    if prefix == 'A002':
+        return 48.0
+    return 50.0
 
 
 def format_duration_smpte(total_seconds: float, fps: float) -> str:
@@ -163,11 +177,13 @@ def save_master_rows(header: list[str], data: list[list[str]]) -> None:
 def main() -> int:
     missing = []
     for path in sorted(VIDEOS_DIR.glob('*.json')):
-        if path.name == 'manifest.json':
+        if path.name in SKIP_JSON:
             continue
         payload = json.loads(path.read_text(encoding='utf-8'))
+        if not isinstance(payload, dict):
+            continue
         spec = payload.get('technicalSpecs') or {}
-        if spec.get('duration'):
+        if str(spec.get('duration') or '').strip():
             continue
         file_name = spec.get('fileName') or ''
         if not file_name:
@@ -196,7 +212,7 @@ def main() -> int:
     failed = 0
     for path, payload, file_name in missing:
         url = payload.get('videoUrl') or f'{GITHUB_RAW}/{file_name}'
-        fps = parse_fps((payload.get('technicalSpecs') or {}).get('fps', '24'))
+        fps = infer_fps(file_name, payload.get('technicalSpecs') or {})
         label = payload.get('title') or path.stem
         try:
             seconds = probe_mp4_duration(url)

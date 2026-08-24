@@ -12,13 +12,12 @@
     "4K ProRes 422 HQ",
     "1080p Master"
   ],
-  "camera": "A005_A093_0414KI_001.R3D",
+  "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting healthy hard coral reef.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A093_0414KI_V1-0015.mp4",
   "description": "Camera tracking forward over a healthy hard coral reef, Cenderawasih Bay, Central Papua, Indonesia, Pacific Ocean",
   "keywords": [
     "4k r3d",
-    "a005_a093_0414ki_001.r3d",
     "associated",
     "bay",
     "camera",
@@ -47,7 +46,10 @@
     "red raw",
     "reef",
     "reef associated fish",
-    "tracking"
+    "tracking",
+    "dsmc2",
+    "gemini",
+    "dsmc2 gemini 5k s35"
   ],
   "technicalSpecs": {
     "fileName": "A005_A093_0414KI_V1-0015.mp4",
@@ -57,7 +59,7 @@
     "codec": "r3d",
     "date": "",
     "bitDepth": "16",
-    "cameraType": "A005_A093_0414KI_001.R3D",
+    "cameraType": "DSMC2 GEMINI 5K S35",
     "cameraFormat": "A",
     "fps": "REDcode 7:1",
     "aspectRatio": "21",

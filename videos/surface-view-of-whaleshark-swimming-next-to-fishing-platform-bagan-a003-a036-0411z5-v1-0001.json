@@ -12,7 +12,7 @@
     "4K ProRes 422 HQ",
     "1080p Master"
   ],
-  "camera": "DSMC2 GEMINI 5K S36",
+  "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting surface view of whaleshark swimming next to fishing platform bagan.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A003_A036_0411Z5_V1-0001.mp4",
   "description": "Looking down from a boat at a whale shark, Rhincodon typus, feeding at the surface beside a bagan, a traditional Indonesian drop net fishing boat, Cenderawasih Bay, Papua Province, Indonesia, Pacific Ocean",
@@ -29,7 +29,6 @@
     "down",
     "drop",
     "dsmc2",
-    "dsmc2 gemini 5k s36",
     "feeding",
     "fishing",
     "gemini",
@@ -48,7 +47,8 @@
     "pacific",
     "pacific ocean",
     "papua",
-    "papua province"
+    "papua province",
+    "dsmc2 gemini 5k s35"
   ],
   "technicalSpecs": {
     "fileName": "A003_A036_0411Z5_V1-0001.mp4",
@@ -58,7 +58,7 @@
     "codec": "r3d",
     "date": "",
     "bitDepth": "16",
-    "cameraType": "DSMC2 GEMINI 5K S36",
+    "cameraType": "DSMC2 GEMINI 5K S35",
     "cameraFormat": "REDcode 5:2",
     "fps": "50",
     "aspectRatio": "1.09",

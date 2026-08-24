@@ -12,7 +12,7 @@
     "4K ProRes 422 HQ",
     "1080p Master"
   ],
-  "camera": "Tue Apr 20 14:21:24 2021",
+  "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting waves breaking on the beach.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A105_0414EK_V2-0020.mp4",
   "description": "Waves breaking on the beach in Cenderawasih Bay, Central Papua, Indonesia, Pacific Ocean",
@@ -21,7 +21,6 @@
     "5k r3d",
     "5k red raw",
     "aerials",
-    "apr",
     "bay",
     "beach",
     "breaking",
@@ -41,11 +40,12 @@
     "raw",
     "red",
     "seascape",
-    "tue",
-    "tue apr 20 14 21 24 2021",
     "waves",
     "waves breaking on the beach",
-    "waves breaking on the beach in"
+    "waves breaking on the beach in",
+    "dsmc2",
+    "gemini",
+    "dsmc2 gemini 5k s35"
   ],
   "technicalSpecs": {
     "fileName": "A005_A105_0414EK_V2-0020.mp4",
@@ -55,14 +55,16 @@
     "codec": "r3d",
     "date": "",
     "bitDepth": "16",
-    "cameraType": "Tue Apr 20 14:21:24 2021",
+    "cameraType": "DSMC2 GEMINI 5K S35",
     "cameraFormat": "130-27C-A4B",
     "fps": "A",
     "aspectRatio": "160",
-    "duration": "",
+    "duration": "00:00:13:34",
     "sceneCategory": "Landscape",
     "family": "",
-    "latinName": ""
+    "latinName": "",
+    "durationSeconds": 13.68,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

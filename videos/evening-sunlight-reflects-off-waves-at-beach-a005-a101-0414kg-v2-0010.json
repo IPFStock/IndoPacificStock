@@ -12,7 +12,7 @@
     "4K ProRes 422 HQ",
     "1080p Master"
   ],
-  "camera": "Tue Apr 20 14:22:40 2021",
+  "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting evening sunlight reflects off waves at beach.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A101_0414KG_V2-0010.mp4",
   "description": "Evening sunlight reflecting on small waves as they break on a beach, Cenderawasih Bay, Central Papua, Indonesia, Pacific Ocean",
@@ -20,7 +20,6 @@
     "130-27c-a4b",
     "5k r3d",
     "5k red raw",
-    "apr",
     "associated",
     "bay",
     "beach",
@@ -48,7 +47,10 @@
     "reef",
     "reef associated fish",
     "reflecting",
-    "reflects"
+    "reflects",
+    "dsmc2",
+    "gemini",
+    "dsmc2 gemini 5k s35"
   ],
   "technicalSpecs": {
     "fileName": "A005_A101_0414KG_V2-0010.mp4",
@@ -58,7 +60,7 @@
     "codec": "r3d",
     "date": "",
     "bitDepth": "16",
-    "cameraType": "Tue Apr 20 14:22:40 2021",
+    "cameraType": "DSMC2 GEMINI 5K S35",
     "cameraFormat": "130-27C-A4B",
     "fps": "A",
     "aspectRatio": "320",

@@ -12,13 +12,12 @@
     "4K ProRes 422 HQ",
     "1080p Master"
   ],
-  "camera": "A005_A079_0414KA_001.R3D",
+  "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting boring giant clams on a reef.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A079_0414KA_V1-0002.mp4",
   "description": "Several boring giant clams, Tridacna crocea, embedded in a field of Acropora branching corals, Cenderawasih Bay, Central Papua, Indonesia, Pacific Ocean",
   "keywords": [
     "4k r3d",
-    "a005_a079_0414ka_001.r3d",
     "acropora",
     "acropora branching corals",
     "bay",
@@ -48,7 +47,10 @@
     "red raw",
     "reef",
     "several",
-    "several boring giant clams"
+    "several boring giant clams",
+    "dsmc2",
+    "gemini",
+    "dsmc2 gemini 5k s35"
   ],
   "technicalSpecs": {
     "fileName": "A005_A079_0414KA_V1-0002.mp4",
@@ -58,7 +60,7 @@
     "codec": "r3d",
     "date": "",
     "bitDepth": "16",
-    "cameraType": "A005_A079_0414KA_001.R3D",
+    "cameraType": "DSMC2 GEMINI 5K S35",
     "cameraFormat": "A",
     "fps": "REDcode 7:1",
     "aspectRatio": "20",

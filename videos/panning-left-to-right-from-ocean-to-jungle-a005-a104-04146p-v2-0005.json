@@ -12,7 +12,7 @@
     "4K ProRes 422 HQ",
     "1080p Master"
   ],
-  "camera": "Tue Apr 20 14:22:57 2021",
+  "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting panning left to right from ocean to jungle.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A104_04146P_V2-0005.mp4",
   "description": "Panning left from a calm ocean to a beach surrounded by large green trees, Cenderawasih Bay, Central Papua, Indonesia, Pacific Ocean",
@@ -20,7 +20,6 @@
     "130-27c-a4b",
     "5k r3d",
     "5k red raw",
-    "apr",
     "associated",
     "bay",
     "beach",
@@ -48,7 +47,10 @@
     "r3d",
     "raw",
     "red",
-    "reef"
+    "reef",
+    "dsmc2",
+    "gemini",
+    "dsmc2 gemini 5k s35"
   ],
   "technicalSpecs": {
     "fileName": "A005_A104_04146P_V2-0005.mp4",
@@ -58,7 +60,7 @@
     "codec": "r3d",
     "date": "",
     "bitDepth": "16",
-    "cameraType": "Tue Apr 20 14:22:57 2021",
+    "cameraType": "DSMC2 GEMINI 5K S35",
     "cameraFormat": "130-27C-A4B",
     "fps": "A",
     "aspectRatio": "160",

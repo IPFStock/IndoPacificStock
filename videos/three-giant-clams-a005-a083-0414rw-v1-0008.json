@@ -12,13 +12,12 @@
     "4K ProRes 422 HQ",
     "1080p Master"
   ],
-  "camera": "A005_A083_0414RW_001.R3D",
+  "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting three giant clams.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A005_A083_0414RW_V1-0008.mp4",
   "description": "Downward angle looking at three boring giant clams, Tridacna crocea, and anemone in a coral garden, Cenderawasih Bay, Central Papua, Indonesia, Pacific Ocean",
   "keywords": [
     "4k r3d",
-    "a005_a083_0414rw_001.r3d",
     "and anemone in a coral garden",
     "anemone",
     "angle",
@@ -48,7 +47,10 @@
     "red",
     "red raw",
     "three",
-    "three giant clams"
+    "three giant clams",
+    "dsmc2",
+    "gemini",
+    "dsmc2 gemini 5k s35"
   ],
   "technicalSpecs": {
     "fileName": "A005_A083_0414RW_V1-0008.mp4",
@@ -58,7 +60,7 @@
     "codec": "r3d",
     "date": "",
     "bitDepth": "16",
-    "cameraType": "A005_A083_0414RW_001.R3D",
+    "cameraType": "DSMC2 GEMINI 5K S35",
     "cameraFormat": "A",
     "fps": "REDcode 7:1",
     "aspectRatio": "21",
