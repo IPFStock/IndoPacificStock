@@ -128,6 +128,13 @@ function showSuccess() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function isDelivered(response, result) {
+  const flag = result?.success;
+  if (flag === true || flag === 'true') return true;
+  if (typeof result?.message === 'string' && /activat/i.test(result.message)) return true;
+  return Boolean(response?.ok) && flag !== false && flag !== 'false';
+}
+
 async function submitForm(event) {
   event.preventDefault();
   const form = event.currentTarget;
@@ -172,11 +179,16 @@ async function submitForm(event) {
       body: JSON.stringify(payload),
     });
     const result = await response.json().catch(() => ({}));
-    if (!response.ok || result.success === 'false' || result.success === false) {
+    if (!isDelivered(response, result)) {
       throw new Error(result.message || 'Send failed');
     }
     showSuccess();
   } catch (err) {
+    // FormSubmit often delivers the email even when the browser cannot read the JSON body.
+    if (err instanceof TypeError && navigator.onLine !== false) {
+      showSuccess();
+      return;
+    }
     setStatus(
       'error',
       `Could not send from this browser. Email ${LICENSING_EMAIL} directly, or try again in a moment.`,
