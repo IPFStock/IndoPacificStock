@@ -1193,18 +1193,34 @@ def write_robots() -> None:
     )
 
 
-def write_legacy_clip_redirects(clips: list[dict]) -> int:
-    """301 old camera-id clip URLs to the current descriptive slugs.
+def redirect_html(dest_path: str, dest_url: str, label: str) -> str:
+    """Client redirect page for GitHub Pages (no server 301s)."""
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0; url={esc(dest_path)}" />
+  <link rel="canonical" href="{esc(dest_url)}" />
+  <title>Redirecting…</title>
+  <script>location.replace({json.dumps(dest_path)});</script>
+</head>
+<body>
+  <p>This page has moved to <a href="{esc(dest_path)}">{esc(label)}</a>.</p>
+</body>
+</html>
+"""
 
-    Hosted on Cloudflare Pages, which reads `_redirects` (not vercel.json).
-    Google has already crawled at least one ID-only path
-    (/clip/a006-a009-0413qe-v1-0003/). Every clip used to have that shape.
+
+def write_legacy_clip_redirects(clips: list[dict]) -> int:
+    """Place HTML redirect pages at old camera-id clip URLs.
+
+    GitHub Pages has no server-side 301s. Google already crawled at least one
+    ID-only path (/clip/a006-a009-0413qe-v1-0003/). Every clip used to have
+    that shape, so each needs a real file at the old path.
     """
     used_old: set[str] = set()
     current_slugs = {c.get("slug") for c in clips if c.get("slug")}
-    lines = [
-        "# Camera-id clip URLs → current descriptive slugs (Cloudflare Pages)",
-    ]
+    written = 0
 
     for clip in clips:
         slug = clip.get("slug")
@@ -1212,13 +1228,20 @@ def write_legacy_clip_redirects(clips: list[dict]) -> int:
         if not slug or not old or old == slug or old in current_slugs or old in used_old:
             continue
         used_old.add(old)
-        dest = f"/clip/{slug}/"
-        lines.append(f"/clip/{old} {dest} 301")
-        lines.append(f"/clip/{old}/ {dest} 301")
+        dest_path = f"/clip/{slug}/"
+        dest_url = clip_url(slug)
+        out = CLIP_DIR / old / "index.html"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(
+            redirect_html(dest_path, dest_url, clip.get("title") or slug),
+            encoding="utf-8",
+        )
+        written += 1
 
-    lines.append("")
-    (ROOT / "_redirects").write_text("\n".join(lines), encoding="utf-8")
-    return len(used_old)
+    redirects_file = ROOT / "_redirects"
+    if redirects_file.exists():
+        redirects_file.unlink()
+    return written
 
 
 def reset_dir(path: Path) -> None:
@@ -1271,20 +1294,11 @@ def main() -> None:
     legacy = COLLECTIONS_DIR / "license-8k-raw-footage" / "index.html"
     legacy.parent.mkdir(parents=True, exist_ok=True)
     legacy.write_text(
-        """<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=/collections/license-r3d-footage/" />
-  <link rel="canonical" href="https://indopacificstock.com/collections/license-r3d-footage/" />
-  <title>Redirecting…</title>
-  <script>location.replace("/collections/license-r3d-footage/");</script>
-</head>
-<body>
-  <p>This page has moved to <a href="/collections/license-r3d-footage/">License R3D Footage</a>.</p>
-</body>
-</html>
-""",
+        redirect_html(
+            "/collections/license-r3d-footage/",
+            f"{SITE}/collections/license-r3d-footage/",
+            "License R3D Footage",
+        ),
         encoding="utf-8",
     )
 
@@ -1295,7 +1309,7 @@ def main() -> None:
     print(
         f"Wrote {len(clips)} clip pages, {len(defs)} collections, "
         f"sitemap.xml, video-sitemap.xml ({video_count} videos), "
-        f"{redirect_count} camera-id clip redirects in _redirects"
+        f"{redirect_count} camera-id clip redirect pages"
     )
 
 
