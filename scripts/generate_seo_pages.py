@@ -7,6 +7,7 @@ import html
 import json
 import re
 import shutil
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable
@@ -238,6 +239,55 @@ def text_blob(clip: dict) -> str:
     return " ".join(str(p) for p in parts if p).lower()
 
 
+def camera_id_slug(clip: dict) -> str:
+    """Old clip URL used the camera filename only, e.g. a006-a009-0413qe-v1-0003."""
+    specs = clip.get("technicalSpecs") or {}
+    code = specs.get("originalCameraCode") or ""
+    if not code:
+        return ""
+    return Path(code).stem.lower().replace("_", "-")
+
+
+def clip_code(clip: dict) -> str:
+    specs = clip.get("technicalSpecs") or {}
+    raw = (
+        specs.get("originalCameraCode")
+        or specs.get("fileName")
+        or ""
+    )
+    return Path(raw).stem if raw else ""
+
+
+def clip_title(clip: dict) -> str:
+    return (clip.get("title") or clip.get("slug") or "").strip()
+
+
+def take_label_map(clips: list[dict]) -> dict[str, str]:
+    """When several clips share a title, label them Take 1 of N, Take 2 of N, …"""
+    groups: dict[str, list[dict]] = defaultdict(list)
+    for clip in clips:
+        title = clip_title(clip)
+        if title:
+            groups[title].append(clip)
+    labels: dict[str, str] = {}
+    for group in groups.values():
+        if len(group) < 2:
+            continue
+        ordered = sorted(group, key=lambda c: (clip_code(c) or c.get("slug") or "").lower())
+        total = len(ordered)
+        for index, clip in enumerate(ordered, 1):
+            slug = clip.get("slug")
+            if slug:
+                labels[slug] = f"Take {index} of {total}"
+    return labels
+
+
+def display_title(clip: dict, take_labels: dict[str, str]) -> str:
+    title = clip_title(clip)
+    label = take_labels.get(clip.get("slug") or "")
+    return f"{title} — {label}" if label else title
+
+
 def clip_url(slug: str) -> str:
     return f"{SITE}/clip/{slug}/"
 
@@ -431,9 +481,9 @@ def page_shell(
 """
 
 
-def clip_card_html(clip: dict) -> str:
+def clip_card_html(clip: dict, take_labels: dict[str, str] | None = None) -> str:
     slug = clip["slug"]
-    title = clip.get("title") or slug
+    title = display_title(clip, take_labels or {})
     desc = clip.get("description") or ""
     meta_bits = [clip.get("region"), clip.get("nativeFormatBadge") or clip.get("format"), "Rights Managed"]
     meta = " · ".join(bit for bit in meta_bits if bit)
@@ -470,6 +520,8 @@ def related_clips(clip: dict, catalog: list[dict], limit: int = 6) -> list[dict]
             score += 2
         if species and species in (other.get("species") or "").lower():
             score += 4
+        if clip_title(other) and clip_title(other) == clip_title(clip):
+            score += 8
         if score:
             scored.append((score, other))
     scored.sort(key=lambda item: (-item[0], item[1].get("title") or ""))
@@ -499,14 +551,25 @@ def master_delivery_label(clip: dict) -> str:
     return f"{native}; 4K ProRes 422 HQ; 1080p Master"
 
 
-def build_clip_page(clip: dict, catalog: list[dict]) -> str:
+def build_clip_page(clip: dict, catalog: list[dict], take_labels: dict[str, str] | None = None) -> str:
+    take_labels = take_labels or {}
     slug = clip["slug"]
-    title = clip.get("title") or slug
+    base_title = clip.get("title") or slug
+    title = display_title(clip, take_labels)
+    take = take_labels.get(slug) or ""
+    code = clip_code(clip)
     description = clip.get("description") or (
-        f"{title} — rights-managed Indo-Pacific stock footage available to license as R3D."
+        f"{base_title} — rights-managed Indo-Pacific stock footage available to license as R3D."
     )
+    original_description = description
+    if take:
+        unique_line = f"{take}." + (f" Clip ID {code}." if code else "")
+        description = f"{original_description.rstrip('. ')}. {unique_line}".strip()
+        meta_source = f"{unique_line} {original_description}".strip()
+    else:
+        meta_source = original_description
     page_title = f"{title} | License R3D Stock Footage | {SITE_NAME}"
-    meta_desc = description[:155] + ("…" if len(description) > 155 else "")
+    meta_desc = meta_source[:155] + ("…" if len(meta_source) > 155 else "")
     specs = clip.get("technicalSpecs") or {}
     keywords = clip.get("keywords") or []
     keyword_str = ", ".join(keywords[:24])
@@ -537,6 +600,8 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
         "license": f"{SITE}/license-terms.html",
         "encodingFormat": "video/r3d",
     }
+    if code:
+        json_ld["identifier"] = code
     if still:
         json_ld["thumbnailUrl"] = still
     if schema_duration:
@@ -553,6 +618,7 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
         ("Resolution", specs.get("resolution")),
         ("Codec", specs.get("codec") or "r3d"),
         ("Duration", duration),
+        ("Clip ID", code),
         ("License", "Rights Managed (RM)"),
         ("Available masters", masters),
     ]:
@@ -560,7 +626,7 @@ def build_clip_page(clip: dict, catalog: list[dict]) -> str:
             specs_rows.append(f"<dt>{esc(label)}</dt><dd>{esc(value)}</dd>")
 
     related = related_clips(clip, catalog)
-    related_html = "".join(clip_card_html(item) for item in related)
+    related_html = "".join(clip_card_html(item, take_labels) for item in related)
     poster_attr = f' poster="{esc(still)}"' if still else ""
 
     body = f"""
@@ -914,8 +980,13 @@ REGION_COLLECTION_SLUGS = {
 }
 
 
-def build_collection_page(defn: CollectionDef, matched: list[dict], all_defs: list[CollectionDef]) -> str:
-    cards = "".join(clip_card_html(c) for c in matched[: defn.get("limit", 48)])
+def build_collection_page(
+    defn: CollectionDef,
+    matched: list[dict],
+    all_defs: list[CollectionDef],
+    take_labels: dict[str, str] | None = None,
+) -> str:
+    cards = "".join(clip_card_html(c, take_labels) for c in matched[: defn.get("limit", 48)])
     bullets = "".join(f"<li>{esc(b)}</li>" for b in defn.get("bullets") or [])
     paragraphs = "".join(f"<p>{esc(p)}</p>" for p in defn.get("paragraphs") or [])
     others = [d for d in all_defs if d["slug"] != defn["slug"]]
@@ -1122,6 +1193,66 @@ def write_robots() -> None:
     )
 
 
+def write_legacy_clip_redirects(clips: list[dict]) -> int:
+    """301 old camera-id clip URLs to the current descriptive slugs.
+
+    Google has already crawled at least one ID-only path
+    (/clip/a006-a009-0413qe-v1-0003/). Every clip used to have that shape.
+    """
+    vercel_path = ROOT / "vercel.json"
+    data = json.loads(vercel_path.read_text(encoding="utf-8")) if vercel_path.exists() else {}
+    redirects: list[dict] = []
+    used_old: set[str] = set()
+    current_slugs = {c.get("slug") for c in clips if c.get("slug")}
+
+    for clip in clips:
+        slug = clip.get("slug")
+        old = camera_id_slug(clip)
+        if not slug or not old or old == slug or old in current_slugs or old in used_old:
+            continue
+        used_old.add(old)
+        redirects.append(
+            {
+                "source": f"/clip/{old}",
+                "destination": f"/clip/{slug}/",
+                "permanent": True,
+            }
+        )
+
+    data["redirects"] = redirects
+    vercel_path.write_text(_format_vercel_json(data), encoding="utf-8")
+    return len(redirects)
+
+
+def _format_vercel_json(data: dict) -> str:
+    """Keep vercel.json compact: one rewrite/redirect object per line."""
+    parts = ["{"]
+    parts.append(f'  "buildCommand": {json.dumps(data.get("buildCommand"))},')
+    parts.append(f'  "framework": {json.dumps(data.get("framework"))},')
+
+    rewrites = data.get("rewrites") or []
+    parts.append('  "rewrites": [')
+    for i, item in enumerate(rewrites):
+        comma = "," if i < len(rewrites) - 1 else ""
+        parts.append(f"    {json.dumps(item, separators=(', ', ': '))}{comma}")
+    parts.append("  ],")
+
+    redirects = data.get("redirects") or []
+    parts.append('  "redirects": [')
+    for i, item in enumerate(redirects):
+        comma = "," if i < len(redirects) - 1 else ""
+        compact = {
+            "source": item["source"],
+            "destination": item["destination"],
+            "permanent": True,
+        }
+        parts.append(f"    {json.dumps(compact, separators=(', ', ': '))}{comma}")
+    parts.append("  ]")
+    parts.append("}")
+    parts.append("")
+    return "\n".join(parts)
+
+
 def reset_dir(path: Path) -> None:
     if path.exists():
         shutil.rmtree(path)
@@ -1145,12 +1276,13 @@ def main() -> None:
     print(f"Generating SEO pages for {len(clips)} clips…")
     reset_dir(CLIP_DIR)
     reset_dir(COLLECTIONS_DIR)
+    take_labels = take_label_map(clips)
 
     for clip in clips:
         slug = clip["slug"]
         out = CLIP_DIR / slug / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(build_clip_page(clip, clips), encoding="utf-8")
+        out.write_text(build_clip_page(clip, clips, take_labels), encoding="utf-8")
 
     defs = collection_defs()
     counts: dict[str, int] = {}
@@ -1160,7 +1292,7 @@ def main() -> None:
         counts[defn["slug"]] = len(matched)
         out = COLLECTIONS_DIR / defn["slug"] / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(build_collection_page(defn, matched, defs), encoding="utf-8")
+        out.write_text(build_collection_page(defn, matched, defs, take_labels), encoding="utf-8")
         print(f"  collection /collections/{defn['slug']}/ → {len(matched)} clips")
 
     (COLLECTIONS_DIR / "index.html").write_text(
@@ -1191,9 +1323,11 @@ def main() -> None:
     write_sitemap([c["slug"] for c in clips], [d["slug"] for d in defs])
     video_count = write_video_sitemap(clips)
     write_robots()
+    redirect_count = write_legacy_clip_redirects(clips)
     print(
         f"Wrote {len(clips)} clip pages, {len(defs)} collections, "
-        f"sitemap.xml, video-sitemap.xml ({video_count} videos)"
+        f"sitemap.xml, video-sitemap.xml ({video_count} videos), "
+        f"{redirect_count} camera-id clip redirects"
     )
 
 
