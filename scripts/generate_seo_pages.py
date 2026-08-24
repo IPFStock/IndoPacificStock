@@ -1196,14 +1196,15 @@ def write_robots() -> None:
 def write_legacy_clip_redirects(clips: list[dict]) -> int:
     """301 old camera-id clip URLs to the current descriptive slugs.
 
+    Hosted on Cloudflare Pages, which reads `_redirects` (not vercel.json).
     Google has already crawled at least one ID-only path
     (/clip/a006-a009-0413qe-v1-0003/). Every clip used to have that shape.
     """
-    vercel_path = ROOT / "vercel.json"
-    data = json.loads(vercel_path.read_text(encoding="utf-8")) if vercel_path.exists() else {}
-    redirects: list[dict] = []
     used_old: set[str] = set()
     current_slugs = {c.get("slug") for c in clips if c.get("slug")}
+    lines = [
+        "# Camera-id clip URLs → current descriptive slugs (Cloudflare Pages)",
+    ]
 
     for clip in clips:
         slug = clip.get("slug")
@@ -1211,46 +1212,13 @@ def write_legacy_clip_redirects(clips: list[dict]) -> int:
         if not slug or not old or old == slug or old in current_slugs or old in used_old:
             continue
         used_old.add(old)
-        redirects.append(
-            {
-                "source": f"/clip/{old}",
-                "destination": f"/clip/{slug}/",
-                "permanent": True,
-            }
-        )
+        dest = f"/clip/{slug}/"
+        lines.append(f"/clip/{old} {dest} 301")
+        lines.append(f"/clip/{old}/ {dest} 301")
 
-    data["redirects"] = redirects
-    vercel_path.write_text(_format_vercel_json(data), encoding="utf-8")
-    return len(redirects)
-
-
-def _format_vercel_json(data: dict) -> str:
-    """Keep vercel.json compact: one rewrite/redirect object per line."""
-    parts = ["{"]
-    parts.append(f'  "buildCommand": {json.dumps(data.get("buildCommand"))},')
-    parts.append(f'  "framework": {json.dumps(data.get("framework"))},')
-
-    rewrites = data.get("rewrites") or []
-    parts.append('  "rewrites": [')
-    for i, item in enumerate(rewrites):
-        comma = "," if i < len(rewrites) - 1 else ""
-        parts.append(f"    {json.dumps(item, separators=(', ', ': '))}{comma}")
-    parts.append("  ],")
-
-    redirects = data.get("redirects") or []
-    parts.append('  "redirects": [')
-    for i, item in enumerate(redirects):
-        comma = "," if i < len(redirects) - 1 else ""
-        compact = {
-            "source": item["source"],
-            "destination": item["destination"],
-            "permanent": True,
-        }
-        parts.append(f"    {json.dumps(compact, separators=(', ', ': '))}{comma}")
-    parts.append("  ]")
-    parts.append("}")
-    parts.append("")
-    return "\n".join(parts)
+    lines.append("")
+    (ROOT / "_redirects").write_text("\n".join(lines), encoding="utf-8")
+    return len(used_old)
 
 
 def reset_dir(path: Path) -> None:
@@ -1327,7 +1295,7 @@ def main() -> None:
     print(
         f"Wrote {len(clips)} clip pages, {len(defs)} collections, "
         f"sitemap.xml, video-sitemap.xml ({video_count} videos), "
-        f"{redirect_count} camera-id clip redirects"
+        f"{redirect_count} camera-id clip redirects in _redirects"
     )
 
 
