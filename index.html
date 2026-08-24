@@ -1944,7 +1944,7 @@
           Cart
           <span class="shot-list-count" id="shot-list-count" hidden>0</span>
         </button>
-        <a href="mailto:licensingips@gmail.com" class="inquire-link" target="_blank" rel="noopener noreferrer">Inquire</a>
+        <a href="inquire.html" class="inquire-link">Inquire</a>
       </nav>
     </div>
   </header>
@@ -2143,20 +2143,16 @@
           <h2 class="b2b-utility-title">Need help finding the right footage?</h2>
           <p class="b2b-utility-copy">Submit your shot list. We will compile a curated collection and deliver low-res screening proxies to you.</p>
           <a
-            href="mailto:licensingips@gmail.com?subject=Shot%20List%20Request"
+            href="inquire.html?intent=shot-list"
             class="b2b-utility-cta"
-            target="_blank"
-            rel="noopener noreferrer"
           >Submit Shot List Request</a>
         </div>
         <div class="b2b-utility-column b2b-utility-column--right">
           <h2 class="b2b-utility-title">Can't find the exact sequence?</h2>
           <p class="b2b-utility-copy">Indo Pacific Stock is available for custom assignment hire, deploying professional RED cinema cameras and aerial systems to capture specific imagery across regional and global destinations.</p>
           <a
-            href="mailto:licensingips@gmail.com?subject=Assignment%20Hire%20Inquiry"
+            href="inquire.html?intent=assignment"
             class="b2b-utility-cta"
-            target="_blank"
-            rel="noopener noreferrer"
           >Inquire About Assignment Hire</a>
         </div>
       </div>
@@ -2443,42 +2439,7 @@
     function submitShotListRequest() {
       const items = licenseCart.items;
       if (items.length === 0) return;
-
-      const recipient = getLicenseRequestEmail();
-      const usingTestInbox = recipient !== LICENSING_EMAIL;
-      const payload = window.IPFStockCart.buildCartLicenseMailto(items, recipient);
-
-      const openMailto = (href) => {
-        window.location.href = href;
-        showToast(
-          usingTestInbox
-            ? `Opening your email app — test message addressed to ${recipient}.`
-            : items.length === 1
-              ? 'Opening your email app with this clip inquiry…'
-              : `Opening your email app with ${items.length} clips…`,
-        );
-      };
-
-      if (!payload.tooLong) {
-        openMailto(payload.mailto);
-        closeShotListDrawer();
-        return;
-      }
-
-      if (navigator.clipboard?.writeText) {
-        navigator.clipboard.writeText(payload.body)
-          .then(() => {
-            openMailto(window.IPFStockCart.buildFallbackMailto(recipient, items.length));
-            showToast('Cart copied to clipboard — paste it into your email body.');
-            closeShotListDrawer();
-          })
-          .catch(() => {
-            showToast('Cart is too long for your email app. Email licensingips@gmail.com directly.');
-          });
-        return;
-      }
-
-      showToast('Cart is too long for your email app. Email licensingips@gmail.com directly.');
+      window.location.href = 'inquire.html?from=cart';
     }
 
     licenseCart.onChange(() => updateShotListChrome());

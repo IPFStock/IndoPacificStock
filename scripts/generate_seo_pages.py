@@ -407,7 +407,7 @@ def header_html(active: str | None = None) -> str:
       <nav class="header-nav" aria-label="Site navigation">
         {nav('/collections/', 'Collections', 'collections')}
         {nav('/licensing-guide.html', 'How it Works', 'guide')}
-        <a href="mailto:licensingips@gmail.com" class="inquire-link">Inquire</a>
+        {nav('/inquire.html', 'Inquire', 'inquire')}
       </nav>
     </div>
   </header>
@@ -573,10 +573,12 @@ def build_clip_page(clip: dict, catalog: list[dict], take_labels: dict[str, str]
     specs = clip.get("technicalSpecs") or {}
     keywords = clip.get("keywords") or []
     keyword_str = ", ".join(keywords[:24])
-    inquire = (
-        "mailto:licensingips@gmail.com"
-        f"?subject={quote(f'License request: {title} ({slug})')}"
-    )
+    inquire_params = [f"clip={quote(slug, safe='')}"]
+    if title:
+        inquire_params.append(f"title={quote(title, safe='')}")
+    if code:
+        inquire_params.append(f"id={quote(code, safe='')}")
+    inquire = f"/inquire.html?{'&'.join(inquire_params)}"
     duration = specs.get("duration") or ""
     schema_duration = iso8601_duration(
         duration, specs.get("fps"), specs.get("durationSeconds")
@@ -1102,6 +1104,7 @@ def write_sitemap(clip_slugs: list[str], collection_slugs: list[str]) -> None:
         (f"{SITE}/", "weekly", "1.0"),
         (f"{SITE}/collections/", "weekly", "0.9"),
         (f"{SITE}/licensing-guide.html", "monthly", "0.8"),
+        (f"{SITE}/inquire.html", "monthly", "0.8"),
         (f"{SITE}/terms.html", "yearly", "0.3"),
         (f"{SITE}/license-terms.html", "yearly", "0.3"),
         (f"{SITE}/privacy.html", "yearly", "0.3"),

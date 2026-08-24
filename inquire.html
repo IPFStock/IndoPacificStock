@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>License Inquiry — Indo Pacific Stock</title>
+  <meta name="description" content="Request a rights-managed license, time-coded proxies, or assignment hire from the Indo Pacific Stock RED archive." />
+  <link rel="canonical" href="https://indopacificstock.com/inquire.html" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:title" content="License Inquiry — Indo Pacific Stock" />
+  <meta property="og:description" content="Request a rights-managed license, time-coded proxies, or assignment hire from the Indo Pacific Stock RED archive." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://indopacificstock.com/inquire.html" />
+  <meta property="og:image" content="https://indopacificstock.com/images/logo.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F8FAFC; --surface: #FFFFFF; --border: #E6E8EA; --text: #0F172A;
+      --text-secondary: #334155; --muted: #64748b; --accent: #059669;
+      --header-bg: rgba(255, 255, 255, 0.96); --header-h: 4rem;
+      --layout-max: 75rem; --layout-gutter: 1.5rem;
+      --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --radius-sm: 8px; --transition: 200ms ease;
+    }
+    body {
+      font-family: var(--font); background: var(--bg); color: var(--text);
+      line-height: 1.55; min-height: 100vh; display: flex; flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+    .layout-rail {
+      width: 100%; max-width: var(--layout-max); margin-left: auto; margin-right: auto;
+      padding-left: var(--layout-gutter); padding-right: var(--layout-gutter);
+    }
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--header-h);
+      background: var(--header-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+    .site-header-rail { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: inherit; }
+    .logo-icon { width: 1.25rem; height: 1.25rem; display: block; flex-shrink: 0; }
+    .logo-wordmark {
+      font-size: 1.25rem; font-weight: 500; line-height: 1; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text); white-space: nowrap;
+    }
+    .header-nav { display: flex; align-items: center; gap: 1.35rem; }
+    .inquire-link {
+      font-size: 0.82rem; font-weight: 400; color: var(--text-secondary);
+      text-decoration: none; transition: color 0.2s ease;
+    }
+    .inquire-link:hover, .inquire-link.is-current { color: var(--accent); }
+    main { flex: 1; padding-top: calc(var(--header-h) + 2.25rem); padding-bottom: 3.5rem; }
+    .kicker {
+      margin: 0 0 0.5rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .page-title { margin: 0; font-size: clamp(1.45rem, 3vw, 2rem); font-weight: 700; line-height: 1.25; }
+    .page-lead { margin: 0.85rem 0 0; font-size: 1rem; color: var(--text-secondary); max-width: 40rem; }
+    .inquire-layout {
+      display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(16rem, 0.7fr);
+      gap: 2rem; margin-top: 1.75rem; align-items: start;
+    }
+    .form-card, .aside-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: 1.35rem 1.4rem;
+    }
+    .aside-card h2 {
+      margin: 0 0 0.65rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .aside-card p, .aside-card li { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
+    .aside-card ul { margin: 0.5rem 0 0; padding-left: 1.1rem; display: grid; gap: 0.4rem; }
+    .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .field { display: grid; gap: 0.35rem; }
+    .field-span { grid-column: 1 / -1; }
+    label { font-size: 0.78rem; font-weight: 600; color: var(--text); }
+    .optional { font-weight: 400; color: var(--muted); }
+    input, select, textarea {
+      width: 100%; border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: 0.65rem 0.75rem; font: inherit; font-size: 0.92rem; color: var(--text);
+      background: #fff;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid rgba(5, 150, 105, 0.35); border-color: var(--accent);
+    }
+    textarea { min-height: 7.5rem; resize: vertical; }
+    .check-row { display: flex; align-items: flex-start; gap: 0.55rem; margin-top: 0.25rem; }
+    .check-row input { width: auto; margin-top: 0.2rem; }
+    .check-row label { font-weight: 400; font-size: 0.88rem; color: var(--text-secondary); }
+    .hp { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-top: 0.5rem; padding: 0.75rem 1.15rem; border-radius: var(--radius-sm);
+      font-size: 0.9rem; font-weight: 600; border: 1px solid var(--accent);
+      background: var(--accent); color: #fff; cursor: pointer;
+    }
+    .btn:hover { background: #047857; border-color: #047857; }
+    .btn:disabled { opacity: 0.65; cursor: wait; }
+    .form-status { margin-top: 0.85rem; font-size: 0.88rem; }
+    .form-status--info { color: var(--text-secondary); }
+    .form-status--error { color: #b91c1c; }
+    .success-card { display: grid; gap: 0.65rem; }
+    .success-card h2 { margin: 0; font-size: 1.25rem; }
+    .site-footer {
+      padding: 0.75rem 1.25rem; background: rgba(255, 255, 255, 0.94);
+      border-top: 1px solid var(--border); text-align: center;
+    }
+    .site-footer-line { margin: 0; font-size: 0.82rem; color: var(--muted); }
+    .site-footer-line a { color: inherit; text-decoration: none; }
+    .site-footer-line a:hover { text-decoration: underline; }
+    @media (max-width: 800px) {
+      .inquire-layout, .field-grid { grid-template-columns: 1fr; }
+      .logo-wordmark { font-size: 0.82rem; letter-spacing: 0.06em; }
+      .header-nav { gap: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="layout-rail site-header-rail">
+      <a href="/" class="logo" aria-label="Indo Pacific Stock home">
+        <svg class="logo-icon" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <circle cx="19" cy="19" r="17" stroke="#059669" stroke-width="1" opacity="0.25"/>
+          <circle cx="19" cy="19" r="11.5" stroke="#059669" stroke-width="1.2" opacity="0.75"/>
+          <path d="M19 7.5v23M7.5 19h23" stroke="#059669" stroke-width="0.75" opacity="0.45"/>
+          <circle cx="19" cy="19" r="3.5" fill="#059669" opacity="0.9"/>
+        </svg>
+        <span class="logo-wordmark">Indo Pacific Stock</span>
+      </a>
+      <nav class="header-nav" aria-label="Site navigation">
+        <a href="/" class="inquire-link">Archive</a>
+        <a href="/collections/" class="inquire-link">Collections</a>
+        <a href="/licensing-guide.html" class="inquire-link">How it Works</a>
+        <a href="/inquire.html" class="inquire-link is-current" aria-current="page">Inquire</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="layout-rail">
+      <p class="kicker" id="inquire-kicker">License request</p>
+      <h1 class="page-title" id="inquire-title">Request a license</h1>
+      <p class="page-lead" id="inquire-lead">Use this form instead of email. Include usage, territory, and term so we can quote and send time-coded proxies without a round of clarification.</p>
+
+      <div class="inquire-layout">
+        <div>
+          <form class="form-card" id="inquire-form" novalidate>
+            <div class="hp" aria-hidden="true">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+            <div class="field-grid">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="email">Work email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="production">Production / company <span class="optional">(optional)</span></label>
+                <input id="production" name="production" type="text" autocomplete="organization" />
+              </div>
+              <div class="field">
+                <label for="project">Project title <span class="optional">(optional)</span></label>
+                <input id="project" name="project" type="text" />
+              </div>
+              <div class="field">
+                <label for="usage">Intended use</label>
+                <select id="usage" name="usage">
+                  <option value="">Select…</option>
+                  <option>Documentary / broadcast</option>
+                  <option>SVOD / streaming</option>
+                  <option>Commercial / advertising</option>
+                  <option>Corporate / internal</option>
+                  <option>Editorial / news</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="territory">Territory</label>
+                <select id="territory" name="territory">
+                  <option value="">Select…</option>
+                  <option>Worldwide</option>
+                  <option>North America</option>
+                  <option>EMEA</option>
+                  <option>APAC</option>
+                  <option>Single country — specified in notes</option>
+                </select>
+              </div>
+              <div class="field field-span">
+                <label for="term">License term</label>
+                <select id="term" name="term">
+                  <option value="">Select…</option>
+                  <option>1 year</option>
+                  <option>3 years</option>
+                  <option>5 years</option>
+                  <option>In perpetuity</option>
+                  <option>To be confirmed</option>
+                </select>
+              </div>
+              <div class="field field-span">
+                <label for="clips">Clips / reel IDs</label>
+                <textarea id="clips" name="clips" placeholder="Reel IDs and titles. Add clips from the archive to fill this automatically."></textarea>
+              </div>
+              <div class="field field-span">
+                <label for="message">Notes <span class="optional">(optional)</span></label>
+                <textarea id="message" name="message" placeholder="In/out points, delivery format, deadline…"></textarea>
+              </div>
+              <div class="field field-span">
+                <div class="check-row">
+                  <input id="proxies" name="proxies" type="checkbox" checked />
+                  <label for="proxies">Send time-coded low-res proxies for the clips above</label>
+                </div>
+              </div>
+            </div>
+            <button class="btn" type="submit" id="inquire-submit">Send license request</button>
+            <p class="form-status" id="form-status" hidden></p>
+          </form>
+
+          <div class="form-card success-card" id="inquire-success" hidden>
+            <p class="kicker">Sent</p>
+            <h2>Request received</h2>
+            <p>We will reply from licensingips@gmail.com with rates and, if you asked for them, time-coded proxies. If this is the first request to this inbox, we may also need to confirm the form once — that happens on our side, not yours.</p>
+            <p><a href="/">Back to the archive</a> · <a href="/collections/">Collections</a></p>
+          </div>
+        </div>
+
+        <aside class="aside-card">
+          <h2>What happens next</h2>
+          <ul>
+            <li>We confirm the clips and whether they are commercial or editorial-only.</li>
+            <li>You receive time-coded proxies to mark in/out points.</li>
+            <li>We invoice in USD. Masters go out as R3D or ProRes after payment.</li>
+          </ul>
+          <p style="margin-top: 1rem;">A 10-second minimum applies per clip. Read <a href="/licensing-guide.html">how licensing works</a> if you need the rate card.</p>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer-line">© 2026 Indo Pacific Stock · All footage rights reserved · <a href="/collections/">Collections</a> · <a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a></p>
+  </footer>
+  <script src="inquire.js" defer></script>
+</body>
+</html>
