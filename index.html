@@ -1500,6 +1500,17 @@
       word-break: break-word;
     }
 
+    .modal-title-link {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .modal-title-link:hover {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .license-label {
       font-size: 0.68rem;
       letter-spacing: 0.1em;
@@ -1659,8 +1670,14 @@
       font-style: italic;
     }
 
-    .checkout-btn {
+    .modal-actions {
       margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .checkout-btn {
       padding: 0.95rem 1.25rem;
       background: var(--accent);
       color: #FFFFFF;
@@ -1678,6 +1695,32 @@
     .checkout-btn:hover { background: var(--accent-hover); }
 
     .checkout-btn:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.35);
+    }
+
+    .copy-link-btn {
+      padding: 0.85rem 1.25rem;
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-family: inherit;
+      cursor: pointer;
+      transition: color var(--transition), border-color var(--transition), background var(--transition);
+    }
+
+    .copy-link-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .copy-link-btn:focus-visible {
       outline: none;
       box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.35);
     }
@@ -2199,7 +2242,7 @@
           </div>
         </div>
         <div class="modal-right">
-          <h2 class="modal-title" id="modal-title"></h2>
+          <h2 class="modal-title" id="modal-title"><a class="modal-title-link" id="modal-title-link"></a></h2>
           <div class="license-block">
             <p class="license-label">License</p>
             <p class="license-type" id="modal-license-type">Commercial</p>
@@ -2276,7 +2319,10 @@
               </div>
             </div>
           </div>
-          <button type="button" class="checkout-btn" id="checkout-btn">Add to Cart</button>
+          <div class="modal-actions">
+            <button type="button" class="checkout-btn" id="checkout-btn">Add to Cart</button>
+            <button type="button" class="copy-link-btn" id="copy-link-btn">Copy link</button>
+          </div>
         </div>
       </div>
     </div>
@@ -2317,6 +2363,7 @@
     const modalMaxResolution = document.getElementById('modal-max-resolution');
     const modalMaxResolutionValue = document.getElementById('modal-max-resolution-value');
     const modalTitle = document.getElementById('modal-title');
+    const modalTitleLink = document.getElementById('modal-title-link');
     const toast = document.getElementById('toast');
     const modalLicenseType = document.getElementById('modal-license-type');
     const modalPricingTier = document.getElementById('modal-pricing-tier');
@@ -2324,6 +2371,7 @@
     const modalRateCard = document.getElementById('modal-rate-card');
     const modalRateCardTitle = document.getElementById('modal-rate-card-title');
     const checkoutBtn = document.getElementById('checkout-btn');
+    const copyLinkBtn = document.getElementById('copy-link-btn');
     const shotListTrigger = document.getElementById('shot-list-trigger');
     const shotListCount = document.getElementById('shot-list-count');
     const shotListDrawerOverlay = document.getElementById('shot-list-drawer-overlay');
@@ -2348,6 +2396,7 @@
 
     let activeAsset = null;
     let toastTimer = null;
+    let copyLinkTimer = null;
 
     function buildCartItemFromAsset(asset) {
       const spec = asset.technicalSpecs || {};
@@ -3583,15 +3632,116 @@
       }
     }
 
-    function openModal(card) {
+    function clipPagePath(slug) {
+      return `/clip/${encodeURIComponent(slug)}/`;
+    }
+
+    function clipPermalink(slug) {
+      return `${window.location.origin}${clipPagePath(slug)}`;
+    }
+
+    function requestedClipFromLocation() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('clip') || params.get('id') || '';
+    }
+
+    function normalizeClipKey(value) {
+      return String(value || '')
+        .trim()
+        .replace(/\\/g, '/')
+        .replace(/^.*\//, '')
+        .replace(/\/+$/, '')
+        .replace(/\.(mp4|mov|r3d)$/i, '')
+        .toLowerCase();
+    }
+
+    function resolveClipSlug(requested) {
+      const key = normalizeClipKey(requested);
+      if (!key) return '';
+      if (assetCatalog.has(key)) return key;
+      for (const [slug, data] of assetCatalog.entries()) {
+        const spec = data.technicalSpecs || {};
+        const candidates = [slug, spec.fileName, spec.originalCameraCode, spec.slug]
+          .map(normalizeClipKey)
+          .filter(Boolean);
+        if (candidates.includes(key)) return slug;
+      }
+      return '';
+    }
+
+    function setClipSearchParam(slug) {
+      const url = new URL(window.location.href);
+      const current = url.searchParams.get('clip');
+      if (current === slug) {
+        history.replaceState({ clip: slug }, '', `${url.pathname}${url.search}${url.hash}`);
+        return;
+      }
+      url.searchParams.delete('id');
+      url.searchParams.set('clip', slug);
+      history.pushState({ clip: slug }, '', `${url.pathname}${url.search}${url.hash}`);
+    }
+
+    function clearClipSearchParam() {
+      const url = new URL(window.location.href);
+      if (!url.searchParams.has('clip') && !url.searchParams.has('id')) return;
+      url.searchParams.delete('clip');
+      url.searchParams.delete('id');
+      const next = `${url.pathname}${url.search}${url.hash}`;
+      history.pushState({ clip: null }, '', next);
+    }
+
+    function resetCopyLinkButton() {
+      copyLinkBtn.textContent = 'Copy link';
+      copyLinkBtn.setAttribute('aria-label', 'Copy link to this clip');
+    }
+
+    async function copyTextToClipboard(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return;
+      }
+      const input = document.createElement('textarea');
+      input.value = text;
+      input.setAttribute('readonly', '');
+      input.style.position = 'fixed';
+      input.style.left = '-9999px';
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      input.remove();
+    }
+
+    async function copyActiveClipLink() {
+      const slug = activeAsset?.slug;
+      if (!slug) return;
+      const url = clipPermalink(slug);
+      try {
+        await copyTextToClipboard(url);
+        copyLinkBtn.textContent = 'Link copied';
+        showToast('Clip link copied');
+        clearTimeout(copyLinkTimer);
+        copyLinkTimer = setTimeout(resetCopyLinkButton, 2000);
+      } catch {
+        window.prompt('Copy this clip link', url);
+      }
+    }
+
+    function openModal(card, options) {
       const data = assetCatalog.get(card.dataset.assetId);
       if (!data) return;
+      openModalFromData(data, options);
+    }
+
+    function openModalFromData(data, options = {}) {
+      if (!data?.slug) return;
 
       activeAsset = data;
-      modalTitle.textContent = data.title;
+      modalTitleLink.textContent = data.title;
+      modalTitleLink.href = clipPagePath(data.slug);
       modalMeta.textContent = buildMetaLine(data);
       updateModalLicensing(data);
       updateModalCartButton(data);
+      resetCopyLinkButton();
 
       const maxResolution = data.technicalSpecs?.resolution || '';
       if (maxResolution) {
@@ -3608,6 +3758,8 @@
       modalOverlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       modalVideo.load();
+
+      if (!options.skipUrl) setClipSearchParam(data.slug);
 
       modalVideo.addEventListener('loadedmetadata', function onModalDuration() {
         captureDurationFromVideo(modalVideo, data);
@@ -3641,7 +3793,18 @@
       }, { once: true });
     }
 
-    function closeModal() {
+    function openModalBySlug(requested, options = {}) {
+      const slug = resolveClipSlug(requested);
+      const data = slug ? assetCatalog.get(slug) : null;
+      if (!data) {
+        showToast('That clip is not in the catalog.');
+        return false;
+      }
+      openModalFromData(data, options);
+      return true;
+    }
+
+    function closeModal(options = {}) {
       modalVideo.pause();
       modalVideo.removeAttribute('src');
       modalVideo.load();
@@ -3649,6 +3812,14 @@
       modalOverlay.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       activeAsset = null;
+      resetCopyLinkButton();
+      if (!options.skipUrl) clearClipSearchParam();
+    }
+
+    function openDeepLinkedClip() {
+      const requested = requestedClipFromLocation();
+      if (!requested) return;
+      openModalBySlug(requested, { skipUrl: true });
     }
 
     function showToast(message) {
@@ -3711,6 +3882,21 @@
       updateModalCartButton(activeAsset);
     });
 
+    copyLinkBtn.addEventListener('click', () => {
+      copyActiveClipLink();
+    });
+
+    window.addEventListener('popstate', () => {
+      const requested = requestedClipFromLocation();
+      if (requested) {
+        openModalBySlug(requested, { skipUrl: true });
+        return;
+      }
+      if (modalOverlay.classList.contains('open')) {
+        closeModal({ skipUrl: true });
+      }
+    });
+
     window.IPFStockLicensing = {
       buildLicenseRequestMailto,
       previewLicenseRequestEmail,
@@ -3718,6 +3904,7 @@
     };
 
     await loadCatalog();
+    openDeepLinkedClip();
   })();
   </script>
 </body>
