@@ -83,7 +83,7 @@ body {
 .site-header-rail { height: 100%; display: flex; align-items: center; justify-content: space-between; }
 .logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: inherit; }
 .logo:hover { opacity: 0.88; }
-.logo-icon { width: 1.25rem; height: 1.25rem; display: block; flex-shrink: 0; }
+.logo-icon { width: 1.5rem; height: 1.5rem; display: block; flex-shrink: 0; }
 .logo-wordmark {
   font-size: 1.25rem; font-weight: 500; line-height: 1; letter-spacing: 0.12em;
   text-transform: uppercase; color: var(--text); white-space: nowrap;
@@ -205,12 +205,13 @@ main { flex: 1; padding-top: calc(var(--header-h) + 2.25rem); padding-bottom: 3.
 """
 
 LOGO_SVG = """
-<svg class="logo-icon" viewBox="0 0 38 38" fill="none" aria-hidden="true">
-  <circle cx="19" cy="19" r="17" stroke="#059669" stroke-width="1" opacity="0.25"/>
-  <circle cx="19" cy="19" r="11.5" stroke="#059669" stroke-width="1.2" opacity="0.75"/>
-  <path d="M19 7.5v23M7.5 19h23" stroke="#059669" stroke-width="0.75" opacity="0.45"/>
-  <circle cx="19" cy="19" r="3.5" fill="#059669" opacity="0.9"/>
-  <path d="M8 26 Q19 30 30 26" stroke="#059669" stroke-width="0.8" opacity="0.35" fill="none"/>
+<svg class="logo-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <path fill="#059669" d="M14.533 9.034L12.816 1.632A10.40 10.40 0 0 1 21.608 8.020L15.792 12.910Z"/>
+  <path fill="#059669" d="M15.603 13.492L22.113 9.572A10.40 10.40 0 0 1 18.754 19.908L12.306 15.888Z"/>
+  <path fill="#059669" d="M11.694 15.888L17.434 20.867A10.40 10.40 0 0 1 6.566 20.867L8.397 13.492Z"/>
+  <path fill="#059669" d="M8.208 12.910L5.246 19.908A10.40 10.40 0 0 1 1.887 9.572L9.467 9.034Z"/>
+  <path fill="#059669" d="M9.962 8.675L2.392 8.020A10.40 10.40 0 0 1 11.184 1.632L14.038 8.675Z"/>
+  <circle cx="12" cy="12" r="10.40" stroke="#059669" stroke-width="0.9"/>
 </svg>
 """
 
