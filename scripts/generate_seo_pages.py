@@ -24,9 +24,11 @@ LOGO_URL = f"{SITE}/images/logo.png"
 THUMBS_DIR = ROOT / "thumbs"
 VIDEO_SITEMAP_PATH = ROOT / "video-sitemap.xml"
 
-ICON_LINKS = """  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+ICON_LINKS = """  <link rel="icon" href="/favicon-32.png?v=2" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/favicon-16.png?v=2" type="image/png" sizes="16x16" />
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
 """
 
 ORGANIZATION_LD = {
