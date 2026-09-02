@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 5:1",
     "fps": "59.94",
     "aspectRatio": "1.09",
-    "duration": "00:04:17:25",
+    "duration": "00:00:27:26",
     "sceneCategory": "Underwater",
     "family": "Octopodidae (Octopuses)",
-    "latinName": "Octopus sp."
+    "latinName": "Octopus sp.",
+    "masterDuration": "00:04:17:25",
+    "durationSeconds": 27.434,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

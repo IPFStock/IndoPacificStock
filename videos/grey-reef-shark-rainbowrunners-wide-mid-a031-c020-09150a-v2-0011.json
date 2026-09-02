@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 4:1",
     "fps": "59.94",
     "aspectRatio": "2.37",
-    "duration": "00:02:29:52",
+    "duration": "00:01:23:26",
     "sceneCategory": "Underwater",
     "family": "Carcharhinidae (Requiem Sharks)",
-    "latinName": "Triaenodon obesus"
+    "latinName": "Triaenodon obesus",
+    "masterDuration": "00:02:29:52",
+    "durationSeconds": 83.434,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

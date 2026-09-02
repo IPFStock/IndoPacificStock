@@ -2889,6 +2889,10 @@
 
     function resolveClipDuration(data) {
       const spec = data?.technicalSpecs || {};
+      const seconds = Number(spec.durationSeconds);
+      if (Number.isFinite(seconds) && seconds > 0) {
+        return formatSecondsAsLabel(seconds);
+      }
       return formatDurationLabel(spec.duration || data?.duration || '', spec.fps);
     }
 
@@ -2899,10 +2903,9 @@
 
       data.duration = video.duration;
       if (!data.technicalSpecs) data.technicalSpecs = {};
-      const stored = data.technicalSpecs.duration;
-      if (!stored || /\s-\s/.test(String(stored))) {
-        data.technicalSpecs.duration = formatted;
-      }
+      data.technicalSpecs.durationSeconds = Math.round(video.duration * 1000) / 1000;
+      data.technicalSpecs.duration = formatted;
+      data.technicalSpecs.durationSource = 'preview-player';
     }
 
     function buildMetaLine(data) {

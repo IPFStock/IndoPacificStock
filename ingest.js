@@ -827,6 +827,44 @@ function durationNeedsNormalization(duration) {
   return /\.\d/.test(value);
 }
 
+function isPreviewDurationSource(source) {
+  return source === 'ffprobe' || source === 'mp4-probe';
+}
+
+function applyExistingPreviewDurations(catalog) {
+  let restored = 0;
+  catalog.forEach((data, slug) => {
+    const existingPath = path.join(outputDir, `${slug}.json`);
+    if (!fs.existsSync(existingPath)) return;
+    let existing;
+    try {
+      existing = JSON.parse(fs.readFileSync(existingPath, 'utf8'));
+    } catch {
+      return;
+    }
+    const prev = existing.technicalSpecs || {};
+    if (!isPreviewDurationSource(prev.durationSource)) return;
+    const seconds = Number(prev.durationSeconds);
+    if (!Number.isFinite(seconds) || seconds <= 0) return;
+
+    if (!data.technicalSpecs) data.technicalSpecs = {};
+    const csvDuration = data.technicalSpecs.duration;
+    if (csvDuration && !isPreviewDurationSource(data.technicalSpecs.durationSource)) {
+      data.technicalSpecs.masterDuration = prev.masterDuration || csvDuration;
+    } else if (prev.masterDuration) {
+      data.technicalSpecs.masterDuration = prev.masterDuration;
+    }
+    data.technicalSpecs.duration = prev.duration;
+    data.technicalSpecs.durationSeconds = seconds;
+    data.technicalSpecs.durationSource = prev.durationSource;
+    restored += 1;
+  });
+  if (restored) {
+    console.log(`Kept ${restored} preview MP4 durations from existing catalog JSON.`);
+  }
+  return restored;
+}
+
 function normalizeCsvDuration(rawDuration, fps) {
   if (!rawDuration) return '';
 
@@ -902,7 +940,7 @@ async function enrichCatalogDurations(catalog) {
   const needsProbe = [];
   catalog.forEach((data) => {
     const spec = data.technicalSpecs || {};
-    if (spec.duration && !durationNeedsNormalization(spec.duration)) return;
+    if (isPreviewDurationSource(spec.durationSource) && Number(spec.durationSeconds) > 0) return;
     const fileName = spec.fileName;
     if (!fileName) return;
     needsProbe.push({
@@ -937,6 +975,10 @@ async function enrichCatalogDurations(catalog) {
           const fps = parseFpsValue(data.technicalSpecs?.fps);
           const duration = formatDurationFromSeconds(seconds, fps);
           if (!data.technicalSpecs) data.technicalSpecs = {};
+          const previous = data.technicalSpecs.duration;
+          if (previous && !isPreviewDurationSource(data.technicalSpecs.durationSource)) {
+            data.technicalSpecs.masterDuration = previous;
+          }
           data.technicalSpecs.duration = duration;
           data.technicalSpecs.durationSeconds = Math.round(seconds * 1000) / 1000;
           data.technicalSpecs.durationSource = 'ffprobe';
@@ -1312,6 +1354,7 @@ async function main() {
 
   const flags = ingestCliFlags();
   normalizeCatalogDurations(catalog);
+  applyExistingPreviewDurations(catalog);
   if (!flags.skipProbe) {
     await enrichCatalogDurations(catalog);
   } else {

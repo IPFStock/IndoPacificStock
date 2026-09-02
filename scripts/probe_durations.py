@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
-"""Probe missing clip durations from GitHub-hosted MP4s and update catalog JSON + master CSV."""
+"""Probe preview MP4 durations from GitHub and write them into catalog JSON.
+
+By default every clip is probed so the site shows the preview file length,
+not the DaVinci / CSV master Duration TC. Empty CSV Duration TC cells are
+filled when missing; existing master durations are left alone.
+"""
 
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import re
@@ -10,6 +16,8 @@ import struct
 import sys
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,6 +26,8 @@ MASTER_CSV = ROOT / 'Raja Stock Clips 3 Clips Metadata.csv'
 GITHUB_RAW = 'https://raw.githubusercontent.com/IPFStock/ip-assets-01/main'
 TAIL_BYTES = 4 * 1024 * 1024
 USER_AGENT = 'IPFStock-duration-probe/1.0'
+PREVIEW_SOURCES = {'mp4-probe', 'ffprobe'}
+WORKERS = 8
 
 
 SKIP_JSON = {'catalog.json', 'manifest.json', 'homepage-featured.json'}
@@ -174,8 +184,8 @@ def save_master_rows(header: list[str], data: list[list[str]]) -> None:
         writer.writerows(data)
 
 
-def main() -> int:
-    missing = []
+def collect_targets(only_missing: bool) -> list[tuple[Path, dict, str]]:
+    targets = []
     for path in sorted(VIDEOS_DIR.glob('*.json')):
         if path.name in SKIP_JSON:
             continue
@@ -183,18 +193,72 @@ def main() -> int:
         if not isinstance(payload, dict):
             continue
         spec = payload.get('technicalSpecs') or {}
-        if str(spec.get('duration') or '').strip():
-            continue
         file_name = spec.get('fileName') or ''
         if not file_name:
             continue
-        missing.append((path, payload, file_name))
+        if only_missing:
+            has_preview = str(spec.get('durationSource') or '') in PREVIEW_SOURCES
+            has_seconds = float(spec.get('durationSeconds') or 0) > 0
+            if has_preview and has_seconds:
+                continue
+        targets.append((path, payload, file_name))
+    return targets
 
-    if not missing:
-        print('No clips missing duration.')
+
+def apply_preview_duration(payload: dict, seconds: float) -> None:
+    spec = payload.setdefault('technicalSpecs', {})
+    fps = infer_fps(spec.get('fileName') or '', spec)
+    smpte = format_duration_smpte(seconds, fps)
+    previous = str(spec.get('duration') or '').strip()
+    previous_source = str(spec.get('durationSource') or '').strip()
+    if previous and previous_source not in PREVIEW_SOURCES and not spec.get('masterDuration'):
+        spec['masterDuration'] = previous
+    spec['duration'] = smpte
+    spec['durationSeconds'] = round(seconds, 3)
+    spec['durationSource'] = 'mp4-probe'
+
+
+def rebuild_catalog() -> int:
+    clips = []
+    for path in sorted(VIDEOS_DIR.glob('*.json')):
+        if path.name in SKIP_JSON:
+            continue
+        payload = json.loads(path.read_text(encoding='utf-8'))
+        if not isinstance(payload, dict):
+            continue
+        clips.append({'slug': path.stem, **payload})
+    clips.sort(key=lambda clip: (clip.get('title') or '').lower())
+    bundle = {
+        'version': len(clips),
+        'generatedAt': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
+        'clips': clips,
+    }
+    (VIDEOS_DIR / 'catalog.json').write_text(json.dumps(bundle), encoding='utf-8')
+    return len(clips)
+
+
+def probe_one(path: Path, payload: dict, file_name: str) -> tuple[str, float | None, str]:
+    url = payload.get('videoUrl') or f'{GITHUB_RAW}/{file_name}'
+    label = payload.get('title') or path.stem
+    seconds = probe_mp4_duration(url)
+    return label, seconds, file_name
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        '--only-missing',
+        action='store_true',
+        help='Only probe clips that do not already have a preview MP4 duration',
+    )
+    args = parser.parse_args()
+
+    targets = collect_targets(args.only_missing)
+    if not targets:
+        print('No clips need duration probing.')
         return 0
 
-    print(f'Probing {len(missing)} clips…')
+    print(f'Probing {len(targets)} preview MP4s…')
     header, master_data, idx = load_master_rows()
     duration_idx = idx.get('Duration TC', -1)
     file_idx = idx.get('File Name', -1)
@@ -210,41 +274,46 @@ def main() -> int:
 
     probed = 0
     failed = 0
-    for path, payload, file_name in missing:
-        url = payload.get('videoUrl') or f'{GITHUB_RAW}/{file_name}'
-        fps = infer_fps(file_name, payload.get('technicalSpecs') or {})
-        label = payload.get('title') or path.stem
-        try:
-            seconds = probe_mp4_duration(url)
-            if not seconds or seconds <= 0:
-                print(f'  FAIL {label}: no duration from MP4')
+    csv_filled = False
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futures = {
+            pool.submit(probe_one, path, payload, file_name): (path, payload, file_name)
+            for path, payload, file_name in targets
+        }
+        for future in as_completed(futures):
+            path, payload, file_name = futures[future]
+            label = payload.get('title') or path.stem
+            try:
+                _, seconds, _ = future.result()
+                if not seconds or seconds <= 0:
+                    print(f'  FAIL {label}: no duration from MP4')
+                    failed += 1
+                    continue
+                apply_preview_duration(payload, seconds)
+                path.write_text(json.dumps(payload, indent=2) + '\n', encoding='utf-8')
+
+                spec = payload['technicalSpecs']
+                if duration_idx >= 0:
+                    row = master_by_mp4.get(file_name.lower())
+                    if row is None:
+                        row = master_by_base.get(reel_base_source(file_name))
+                    if row is not None and not row[duration_idx].strip():
+                        row[duration_idx] = spec['duration']
+                        csv_filled = True
+
+                print(f'  OK {label}: {spec["duration"]} ({seconds:.2f}s)')
+                probed += 1
+            except (urllib.error.URLError, TimeoutError, ValueError, struct.error, OSError) as err:
+                print(f'  FAIL {label}: {err}')
                 failed += 1
-                continue
-            smpte = format_duration_smpte(seconds, fps)
-            spec = payload.setdefault('technicalSpecs', {})
-            spec['duration'] = smpte
-            spec['durationSeconds'] = round(seconds, 3)
-            spec['durationSource'] = 'mp4-probe'
-            path.write_text(json.dumps(payload, indent=2) + '\n', encoding='utf-8')
 
-            if duration_idx >= 0:
-                row = master_by_mp4.get(file_name.lower())
-                if row is None:
-                    row = master_by_base.get(reel_base_source(file_name))
-                if row is not None and not row[duration_idx].strip():
-                    row[duration_idx] = smpte
-
-            display = format_duration_smpte(seconds, fps)
-            print(f'  OK {label}: {display} ({seconds:.2f}s)')
-            probed += 1
-        except (urllib.error.URLError, TimeoutError, ValueError, struct.error) as err:
-            print(f'  FAIL {label}: {err}')
-            failed += 1
-
-    if probed and duration_idx >= 0:
+    if csv_filled:
         save_master_rows(header, master_data)
 
-    print(f'\nDone: {probed} durations added, {failed} failed.')
+    count = rebuild_catalog()
+    print(f'\nDone: {probed} preview durations written, {failed} failed.')
+    print(f'Rebuilt videos/catalog.json ({count} clips).')
     return 0 if failed == 0 else 1
 
 

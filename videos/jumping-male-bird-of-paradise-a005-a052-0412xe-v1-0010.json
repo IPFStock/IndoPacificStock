@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 8:1",
     "fps": "175",
     "aspectRatio": "1.09",
-    "duration": "00:00:48:01",
+    "duration": "00:00:28:63",
     "sceneCategory": "Wildlife",
     "family": "Aves",
-    "latinName": "Aves sp."
+    "latinName": "Aves sp.",
+    "masterDuration": "00:00:48:01",
+    "durationSeconds": 28.36,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

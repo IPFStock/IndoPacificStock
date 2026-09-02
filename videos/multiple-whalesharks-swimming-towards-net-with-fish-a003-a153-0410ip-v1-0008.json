@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 5:1",
     "fps": "50",
     "aspectRatio": "1.09",
-    "duration": "00:04:12:22",
+    "duration": "00:00:13:00",
     "sceneCategory": "Underwater",
     "family": "Rhincodontidae (Whale Sharks)",
-    "latinName": "Rhincodon typus"
+    "latinName": "Rhincodon typus",
+    "masterDuration": "00:04:12:22",
+    "durationSeconds": 13.0,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

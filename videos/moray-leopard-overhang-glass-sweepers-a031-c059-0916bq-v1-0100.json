@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 5:1",
     "fps": "59.94",
     "aspectRatio": "1.09",
-    "duration": "00:00:42:55",
+    "duration": "00:00:19:13",
     "sceneCategory": "Underwater",
     "family": "Pempheridae (Sweepers)",
-    "latinName": "Parapriacanthus ransonneti"
+    "latinName": "Parapriacanthus ransonneti",
+    "masterDuration": "00:00:42:55",
+    "durationSeconds": 19.22,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

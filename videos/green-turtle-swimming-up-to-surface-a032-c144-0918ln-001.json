@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 5:1",
     "fps": "59.94",
     "aspectRatio": "1:09",
-    "duration": "00:01:06:06",
+    "duration": "00:00:41:40",
     "sceneCategory": "Underwater",
     "family": "Cheloniidae (Sea Turtles)",
-    "latinName": "Chelonia mydas"
+    "latinName": "Chelonia mydas",
+    "masterDuration": "00:01:06:06",
+    "durationSeconds": 41.663,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

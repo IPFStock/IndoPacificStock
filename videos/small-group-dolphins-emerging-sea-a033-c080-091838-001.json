@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 8:1",
     "fps": "96",
     "aspectRatio": "1:09",
-    "duration": "00:00:35:19",
+    "duration": "00:00:13:44",
     "sceneCategory": "Underwater",
     "family": "Delphinidae (Dolphins)",
-    "latinName": "Delphinidae sp."
+    "latinName": "Delphinidae sp.",
+    "masterDuration": "00:00:35:19",
+    "durationSeconds": 13.46,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

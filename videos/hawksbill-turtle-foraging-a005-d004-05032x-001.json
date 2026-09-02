@@ -60,10 +60,13 @@
     "cameraFormat": "MQ",
     "fps": "32",
     "aspectRatio": "1.9",
-    "duration": "00:00:49:22",
+    "duration": "00:00:19:27",
     "sceneCategory": "Underwater",
     "family": "Cheloniidae (Sea Turtles)",
-    "latinName": "Eretmochelys imbricata"
+    "latinName": "Eretmochelys imbricata",
+    "masterDuration": "00:00:49:22",
+    "durationSeconds": 19.834,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

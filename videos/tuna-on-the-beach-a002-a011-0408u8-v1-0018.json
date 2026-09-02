@@ -65,7 +65,10 @@
     "duration": "00:00:11:00",
     "sceneCategory": "Culture",
     "family": "",
-    "latinName": ""
+    "latinName": "",
+    "masterDuration": "00:00:11:00",
+    "durationSeconds": 11.0,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

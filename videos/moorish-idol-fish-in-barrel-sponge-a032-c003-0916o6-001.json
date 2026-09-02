@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 4:1",
     "fps": "59.94",
     "aspectRatio": "2:37",
-    "duration": "00:00:43:38",
+    "duration": "00:00:43:25",
     "sceneCategory": "Underwater",
     "family": "Zanclidae (Moorish Idols)",
-    "latinName": "Zanclus cornutus"
+    "latinName": "Zanclus cornutus",
+    "masterDuration": "00:00:43:38",
+    "durationSeconds": 43.412,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

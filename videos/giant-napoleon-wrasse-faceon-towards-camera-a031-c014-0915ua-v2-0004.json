@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 4:1",
     "fps": "59.94",
     "aspectRatio": "2.37",
-    "duration": "00:00:58:59",
+    "duration": "00:00:58:22",
     "sceneCategory": "Underwater",
     "family": "Labridae (Wrasses)",
-    "latinName": "Labridae sp."
+    "latinName": "Labridae sp.",
+    "masterDuration": "00:00:58:59",
+    "durationSeconds": 58.367,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

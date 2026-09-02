@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 5:1",
     "fps": "59.94",
     "aspectRatio": "1.09",
-    "duration": "00:00:37:56",
+    "duration": "00:00:25:10",
     "sceneCategory": "Underwater",
     "family": "Syngnathidae (Pipefish & Seahorses)",
-    "latinName": "Syngnathidae sp."
+    "latinName": "Syngnathidae sp.",
+    "masterDuration": "00:00:37:56",
+    "durationSeconds": 25.172,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

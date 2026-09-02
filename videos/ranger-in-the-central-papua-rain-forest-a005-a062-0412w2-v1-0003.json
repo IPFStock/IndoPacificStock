@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 8:1",
     "fps": "75",
     "aspectRatio": "1.09",
-    "duration": "00:00:14:03",
+    "duration": "00:00:14:09",
     "sceneCategory": "Culture",
     "family": "",
-    "latinName": ""
+    "latinName": "",
+    "masterDuration": "00:00:14:03",
+    "durationSeconds": 14.12,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

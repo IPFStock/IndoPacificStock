@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 5:1",
     "fps": "59.94",
     "aspectRatio": "1.09",
-    "duration": "00:03:49:22",
+    "duration": "00:00:48:34",
     "sceneCategory": "Underwater",
     "family": "Mollusca",
-    "latinName": "Mollusca sp."
+    "latinName": "Mollusca sp.",
+    "masterDuration": "00:03:49:22",
+    "durationSeconds": 48.575,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

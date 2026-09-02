@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 5:1",
     "fps": "59.94",
     "aspectRatio": "1.09",
-    "duration": "00:00:43:55",
+    "duration": "00:00:37:07",
     "sceneCategory": "Underwater",
     "family": "Haemulidae (Sweetlips)",
-    "latinName": "Plectorhinchus polytaenia"
+    "latinName": "Plectorhinchus polytaenia",
+    "masterDuration": "00:00:43:55",
+    "durationSeconds": 37.119,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

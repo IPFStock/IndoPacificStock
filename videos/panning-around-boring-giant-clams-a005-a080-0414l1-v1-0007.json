@@ -64,10 +64,13 @@
     "cameraFormat": "A",
     "fps": "REDcode 7:1",
     "aspectRatio": "35",
-    "duration": "00:00:18:08",
+    "duration": "00:00:06:46",
     "sceneCategory": "FALSE",
     "family": "Mollusca",
-    "latinName": "Mollusca sp."
+    "latinName": "Mollusca sp.",
+    "masterDuration": "00:00:18:08",
+    "durationSeconds": 6.92,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

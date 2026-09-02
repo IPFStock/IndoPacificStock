@@ -64,10 +64,13 @@
     "cameraFormat": "130-27C-A4B",
     "fps": "A",
     "aspectRatio": "110",
-    "duration": "00:00:11:04",
+    "duration": "00:00:07:34",
     "sceneCategory": "FALSE",
     "family": "",
-    "latinName": ""
+    "latinName": "",
+    "masterDuration": "00:00:11:04",
+    "durationSeconds": 7.68,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

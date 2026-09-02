@@ -392,6 +392,20 @@ def iso8601_duration(duration: object, fps: object = None, duration_seconds: obj
     return "".join(parts)
 
 
+def format_duration_label(
+    duration: object, fps: object = None, duration_seconds: object = None
+) -> str:
+    total = clip_duration_seconds(duration, fps, duration_seconds)
+    if total is None or total <= 0:
+        return str(duration or "").strip()
+    whole = max(0, int(round(total)))
+    hours, remainder = divmod(whole, 3600)
+    minutes, seconds = divmod(remainder, 60)
+    if hours:
+        return f"{hours}:{minutes:02d}:{seconds:02d}"
+    return f"{minutes}:{seconds:02d}"
+
+
 def header_html(active: str | None = None) -> str:
     def nav(href: str, label: str, key: str) -> str:
         cls = "inquire-link is-current" if active == key else "inquire-link"
@@ -580,9 +594,11 @@ def build_clip_page(clip: dict, catalog: list[dict], take_labels: dict[str, str]
     if code:
         inquire_params.append(f"id={quote(code, safe='')}")
     inquire = f"/inquire.html?{'&'.join(inquire_params)}"
-    duration = specs.get("duration") or ""
+    duration = format_duration_label(
+        specs.get("duration"), specs.get("fps"), specs.get("durationSeconds")
+    )
     schema_duration = iso8601_duration(
-        duration, specs.get("fps"), specs.get("durationSeconds")
+        specs.get("duration"), specs.get("fps"), specs.get("durationSeconds")
     )
     upload = specs.get("date") or "2026-03-01"
     if not re.match(r"^\d{4}-\d{2}-\d{2}", str(upload)):

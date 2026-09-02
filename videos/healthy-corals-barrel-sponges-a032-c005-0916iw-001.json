@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 4:1",
     "fps": "59.94",
     "aspectRatio": "2:37",
-    "duration": "00:00:27:50",
+    "duration": "00:00:27:49",
     "sceneCategory": "Underwater",
     "family": "",
-    "latinName": ""
+    "latinName": "",
+    "masterDuration": "00:00:27:50",
+    "durationSeconds": 27.818,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

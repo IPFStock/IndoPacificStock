@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 5:1",
     "fps": "59.94",
     "aspectRatio": "0,095833333",
-    "duration": "00:00:10:47",
+    "duration": "00:00:10:32",
     "sceneCategory": "Underwater",
     "family": "Pomacentridae (Damselfish)",
-    "latinName": "Pseudanthias sp."
+    "latinName": "Pseudanthias sp.",
+    "masterDuration": "00:00:10:47",
+    "durationSeconds": 10.538,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }

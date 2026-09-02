@@ -62,10 +62,13 @@
     "cameraFormat": "REDcode 4:1",
     "fps": "59.94",
     "aspectRatio": "2.37",
-    "duration": "00:02:24:40",
+    "duration": "00:00:19:31",
     "sceneCategory": "Underwater",
     "family": "Mobulidae (Manta Rays)",
-    "latinName": "Mobula birostris"
+    "latinName": "Mobula birostris",
+    "masterDuration": "00:02:24:40",
+    "durationSeconds": 19.519,
+    "durationSource": "mp4-probe"
   },
   "syncSource": "csv"
 }
