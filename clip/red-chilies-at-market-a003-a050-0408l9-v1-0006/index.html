@@ -30,7 +30,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --bg: #F8FAFC; --surface: #FFFFFF; --border: #E6E8EA; --text: #0F172A;
-  --text-secondary: #334155; --muted: #64748b; --accent: #059669;
+  --text-secondary: #334155; --muted: #64748b; --accent: #1D6FA8;
   --header-bg: rgba(255, 255, 255, 0.96); --header-h: 4rem;
   --layout-max: 75rem; --layout-gutter: 1.5rem;
   --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -78,7 +78,7 @@ main { flex: 1; padding-top: calc(var(--header-h) + 2.25rem); padding-bottom: 3.
 .page-meta { margin: 0.75rem 0 0; font-size: 0.85rem; color: var(--muted); }
 .badge {
   display: inline-block; margin-top: 0.85rem; padding: 0.2rem 0.55rem; border-radius: 999px;
-  border: 1px solid rgba(5, 150, 105, 0.35); background: rgba(5, 150, 105, 0.08);
+  border: 1px solid rgba(29, 111, 168, 0.35); background: rgba(29, 111, 168, 0.08);
   color: var(--accent); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
 }
 .clip-layout {
@@ -111,7 +111,7 @@ main { flex: 1; padding-top: calc(var(--header-h) + 2.25rem); padding-bottom: 3.
   text-decoration: none; transition: background var(--transition), color var(--transition), border-color var(--transition);
 }
 .btn-primary { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
-.btn-primary:hover { background: #047857; border-color: #047857; }
+.btn-primary:hover { background: #185B8A; border-color: #185B8A; }
 .btn-secondary {
   background: var(--surface); color: var(--text); border: 1px solid var(--border);
 }
@@ -125,7 +125,7 @@ main { flex: 1; padding-top: calc(var(--header-h) + 2.25rem); padding-bottom: 3.
   border-radius: var(--radius-sm); overflow: hidden; text-decoration: none; color: inherit;
   box-shadow: var(--shadow-sm); transition: border-color var(--transition), transform var(--transition);
 }
-.clip-card:hover { border-color: rgba(5, 150, 105, 0.45); transform: translateY(-1px); }
+.clip-card:hover { border-color: rgba(29, 111, 168, 0.45); transform: translateY(-1px); }
 .clip-card-media { background: #0F172A; aspect-ratio: 16 / 9; }
 .clip-card-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .clip-card-body { padding: 0.9rem 1rem 1.1rem; display: grid; gap: 0.35rem; }
@@ -155,7 +155,7 @@ main { flex: 1; padding-top: calc(var(--header-h) + 2.25rem); padding-bottom: 3.
   display: block; padding: 1.2rem 1.25rem; background: var(--surface);
   border: 1px solid var(--border); border-radius: var(--radius-sm); text-decoration: none; color: inherit;
 }
-.collection-card:hover { border-color: rgba(5, 150, 105, 0.45); }
+.collection-card:hover { border-color: rgba(29, 111, 168, 0.45); }
 .collection-card h2 { font-size: 1.05rem; margin: 0 0 0.45rem; }
 .collection-card p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
 .site-footer {
@@ -183,12 +183,12 @@ main { flex: 1; padding-top: calc(var(--header-h) + 2.25rem); padding-bottom: 3.
       <a href="/" class="logo" aria-label="Indo Pacific Stock home">
         
 <svg class="logo-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-  <path fill="#059669" d="M14.533 9.034L12.816 1.632A10.40 10.40 0 0 1 21.608 8.020L15.792 12.910Z"/>
-  <path fill="#059669" d="M15.603 13.492L22.113 9.572A10.40 10.40 0 0 1 18.754 19.908L12.306 15.888Z"/>
-  <path fill="#059669" d="M11.694 15.888L17.434 20.867A10.40 10.40 0 0 1 6.566 20.867L8.397 13.492Z"/>
-  <path fill="#059669" d="M8.208 12.910L5.246 19.908A10.40 10.40 0 0 1 1.887 9.572L9.467 9.034Z"/>
-  <path fill="#059669" d="M9.962 8.675L2.392 8.020A10.40 10.40 0 0 1 11.184 1.632L14.038 8.675Z"/>
-  <circle cx="12" cy="12" r="10.40" stroke="#059669" stroke-width="0.9"/>
+  <path fill="#1D6FA8" d="M14.533 9.034L12.816 1.632A10.40 10.40 0 0 1 21.608 8.020L15.792 12.910Z"/>
+  <path fill="#1D6FA8" d="M15.603 13.492L22.113 9.572A10.40 10.40 0 0 1 18.754 19.908L12.306 15.888Z"/>
+  <path fill="#1D6FA8" d="M11.694 15.888L17.434 20.867A10.40 10.40 0 0 1 6.566 20.867L8.397 13.492Z"/>
+  <path fill="#1D6FA8" d="M8.208 12.910L5.246 19.908A10.40 10.40 0 0 1 1.887 9.572L9.467 9.034Z"/>
+  <path fill="#1D6FA8" d="M9.962 8.675L2.392 8.020A10.40 10.40 0 0 1 11.184 1.632L14.038 8.675Z"/>
+  <circle cx="12" cy="12" r="10.40" stroke="#1D6FA8" stroke-width="0.9"/>
 </svg>
 
         <span class="logo-wordmark">Indo Pacific Stock</span>

@@ -9,7 +9,7 @@ from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
 SLATE = (15, 23, 42, 255)
-EMERALD = (5, 150, 105, 255)
+ACCENT = (29, 111, 168, 255)
 WHITE = (255, 255, 255, 255)
 
 
@@ -44,7 +44,7 @@ def draw_mark(image: Image.Image, *, accent: tuple[int, int, int, int], include_
 
 def render(size: int, background: tuple[int, int, int, int], include_wave: bool = True) -> Image.Image:
     image = Image.new("RGBA", (size, size), background)
-    draw_mark(image, accent=EMERALD, include_wave=include_wave)
+    draw_mark(image, accent=ACCENT, include_wave=include_wave)
     return image
 
 
