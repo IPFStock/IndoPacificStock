@@ -1371,6 +1371,22 @@ function buildStubFromMp4(mp4FileName) {
   };
 }
 
+function stampCatalogCacheToken(token) {
+  const indexPath = path.join(__dirname, 'index.html');
+  if (!fs.existsSync(indexPath)) return;
+  const html = fs.readFileSync(indexPath, 'utf8');
+  const next = html.replace(
+    /const CATALOG_CACHE_TOKEN = '[^']*';/,
+    `const CATALOG_CACHE_TOKEN = '${token}';`
+  );
+  if (next === html) {
+    console.warn('Could not stamp CATALOG_CACHE_TOKEN in index.html');
+    return;
+  }
+  fs.writeFileSync(indexPath, next, 'utf8');
+  console.log(`Stamped catalog cache token ${token}`);
+}
+
 function pruneStaleJson(activeSlugs) {
   const active = new Set(activeSlugs);
   const keep = new Set(['manifest.json', 'catalog.json', 'homepage-featured.json']);
@@ -1469,6 +1485,7 @@ async function main() {
     JSON.stringify(catalogBundle),
     'utf8'
   );
+  stampCatalogCacheToken(`${manifest.length}-${catalogBundle.generatedAt}`);
 
   fs.writeFileSync(
     path.join(__dirname, 'rename_videos.sh'),

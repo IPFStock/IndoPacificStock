@@ -2342,6 +2342,7 @@
     const GITHUB_REPOS = ['ip-assets-01', 'ip-assets-02'];
     const GITHUB_BRANCH = 'main';
     const DEFAULT_ASSET_REPO = GITHUB_REPOS[0];
+    const CATALOG_CACHE_TOKEN = '540-2026-09-04-batu-rufus';
     const THUMB_TIME = 0.15;
     const VIDEO_LOAD_CONCURRENCY = 3;
     let activeVideoLoads = 0;
@@ -3281,6 +3282,28 @@
       return '';
     }
 
+    function cameraKeyFromFileName(fileName) {
+      return String(fileName || '')
+        .replace(/\.(mp4|mov|r3d)$/i, '')
+        .toLowerCase()
+        .replace(/_/g, '-');
+    }
+
+    function catalogSlugForMp4(mp4Name) {
+      const key = String(mp4Name || '').toLowerCase();
+      const camera = cameraKeyFromFileName(mp4Name);
+      if (!key && !camera) return '';
+      for (const [slug, data] of assetCatalog.entries()) {
+        if (mp4FileFromAsset(data) === key) return slug;
+        const spec = data.technicalSpecs || {};
+        const hay = [slug, spec.slug, spec.fileName, spec.originalCameraCode]
+          .filter(Boolean)
+          .map((value) => cameraKeyFromFileName(value));
+        if (hay.some((value) => value === camera || value.endsWith(camera))) return slug;
+      }
+      return '';
+    }
+
     const CATALOG_UPLOAD_FALLBACK = '2026-03-01';
 
     function normalizeCsvDateToIso(dateStr) {
@@ -3472,6 +3495,47 @@
       return files;
     }
 
+    async function fetchManifestSlugs(cacheQuery) {
+      try {
+        const response = await fetch(`videos/manifest.json${cacheQuery}`);
+        if (!response.ok) return [];
+        const payload = await response.json();
+        return Array.isArray(payload) ? payload.filter(Boolean) : [];
+      } catch (err) {
+        console.warn('Could not load videos/manifest.json for GitHub hydrate', err);
+        return [];
+      }
+    }
+
+    async function loadClipJson(slug, cacheQuery) {
+      const response = await fetch(`videos/${encodeURIComponent(slug)}.json${cacheQuery}`);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.json();
+    }
+
+    async function hydrateGithubMp4(file, cacheQuery, manifestSlugs) {
+      const existingSlug = catalogSlugForMp4(file.name);
+      if (existingSlug) return null;
+
+      const camera = cameraKeyFromFileName(file.name);
+      const slug = manifestSlugs.find((item) => {
+        const key = cameraKeyFromFileName(item);
+        return key === camera || key.endsWith(`-${camera}`);
+      });
+
+      if (slug) {
+        try {
+          const data = await loadClipJson(slug, cacheQuery);
+          if (!data.videoUrl) data.videoUrl = videoCdnUrl(file.name, file.repo);
+          return { slug, data };
+        } catch (err) {
+          console.warn(`Could not hydrate ${file.name} from videos/${slug}.json`, err);
+        }
+      }
+
+      return { slug: slugFromMp4(file.name), data: buildStubAsset(file.name, file.repo) };
+    }
+
     async function syncCatalogWithGithub(loadedCards) {
       try {
         const githubMp4Files = await fetchGithubMp4Files();
@@ -3481,9 +3545,11 @@
           const data = assetCatalog.get(card.dataset.assetId);
           if (!data) return false;
           const mp4 = mp4FileFromAsset(data);
-          const keep = mp4 && githubSet.has(mp4);
-          if (!keep) assetCatalog.delete(card.dataset.assetId);
-          return keep;
+          const keep = Boolean(mp4 && githubSet.has(mp4));
+          if (keep) return true;
+          if (data.syncSource === 'csv') return true;
+          assetCatalog.delete(card.dataset.assetId);
+          return false;
         });
 
         const knownMp4 = new Set();
@@ -3492,15 +3558,19 @@
           if (data) knownMp4.add(mp4FileFromAsset(data));
         });
 
-        githubMp4Files.forEach((file) => {
-          const key = file.name.toLowerCase();
-          if (knownMp4.has(key)) return;
+        const unmatched = githubMp4Files.filter((file) => !knownMp4.has(file.name.toLowerCase()));
+        if (!unmatched.length) return loadedCards;
 
-          const data = buildStubAsset(file.name, file.repo);
-          const card = buildCard(data, data.slug);
+        const cacheQuery = catalogCacheBust();
+        const manifestSlugs = await fetchManifestSlugs(cacheQuery);
+
+        for (const file of unmatched) {
+          const hydrated = await hydrateGithubMp4(file, cacheQuery, manifestSlugs);
+          if (!hydrated) continue;
+          const card = buildCard(hydrated.data, hydrated.slug);
           loadedCards.push(card);
-          knownMp4.add(key);
-        });
+          knownMp4.add(file.name.toLowerCase());
+        }
       } catch (err) {
         console.warn('Live GitHub sync skipped:', err.message);
       }
@@ -3508,12 +3578,7 @@
       return loadedCards;
     }
 
-    const catalogCacheBust = () => {
-      if (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:') {
-        return `?v=${Date.now()}`;
-      }
-      return '';
-    };
+    const catalogCacheBust = () => `?v=${encodeURIComponent(CATALOG_CACHE_TOKEN)}`;
 
     function featuredSlugsFromPayload(payload) {
       if (Array.isArray(payload?.slugs) && payload.slugs.length) {
