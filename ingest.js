@@ -7,9 +7,13 @@ const execFileAsync = promisify(execFile);
 
 const outputDir = path.join(__dirname, 'videos');
 const GITHUB_OWNER = 'IPFStock';
-const GITHUB_REPO = 'ip-assets-01';
+const GITHUB_REPOS = ['ip-assets-01', 'ip-assets-02'];
 const GITHUB_BRANCH = 'main';
-const GITHUB_RAW_BASE = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}`;
+const GITHUB_RAW_BASE = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPOS[0]}/${GITHUB_BRANCH}`;
+
+function githubRawUrl(repo, fileName) {
+  return `https://raw.githubusercontent.com/${GITHUB_OWNER}/${repo}/${GITHUB_BRANCH}/${fileName}`;
+}
 
 function findNumbersFile() {
   const files = fs
@@ -300,6 +304,42 @@ const TAXON_BY_LATIN = {
     family: 'Carcharhinidae (Requiem Sharks)',
     latinName: 'Triaenodon obesus',
   },
+  'lutjanus biguttatus': {
+    category: BROAD_TAXA.BENTHIC_SCHOOLING,
+    species: 'Two-spot Snapper',
+    family: 'Lutjanidae (Snappers)',
+    latinName: 'Lutjanus biguttatus',
+  },
+  'chromis viridis': {
+    category: BROAD_TAXA.BENTHIC_SCHOOLING,
+    species: 'Blue-green Chromis',
+    family: 'Pomacentridae (Damselfish)',
+    latinName: 'Chromis viridis',
+  },
+  'amphiprion ocellaris': {
+    category: BROAD_TAXA.REEF_FISH,
+    species: 'False Clownfish',
+    family: 'Pomacentridae (Damselfish)',
+    latinName: 'Amphiprion ocellaris',
+  },
+  'caesio cuning': {
+    category: BROAD_TAXA.BENTHIC_SCHOOLING,
+    species: 'Yellowtail Fusilier',
+    family: 'Caesionidae (Fusiliers)',
+    latinName: 'Caesio cuning',
+  },
+  'caesio lunaris': {
+    category: BROAD_TAXA.BENTHIC_SCHOOLING,
+    species: 'Lunar Fusilier',
+    family: 'Caesionidae (Fusiliers)',
+    latinName: 'Caesio lunaris',
+  },
+  'xestospongia testudinaria': {
+    category: BROAD_TAXA.HABITATS,
+    species: 'Giant Barrel Sponge',
+    family: 'Petrosiidae (Barrel Sponges)',
+    latinName: 'Xestospongia testudinaria',
+  },
 };
 
 const TAXON_PATTERN_RULES = [
@@ -480,19 +520,19 @@ const TAXON_PATTERN_RULES = [
     },
   },
   {
-    pattern: /sunset|sunray|landscape|scenery|phinisi|speedboat|panning the camera|islands of komodo|drone|aerial/i,
+    pattern: /healthy soft corals|barrel sponge|reef habitat|coral head|coral garden|sponge|seafan|sea fan|staghorn|hard coral/i,
     taxon: {
-      category: BROAD_TAXA.COASTAL_AERIAL,
-      species: 'Seascape',
+      category: BROAD_TAXA.HABITATS,
+      species: 'Coral Reef Habitat',
       family: '',
       latinName: '',
     },
   },
   {
-    pattern: /healthy soft corals|barrel sponge|reef habitat|coral head|coral garden|sponge/i,
+    pattern: /sunset|sunray|landscape|scenery|phinisi|speedboat|panning the camera|islands of komodo|drone|aerial/i,
     taxon: {
-      category: BROAD_TAXA.HABITATS,
-      species: 'Coral Reef Habitat',
+      category: BROAD_TAXA.COASTAL_AERIAL,
+      species: 'Seascape',
       family: '',
       latinName: '',
     },
@@ -945,7 +985,7 @@ async function enrichCatalogDurations(catalog) {
     if (!fileName) return;
     needsProbe.push({
       data,
-      url: `${GITHUB_RAW_BASE}/${fileName}`,
+      url: data.videoUrl || githubRawUrl(GITHUB_REPOS[0], fileName),
       label: spec.slug || fileName,
     });
   });
@@ -1013,19 +1053,49 @@ function normalizePricingTier(raw) {
   return 'standard';
 }
 
-async function fetchGithubMp4Files() {
-  const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/?ref=${GITHUB_BRANCH}`;
-  const response = await fetch(url);
+function normalizeRating(raw) {
+  const match = String(raw || '').trim().match(/^([1-5])\b/);
+  return match ? Number(match[1]) : 0;
+}
 
-  if (!response.ok) {
-    throw new Error(`GitHub API returned ${response.status}`);
+function isHeroRating(rating) {
+  return Number(rating) >= 5;
+}
+
+async function fetchGithubMp4Files() {
+  const files = [];
+  const seen = new Set();
+
+  for (const repo of GITHUB_REPOS) {
+    const url = `https://api.github.com/repos/${GITHUB_OWNER}/${repo}/contents/?ref=${GITHUB_BRANCH}`;
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`GitHub API returned ${response.status} for ${repo}`);
+    }
+
+    const entries = await response.json();
+    if (!Array.isArray(entries)) {
+      throw new Error(`Unexpected GitHub response for ${repo}`);
+    }
+
+    let repoCount = 0;
+    entries.forEach((entry) => {
+      if (entry.type !== 'file' || !/\.mp4$/i.test(entry.name)) return;
+      const key = entry.name.toLowerCase();
+      if (seen.has(key)) return;
+      seen.add(key);
+      files.push({
+        name: entry.name,
+        repo,
+        url: githubRawUrl(repo, entry.name),
+      });
+      repoCount += 1;
+    });
+    console.log(`  ${repo}: ${repoCount} MP4s`);
   }
 
-  const entries = await response.json();
-  return entries
-    .filter((entry) => entry.type === 'file' && /\.mp4$/i.test(entry.name))
-    .map((entry) => entry.name)
-    .sort();
+  return files.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function parseCsvRows(csvFilePath) {
@@ -1051,6 +1121,7 @@ function parseCsvRows(csvFilePath) {
   const idxDuration = headerIndex(headers, ['Duration TC', 'Duration', 'Clip Duration', /Timecode/i]);
   const idxLicense = headerIndex(headers, ['License', 'License Type', 'Scene', /Editorial/i]);
   const idxTier = headerIndex(headers, ['Tier', 'Pricing Tier', 'Price Tier', 'Shot']);
+  const idxRating = headerIndex(headers, ['Rating', 'Clip Rating']);
 
   const csvByMp4 = new Map();
   const renameCommands = [];
@@ -1091,6 +1162,8 @@ function parseCsvRows(csvFilePath) {
     const duration = normalizeCsvDuration(clean(idxDuration), fps);
     const licenseType = normalizeLicenseType(clean(idxLicense));
     const pricingTier = normalizePricingTier(clean(idxTier));
+    const rating = normalizeRating(clean(idxRating));
+    const hero = isHeroRating(rating);
     const shootCategory = clean(idxCategory) || 'Underwater';
     const taxon = resolveTaxonomy({
       description: descriptionText,
@@ -1138,6 +1211,8 @@ function parseCsvRows(csvFilePath) {
       nativeFormatBadge,
       licenseType,
       pricingTier,
+      rating,
+      hero,
       availableSizes: ['8K RED RAW', '4K ProRes 422 HQ', '1080p Master'],
       camera: cameraType,
       behavior: keywordMeta.behavior,
@@ -1204,6 +1279,8 @@ function mergeCsvMaps(targetMap, sourceMap) {
         description: existing.data.description || entry.data.description,
         licenseType: existing.data.licenseType || entry.data.licenseType || 'commercial',
         pricingTier: existing.data.pricingTier || entry.data.pricingTier || 'standard',
+        rating: existing.data.rating || entry.data.rating || 0,
+        hero: Boolean(existing.data.hero || entry.data.hero || isHeroRating(existing.data.rating) || isHeroRating(entry.data.rating)),
         technicalSpecs: mergedSpec,
         syncSource: existing.data.syncSource === 'csv' || entry.data.syncSource === 'csv'
           ? 'csv'
@@ -1286,6 +1363,8 @@ function buildStubFromMp4(mp4FileName) {
       keywords: extractKeywords(stubMeta),
       licenseType: 'commercial',
       pricingTier: 'standard',
+      rating: 0,
+      hero: false,
       technicalSpecs: stubMeta.technicalSpecs,
       syncSource: 'github',
     },
@@ -1332,21 +1411,24 @@ async function main() {
   const githubMp4Files = await fetchGithubMp4Files();
   const catalog = new Map();
 
-  githubMp4Files.forEach((mp4FileName) => {
+  githubMp4Files.forEach((mp4) => {
+    const mp4FileName = mp4.name;
     const csvEntry = csvByMp4.get(mp4FileName.toLowerCase());
 
     if (csvEntry) {
+      csvEntry.data.videoUrl = mp4.url;
       catalog.set(csvEntry.slug, csvEntry.data);
       return;
     }
 
     const stub = buildStubFromMp4(mp4FileName);
+    stub.data.videoUrl = mp4.url;
     catalog.set(stub.slug, stub.data);
     console.log(`GitHub-only clip (stub metadata): ${mp4FileName} → ${stub.slug}.json`);
   });
 
   csvByMp4.forEach((entry, mp4Key) => {
-    const onGithub = githubMp4Files.some((name) => name.toLowerCase() === mp4Key);
+    const onGithub = githubMp4Files.some((item) => item.name.toLowerCase() === mp4Key);
     if (!onGithub) {
       console.warn(`CSV clip not on GitHub yet: ${entry.data.technicalSpecs.fileName}`);
     }

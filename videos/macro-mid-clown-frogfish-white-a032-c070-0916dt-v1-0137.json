@@ -7,6 +7,8 @@
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
   "pricingTier": "premium",
+  "rating": 0,
+  "hero": false,
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",

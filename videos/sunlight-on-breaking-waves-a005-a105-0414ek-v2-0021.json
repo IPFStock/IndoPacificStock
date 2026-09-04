@@ -7,6 +7,8 @@
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
   "pricingTier": "standard",
+  "rating": 0,
+  "hero": false,
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -31,6 +33,9 @@
     "coastal",
     "coastal landscapes drone aerials",
     "drone",
+    "dsmc2",
+    "dsmc2 gemini 5k s35",
+    "gemini",
     "glistens",
     "indonesia",
     "landscapes",
@@ -41,14 +46,11 @@
     "r3d",
     "raw",
     "red",
+    "s35",
     "seascape",
     "sunlight",
     "sunlight glistens on waves breaking on a beach",
-    "sunlight on breaking waves",
-    "waves",
-    "dsmc2",
-    "gemini",
-    "dsmc2 gemini 5k s35"
+    "sunlight on breaking waves"
   ],
   "technicalSpecs": {
     "fileName": "A005_A105_0414EK_V2-0021.mp4",
@@ -66,7 +68,8 @@
     "sceneCategory": "Landscape",
     "family": "",
     "latinName": "",
-    "durationSeconds": 6.0,
+    "masterDuration": "00:00:06:00",
+    "durationSeconds": 6,
     "durationSource": "mp4-probe"
   },
   "syncSource": "csv"

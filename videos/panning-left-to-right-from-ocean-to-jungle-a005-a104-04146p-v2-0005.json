@@ -7,6 +7,8 @@
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
   "pricingTier": "standard",
+  "rating": 0,
+  "hero": false,
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -28,7 +30,10 @@
     "cenderawasih bay",
     "central",
     "central papua",
+    "dsmc2",
+    "dsmc2 gemini 5k s35",
     "fish",
+    "gemini",
     "green",
     "indonesia",
     "jungle",
@@ -45,12 +50,7 @@
     "panning left to right from ocean to jungle",
     "papua",
     "r3d",
-    "raw",
-    "red",
-    "reef",
-    "dsmc2",
-    "gemini",
-    "dsmc2 gemini 5k s35"
+    "raw"
   ],
   "technicalSpecs": {
     "fileName": "A005_A104_04146P_V2-0005.mp4",

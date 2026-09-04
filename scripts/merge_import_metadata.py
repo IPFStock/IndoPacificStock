@@ -15,7 +15,9 @@ ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / 'Raja Stock Clips 3 Clips Metadata.csv'
 BACKUP = ROOT / 'Raja Stock Clips 3 Clips Metadata.backup.csv'
 IMPORTS_DIR = ROOT / 'imports'
-GITHUB_API = 'https://api.github.com/repos/IPFStock/ip-assets-01/contents/?ref=main'
+GITHUB_OWNER = 'IPFStock'
+GITHUB_REPOS = ('ip-assets-01', 'ip-assets-02')
+GITHUB_BRANCH = 'main'
 
 
 def read_csv(path: Path) -> list[list[str]]:
@@ -58,6 +60,10 @@ def slugify_title(title: str) -> str:
     return slug_fixes.get(value, value)
 
 
+def clean_text(value: str) -> str:
+    return re.sub(r'\s+', ' ', str(value or '')).strip()
+
+
 def parse_location(description: str) -> str:
     text = description.lower()
     if 'nabire' in text:
@@ -65,9 +71,9 @@ def parse_location(description: str) -> str:
     if 'cenderawasih' in text or 'cendrawasih' in text or 'cenderwasih' in text:
         return 'Cenderawasih'
     if 'komodo' in text:
-        return 'Komodo'
+        return 'Komodo, Indonesia'
     if 'raja ampat' in text:
-        return 'Raja Ampat'
+        return 'Raja Ampat, Indonesia'
     if 'lembeh' in text:
         return 'Lembeh Strait'
     if 'sumbawa' in text:
@@ -75,6 +81,23 @@ def parse_location(description: str) -> str:
     if 'papua' in text:
         return 'Papua'
     return 'Cenderawasih'
+
+
+def normalize_location(raw: str, description: str) -> str:
+    value = clean_text(raw)
+    if not value:
+        return parse_location(description)
+    lower = value.lower()
+    if lower == 'raja ampat':
+        return 'Raja Ampat, Indonesia'
+    if lower == 'komodo':
+        return 'Komodo, Indonesia'
+    return value
+
+
+def normalize_rating(raw: str) -> str:
+    match = re.match(r'^([1-5])\b', str(raw or '').strip())
+    return match.group(1) if match else ''
 
 
 def normalize_license_type(raw: str) -> str:
@@ -162,13 +185,31 @@ def normalize_duration(raw: str, fps: str) -> str:
 
 
 def fetch_github_mp4s() -> list[str]:
-    request = urllib.request.Request(
-        GITHUB_API,
-        headers={'Accept': 'application/vnd.github+json', 'User-Agent': 'IndoPacificStock-merge'},
-    )
-    with urllib.request.urlopen(request, timeout=30) as response:
-        payload = json.load(response)
-    return sorted(entry['name'] for entry in payload if entry['name'].lower().endswith('.mp4'))
+    names: list[str] = []
+    seen: set[str] = set()
+    for repo in GITHUB_REPOS:
+        url = f'https://api.github.com/repos/{GITHUB_OWNER}/{repo}/contents/?ref={GITHUB_BRANCH}'
+        request = urllib.request.Request(
+            url,
+            headers={'Accept': 'application/vnd.github+json', 'User-Agent': 'IndoPacificStock-merge'},
+        )
+        with urllib.request.urlopen(request, timeout=30) as response:
+            payload = json.load(response)
+        if not isinstance(payload, list):
+            raise SystemExit(f'Unexpected GitHub response for {repo}: {payload}')
+        repo_count = 0
+        for entry in payload:
+            name = str(entry.get('name') or '')
+            if not name.lower().endswith('.mp4'):
+                continue
+            key = name.lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            names.append(name)
+            repo_count += 1
+        print(f'  GitHub {repo}: {repo_count} MP4s')
+    return sorted(names)
 
 
 def mp4_variant_index(name: str) -> int:
@@ -176,6 +217,15 @@ def mp4_variant_index(name: str) -> int:
     if not match:
         return 0
     return int(match.group(1)) * 10000 + int(match.group(2))
+
+
+def subclip_sort_key(entry: dict[str, str]) -> tuple[int, str, str]:
+    """Keep unsuffixed RDC first, then _S000, _S001 — not start TC, which can invert subclips."""
+    source = entry.get('clip_directory') or entry.get('file_name') or ''
+    basename = Path(source).name
+    match = re.search(r'_S(\d+)', basename, flags=re.I)
+    sub = int(match.group(1)) + 1 if match else 0
+    return (sub, entry.get('start_tc') or '', entry.get('file_name') or '')
 
 
 def title_column_name(headers: list[str]) -> str | None:
@@ -219,8 +269,10 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
             continue
 
         title_col = title_column_name(headers) or 'Title'
-        title = row[index[title_col]].strip() if title_col in index else ''
-        description = row[index['Description']].strip() if 'Description' in index else ''
+        title = clean_text(row[index[title_col]] if title_col in index else '')
+        if not title and 'Keywords' in index:
+            title = clean_text(row[index['Keywords']])
+        description = clean_text(row[index['Description']] if 'Description' in index else '')
         if not title and not description:
             continue
 
@@ -240,9 +292,11 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
         if 'Pricing Tier' in index:
             pricing_tier = row[index['Pricing Tier']].strip()
         if 'License Type' in index:
-            license_type = row[index['License Type']].strip()
+            license_type = clean_text(row[index['License Type']])
         elif 'Licence Type' in index:
-            license_type = row[index['Licence Type']].strip()
+            license_type = clean_text(row[index['Licence Type']])
+        elif 'License' in index:
+            license_type = clean_text(row[index['License']])
         if 'Shot' in index and not pricing_tier:
             pricing_tier = row[index['Shot']].strip()
         if 'Scene' in index and not license_type:
@@ -256,12 +310,15 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
         raw_type = row[index['Type']].strip() if 'Type' in index else ''
         shoot_category = infer_category(description, license_type, raw_category, raw_type)
 
-        location = row[index['Location']].strip() if 'Location' in index else ''
-        if not location:
-            location = parse_location(description)
+        location = normalize_location(
+            row[index['Location']] if 'Location' in index else '',
+            description,
+        )
+        clip_directory = row[index['Clip Directory']].strip() if 'Clip Directory' in index else ''
 
         parsed.append({
             'file_name': file_name,
+            'clip_directory': clip_directory,
             'reel_base': reel_base(file_name),
             'duration': normalize_duration(duration, fps),
             'start_tc': start_tc,
@@ -279,6 +336,7 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
             'aspect_ratio': row[index['Aspect Ratio Notes']].strip() if 'Aspect Ratio Notes' in index else '',
             'license_type': license_type or 'Commercial',
             'pricing_tier': pricing_tier or 'Standard',
+            'rating': normalize_rating(row[index['Rating']] if 'Rating' in index else ''),
         })
 
     return parsed
@@ -313,8 +371,10 @@ def assign_mp4_names(exports: list[dict[str, str]], github_mp4s: list[str]) -> l
         grouped.setdefault(entry['reel_base'], []).append(entry)
 
     for reel, entries in grouped.items():
-        entries.sort(key=lambda item: item.get('start_tc') or item['file_name'])
+        entries.sort(key=subclip_sort_key)
         candidates = [name for name in by_reel.get(reel, []) if name.lower() not in used_global]
+        if len(candidates) != len(entries):
+            print(f'  Warning: {reel}: {len(entries)} CSV rows vs {len(candidates)} GitHub MP4s')
         used: set[str] = set()
 
         for entry in entries:
@@ -328,6 +388,9 @@ def assign_mp4_names(exports: list[dict[str, str]], github_mp4s: list[str]) -> l
                         break
             if not mp4_name:
                 mp4_name = f"{entry['reel_base']}.mp4"
+                print(f'  Warning: no GitHub MP4 for {entry["file_name"]} → {mp4_name}')
+            else:
+                print(f'    {Path(entry.get("clip_directory") or entry["file_name"]).name} → {mp4_name}')
             used.add(mp4_name)
             used_global.add(mp4_name.lower())
             merged = dict(entry)
@@ -337,7 +400,7 @@ def assign_mp4_names(exports: list[dict[str, str]], github_mp4s: list[str]) -> l
     return assigned
 
 
-def build_master_row(entry: dict[str, str], width: int) -> list[str]:
+def build_master_row(entry: dict[str, str], width: int, rating_idx: int | None) -> list[str]:
     row = [''] * width
     row[0] = entry['mp4_name']
     row[2] = entry['duration']
@@ -354,6 +417,8 @@ def build_master_row(entry: dict[str, str], width: int) -> list[str]:
     row[35] = entry['aspect_ratio']
     row[36] = entry['license_type']
     row[37] = entry['pricing_tier']
+    if rating_idx is not None and entry.get('rating'):
+        row[rating_idx] = entry['rating']
     return row
 
 
@@ -378,31 +443,83 @@ def discover_export_files() -> dict[int, Path]:
     return found
 
 
-def resolve_import_paths(export_numbers: list[int] | None) -> list[Path]:
-    by_number = discover_export_files()
-    if not by_number:
-        return []
+def resolve_named_csv(value: str) -> Path | None:
+    candidate = Path(value)
+    options = []
+    if candidate.is_absolute():
+        options.append(candidate)
+    else:
+        options.extend([ROOT / candidate, IMPORTS_DIR / candidate, IMPORTS_DIR / Path(value).name])
+    for path in options:
+        if path.exists() and path.suffix.lower() == '.csv':
+            return path
+    if not IMPORTS_DIR.exists():
+        return None
+    needle = Path(value).stem.lower()
+    matches = [
+        path for path in IMPORTS_DIR.glob('*.csv')
+        if needle in path.name.lower() or needle in path.stem.lower()
+    ]
+    if len(matches) == 1:
+        return matches[0]
+    return None
 
-    if not export_numbers:
+
+def resolve_import_paths(argv: list[str]) -> list[Path]:
+    by_number = discover_export_files()
+    if not argv:
+        if not by_number:
+            return []
         latest = max(by_number)
         return [by_number[latest]]
 
-    missing = [number for number in export_numbers if number not in by_number]
-    if missing:
-        raise SystemExit(f'Missing export files for: {", ".join(map(str, missing))}')
-    return [by_number[number] for number in export_numbers]
+    paths: list[Path] = []
+    numbers: list[int] = []
+    for value in argv:
+        named = resolve_named_csv(value)
+        if named is not None:
+            paths.append(named)
+            continue
+        try:
+            numbers.append(int(value))
+        except ValueError:
+            raise SystemExit(f'Cannot resolve import CSV: {value}')
+
+    if numbers:
+        missing = [number for number in numbers if number not in by_number]
+        if missing:
+            raise SystemExit(f'Missing export files for: {", ".join(map(str, missing))}')
+        paths.extend(by_number[number] for number in numbers)
+    return paths
 
 
 # Always refresh these master columns when re-importing an export batch.
 OVERWRITE_INDICES = {7, 8, 10, 11, 36, 37}
 
 
+def ensure_rating_column(header: list[str], data: list[list[str]]) -> tuple[list[str], list[list[str]], int]:
+    names = [h.strip() for h in header]
+    if 'Rating' in names:
+        idx = names.index('Rating')
+        width = max(len(header), idx + 1)
+        padded = [(row + [''] * width)[:width] for row in data]
+        if len(header) < width:
+            header = list(header) + [''] * (width - len(header))
+            header[idx] = 'Rating'
+        return header, padded, idx
+    header = list(header) + ['Rating']
+    width = len(header)
+    padded = [(row + [''] * width)[:width] for row in data]
+    return header, padded, width - 1
+
+
 def merge_exports_into_master(import_paths: list[Path]) -> tuple[int, int, int, int]:
     github_mp4s = fetch_github_mp4s()
     master_rows = read_csv(MASTER)
-    header = master_rows[0]
+    header, data, rating_idx = ensure_rating_column(master_rows[0], master_rows[1:])
     width = len(header)
-    data = [(row + [''] * width)[:width] for row in master_rows[1:]]
+    overwrite = set(OVERWRITE_INDICES)
+    overwrite.add(rating_idx)
     existing = {row[0].strip().lower() for row in data if row[0].strip()}
 
     added = 0
@@ -420,7 +537,7 @@ def merge_exports_into_master(import_paths: list[Path]) -> tuple[int, int, int, 
 
         for entry in assigned:
             mp4_key = entry['mp4_name'].lower()
-            new_row = build_master_row(entry, width)
+            new_row = build_master_row(entry, width, rating_idx)
             if mp4_key in existing:
                 for row in data:
                     if row[0].strip().lower() != mp4_key:
@@ -428,7 +545,7 @@ def merge_exports_into_master(import_paths: list[Path]) -> tuple[int, int, int, 
                     for idx, value in enumerate(new_row):
                         if not value:
                             continue
-                        if idx in OVERWRITE_INDICES or idx >= len(row) or not row[idx].strip():
+                        if idx in overwrite or idx >= len(row) or not row[idx].strip():
                             row[idx] = value
                     updated += 1
                     break
@@ -445,15 +562,13 @@ def merge_exports_into_master(import_paths: list[Path]) -> tuple[int, int, int, 
 
 def main() -> int:
     argv = sys.argv[1:]
-    export_numbers: list[int] | None = None
-    if argv:
-        if argv[0] in {'-h', '--help'}:
-            print('Usage: python3 scripts/merge_import_metadata.py [export numbers...]')
-            print('Example: python3 scripts/merge_import_metadata.py 9 10 11')
-            return 0
-        export_numbers = [int(value) for value in argv]
+    if argv and argv[0] in {'-h', '--help'}:
+        print('Usage: python3 scripts/merge_import_metadata.py [export numbers or CSV paths...]')
+        print('Example: python3 scripts/merge_import_metadata.py 9 10 11')
+        print('Example: python3 scripts/merge_import_metadata.py imports/BatuRufusRaja39Clips8k.csv')
+        return 0
 
-    import_paths = resolve_import_paths(export_numbers)
+    import_paths = resolve_import_paths(argv)
     if not import_paths:
         print('No export CSV files found in imports/.')
         return 1

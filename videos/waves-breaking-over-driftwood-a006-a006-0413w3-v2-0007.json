@@ -7,6 +7,8 @@
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
   "pricingTier": "standard",
+  "rating": 0,
+  "hero": false,
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -30,7 +32,10 @@
     "central",
     "central papua",
     "driftwood",
+    "dsmc2",
+    "dsmc2 gemini 5k s35",
     "fish",
+    "gemini",
     "indonesia",
     "life",
     "marine",
@@ -45,10 +50,7 @@
     "red",
     "reef",
     "reef associated fish",
-    "small",
-    "dsmc2",
-    "gemini",
-    "dsmc2 gemini 5k s35"
+    "s35"
   ],
   "technicalSpecs": {
     "fileName": "A006_A006_0413W3_V2-0007.mp4",

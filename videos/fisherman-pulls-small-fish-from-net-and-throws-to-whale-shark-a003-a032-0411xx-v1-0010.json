@@ -7,6 +7,8 @@
   "nativeFormatBadge": "5K R3D",
   "licenseType": "editorial",
   "pricingTier": "standard",
+  "rating": 0,
+  "hero": false,
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -67,7 +69,7 @@
     "family": "Rhincodontidae (Whale Sharks)",
     "latinName": "Rhincodon typus",
     "masterDuration": "00:01:10:05",
-    "durationSeconds": 30.0,
+    "durationSeconds": 30,
     "durationSource": "mp4-probe"
   },
   "syncSource": "csv"

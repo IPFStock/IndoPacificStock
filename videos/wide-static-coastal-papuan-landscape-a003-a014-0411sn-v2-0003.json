@@ -7,6 +7,8 @@
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
   "pricingTier": "standard",
+  "rating": 0,
+  "hero": false,
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -30,7 +32,10 @@
     "coastal",
     "coastal landscapes drone aerials",
     "drone",
+    "dsmc2",
+    "dsmc2 gemini 5k s35",
     "flat",
+    "gemini",
     "indonesia",
     "jungle",
     "landscape",
@@ -43,12 +48,9 @@
     "r3d",
     "raw",
     "red",
+    "s35",
     "sand",
-    "seascape",
-    "static",
-    "dsmc2",
-    "gemini",
-    "dsmc2 gemini 5k s35"
+    "seascape"
   ],
   "technicalSpecs": {
     "fileName": "A003_A014_0411SN_V2-0003.mp4",

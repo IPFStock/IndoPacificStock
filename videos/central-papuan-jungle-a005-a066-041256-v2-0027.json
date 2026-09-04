@@ -7,6 +7,8 @@
   "nativeFormatBadge": "4K R3D",
   "licenseType": "commercial",
   "pricingTier": "standard",
+  "rating": 0,
+  "hero": false,
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -30,6 +32,9 @@
     "coastal landscapes drone aerials",
     "dense",
     "drone",
+    "dsmc2",
+    "dsmc2 gemini 5k s35",
+    "gemini",
     "indonesia",
     "jungle",
     "landscapes",
@@ -41,12 +46,10 @@
     "raw",
     "red",
     "red raw",
+    "s35",
     "seascape",
     "trees",
-    "undergrowth",
-    "dsmc2",
-    "gemini",
-    "dsmc2 gemini 5k s35"
+    "undergrowth"
   ],
   "technicalSpecs": {
     "fileName": "A005_A066_041256_V2-0027.mp4",
@@ -64,6 +67,7 @@
     "sceneCategory": "Landscape",
     "family": "",
     "latinName": "",
+    "masterDuration": "00:00:18:18",
     "durationSeconds": 18.36,
     "durationSource": "mp4-probe"
   },

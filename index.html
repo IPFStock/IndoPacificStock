@@ -2339,10 +2339,9 @@
     'use strict';
 
     const GITHUB_OWNER = 'IPFStock';
-    const GITHUB_REPO = 'ip-assets-01';
+    const GITHUB_REPOS = ['ip-assets-01', 'ip-assets-02'];
     const GITHUB_BRANCH = 'main';
-    const GITHUB_RAW_BASE = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}`;
-    const VIDEO_CDN_BASE = `https://cdn.jsdelivr.net/gh/${GITHUB_OWNER}/${GITHUB_REPO}@${GITHUB_BRANCH}`;
+    const DEFAULT_ASSET_REPO = GITHUB_REPOS[0];
     const THUMB_TIME = 0.15;
     const VIDEO_LOAD_CONCURRENCY = 3;
     let activeVideoLoads = 0;
@@ -2749,12 +2748,20 @@
       meta.content = unique.join(', ');
     }
 
-    function videoCdnUrl(fileName) {
-      return `${VIDEO_CDN_BASE}/${fileName}`;
+    function assetRepoFromUrl(url) {
+      const value = String(url || '');
+      const match = value.match(/github(?:usercontent)?\.com\/[^/]+\/([^/@]+)/i)
+        || value.match(/cdn\.jsdelivr\.net\/gh\/[^/]+\/([^@/]+)/i);
+      if (match && GITHUB_REPOS.includes(match[1])) return match[1];
+      return DEFAULT_ASSET_REPO;
     }
 
-    function githubRawVideoUrl(fileName) {
-      return `${GITHUB_RAW_BASE}/${fileName}`;
+    function videoCdnUrl(fileName, repo = DEFAULT_ASSET_REPO) {
+      return `https://cdn.jsdelivr.net/gh/${GITHUB_OWNER}/${repo}@${GITHUB_BRANCH}/${fileName}`;
+    }
+
+    function githubRawVideoUrl(fileName, repo = DEFAULT_ASSET_REPO) {
+      return `https://raw.githubusercontent.com/${GITHUB_OWNER}/${repo}/${GITHUB_BRANCH}/${fileName}`;
     }
 
     function mp4FileNameFromAsset(data, slug, url) {
@@ -2771,13 +2778,15 @@
 
     function videoFallbackUrl(primaryUrl, data, slug) {
       const fileName = mp4FileNameFromAsset(data, slug, primaryUrl);
-      return fileName ? githubRawVideoUrl(fileName) : '';
+      const repo = assetRepoFromUrl(primaryUrl || data?.videoUrl);
+      return fileName ? githubRawVideoUrl(fileName, repo) : '';
     }
 
     function normalizeVideoUrl(url, slug, data) {
       const fileName = mp4FileNameFromAsset(data, slug, url);
+      const repo = assetRepoFromUrl(url || data?.videoUrl);
       // jsDelivr is faster and cached; fall back to GitHub raw if a file is blocked.
-      return videoCdnUrl(fileName);
+      return videoCdnUrl(fileName, repo);
     }
 
     function inferMaxResolutionLabel(resolution) {
@@ -3209,6 +3218,8 @@
       article.dataset.format = data.format;
       article.dataset.licenseType = resolveLicenseType(data);
       article.dataset.pricingTier = resolvePricingTier(data);
+      article.dataset.rating = String(Number(data.rating) || 0);
+      if (Number(data.rating) >= 5) article.dataset.hero = 'true';
       article.dataset.title = data.title;
       article.dataset.desc = data.description;
       article.dataset.video = videoUrl;
@@ -3342,7 +3353,7 @@
         .replace(/\b\w/g, (char) => char.toUpperCase());
     }
 
-    function buildStubAsset(mp4FileName) {
+    function buildStubAsset(mp4FileName, repo = DEFAULT_ASSET_REPO) {
       const slug = slugFromMp4(mp4FileName);
       const title = titleFromMp4(mp4FileName);
       const taxon = inferTaxonomyFromSlug(slug, title);
@@ -3356,10 +3367,12 @@
         nativeFormatBadge: 'RAW',
         camera: 'RED Digital Cinema',
         behavior: 'Natural history sequence.',
-        videoUrl: videoCdnUrl(mp4FileName),
+        videoUrl: videoCdnUrl(mp4FileName, repo),
         description: `${title} — rights-managed stock footage from Indo Pacific Stock.`,
         licenseType: 'commercial',
         pricingTier: 'standard',
+        rating: 0,
+        hero: false,
         technicalSpecs: {
           fileName: mp4FileName,
           slug,
@@ -3440,19 +3453,29 @@
     }
 
     async function fetchGithubMp4Files() {
-      const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/?ref=${GITHUB_BRANCH}`;
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`GitHub API ${response.status}`);
-      const entries = await response.json();
-      return entries
-        .filter((entry) => entry.type === 'file' && /\.mp4$/i.test(entry.name))
-        .map((entry) => entry.name);
+      const files = [];
+      const seen = new Set();
+      for (const repo of GITHUB_REPOS) {
+        const url = `https://api.github.com/repos/${GITHUB_OWNER}/${repo}/contents/?ref=${GITHUB_BRANCH}`;
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`GitHub API ${response.status} for ${repo}`);
+        const entries = await response.json();
+        if (!Array.isArray(entries)) throw new Error(`Unexpected GitHub response for ${repo}`);
+        entries.forEach((entry) => {
+          if (entry.type !== 'file' || !/\.mp4$/i.test(entry.name)) return;
+          const key = entry.name.toLowerCase();
+          if (seen.has(key)) return;
+          seen.add(key);
+          files.push({ name: entry.name, repo });
+        });
+      }
+      return files;
     }
 
     async function syncCatalogWithGithub(loadedCards) {
       try {
         const githubMp4Files = await fetchGithubMp4Files();
-        const githubSet = new Set(githubMp4Files.map((file) => file.toLowerCase()));
+        const githubSet = new Set(githubMp4Files.map((file) => file.name.toLowerCase()));
 
         loadedCards = loadedCards.filter((card) => {
           const data = assetCatalog.get(card.dataset.assetId);
@@ -3469,11 +3492,11 @@
           if (data) knownMp4.add(mp4FileFromAsset(data));
         });
 
-        githubMp4Files.forEach((mp4FileName) => {
-          const key = mp4FileName.toLowerCase();
+        githubMp4Files.forEach((file) => {
+          const key = file.name.toLowerCase();
           if (knownMp4.has(key)) return;
 
-          const data = buildStubAsset(mp4FileName);
+          const data = buildStubAsset(file.name, file.repo);
           const card = buildCard(data, data.slug);
           loadedCards.push(card);
           knownMp4.add(key);
@@ -3522,17 +3545,25 @@
 
     function sortCatalogCards(cardList, featuredSlugs) {
       const featuredIndex = new Map(featuredSlugs.map((slug, index) => [slug, index]));
+      const heroFirst = window.IPFStockFilters?.compareHeroFirst || ((a, b) => {
+        const heroA = Number(a) >= 5 ? 1 : 0;
+        const heroB = Number(b) >= 5 ? 1 : 0;
+        return heroB - heroA;
+      });
       cardList.sort((a, b) => {
         const slugA = a.dataset.assetId;
         const slugB = b.dataset.assetId;
+        const dataA = assetCatalog.get(slugA);
+        const dataB = assetCatalog.get(slugB);
+        const heroOrder = heroFirst(dataA?.rating, dataB?.rating);
+        if (heroOrder) return heroOrder;
+
         const featuredA = featuredIndex.has(slugA);
         const featuredB = featuredIndex.has(slugB);
         if (featuredA && featuredB) return featuredIndex.get(slugA) - featuredIndex.get(slugB);
         if (featuredA) return -1;
         if (featuredB) return 1;
 
-        const dataA = assetCatalog.get(slugA);
-        const dataB = assetCatalog.get(slugB);
         const csvA = dataA?.syncSource === 'csv' ? 1 : 0;
         const csvB = dataB?.syncSource === 'csv' ? 1 : 0;
         if (csvB !== csvA) return csvB - csvA;

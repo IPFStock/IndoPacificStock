@@ -7,6 +7,8 @@
   "nativeFormatBadge": "4K R3D",
   "licenseType": "commercial",
   "pricingTier": "standard",
+  "rating": 0,
+  "hero": false,
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -29,7 +31,10 @@
     "central",
     "central papua",
     "close",
+    "dsmc2",
+    "dsmc2 gemini 5k s35",
     "fish",
+    "gemini",
     "group",
     "indonesia",
     "leptolepis",
@@ -42,15 +47,10 @@
     "red",
     "red raw",
     "reef",
+    "s35",
     "scad",
     "school",
-    "school of yellow stripe scad",
-    "school of yellowstripe scad",
-    "schooling",
-    "selaroides",
-    "dsmc2",
-    "gemini",
-    "dsmc2 gemini 5k s35"
+    "school of yellow stripe scad"
   ],
   "technicalSpecs": {
     "fileName": "A005_A086_04140A_V1-0021.mp4",
@@ -69,7 +69,7 @@
     "family": "Pomacentridae (Damselfish)",
     "latinName": "Pseudanthias sp.",
     "masterDuration": "00:00:34:10",
-    "durationSeconds": 24.0,
+    "durationSeconds": 24,
     "durationSource": "mp4-probe"
   },
   "syncSource": "csv"

@@ -1,6 +1,7 @@
 'use strict';
 
 const ARCHIVE_BATCH_SIZE = 24;
+const HERO_RATING = 5;
 
 const SCENE_FILTER_PROFILES = {
   underwater: { sceneCategory: 'Underwater' },
@@ -171,6 +172,21 @@ function significantSearchTokens(query) {
   }
 
   return tokens;
+}
+
+function clipRating(value) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : 0;
+}
+
+function isHeroClip(value) {
+  return clipRating(value) >= HERO_RATING;
+}
+
+function compareHeroFirst(aValue, bValue) {
+  const heroA = isHeroClip(aValue) ? 1 : 0;
+  const heroB = isHeroClip(bValue) ? 1 : 0;
+  return heroB - heroA;
 }
 
 function matchesSearchQuery(haystack, query, tokensOverride) {
@@ -843,7 +859,13 @@ class CatalogFilterController {
   }
 
   getFilteredCards() {
-    return this.getCards().filter((card) => this.cardMatchesFilters(card));
+    const matched = this.getCards().filter((card) => this.cardMatchesFilters(card));
+    const query = this.searchInput ? this.searchInput.value.trim() : '';
+    if (!query) return matched;
+
+    return matched.slice().sort((a, b) => (
+      compareHeroFirst(a.dataset.rating, b.dataset.rating)
+    ));
   }
 
   applyCollectionFilter(filter) {
@@ -961,6 +983,10 @@ window.IPFStockFilters = {
   CollectionPortal,
   ArchiveGridPaginator,
   ARCHIVE_BATCH_SIZE,
+  HERO_RATING,
+  clipRating,
+  isHeroClip,
+  compareHeroFirst,
   matchesSearchQuery,
   matchesBroadCategory,
   buildCategoryTermIndex,

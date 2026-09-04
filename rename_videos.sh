@@ -1022,4 +1022,82 @@ mv "A006_A062_0413WX_V1-0052.mp4" "whale-shark-under-the-surface-a006-a062-0413w
 mv "A006_A085_0413B2_V2-0015.mp4" "looking-up-at-a-bagan-a006-a085-0413b2-v2-0015.mp4" 2>/dev/null || mv "A006_A085_0413B2_V2-0015.mp4" "A006_A085_0413B2_V2-0015.mp4" 2>/dev/null || true
 # Split Level Under A Bagan
 mv "A006_A089_04138A_V2-0029.mp4" "split-level-under-a-bagan-a006-a089-04138a-v2-0029.mp4" 2>/dev/null || mv "A006_A089_04138A_V2-0029.mp4" "A006_A089_04138A_V2-0029.mp4" 2>/dev/null || true
+# Seafan On Wall With Tropical Fish
+mv "A044_D001_0222N1_V1-0001.mp4" "seafan-on-wall-with-tropical-fish-a044-d001-0222n1-v1-0001.mp4" 2>/dev/null || mv "A044_D001_0222N1_V1-0001.mp4" "A044_D001_0222N1_V1-0001.mp4" 2>/dev/null || true
+# Gorgonian Sea Fan And Fish
+mv "A044_D001_0222N1_V1-0031.mp4" "gorgonian-sea-fan-and-fish-a044-d001-0222n1-v1-0031.mp4" 2>/dev/null || mv "A044_D001_0222N1_V1-0031.mp4" "A044_D001_0222N1_V1-0031.mp4" 2>/dev/null || true
+# Yellowtail Fusiliers And Blue Hole
+mv "A044_D005_0222P4_V1-0002.mp4" "yellowtail-fusiliers-and-blue-hole-a044-d005-0222p4-v1-0002.mp4" 2>/dev/null || mv "A044_D005_0222P4_V1-0002.mp4" "A044_D005_0222P4_V1-0002.mp4" 2>/dev/null || true
+# Fusiliers Schooling In Front Of A Blue Hole
+mv "A044_D007_0222IG_V1-0003.mp4" "fusiliers-schooling-in-front-of-a-blue-hole-a044-d007-0222ig-v1-0003.mp4" 2>/dev/null || mv "A044_D007_0222IG_V1-0003.mp4" "A044_D007_0222IG_V1-0003.mp4" 2>/dev/null || true
+# Schooling Yellowtail Fusiliers
+mv "A044_D009_0222OE_V1-0004.mp4" "schooling-yellowtail-fusiliers-a044-d009-0222oe-v1-0004.mp4" 2>/dev/null || mv "A044_D009_0222OE_V1-0004.mp4" "A044_D009_0222OE_V1-0004.mp4" 2>/dev/null || true
+# Mixed School Of Fusiliers In Raja Ampat
+mv "A044_D010_0222HK_V1-0005.mp4" "mixed-school-of-fusiliers-in-raja-ampat-a044-d010-0222hk-v1-0005.mp4" 2>/dev/null || mv "A044_D010_0222HK_V1-0005.mp4" "A044_D010_0222HK_V1-0005.mp4" 2>/dev/null || true
+# Shallow Hard Coral Reef
+mv "A044_D011_02222Z_V1-0006.mp4" "shallow-hard-coral-reef-a044-d011-02222z-v1-0006.mp4" 2>/dev/null || mv "A044_D011_02222Z_V1-0006.mp4" "A044_D011_02222Z_V1-0006.mp4" 2>/dev/null || true
+# Batu Rufus Blue Hole
+mv "A044_D012_0222XR_V1-0007.mp4" "batu-rufus-blue-hole-a044-d012-0222xr-v1-0007.mp4" 2>/dev/null || mv "A044_D012_0222XR_V1-0007.mp4" "A044_D012_0222XR_V1-0007.mp4" 2>/dev/null || true
+# Blue Hole Batu Rufus
+mv "A044_D013_02221B_V1-0008.mp4" "blue-hole-batu-rufus-a044-d013-02221b-v1-0008.mp4" 2>/dev/null || mv "A044_D013_02221B_V1-0008.mp4" "A044_D013_02221B_V1-0008.mp4" 2>/dev/null || true
+# Sea Fan And Swim Through
+mv "A044_D014_0222SB_V1-0009.mp4" "sea-fan-and-swim-through-a044-d014-0222sb-v1-0009.mp4" 2>/dev/null || mv "A044_D014_0222SB_V1-0009.mp4" "A044_D014_0222SB_V1-0009.mp4" 2>/dev/null || true
+# Red Seafans And Blue Hole
+mv "A044_D015_0222OY_V1-0010.mp4" "red-seafans-and-blue-hole-a044-d015-0222oy-v1-0010.mp4" 2>/dev/null || mv "A044_D015_0222OY_V1-0010.mp4" "A044_D015_0222OY_V1-0010.mp4" 2>/dev/null || true
+# Shallow Seafan And Sunrays
+mv "A044_D016_02225H_V1-0011.mp4" "shallow-seafan-and-sunrays-a044-d016-02225h-v1-0011.mp4" 2>/dev/null || mv "A044_D016_02225H_V1-0011.mp4" "A044_D016_02225H_V1-0011.mp4" 2>/dev/null || true
+# Soft Coral Shallow Reef
+mv "A044_D018_02221M_V1-0012.mp4" "soft-coral-shallow-reef-a044-d018-02221m-v1-0012.mp4" 2>/dev/null || mv "A044_D018_02221M_V1-0012.mp4" "A044_D018_02221M_V1-0012.mp4" 2>/dev/null || true
+# Fusiliers And Shallow Coral Reef
+mv "A044_D018_02221M_V1-0030.mp4" "fusiliers-and-shallow-coral-reef-a044-d018-02221m-v1-0030.mp4" 2>/dev/null || mv "A044_D018_02221M_V1-0030.mp4" "A044_D018_02221M_V1-0030.mp4" 2>/dev/null || true
+# Barrel Sponge And Leather Corals
+mv "A044_D020_0222FW_V1-0013.mp4" "barrel-sponge-and-leather-corals-a044-d020-0222fw-v1-0013.mp4" 2>/dev/null || mv "A044_D020_0222FW_V1-0013.mp4" "A044_D020_0222FW_V1-0013.mp4" 2>/dev/null || true
+# Blue Green Chromis And Cabbage Coral
+mv "A044_D022_02225Y_V1-0014.mp4" "blue-green-chromis-and-cabbage-coral-a044-d022-02225y-v1-0014.mp4" 2>/dev/null || mv "A044_D022_02225Y_V1-0014.mp4" "A044_D022_02225Y_V1-0014.mp4" 2>/dev/null || true
+# Schooling Blue Green Chromis And Cabbage Coral
+mv "A044_D023_02227W_V1-0015.mp4" "schooling-blue-green-chromis-and-cabbage-coral-a044-d023-02227w-v1-0015.mp4" 2>/dev/null || mv "A044_D023_02227W_V1-0015.mp4" "A044_D023_02227W_V1-0015.mp4" 2>/dev/null || true
+# Blue Green Chromis And Cabbage Coral
+mv "A044_D023_02227W_V1-0032.mp4" "blue-green-chromis-and-cabbage-coral-a044-d023-02227w-v1-0032.mp4" 2>/dev/null || mv "A044_D023_02227W_V1-0032.mp4" "A044_D023_02227W_V1-0032.mp4" 2>/dev/null || true
+# Cabbage Coral Patch And Chromis
+mv "A044_D023_02227W_V1-0033.mp4" "cabbage-coral-patch-and-chromis-a044-d023-02227w-v1-0033.mp4" 2>/dev/null || mv "A044_D023_02227W_V1-0033.mp4" "A044_D023_02227W_V1-0033.mp4" 2>/dev/null || true
+# Pushing Over Chromis And Cabbage Coral
+mv "A044_D024_0222AV_V1-0016.mp4" "pushing-over-chromis-and-cabbage-coral-a044-d024-0222av-v1-0016.mp4" 2>/dev/null || mv "A044_D024_0222AV_V1-0016.mp4" "A044_D024_0222AV_V1-0016.mp4" 2>/dev/null || true
+# Chromis And Cabbage Coral
+mv "A044_D025_0222BZ_V1-0017.mp4" "chromis-and-cabbage-coral-a044-d025-0222bz-v1-0017.mp4" 2>/dev/null || mv "A044_D025_0222BZ_V1-0017.mp4" "A044_D025_0222BZ_V1-0017.mp4" 2>/dev/null || true
+# Blue Green Chromis Schooling Over Hard Coral
+mv "A044_D026_0222VR_V1-0018.mp4" "blue-green-chromis-schooling-over-hard-coral-a044-d026-0222vr-v1-0018.mp4" 2>/dev/null || mv "A044_D026_0222VR_V1-0018.mp4" "A044_D026_0222VR_V1-0018.mp4" 2>/dev/null || true
+# Healthy Cabbage Coral And Chromis
+mv "A044_D026_0222VR_V1-0034.mp4" "healthy-cabbage-coral-and-chromis-a044-d026-0222vr-v1-0034.mp4" 2>/dev/null || mv "A044_D026_0222VR_V1-0034.mp4" "A044_D026_0222VR_V1-0034.mp4" 2>/dev/null || true
+# Two False Clownfish And Hard Corals
+mv "A044_D029_02226F_V1-0019.mp4" "two-false-clownfish-and-hard-corals-a044-d029-02226f-v1-0019.mp4" 2>/dev/null || mv "A044_D029_02226F_V1-0019.mp4" "A044_D029_02226F_V1-0019.mp4" 2>/dev/null || true
+# Wide Shot False Clownfish And Hard Corals
+mv "A044_D030_0222AJ_V1-0020.mp4" "wide-shot-false-clownfish-and-hard-corals-a044-d030-0222aj-v1-0020.mp4" 2>/dev/null || mv "A044_D030_0222AJ_V1-0020.mp4" "A044_D030_0222AJ_V1-0020.mp4" 2>/dev/null || true
+# Anemonefish And Hard Corals
+mv "A044_D032_0222PG_V1-0021.mp4" "anemonefish-and-hard-corals-a044-d032-0222pg-v1-0021.mp4" 2>/dev/null || mv "A044_D032_0222PG_V1-0021.mp4" "A044_D032_0222PG_V1-0021.mp4" 2>/dev/null || true
+# Clownfish And Hard Corals
+mv "A044_D032_0222PG_V1-0035.mp4" "clownfish-and-hard-corals-a044-d032-0222pg-v1-0035.mp4" 2>/dev/null || mv "A044_D032_0222PG_V1-0035.mp4" "A044_D032_0222PG_V1-0035.mp4" 2>/dev/null || true
+# Healthy Staghorn Coral
+mv "A044_D033_0222CZ_V1-0022.mp4" "healthy-staghorn-coral-a044-d033-0222cz-v1-0022.mp4" 2>/dev/null || mv "A044_D033_0222CZ_V1-0022.mp4" "A044_D033_0222CZ_V1-0022.mp4" 2>/dev/null || true
+# Healthy Staghorn Coral
+mv "A044_D033_0222CZ_V1-0036.mp4" "healthy-staghorn-coral-a044-d033-0222cz-v1-0036.mp4" 2>/dev/null || mv "A044_D033_0222CZ_V1-0036.mp4" "A044_D033_0222CZ_V1-0036.mp4" 2>/dev/null || true
+# Staghorn Hard Corals And Chromis
+mv "A044_D034_02224S_V1-0023.mp4" "staghorn-hard-corals-and-chromis-a044-d034-02224s-v1-0023.mp4" 2>/dev/null || mv "A044_D034_02224S_V1-0023.mp4" "A044_D034_02224S_V1-0023.mp4" 2>/dev/null || true
+# Healthy Hard Coral Garden
+mv "A044_D034_02224S_V1-0037.mp4" "healthy-hard-coral-garden-a044-d034-02224s-v1-0037.mp4" 2>/dev/null || mv "A044_D034_02224S_V1-0037.mp4" "A044_D034_02224S_V1-0037.mp4" 2>/dev/null || true
+# Small Tropical Fish And Healthy Coral Garden
+mv "A044_D035_02228H_V1-0024.mp4" "small-tropical-fish-and-healthy-coral-garden-a044-d035-02228h-v1-0024.mp4" 2>/dev/null || mv "A044_D035_02228H_V1-0024.mp4" "A044_D035_02228H_V1-0024.mp4" 2>/dev/null || true
+# Coral Garden Panoramic
+mv "A044_D035_02228H_V1-0038.mp4" "coral-garden-panoramic-a044-d035-02228h-v1-0038.mp4" 2>/dev/null || mv "A044_D035_02228H_V1-0038.mp4" "A044_D035_02228H_V1-0038.mp4" 2>/dev/null || true
+# Two Spot Snappers And Staghorn Coral
+mv "A044_D037_0222QW_V1-0025.mp4" "two-spot-snappers-and-staghorn-coral-a044-d037-0222qw-v1-0025.mp4" 2>/dev/null || mv "A044_D037_0222QW_V1-0025.mp4" "A044_D037_0222QW_V1-0025.mp4" 2>/dev/null || true
+# Panning Over Staghorn Corals And Tropical Fish
+mv "A044_D038_0222KV_V1-0026.mp4" "panning-over-staghorn-corals-and-tropical-fish-a044-d038-0222kv-v1-0026.mp4" 2>/dev/null || mv "A044_D038_0222KV_V1-0026.mp4" "A044_D038_0222KV_V1-0026.mp4" 2>/dev/null || true
+# Blue Green Chromis And Staghorn Coral
+mv "A044_D038_0222KV_V1-0039.mp4" "blue-green-chromis-and-staghorn-coral-a044-d038-0222kv-v1-0039.mp4" 2>/dev/null || mv "A044_D038_0222KV_V1-0039.mp4" "A044_D038_0222KV_V1-0039.mp4" 2>/dev/null || true
+# Chromis And Two Spot Snappers On Coral Garden
+mv "A044_D039_022290_V1-0027.mp4" "chromis-and-two-spot-snappers-on-coral-garden-a044-d039-022290-v1-0027.mp4" 2>/dev/null || mv "A044_D039_022290_V1-0027.mp4" "A044_D039_022290_V1-0027.mp4" 2>/dev/null || true
+# Tropical Fish Swimming Over Coral Garden
+mv "A044_D040_0222WL_V1-0028.mp4" "tropical-fish-swimming-over-coral-garden-a044-d040-0222wl-v1-0028.mp4" 2>/dev/null || mv "A044_D040_0222WL_V1-0028.mp4" "A044_D040_0222WL_V1-0028.mp4" 2>/dev/null || true
+# Gorgonian Seafan Under Outcrop
+mv "A044_D046_0222Y1_V1-0029.mp4" "gorgonian-seafan-under-outcrop-a044-d046-0222y1-v1-0029.mp4" 2>/dev/null || mv "A044_D046_0222Y1_V1-0029.mp4" "A044_D046_0222Y1_V1-0029.mp4" 2>/dev/null || true
 echo "Rename pass complete."

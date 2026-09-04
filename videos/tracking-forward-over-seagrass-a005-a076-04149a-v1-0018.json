@@ -7,6 +7,8 @@
   "nativeFormatBadge": "4K R3D",
   "licenseType": "commercial",
   "pricingTier": "standard",
+  "rating": 0,
+  "hero": false,
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -28,11 +30,14 @@
     "cenderawasih bay",
     "central",
     "central papua",
+    "dsmc2",
+    "dsmc2 gemini 5k s35",
     "eelgrass",
     "enhalus",
     "enhalus acoroides",
     "fish",
     "forward",
+    "gemini",
     "indonesia",
     "life",
     "marine",
@@ -45,12 +50,7 @@
     "r3d",
     "raw",
     "red",
-    "red raw",
-    "reef",
-    "reef associated fish",
-    "dsmc2",
-    "gemini",
-    "dsmc2 gemini 5k s35"
+    "red raw"
   ],
   "technicalSpecs": {
     "fileName": "A005_A076_04149A_V1-0018.mp4",

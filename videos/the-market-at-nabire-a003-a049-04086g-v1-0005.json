@@ -7,6 +7,8 @@
   "nativeFormatBadge": "4K R3D",
   "licenseType": "editorial",
   "pricingTier": "standard",
+  "rating": 0,
+  "hero": false,
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -67,7 +69,7 @@
     "family": "",
     "latinName": "",
     "masterDuration": "00:00:14:00",
-    "durationSeconds": 14.0,
+    "durationSeconds": 14,
     "durationSource": "mp4-probe"
   },
   "syncSource": "csv"

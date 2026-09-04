@@ -7,6 +7,8 @@
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
   "pricingTier": "standard",
+  "rating": 0,
+  "hero": false,
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -28,10 +30,13 @@
     "cenderawasih bay",
     "central",
     "central papua",
+    "dsmc2",
+    "dsmc2 gemini 5k s35",
     "evening",
     "evening sunlight reflecting on small waves as they break on a beach",
     "evening sunlight reflects off waves at beach",
     "fish",
+    "gemini",
     "indonesia",
     "life",
     "marine",
@@ -45,12 +50,7 @@
     "raw",
     "red",
     "reef",
-    "reef associated fish",
-    "reflecting",
-    "reflects",
-    "dsmc2",
-    "gemini",
-    "dsmc2 gemini 5k s35"
+    "reef associated fish"
   ],
   "technicalSpecs": {
     "fileName": "A005_A101_0414KG_V2-0010.mp4",

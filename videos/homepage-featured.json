@@ -1,5 +1,5 @@
 {
-  "note": "First 24 homepage clips, interleaved whale shark / reef / culture. Edit slugs, then keep this file in the same order you want the grid.",
+  "note": "Editorial mix for the homepage grid after rating-5 hero clips. Heroes are prepended at runtime from catalog ratings. Then these whale / reef / culture slugs fill the rest of the first 24.",
   "whaleSharks": [
     "big-whaleshark-covered-in-remoras-swims-toward-camera-a004-a004-04122w-v1-0031",
     "two-whalesharks-slowly-moving-toward-camera-a004-a014-04122j-v1-0035",

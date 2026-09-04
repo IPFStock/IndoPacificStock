@@ -7,6 +7,8 @@
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
   "pricingTier": "standard",
+  "rating": 0,
+  "hero": false,
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -32,6 +34,9 @@
     "coastal landscapes drone aerials",
     "down",
     "drone",
+    "dsmc2",
+    "dsmc2 gemini 5k s35",
+    "gemini",
     "indonesia",
     "jungle",
     "landscapes",
@@ -45,11 +50,7 @@
     "papuan beach",
     "r3d",
     "raw",
-    "red",
-    "seascape",
-    "dsmc2",
-    "gemini",
-    "dsmc2 gemini 5k s35"
+    "red"
   ],
   "technicalSpecs": {
     "fileName": "A005_A100_0414R2_V2-0018.mp4",
@@ -67,6 +68,7 @@
     "sceneCategory": "Landscape",
     "family": "",
     "latinName": "",
+    "masterDuration": "00:00:07:02",
     "durationSeconds": 7.04,
     "durationSource": "mp4-probe"
   },

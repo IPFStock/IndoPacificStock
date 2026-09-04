@@ -7,6 +7,8 @@
   "nativeFormatBadge": "5K R3D",
   "licenseType": "editorial",
   "pricingTier": "standard",
+  "rating": 0,
+  "hero": false,
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -65,6 +67,7 @@
     "sceneCategory": "Landscape",
     "family": "",
     "latinName": "",
+    "masterDuration": "00:00:15:66",
     "durationSeconds": 15.88,
     "durationSource": "mp4-probe"
   },

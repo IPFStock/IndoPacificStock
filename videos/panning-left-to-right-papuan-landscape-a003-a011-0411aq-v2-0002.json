@@ -7,6 +7,8 @@
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
   "pricingTier": "standard",
+  "rating": 0,
+  "hero": false,
   "availableSizes": [
     "8K RED RAW",
     "4K ProRes 422 HQ",
@@ -32,7 +34,10 @@
     "coastal landscapes drone aerials",
     "coastline",
     "drone",
+    "dsmc2",
+    "dsmc2 gemini 5k s35",
     "flat",
+    "gemini",
     "green",
     "indonesia",
     "jungle",
@@ -45,12 +50,7 @@
     "panning",
     "panning from left to right across the coastline with flat water",
     "panning left to right papuan landscape",
-    "papua",
-    "papuan",
-    "r3d",
-    "dsmc2",
-    "gemini",
-    "dsmc2 gemini 5k s35"
+    "papua"
   ],
   "technicalSpecs": {
     "fileName": "A003_A011_0411AQ_V2-0002.mp4",
