@@ -70,7 +70,7 @@
     "latinName": "",
     "masterDuration": "00:00:42:85",
     "durationSeconds": 9.13,
-    "durationSource": "mp4-probe"
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

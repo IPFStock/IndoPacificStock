@@ -70,7 +70,7 @@
     "latinName": "Pseudanthias sp.",
     "masterDuration": "00:00:17:37",
     "durationSeconds": 8.618,
-    "durationSource": "mp4-probe"
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

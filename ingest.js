@@ -364,6 +364,18 @@ const TAXON_BY_LATIN = {
     family: 'Petrosiidae (Barrel Sponges)',
     latinName: 'Xestospongia testudinaria',
   },
+  'mobula alfredi': {
+    category: BROAD_TAXA.APEX_PREDATORS,
+    species: 'Reef Manta Ray',
+    family: 'Mobulidae (Manta Rays)',
+    latinName: 'Mobula alfredi',
+  },
+  'macolor macularis': {
+    category: BROAD_TAXA.REEF_FISH,
+    species: 'Midnight Snapper',
+    family: 'Lutjanidae (Snappers)',
+    latinName: 'Macolor macularis',
+  },
 };
 
 const TAXON_PATTERN_RULES = [
@@ -378,6 +390,10 @@ const TAXON_PATTERN_RULES = [
   {
     pattern: /(?<![a-z])turtle|greenturtle/i,
     taxon: TAXON_BY_LATIN['chelonia mydas'],
+  },
+  {
+    pattern: /reef manta|mobula alfredi|\balfredi\b/i,
+    taxon: TAXON_BY_LATIN['mobula alfredi'],
   },
   {
     pattern: /manta/i,
@@ -1175,7 +1191,11 @@ function parseCsvRows(csvFilePath) {
     const originalFileName = clean(idxName);
     if (!originalFileName || !/\.(r3d|mp4|mov)$/i.test(originalFileName)) continue;
 
-    const rawCameraCode = originalFileName.replace(/\.[^/.]+$/, '').trim();
+    let rawCameraCode = originalFileName.replace(/\.[^/.]+$/, '').trim();
+    // GitHub previews named like A056_D005_0304EK_001.R3D.mp4
+    if (/\.r3d$/i.test(rawCameraCode)) {
+      rawCameraCode = rawCameraCode.replace(/\.r3d$/i, '').replace(/_\d{3}$/i, '').trim();
+    }
     const rawSubjectNote = clean(idxComments);
     const descriptionText = clean(idxDescription);
     const region = parseRegion(clean(idxLocation) || descriptionText);

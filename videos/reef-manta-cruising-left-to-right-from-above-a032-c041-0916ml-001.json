@@ -2,7 +2,7 @@
   "title": "Reef Manta Cruising Left To Right From Above",
   "category": "Apex Marine Predators & Elasmobranchii",
   "region": "Komodo",
-  "species": "Manta Ray",
+  "species": "Reef Manta Ray",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -40,7 +40,6 @@
     "komodo national park",
     "left",
     "manta",
-    "manta ray",
     "marine",
     "mobula",
     "mobula alfredi",
@@ -50,7 +49,8 @@
     "pacific ocean",
     "park",
     "predators",
-    "r3d"
+    "r3d",
+    "raw"
   ],
   "technicalSpecs": {
     "fileName": "A032_C041_0916ML.mp4",
@@ -64,13 +64,13 @@
     "cameraFormat": "REDcode 4:1",
     "fps": "59.94",
     "aspectRatio": "2.37",
-    "duration": "00:00:16:13",
+    "duration": "00:00:16:12",
     "sceneCategory": "Underwater",
     "family": "Mobulidae (Manta Rays)",
-    "latinName": "Mobula birostris",
+    "latinName": "Mobula alfredi",
     "masterDuration": "00:00:30:52",
     "durationSeconds": 16.212,
-    "durationSource": "mp4-probe"
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

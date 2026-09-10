@@ -70,7 +70,7 @@
     "latinName": "Plectorhinchus polytaenia",
     "masterDuration": "00:01:39:01",
     "durationSeconds": 24.542,
-    "durationSource": "mp4-probe"
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

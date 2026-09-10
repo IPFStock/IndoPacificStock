@@ -1158,4 +1158,16 @@ mv "A056_D040_0304EP_V1-0030.mp4" "hawksbill-turtle-silhouette-at-the-surface-an
 mv "A056_D006_0304BK_V1-0004.mp4" "baitfish-and-coral-head-a056-d006-0304bk-v1-0004.mp4" 2>/dev/null || mv "A056_D006_0304BK_V1-0004.mp4" "A056_D006_0304BK_V1-0004.mp4" 2>/dev/null || true
 # Baitfish And Sweetlips
 mv "A056_D006_0304BK_V1-0005.mp4" "baitfish-and-sweetlips-a056-d006-0304bk-v1-0005.mp4" 2>/dev/null || mv "A056_D006_0304BK_V1-0005.mp4" "A056_D006_0304BK_V1-0005.mp4" 2>/dev/null || true
+# Giant Sweetlips And Coral Head
+mv "A056_D005_0304EK_001.R3D.mp4" "giant-sweetlips-and-coral-head-a056-d005-0304ek.mp4" 2>/dev/null || mv "A056_D005_0304EK.mp4" "A056_D005_0304EK_001.R3D.mp4" 2>/dev/null || true
+# Ribbon Sweetlips Under A Coral Head
+mv "A045_D009_02223L.mp4" "ribbon-sweetlips-under-a-coral-head-a045-d009-02223l.mp4" 2>/dev/null || mv "A045_D009_02223L.mp4" "A045_D009_02223L.mp4" 2>/dev/null || true
+# Midnight Snapper And Ribbon Sweetlips
+mv "A045_D012_0222Z0.mp4" "midnight-snapper-and-ribbon-sweetlips-a045-d012-0222z0.mp4" 2>/dev/null || mv "A045_D012_0222Z0.mp4" "A045_D012_0222Z0.mp4" 2>/dev/null || true
+# Reef Manta Ray At Cleaning Station
+mv "A045_D019_02228B.mp4" "reef-manta-ray-at-cleaning-station-a045-d019-02228b.mp4" 2>/dev/null || mv "A045_D019_02228B.mp4" "A045_D019_02228B.mp4" 2>/dev/null || true
+# Reef Manta Ray Gliding
+mv "A045_D020_0222G4.mp4" "reef-manta-ray-gliding-a045-d020-0222g4.mp4" 2>/dev/null || mv "A045_D020_0222G4.mp4" "A045_D020_0222G4.mp4" 2>/dev/null || true
+# Reef Manta Ray Swims Over Coral
+mv "A045_D021_0222C4.mp4" "reef-manta-ray-swims-over-coral-a045-d021-0222c4.mp4" 2>/dev/null || mv "A045_D021_0222C4.mp4" "A045_D021_0222C4.mp4" 2>/dev/null || true
 echo "Rename pass complete."

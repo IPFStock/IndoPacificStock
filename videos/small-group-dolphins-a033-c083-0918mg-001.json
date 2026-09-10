@@ -69,7 +69,7 @@
     "latinName": "Delphinidae sp.",
     "masterDuration": "00:01:54:10",
     "durationSeconds": 16.255,
-    "durationSource": "mp4-probe"
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

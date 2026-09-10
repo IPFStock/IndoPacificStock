@@ -70,7 +70,7 @@
     "latinName": "Triaenodon obesus",
     "masterDuration": "00:00:23:45",
     "durationSeconds": 10.623,
-    "durationSource": "mp4-probe"
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

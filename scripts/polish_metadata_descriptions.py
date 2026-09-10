@@ -352,6 +352,7 @@ def polish_description(text: str) -> str:
         (r'\bA school of circular spadefish or batfish, Platax orbicularis, swim\b',
          'A school of circular spadefish or batfish, Platax orbicularis, swims'),
         (r'\bno Model Release\b', 'No Model Release'),
+        (r'Macolor macularis and', 'Macolor macularis, and'),
         (r'\bSplit level\b', 'Split-level'),
         (r'\btiltes\b', 'tilts'),
         (r'\bTrying Green Line\b', 'Tying green line'),

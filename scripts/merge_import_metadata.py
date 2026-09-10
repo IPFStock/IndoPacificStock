@@ -43,6 +43,8 @@ def write_csv(path: Path, rows: list[list[str]]) -> None:
 
 def reel_base(name: str) -> str:
     base = re.sub(r'\.(r3d|mp4|mov)$', '', name, flags=re.I)
+    # GitHub previews sometimes keep a leftover .R3D before .mp4
+    base = re.sub(r'\.r3d$', '', base, flags=re.I)
     base = re.sub(r'_V\d+-\d+$', '', base, flags=re.I)
     base = re.sub(r'_\d{3}$', '', base)
     return base.upper()
@@ -58,6 +60,7 @@ def slugify_title(title: str) -> str:
         'trying-green-line-to-spear-gun': 'tying-green-line-to-spear-gun',
         'spear-fisheman-submerges-and-shoots': 'spearfisherman-submerges-and-shoots',
         'tilting-up-to-papuan-mans-face': 'tilting-up-to-papuan-fisherman-face',
+        'midnight-snapper-and-ribbon-snappers': 'midnight-snapper-and-ribbon-sweetlips',
     }
     return slug_fixes.get(value, value)
 
@@ -109,6 +112,8 @@ def normalize_license_type(raw: str) -> str:
     if value.lower().startswith('editorial') or value.lower() == 'editorial':
         return 'Editorial'
     if value.lower().startswith('commercial') or value.lower() == 'commercial':
+        return 'Commercial'
+    if value.lower().startswith('commecial'):
         return 'Commercial'
     if value.lower() in {'standard', 'premium'}:
         return 'Commercial'
@@ -293,6 +298,8 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
         license_type = ''
         if 'Pricing Tier' in index:
             pricing_tier = row[index['Pricing Tier']].strip()
+        elif 'Pricing' in index:
+            pricing_tier = row[index['Pricing']].strip()
         if 'License Type' in index:
             license_type = clean_text(row[index['License Type']])
         elif 'Licence Type' in index:

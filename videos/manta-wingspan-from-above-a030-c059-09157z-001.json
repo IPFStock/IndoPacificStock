@@ -2,7 +2,7 @@
   "title": "Manta Wingspan From Above",
   "category": "Apex Marine Predators & Elasmobranchii",
   "region": "Komodo",
-  "species": "Manta Ray",
+  "species": "Reef Manta Ray",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -36,7 +36,6 @@
     "komodo",
     "komodo national park",
     "manta",
-    "manta ray",
     "manta wingspan from above",
     "marine",
     "mobula",
@@ -50,7 +49,8 @@
     "r3d",
     "raw",
     "ray",
-    "red"
+    "red",
+    "redcode"
   ],
   "technicalSpecs": {
     "fileName": "A030_C059_09157Z.mp4",
@@ -64,13 +64,13 @@
     "cameraFormat": "REDcode 4:1",
     "fps": "59.94",
     "aspectRatio": "2.37",
-    "duration": "00:00:49:53",
+    "duration": "00:00:49:50",
     "sceneCategory": "Underwater",
     "family": "Mobulidae (Manta Rays)",
-    "latinName": "Mobula birostris",
+    "latinName": "Mobula alfredi",
     "masterDuration": "00:05:51:19",
     "durationSeconds": 49.876,
-    "durationSource": "mp4-probe"
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

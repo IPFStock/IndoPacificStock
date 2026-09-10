@@ -2,7 +2,7 @@
   "title": "Manta Showing Belly",
   "category": "Apex Marine Predators & Elasmobranchii",
   "region": "Komodo",
-  "species": "Manta Ray",
+  "species": "Reef Manta Ray",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -36,7 +36,6 @@
     "komodo",
     "komodo national park",
     "manta",
-    "manta ray",
     "manta showing belly",
     "marine",
     "mobula",
@@ -50,7 +49,8 @@
     "predators",
     "r3d",
     "raw",
-    "ray"
+    "ray",
+    "red"
   ],
   "technicalSpecs": {
     "fileName": "A030_C058_09158G.mp4",
@@ -64,13 +64,13 @@
     "cameraFormat": "REDcode 4:1",
     "fps": "59.94",
     "aspectRatio": "2.37",
-    "duration": "00:00:19:31",
+    "duration": "00:00:19:30",
     "sceneCategory": "Underwater",
     "family": "Mobulidae (Manta Rays)",
-    "latinName": "Mobula birostris",
+    "latinName": "Mobula alfredi",
     "masterDuration": "00:02:24:40",
     "durationSeconds": 19.519,
-    "durationSource": "mp4-probe"
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

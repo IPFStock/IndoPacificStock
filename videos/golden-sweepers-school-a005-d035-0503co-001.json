@@ -69,8 +69,8 @@
     "family": "Pempheridae (Sweepers)",
     "latinName": "Parapriacanthus ransonneti",
     "masterDuration": "00:01:16:23",
-    "durationSeconds": 13.584,
-    "durationSource": "mp4-probe"
+    "durationSeconds": 13.583,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

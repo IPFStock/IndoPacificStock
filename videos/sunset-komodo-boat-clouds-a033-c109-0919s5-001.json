@@ -64,13 +64,13 @@
     "cameraFormat": "REDcode 4:1",
     "fps": "59.94",
     "aspectRatio": "2:37",
-    "duration": "00:00:08:23",
+    "duration": "00:00:08:22",
     "sceneCategory": "Landscape",
     "family": "",
     "latinName": "",
     "masterDuration": "00:00:08:20",
     "durationSeconds": 8.383,
-    "durationSource": "mp4-probe"
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

@@ -67,8 +67,8 @@
     "family": "Cheloniidae (Sea Turtles)",
     "latinName": "Eretmochelys imbricata",
     "masterDuration": "00:00:49:22",
-    "durationSeconds": 19.834,
-    "durationSource": "mp4-probe"
+    "durationSeconds": 19.833,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }
