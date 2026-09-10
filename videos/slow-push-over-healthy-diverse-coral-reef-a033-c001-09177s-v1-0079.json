@@ -2,7 +2,7 @@
   "title": "Slow Push Over Healthy Diverse Coral Reef",
   "category": "Benthic Reef Aggregations & Schooling Fish",
   "region": "Komodo",
-  "species": "Anthias",
+  "species": "Blue-green Chromis",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -25,9 +25,10 @@
     "acropora",
     "acropora sp",
     "aggregations",
-    "anthias",
     "benthic",
     "benthic reef aggregations schooling fish",
+    "blue-green",
+    "blue-green chromis",
     "camera",
     "camera pushing forward over a variety of healthy",
     "chromis",
@@ -49,8 +50,7 @@
     "indonesia",
     "komodo",
     "komodo national park",
-    "leather",
-    "national"
+    "leather"
   ],
   "technicalSpecs": {
     "fileName": "A033_C001_09177S_V1-0079.mp4",
@@ -67,7 +67,7 @@
     "duration": "00:00:57:64",
     "sceneCategory": "Underwater",
     "family": "Pomacentridae (Damselfish)",
-    "latinName": "Pseudanthias sp.",
+    "latinName": "Chromis viridis",
     "masterDuration": "00:01:41:04",
     "durationSeconds": 57.535,
     "durationSource": "mp4-probe"

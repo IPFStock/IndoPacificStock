@@ -1100,4 +1100,62 @@ mv "A044_D039_022290_V1-0027.mp4" "chromis-and-two-spot-snappers-on-coral-garden
 mv "A044_D040_0222WL_V1-0028.mp4" "tropical-fish-swimming-over-coral-garden-a044-d040-0222wl-v1-0028.mp4" 2>/dev/null || mv "A044_D040_0222WL_V1-0028.mp4" "A044_D040_0222WL_V1-0028.mp4" 2>/dev/null || true
 # Gorgonian Seafan Under Outcrop
 mv "A044_D046_0222Y1_V1-0029.mp4" "gorgonian-seafan-under-outcrop-a044-d046-0222y1-v1-0029.mp4" 2>/dev/null || mv "A044_D046_0222Y1_V1-0029.mp4" "A044_D046_0222Y1_V1-0029.mp4" 2>/dev/null || true
+# Shallow Coral Reef And Schooling Fish
+mv "A056_D003_0304EP_V1-0001.mp4" "shallow-coral-reef-and-schooling-fish-a056-d003-0304ep-v1-0001.mp4" 2>/dev/null || mv "A056_D003_0304EP_V1-0001.mp4" "A056_D003_0304EP_V1-0001.mp4" 2>/dev/null || true
+# Four Giant Sweetlips Hovering Over Coral Head
+mv "A056_D004_0304DU_V1-0002.mp4" "four-giant-sweetlips-hovering-over-coral-head-a056-d004-0304du-v1-0002.mp4" 2>/dev/null || mv "A056_D004_0304DU_V1-0002.mp4" "A056_D004_0304DU_V1-0002.mp4" 2>/dev/null || true
+# Panning Baitfish And Sweetlips
+mv "A056_D007_0304P6_V1-0006.mp4" "panning-baitfish-and-sweetlips-a056-d007-0304p6-v1-0006.mp4" 2>/dev/null || mv "A056_D007_0304P6_V1-0006.mp4" "A056_D007_0304P6_V1-0006.mp4" 2>/dev/null || true
+# Schooling Baitfish And Sweetlips
+mv "A056_D007_0304P6_V1-0007.mp4" "schooling-baitfish-and-sweetlips-a056-d007-0304p6-v1-0007.mp4" 2>/dev/null || mv "A056_D007_0304P6_V1-0007.mp4" "A056_D007_0304P6_V1-0007.mp4" 2>/dev/null || true
+# Two Giant Sweetlips
+mv "A056_D008_03042U_V1-0008.mp4" "two-giant-sweetlips-a056-d008-03042u-v1-0008.mp4" 2>/dev/null || mv "A056_D008_03042U_V1-0008.mp4" "A056_D008_03042U_V1-0008.mp4" 2>/dev/null || true
+# Reveal Of Giant Sweetlips
+mv "A056_D008_03042U_V1-0009.mp4" "reveal-of-giant-sweetlips-a056-d008-03042u-v1-0009.mp4" 2>/dev/null || mv "A056_D008_03042U_V1-0009.mp4" "A056_D008_03042U_V1-0009.mp4" 2>/dev/null || true
+# Schooling Fish And Branching Coral
+mv "A056_D010_0304K0_V1-0010.mp4" "schooling-fish-and-branching-coral-a056-d010-0304k0-v1-0010.mp4" 2>/dev/null || mv "A056_D010_0304K0_V1-0010.mp4" "A056_D010_0304K0_V1-0010.mp4" 2>/dev/null || true
+# Branching Coral And Damselfish
+mv "A056_D011_0304G4_V1-0011.mp4" "branching-coral-and-damselfish-a056-d011-0304g4-v1-0011.mp4" 2>/dev/null || mv "A056_D011_0304G4_V1-0011.mp4" "A056_D011_0304G4_V1-0011.mp4" 2>/dev/null || true
+# Soft Corals And Damselfish
+mv "A056_D013_0304UP_V1-0012.mp4" "soft-corals-and-damselfish-a056-d013-0304up-v1-0012.mp4" 2>/dev/null || mv "A056_D013_0304UP_V1-0012.mp4" "A056_D013_0304UP_V1-0012.mp4" 2>/dev/null || true
+# Silver And Gold Baitfish
+mv "A056_D015_0304NB_V1-0013.mp4" "silver-and-gold-baitfish-a056-d015-0304nb-v1-0013.mp4" 2>/dev/null || mv "A056_D015_0304NB_V1-0013.mp4" "A056_D015_0304NB_V1-0013.mp4" 2>/dev/null || true
+# Large School Of Baitfish Under A Coral Head
+mv "A056_D015_0304NB_V1-0014.mp4" "large-school-of-baitfish-under-a-coral-head-a056-d015-0304nb-v1-0014.mp4" 2>/dev/null || mv "A056_D015_0304NB_V1-0014.mp4" "A056_D015_0304NB_V1-0014.mp4" 2>/dev/null || true
+# Cabbage Coral And Damselfish
+mv "A056_D021_0304BI_V1-0015.mp4" "cabbage-coral-and-damselfish-a056-d021-0304bi-v1-0015.mp4" 2>/dev/null || mv "A056_D021_0304BI_V1-0015.mp4" "A056_D021_0304BI_V1-0015.mp4" 2>/dev/null || true
+# Staghorn Corals And Chromis
+mv "A056_D022_0304K3_V1-0016.mp4" "staghorn-corals-and-chromis-a056-d022-0304k3-v1-0016.mp4" 2>/dev/null || mv "A056_D022_0304K3_V1-0016.mp4" "A056_D022_0304K3_V1-0016.mp4" 2>/dev/null || true
+# Healthy Cabbage Coral And Resident Schools Of Fish
+mv "A056_D024_0304DP_V1-0017.mp4" "healthy-cabbage-coral-and-resident-schools-of-fish-a056-d024-0304dp-v1-0017.mp4" 2>/dev/null || mv "A056_D024_0304DP_V1-0017.mp4" "A056_D024_0304DP_V1-0017.mp4" 2>/dev/null || true
+# Healthy Cabbage Coral
+mv "A056_D026_0304OA_V1-0018.mp4" "healthy-cabbage-coral-a056-d026-0304oa-v1-0018.mp4" 2>/dev/null || mv "A056_D026_0304OA_V1-0018.mp4" "A056_D026_0304OA_V1-0018.mp4" 2>/dev/null || true
+# Cabbage Coral And Swarms Of Damselfish
+mv "A056_D028_0304WX_V1-0019.mp4" "cabbage-coral-and-swarms-of-damselfish-a056-d028-0304wx-v1-0019.mp4" 2>/dev/null || mv "A056_D028_0304WX_V1-0019.mp4" "A056_D028_0304WX_V1-0019.mp4" 2>/dev/null || true
+# Schools Of Chromis And Damselfish In Water Column
+mv "A056_D029_0304YB_V1-0020.mp4" "schools-of-chromis-and-damselfish-in-water-column-a056-d029-0304yb-v1-0020.mp4" 2>/dev/null || mv "A056_D029_0304YB_V1-0020.mp4" "A056_D029_0304YB_V1-0020.mp4" 2>/dev/null || true
+# Forward Movement Over Cabbage Coral
+mv "A056_D032_03040X_V1-0021.mp4" "forward-movement-over-cabbage-coral-a056-d032-03040x-v1-0021.mp4" 2>/dev/null || mv "A056_D032_03040X_V1-0021.mp4" "A056_D032_03040X_V1-0021.mp4" 2>/dev/null || true
+# A Field Of Broken Cabbage Coral
+mv "A056_D034_0304TD_V1-0022.mp4" "a-field-of-broken-cabbage-coral-a056-d034-0304td-v1-0022.mp4" 2>/dev/null || mv "A056_D034_0304TD_V1-0022.mp4" "A056_D034_0304TD_V1-0022.mp4" 2>/dev/null || true
+# Hawksbill Turtle Foraging
+mv "A056_D036_0304ZD_V1-0023.mp4" "hawksbill-turtle-foraging-a056-d036-0304zd-v1-0023.mp4" 2>/dev/null || mv "A056_D036_0304ZD_V1-0023.mp4" "A056_D036_0304ZD_V1-0023.mp4" 2>/dev/null || true
+# Hawksbill Turtle Eating
+mv "A056_D037_0304FB_V1-0024.mp4" "hawksbill-turtle-eating-a056-d037-0304fb-v1-0024.mp4" 2>/dev/null || mv "A056_D037_0304FB_V1-0024.mp4" "A056_D037_0304FB_V1-0024.mp4" 2>/dev/null || true
+# Hawksbill Turtle Foraging In Coral
+mv "A056_D038_0304R2_V1-0025.mp4" "hawksbill-turtle-foraging-in-coral-a056-d038-0304r2-v1-0025.mp4" 2>/dev/null || mv "A056_D038_0304R2_V1-0025.mp4" "A056_D038_0304R2_V1-0025.mp4" 2>/dev/null || true
+# Hawksbill Turtle On Coral Reef
+mv "A056_D039_0304SX_V1-0026.mp4" "hawksbill-turtle-on-coral-reef-a056-d039-0304sx-v1-0026.mp4" 2>/dev/null || mv "A056_D039_0304SX_V1-0026.mp4" "A056_D039_0304SX_V1-0026.mp4" 2>/dev/null || true
+# Hawksbill Turtle Looking For Food
+mv "A056_D039_0304SX_V1-0027.mp4" "hawksbill-turtle-looking-for-food-a056-d039-0304sx-v1-0027.mp4" 2>/dev/null || mv "A056_D039_0304SX_V1-0027.mp4" "A056_D039_0304SX_V1-0027.mp4" 2>/dev/null || true
+# Hawksbill Sea Turtle Eating On The Reef
+mv "A056_D039_0304SX_V1-0028.mp4" "hawksbill-sea-turtle-eating-on-the-reef-a056-d039-0304sx-v1-0028.mp4" 2>/dev/null || mv "A056_D039_0304SX_V1-0028.mp4" "A056_D039_0304SX_V1-0028.mp4" 2>/dev/null || true
+# Hawksbill Turtle Swims Into Water Column
+mv "A056_D039_0304SX_V1-0029.mp4" "hawksbill-turtle-swims-into-water-column-a056-d039-0304sx-v1-0029.mp4" 2>/dev/null || mv "A056_D039_0304SX_V1-0029.mp4" "A056_D039_0304SX_V1-0029.mp4" 2>/dev/null || true
+# Hawksbill Turtle Silhouette At The Surface And Diving Down
+mv "A056_D040_0304EP_V1-0030.mp4" "hawksbill-turtle-silhouette-at-the-surface-and-diving-down-a056-d040-0304ep-v1-0030.mp4" 2>/dev/null || mv "A056_D040_0304EP_V1-0030.mp4" "A056_D040_0304EP_V1-0030.mp4" 2>/dev/null || true
+# Baitfish And Coral Head
+mv "A056_D006_0304BK_V1-0004.mp4" "baitfish-and-coral-head-a056-d006-0304bk-v1-0004.mp4" 2>/dev/null || mv "A056_D006_0304BK_V1-0004.mp4" "A056_D006_0304BK_V1-0004.mp4" 2>/dev/null || true
+# Baitfish And Sweetlips
+mv "A056_D006_0304BK_V1-0005.mp4" "baitfish-and-sweetlips-a056-d006-0304bk-v1-0005.mp4" 2>/dev/null || mv "A056_D006_0304BK_V1-0005.mp4" "A056_D006_0304BK_V1-0005.mp4" 2>/dev/null || true
 echo "Rename pass complete."

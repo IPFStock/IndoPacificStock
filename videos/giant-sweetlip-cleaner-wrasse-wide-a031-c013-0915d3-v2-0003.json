@@ -2,7 +2,7 @@
   "title": "Giant Sweetlip Cleaner Wrasse Wide",
   "category": "Benthic Reef Aggregations & Schooling Fish",
   "region": "Komodo",
-  "species": "Ribboned Sweetlips",
+  "species": "Giant Sweetlips",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -35,6 +35,7 @@
     "gemini",
     "giant",
     "giant sweetlip cleaner wrasse wide",
+    "giant sweetlips",
     "indonesia",
     "komodo",
     "komodo national park",
@@ -49,8 +50,7 @@
     "push towards a giant sweetlips",
     "r3d",
     "raw",
-    "red",
-    "redcode"
+    "red"
   ],
   "technicalSpecs": {
     "fileName": "A031_C013_0915D3_V2-0003.mp4",
@@ -67,7 +67,7 @@
     "duration": "00:00:58:09",
     "sceneCategory": "Underwater",
     "family": "Haemulidae (Sweetlips)",
-    "latinName": "Plectorhinchus polytaenia",
+    "latinName": "Plectorhinchus albovittatus",
     "masterDuration": "00:01:09:05",
     "durationSeconds": 58.154,
     "durationSource": "mp4-probe"

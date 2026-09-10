@@ -2,7 +2,7 @@
   "title": "Slow Orbit Slomo Over Coral Reef",
   "category": "Benthic Reef Aggregations & Schooling Fish",
   "region": "Komodo",
-  "species": "Anthias",
+  "species": "Blue-green Chromis",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -28,6 +28,8 @@
     "anthias",
     "benthic",
     "benthic reef aggregations schooling fish",
+    "blue-green",
+    "blue-green chromis",
     "camera",
     "camera pushing forward over a variety of healthy",
     "chromis",
@@ -48,9 +50,7 @@
     "indonesia",
     "komodo",
     "komodo national park",
-    "leather",
-    "national",
-    "ocean"
+    "leather"
   ],
   "technicalSpecs": {
     "fileName": "A033_C009_0917ZY_V1-0084.mp4",
@@ -67,7 +67,7 @@
     "duration": "00:00:32:57",
     "sceneCategory": "Underwater",
     "family": "Pomacentridae (Damselfish)",
-    "latinName": "Pseudanthias sp.",
+    "latinName": "Chromis viridis",
     "masterDuration": "00:00:44:02",
     "durationSeconds": 32.596,
     "durationSource": "mp4-probe"

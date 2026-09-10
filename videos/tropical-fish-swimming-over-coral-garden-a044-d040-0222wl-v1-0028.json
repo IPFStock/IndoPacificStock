@@ -2,7 +2,7 @@
   "title": "Tropical Fish Swimming Over Coral Garden",
   "category": "Benthic Reef Aggregations & Schooling Fish",
   "region": "Raja Ampat",
-  "species": "Anthias",
+  "species": "Blue-green Chromis",
   "format": "8K RED RAW",
   "nativeFormatBadge": "8K R3D",
   "licenseType": "commercial",
@@ -28,6 +28,8 @@
     "anthias and chromis swimming over healthy branching coral",
     "benthic",
     "benthic reef aggregations schooling fish",
+    "blue-green",
+    "blue-green chromis",
     "branching",
     "chromis",
     "coral",
@@ -48,9 +50,7 @@
     "schooling",
     "south",
     "south west papua",
-    "tropical",
-    "tropical fish swimming over coral garden",
-    "v-raptor"
+    "tropical"
   ],
   "technicalSpecs": {
     "fileName": "A044_D040_0222WL_V1-0028.mp4",
@@ -67,7 +67,7 @@
     "duration": "00:00:11:19",
     "sceneCategory": "Underwater",
     "family": "Pomacentridae (Damselfish)",
-    "latinName": "Pseudanthias sp.",
+    "latinName": "Chromis viridis",
     "masterDuration": "00:00:11:14",
     "durationSeconds": 11.595,
     "durationSource": "ffprobe"

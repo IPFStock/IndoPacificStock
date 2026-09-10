@@ -52,6 +52,8 @@ def slugify_title(title: str) -> str:
     value = re.sub(r'[^\w\s-]', '', title.lower())
     value = re.sub(r'[\s_]+', '-', value).strip('-')
     value = value or 'archive'
+    value = value.replace('damsel-fish', 'damselfish')
+    value = value.replace('bait-fish', 'baitfish')
     slug_fixes = {
         'trying-green-line-to-spear-gun': 'tying-green-line-to-spear-gun',
         'spear-fisheman-submerges-and-shoots': 'spearfisherman-submerges-and-shoots',
@@ -387,10 +389,9 @@ def assign_mp4_names(exports: list[dict[str, str]], github_mp4s: list[str]) -> l
                         mp4_name = candidate
                         break
             if not mp4_name:
-                mp4_name = f"{entry['reel_base']}.mp4"
-                print(f'  Warning: no GitHub MP4 for {entry["file_name"]} → {mp4_name}')
-            else:
-                print(f'    {Path(entry.get("clip_directory") or entry["file_name"]).name} → {mp4_name}')
+                print(f'  Skipping {Path(entry.get("clip_directory") or entry["file_name"]).name}: no GitHub MP4 yet')
+                continue
+            print(f'    {Path(entry.get("clip_directory") or entry["file_name"]).name} → {mp4_name}')
             used.add(mp4_name)
             used_global.add(mp4_name.lower())
             merged = dict(entry)

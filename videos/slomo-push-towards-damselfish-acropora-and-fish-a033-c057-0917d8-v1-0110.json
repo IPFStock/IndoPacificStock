@@ -2,7 +2,7 @@
   "title": "Slomo Push Towards Damselfish Acropora And Fish",
   "category": "Benthic Reef Aggregations & Schooling Fish",
   "region": "Komodo",
-  "species": "Anthias",
+  "species": "Blue-green Chromis",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -24,9 +24,10 @@
     "5k red raw",
     "acropora",
     "aggregations",
-    "anthias",
     "benthic",
     "benthic reef aggregations schooling fish",
+    "blue-green",
+    "blue-green chromis",
     "camera",
     "camera pushes forward over hard and soft corals with damselfish and chromis swimming in the water column",
     "chromis",
@@ -49,8 +50,7 @@
     "park",
     "push",
     "pushes",
-    "r3d",
-    "raw"
+    "r3d"
   ],
   "technicalSpecs": {
     "fileName": "A033_C057_0917D8_V1-0110.mp4",
@@ -67,7 +67,7 @@
     "duration": "00:00:32:14",
     "sceneCategory": "Underwater",
     "family": "Pomacentridae (Damselfish)",
-    "latinName": "Pseudanthias sp.",
+    "latinName": "Chromis viridis",
     "masterDuration": "00:00:34:03",
     "durationSeconds": 32.234,
     "durationSource": "mp4-probe"

@@ -286,6 +286,30 @@ const TAXON_BY_LATIN = {
     family: 'Haemulidae (Sweetlips)',
     latinName: 'Plectorhinchus polytaenia',
   },
+  'plectorhinchus albovittatus': {
+    category: BROAD_TAXA.BENTHIC_SCHOOLING,
+    species: 'Giant Sweetlips',
+    family: 'Haemulidae (Sweetlips)',
+    latinName: 'Plectorhinchus albovittatus',
+  },
+  'plectorhinchus lineatus': {
+    category: BROAD_TAXA.BENTHIC_SCHOOLING,
+    species: 'Diagonal-banded Sweetlips',
+    family: 'Haemulidae (Sweetlips)',
+    latinName: 'Plectorhinchus lineatus',
+  },
+  'sinularia sp': {
+    category: BROAD_TAXA.HABITATS,
+    species: 'Cabbage Coral',
+    family: 'Alcyoniidae (Soft Corals)',
+    latinName: 'Sinularia sp.',
+  },
+  'porites sp': {
+    category: BROAD_TAXA.HABITATS,
+    species: 'Porites Coral',
+    family: 'Poritidae (Stony Corals)',
+    latinName: 'Porites sp.',
+  },
   'parapriacanthus ransonneti': {
     category: BROAD_TAXA.BENTHIC_SCHOOLING,
     species: 'Golden Sweepers',
@@ -386,8 +410,24 @@ const TAXON_PATTERN_RULES = [
     taxon: TAXON_BY_LATIN['triaenodon obesus'],
   },
   {
+    pattern: /giant sweetlips|albovittatus/i,
+    taxon: TAXON_BY_LATIN['plectorhinchus albovittatus'],
+  },
+  {
+    pattern: /diagonal-banded sweetlips|plectorhinchus lineatus/i,
+    taxon: TAXON_BY_LATIN['plectorhinchus lineatus'],
+  },
+  {
     pattern: /sweetlips|plectorhinchus|ribbon.?sweetlips/i,
     taxon: TAXON_BY_LATIN['plectorhinchus polytaenia'],
+  },
+  {
+    pattern: /cabbage coral|sinularia/i,
+    taxon: TAXON_BY_LATIN['sinularia sp'],
+  },
+  {
+    pattern: /\bchromis\b/i,
+    taxon: TAXON_BY_LATIN['chromis viridis'],
   },
   {
     pattern: /sweeper|parapriacanthus|golden.?sweeper/i,

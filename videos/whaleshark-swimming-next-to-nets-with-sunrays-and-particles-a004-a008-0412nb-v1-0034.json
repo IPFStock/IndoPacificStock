@@ -17,7 +17,7 @@
   "camera": "DSMC2 GEMINI 5K S35",
   "behavior": "Natural history sequence documenting whaleshark swimming next to nets with sunrays and particles.",
   "videoUrl": "https://raw.githubusercontent.com/IPFStock/ip-assets-01/main/A004_A008_0412NB_V1-0034.mp4",
-  "description": "A whale shark, Rhincodon typus, approaches a bagan boat to feed on bait fish while two more sharks approach behind, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean",
+  "description": "A whale shark, Rhincodon typus, approaches a bagan boat to feed on baitfish while two more sharks approach behind, Cenderawasih Bay, Papua, Indonesia, Pacific Ocean",
   "keywords": [
     "50 fps",
     "5k r3d",
@@ -25,7 +25,7 @@
     "approach",
     "approaches",
     "bagan",
-    "bait",
+    "baitfish",
     "bay",
     "behind",
     "boat",
@@ -34,7 +34,6 @@
     "dsmc2",
     "dsmc2 gemini 5k s35",
     "feed",
-    "fish",
     "gemini",
     "indonesia",
     "mammals",
@@ -50,7 +49,8 @@
     "papua",
     "particles",
     "r3d",
-    "raw"
+    "raw",
+    "red"
   ],
   "technicalSpecs": {
     "fileName": "A004_A008_0412NB_V1-0034.mp4",
