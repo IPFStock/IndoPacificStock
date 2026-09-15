@@ -1170,4 +1170,30 @@ mv "A045_D019_02228B.mp4" "reef-manta-ray-at-cleaning-station-a045-d019-02228b.m
 mv "A045_D020_0222G4.mp4" "reef-manta-ray-gliding-a045-d020-0222g4.mp4" 2>/dev/null || mv "A045_D020_0222G4.mp4" "A045_D020_0222G4.mp4" 2>/dev/null || true
 # Reef Manta Ray Swims Over Coral
 mv "A045_D021_0222C4.mp4" "reef-manta-ray-swims-over-coral-a045-d021-0222c4.mp4" 2>/dev/null || mv "A045_D021_0222C4.mp4" "A045_D021_0222C4.mp4" 2>/dev/null || true
+# Island Silhouette Viewed From Underwater
+mv "A007_D002_0308MB.mp4" "island-silhouette-viewed-from-underwater-a007-d002-0308mb.mp4" 2>/dev/null || mv "A007_D002_0308MB.mp4" "A007_D002_0308MB.mp4" 2>/dev/null || true
+# Moving Forward Over Coral Reef
+mv "A007_D006_0308QA.mp4" "moving-forward-over-coral-reef-a007-d006-0308qa.mp4" 2>/dev/null || mv "A007_D006_0308QA.mp4" "A007_D006_0308QA.mp4" 2>/dev/null || true
+# Fish And Island Silhouette
+mv "A007_D013_03080R.mp4" "fish-and-island-silhouette-a007-d013-03080r.mp4" 2>/dev/null || mv "A007_D013_03080R.mp4" "A007_D013_03080R.mp4" 2>/dev/null || true
+# Seafan And Fish At Swimthrough
+mv "A007_D014_0308EZ.mp4" "seafan-and-fish-at-swimthrough-a007-d014-0308ez.mp4" 2>/dev/null || mv "A007_D014_0308EZ.mp4" "A007_D014_0308EZ.mp4" 2>/dev/null || true
+# Forward Movement Batu Rufus Swimthrough
+mv "A007_D016_03089I.mp4" "forward-movement-batu-rufus-swimthrough-a007-d016-03089i.mp4" 2>/dev/null || mv "A007_D016_03089I.mp4" "A007_D016_03089I.mp4" 2>/dev/null || true
+# Red Seafan And Swimthrough
+mv "A007_D017_0308EA.mp4" "red-seafan-and-swimthrough-a007-d017-0308ea.mp4" 2>/dev/null || mv "A007_D017_0308EA.mp4" "A007_D017_0308EA.mp4" 2>/dev/null || true
+# Forward Push Over Coral Reef
+mv "A007_D018_0308HG.mp4" "forward-push-over-coral-reef-a007-d018-0308hg.mp4" 2>/dev/null || mv "A007_D018_0308HG.mp4" "A007_D018_0308HG.mp4" 2>/dev/null || true
+# Healthy Cabbage Coral Garden
+mv "A007_D019_0308HR.mp4" "healthy-cabbage-coral-garden-a007-d019-0308hr.mp4" 2>/dev/null || mv "A007_D019_0308HR.mp4" "A007_D019_0308HR.mp4" 2>/dev/null || true
+# Coral Outcrop With Damselfish
+mv "A007_D029_0308I1.mp4" "coral-outcrop-with-damselfish-a007-d029-0308i1.mp4" 2>/dev/null || mv "A007_D029_0308I1.mp4" "A007_D029_0308I1.mp4" 2>/dev/null || true
+# A Variety Of Tropical Fish Swimming Over Lettuce Coral
+mv "A007_D031_0308E1.mp4" "a-variety-of-tropical-fish-swimming-over-lettuce-coral-a007-d031-0308e1.mp4" 2>/dev/null || mv "A007_D031_0308E1.mp4" "A007_D031_0308E1.mp4" 2>/dev/null || true
+# Hard Coral Garden With Branching And Cabbage Corals
+mv "A007_D033_0308T4.mp4" "hard-coral-garden-with-branching-and-cabbage-corals-a007-d033-0308t4.mp4" 2>/dev/null || mv "A007_D033_0308T4.mp4" "A007_D033_0308T4.mp4" 2>/dev/null || true
+# Diver And Shallow Coral Reef
+mv "A007_D036_03088P.mp4" "diver-and-shallow-coral-reef-a007-d036-03088p.mp4" 2>/dev/null || mv "A007_D036_03088P.mp4" "A007_D036_03088P.mp4" 2>/dev/null || true
+# Diver Swims Along Coral Garden
+mv "A007_D038_0308E3.mp4" "diver-swims-along-coral-garden-a007-d038-0308e3.mp4" 2>/dev/null || mv "A007_D038_0308E3.mp4" "A007_D038_0308E3.mp4" 2>/dev/null || true
 echo "Rename pass complete."

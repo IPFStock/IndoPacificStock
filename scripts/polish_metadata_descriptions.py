@@ -365,6 +365,8 @@ def polish_description(text: str) -> str:
         (r'\bbait fish\b', 'baitfish'),
         (r'\bDamsel Fish\b', 'damselfish'),
         (r'\bdamsel fish\b', 'damselfish'),
+        (r'sp\.Raja', 'sp., Raja'),
+        (r'sp\.([A-Z])', r'sp., \1'),
         (r'and a diagonal-banded sweetlips, Plectorhinchus lineatus, hovering in the background, and a diagonal-banded sweetlips, Plectorhinchus lineatus, hovering in the background',
          'and a diagonal-banded sweetlips, Plectorhinchus lineatus, hovering in the background'),
         (r'\bPanning from left to right\b', 'Panning from left to right'),

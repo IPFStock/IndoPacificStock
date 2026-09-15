@@ -304,6 +304,12 @@ const TAXON_BY_LATIN = {
     family: 'Alcyoniidae (Soft Corals)',
     latinName: 'Sinularia sp.',
   },
+  'turbinaria sp': {
+    category: BROAD_TAXA.HABITATS,
+    species: 'Cabbage Coral',
+    family: 'Dendrophylliidae (Turbinaria Corals)',
+    latinName: 'Turbinaria sp.',
+  },
   'porites sp': {
     category: BROAD_TAXA.HABITATS,
     species: 'Porites Coral',
@@ -436,6 +442,10 @@ const TAXON_PATTERN_RULES = [
   {
     pattern: /sweetlips|plectorhinchus|ribbon.?sweetlips/i,
     taxon: TAXON_BY_LATIN['plectorhinchus polytaenia'],
+  },
+  {
+    pattern: /turbinaria|lettuce coral|scroll coral/i,
+    taxon: TAXON_BY_LATIN['turbinaria sp'],
   },
   {
     pattern: /cabbage coral|sinularia/i,

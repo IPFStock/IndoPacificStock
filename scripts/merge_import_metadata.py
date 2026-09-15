@@ -7,6 +7,7 @@ import csv
 import json
 import re
 import shutil
+import subprocess
 import sys
 import urllib.request
 from pathlib import Path
@@ -61,6 +62,7 @@ def slugify_title(title: str) -> str:
         'spear-fisheman-submerges-and-shoots': 'spearfisherman-submerges-and-shoots',
         'tilting-up-to-papuan-mans-face': 'tilting-up-to-papuan-fisherman-face',
         'midnight-snapper-and-ribbon-snappers': 'midnight-snapper-and-ribbon-sweetlips',
+        'silhouetted-of-an-island-from-underwater': 'silhouette-of-an-island-from-underwater',
     }
     return slug_fixes.get(value, value)
 
@@ -283,9 +285,9 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
         if not title and not description:
             continue
 
-        fps = row[index['Camera FPS']].strip() if 'Camera FPS' in index else ''
-        if not fps and 'Shot Frame Rate' in index:
-            fps = row[index['Shot Frame Rate']].strip()
+        fps = row[index['Shot Frame Rate']].strip() if 'Shot Frame Rate' in index else ''
+        if not fps and 'Camera FPS' in index:
+            fps = row[index['Camera FPS']].strip()
         fps = fps or '24'
         start_tc = row[index['Start TC']].strip() if 'Start TC' in index else ''
         end_tc = row[index['End TC']].strip() if 'End TC' in index else ''
@@ -300,6 +302,11 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
             pricing_tier = row[index['Pricing Tier']].strip()
         elif 'Pricing' in index:
             pricing_tier = row[index['Pricing']].strip()
+        if not pricing_tier:
+            last_header = headers[-1] if headers else ''
+            last_value = clean_text(row[-1] if row else '')
+            if not last_header and last_value.lower() in {'standard', 'premium'}:
+                pricing_tier = last_value
         if 'License Type' in index:
             license_type = clean_text(row[index['License Type']])
         elif 'Licence Type' in index:
@@ -351,6 +358,34 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
     return parsed
 
 
+def entry_duration_seconds(entry: dict[str, str]) -> float | None:
+    frames = parse_timecode_frames(entry.get('duration') or '', parse_fps(entry.get('fps') or '24'))
+    if frames is None:
+        return None
+    fps = max(1.0, parse_fps(entry.get('fps') or '24'))
+    return frames / fps
+
+
+def probe_github_seconds(mp4_name: str) -> float | None:
+    ffprobe = shutil.which('ffprobe') or '/opt/homebrew/bin/ffprobe'
+    for repo in GITHUB_REPOS:
+        url = f'https://raw.githubusercontent.com/{GITHUB_OWNER}/{repo}/{GITHUB_BRANCH}/{mp4_name}'
+        try:
+            result = subprocess.run(
+                [ffprobe, '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', url],
+                capture_output=True,
+                text=True,
+                timeout=90,
+                check=True,
+            )
+            value = float(result.stdout.strip())
+            if value > 0:
+                return value
+        except Exception:
+            continue
+    return None
+
+
 def assign_mp4_names(exports: list[dict[str, str]], github_mp4s: list[str]) -> list[dict[str, str]]:
     github_lookup = {name.lower(): name for name in github_mp4s}
     by_reel: dict[str, list[str]] = {}
@@ -384,17 +419,41 @@ def assign_mp4_names(exports: list[dict[str, str]], github_mp4s: list[str]) -> l
         candidates = [name for name in by_reel.get(reel, []) if name.lower() not in used_global]
         if len(candidates) != len(entries):
             print(f'  Warning: {reel}: {len(entries)} CSV rows vs {len(candidates)} GitHub MP4s')
-        used: set[str] = set()
+            leftover = list(entries)
+            for candidate in candidates:
+                mp4_seconds = probe_github_seconds(candidate)
+                if not leftover:
+                    break
+                if mp4_seconds is None:
+                    entry = leftover.pop(0)
+                else:
+                    entry = min(
+                        leftover,
+                        key=lambda item: abs((entry_duration_seconds(item) or 0) - mp4_seconds),
+                    )
+                    leftover.remove(entry)
+                    csv_seconds = entry_duration_seconds(entry)
+                    print(
+                        f'    duration {candidate}: {mp4_seconds:.2f}s ~ CSV {csv_seconds:.2f}s'
+                        if csv_seconds is not None else
+                        f'    duration {candidate}: {mp4_seconds:.2f}s'
+                    )
+                print(f'    {Path(entry.get("clip_directory") or entry["file_name"]).name} → {candidate}')
+                used_global.add(candidate.lower())
+                merged = dict(entry)
+                merged['mp4_name'] = candidate
+                assigned.append(merged)
+            for entry in leftover:
+                print(f'  Skipping {Path(entry.get("clip_directory") or entry["file_name"]).name}: no GitHub MP4 yet')
+            continue
 
+        used: set[str] = set()
         for entry in entries:
             mp4_name = ''
-            if len(candidates) == 1:
-                mp4_name = candidates[0]
-            elif candidates:
-                for candidate in candidates:
-                    if candidate not in used:
-                        mp4_name = candidate
-                        break
+            for candidate in candidates:
+                if candidate not in used:
+                    mp4_name = candidate
+                    break
             if not mp4_name:
                 print(f'  Skipping {Path(entry.get("clip_directory") or entry["file_name"]).name}: no GitHub MP4 yet')
                 continue
@@ -502,7 +561,7 @@ def resolve_import_paths(argv: list[str]) -> list[Path]:
 
 
 # Always refresh these master columns when re-importing an export batch.
-OVERWRITE_INDICES = {7, 8, 10, 11, 36, 37}
+OVERWRITE_INDICES = {2, 7, 8, 10, 11, 36, 37}
 
 
 def ensure_rating_column(header: list[str], data: list[list[str]]) -> tuple[list[str], list[list[str]], int]:
