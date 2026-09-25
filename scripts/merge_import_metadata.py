@@ -25,8 +25,12 @@ def read_csv(path: Path) -> list[list[str]]:
     raw = path.read_bytes()
     if raw[:2] == b'\xff\xfe':
         text = raw.decode('utf-16le').lstrip('\ufeff')
+    elif raw[:2] == b'\xfe\xff':
+        text = raw.decode('utf-16be').lstrip('\ufeff')
     elif raw[:3] == b'\xef\xbb\xbf':
         text = raw.decode('utf-8-sig')
+    elif len(raw) >= 4 and raw[1:2] == b'\x00' and raw[:1] != b'\x00':
+        text = raw.decode('utf-16le')
     else:
         text = raw.decode('utf-8', errors='replace')
     lines = text.splitlines()
@@ -63,6 +67,7 @@ def slugify_title(title: str) -> str:
         'tilting-up-to-papuan-mans-face': 'tilting-up-to-papuan-fisherman-face',
         'midnight-snapper-and-ribbon-snappers': 'midnight-snapper-and-ribbon-sweetlips',
         'silhouetted-of-an-island-from-underwater': 'silhouette-of-an-island-from-underwater',
+        'young-man-smiles-at-body': 'young-man-smiles-at-camera',
     }
     return slug_fixes.get(value, value)
 
@@ -150,6 +155,12 @@ def infer_category(description: str, license_type: str, raw_category: str, raw_t
     )
     if license_type == 'Editorial' and any(marker in text for marker in culture_markers):
         return 'Culture'
+    landscape_markers = (
+        'phinisi', 'turnbuckle', 'small island', 'beach and houses',
+        'island backlit',
+    )
+    if any(marker in text for marker in landscape_markers):
+        return 'Landscape'
     if 'underwater' in text or 'coral' in text or 'shark' in text or 'fish,' in text:
         return 'Underwater'
     return 'Underwater'

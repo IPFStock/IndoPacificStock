@@ -220,6 +220,12 @@ EXACT.update(NABIRE)
 EXACT[
     'Fish market vendor cutting tuna early in the morning in the fish market, Nabire, Central Papua, Indonesia (no MR)'
 ] = 'Fish market vendor cutting tuna early in the morning, Nabire fish market, Central Papua, Indonesia (No Model Release)'
+EXACT[
+    'Turnbuckle and shackle system holding the rigging of a Phinisi ship, backlit by the sun'
+] = (
+    'Turnbuckle and shackle system holding the rigging of a phinisi ship, backlit by the sun, '
+    'Dampier Strait, Raja Ampat, South West Papua, Indonesia'
+)
 
 
 def read_csv(path: Path) -> list[list[str]]:
@@ -258,6 +264,8 @@ def polish_description(text: str) -> str:
     d = re.sub(r'No model release', 'No Model Release', d, flags=re.I)
     d = re.sub(r'\(\s*no Model Release\s*\)?', '(No Model Release)', d, flags=re.I)
     d = re.sub(r'\(\s*no Property Release\s*\)?', '(No Property Release)', d, flags=re.I)
+    d = re.sub(r'\.\s*No Model Release\.?\s*$', ', No Model Release', d, flags=re.I)
+    d = re.sub(r'\.\s*No Property Release\.?\s*$', ', No Property Release', d, flags=re.I)
 
     # Duplicate trailing location blocks
     d = re.sub(
@@ -274,6 +282,7 @@ def polish_description(text: str) -> str:
     d = re.sub(r'\s+,', ',', d)
     d = re.sub(r',\s*,', ',', d)
     d = re.sub(r' \.', '.', d)
+    d = re.sub(r',\s*$', '', d)
 
     # Repeated words
     d = re.sub(r'\bacross across\b', 'across', d, flags=re.I)
@@ -352,6 +361,8 @@ def polish_description(text: str) -> str:
         (r'\bA school of circular spadefish or batfish, Platax orbicularis, swim\b',
          'A school of circular spadefish or batfish, Platax orbicularis, swims'),
         (r'\bno Model Release\b', 'No Model Release'),
+        (r'\bSawandarek village\b', 'Sawandarek Village'),
+        (r'\bPhinisi ship\b', 'phinisi ship'),
         (r'Macolor macularis and', 'Macolor macularis, and'),
         (r'\bSplit level\b', 'Split-level'),
         (r'\btiltes\b', 'tilts'),

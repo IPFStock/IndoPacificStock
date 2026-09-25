@@ -1196,4 +1196,40 @@ mv "A007_D033_0308T4.mp4" "hard-coral-garden-with-branching-and-cabbage-corals-a
 mv "A007_D036_03088P.mp4" "diver-and-shallow-coral-reef-a007-d036-03088p.mp4" 2>/dev/null || mv "A007_D036_03088P.mp4" "A007_D036_03088P.mp4" 2>/dev/null || true
 # Diver Swims Along Coral Garden
 mv "A007_D038_0308E3.mp4" "diver-swims-along-coral-garden-a007-d038-0308e3.mp4" 2>/dev/null || mv "A007_D038_0308E3.mp4" "A007_D038_0308E3.mp4" 2>/dev/null || true
+# Papuan Children Cutting Coconuts
+mv "A002_A014_0218V7.mp4" "papuan-children-cutting-coconuts-a002-a014-0218v7.mp4" 2>/dev/null || mv "A002_A014_0218V7.mp4" "A002_A014_0218V7.mp4" 2>/dev/null || true
+# Papuan Kids Playing On Float
+mv "A002_A029_0218VK.mp4" "papuan-kids-playing-on-float-a002-a029-0218vk.mp4" 2>/dev/null || mv "A002_A029_0218VK.mp4" "A002_A029_0218VK.mp4" 2>/dev/null || true
+# Speed Boats Anchored At Beach
+mv "A002_A031_0218AB.mp4" "speed-boats-anchored-at-beach-a002-a031-0218ab.mp4" 2>/dev/null || mv "A002_A031_0218AB.mp4" "A002_A031_0218AB.mp4" 2>/dev/null || true
+# Kids Pose For Camera
+mv "A002_A032_02188W.mp4" "kids-pose-for-camera-a002-a032-02188w.mp4" 2>/dev/null || mv "A002_A032_02188W.mp4" "A002_A032_02188W.mp4" 2>/dev/null || true
+# Waving At The Camera
+mv "A002_A033_0218VT.mp4" "waving-at-the-camera-a002-a033-0218vt.mp4" 2>/dev/null || mv "A002_A033_0218VT.mp4" "A002_A033_0218VT.mp4" 2>/dev/null || true
+# Young Boy Makes Face At Camera
+mv "A002_A034_0218XB.mp4" "young-boy-makes-face-at-camera-a002-a034-0218xb.mp4" 2>/dev/null || mv "A002_A034_0218XB.mp4" "A002_A034_0218XB.mp4" 2>/dev/null || true
+# Young Man Smiles At Camera
+mv "A002_A035_021821.mp4" "young-man-smiles-at-camera-a002-a035-021821.mp4" 2>/dev/null || mv "A002_A035_021821.mp4" "A002_A035_021821.mp4" 2>/dev/null || true
+# Shy Young Papuan Girl
+mv "A002_A037_0218RM.mp4" "shy-young-papuan-girl-a002-a037-0218rm.mp4" 2>/dev/null || mv "A002_A037_0218RM.mp4" "A002_A037_0218RM.mp4" 2>/dev/null || true
+# Young Boy Playing In The Sand
+mv "A002_A046_0218HP.mp4" "young-boy-playing-in-the-sand-a002-a046-0218hp.mp4" 2>/dev/null || mv "A002_A046_0218HP.mp4" "A002_A046_0218HP.mp4" 2>/dev/null || true
+# Young Girl On The Beach
+mv "A002_A047_02183S.mp4" "young-girl-on-the-beach-a002-a047-02183s.mp4" 2>/dev/null || mv "A002_A047_02183S.mp4" "A002_A047_02183S.mp4" 2>/dev/null || true
+# Young Papuan Child Covered In Sand
+mv "A002_A048_0218HV.mp4" "young-papuan-child-covered-in-sand-a002-a048-0218hv.mp4" 2>/dev/null || mv "A002_A048_0218HV.mp4" "A002_A048_0218HV.mp4" 2>/dev/null || true
+# Papuan Kids Playing On The Beach
+mv "A002_A049_0218BN.mp4" "papuan-kids-playing-on-the-beach-a002-a049-0218bn.mp4" 2>/dev/null || mv "A002_A049_0218BN.mp4" "A002_A049_0218BN.mp4" 2>/dev/null || true
+# Young Boy Covered In Sand
+mv "A002_A050_0218YA.mp4" "young-boy-covered-in-sand-a002-a050-0218ya.mp4" 2>/dev/null || mv "A002_A050_0218YA.mp4" "A002_A050_0218YA.mp4" 2>/dev/null || true
+# Young Lady With Sand On Her Face
+mv "A002_A052_0218K4.mp4" "young-lady-with-sand-on-her-face-a002-a052-0218k4.mp4" 2>/dev/null || mv "A002_A052_0218K4.mp4" "A002_A052_0218K4.mp4" 2>/dev/null || true
+# Local Boat Going To The Beach
+mv "A002_A058_0218N6.mp4" "local-boat-going-to-the-beach-a002-a058-0218n6.mp4" 2>/dev/null || mv "A002_A058_0218N6.mp4" "A002_A058_0218N6.mp4" 2>/dev/null || true
+# Sawandarek Village Scene
+mv "A002_A062_0218L1.mp4" "sawandarek-village-scene-a002-a062-0218l1.mp4" 2>/dev/null || mv "A002_A062_0218L1.mp4" "A002_A062_0218L1.mp4" 2>/dev/null || true
+# Phinisi Rigging And Sun
+mv "A002_A083_03020R.mp4" "phinisi-rigging-and-sun-a002-a083-03020r.mp4" 2>/dev/null || mv "A002_A083_03020R.mp4" "A002_A083_03020R.mp4" 2>/dev/null || true
+# Backlit Island
+mv "A002_A092_03024Z.mp4" "backlit-island-a002-a092-03024z.mp4" 2>/dev/null || mv "A002_A092_03024Z.mp4" "A002_A092_03024Z.mp4" 2>/dev/null || true
 echo "Rename pass complete."

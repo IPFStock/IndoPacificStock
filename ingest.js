@@ -645,26 +645,21 @@ function resolveTaxonomy({ description, comments, shootCategory, title }) {
     }
   }
 
-  for (const rule of TAXON_PATTERN_RULES) {
-    if (rule.pattern.test(haystack)) {
-      return { ...rule.taxon, sceneCategory };
-    }
-  }
-
-  if (/landscape/i.test(shootCategory)) {
+  // Honor explicit CSV Category before title/description pattern rules.
+  if (/culture/i.test(shootCategory)) {
     return {
-      category: BROAD_TAXA.COASTAL_AERIAL,
-      species: 'Seascape',
+      category: BROAD_TAXA.CULTURAL,
+      species: 'Cultural Scene',
       family: '',
       latinName: '',
       sceneCategory,
     };
   }
 
-  if (/culture/i.test(shootCategory)) {
+  if (/landscape/i.test(shootCategory)) {
     return {
-      category: BROAD_TAXA.CULTURAL,
-      species: 'Cultural Scene',
+      category: BROAD_TAXA.COASTAL_AERIAL,
+      species: 'Seascape',
       family: '',
       latinName: '',
       sceneCategory,
@@ -679,6 +674,12 @@ function resolveTaxonomy({ description, comments, shootCategory, title }) {
       latinName: '',
       sceneCategory,
     };
+  }
+
+  for (const rule of TAXON_PATTERN_RULES) {
+    if (rule.pattern.test(haystack)) {
+      return { ...rule.taxon, sceneCategory };
+    }
   }
 
   return {
@@ -833,7 +834,7 @@ function extractKeywords(meta) {
 
 function sourceToMp4FileName(originalFileName) {
   const base = originalFileName.replace(/\.[^/.]+$/, '').trim();
-  const reelBase = base.replace(/_\d+$/, '');
+  const reelBase = base.replace(/_\d{3}$/, '');
   return `${reelBase}.mp4`;
 }
 
