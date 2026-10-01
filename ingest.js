@@ -876,7 +876,13 @@ function extractKeywords(meta) {
 }
 
 function sourceToMp4FileName(originalFileName) {
-  const base = originalFileName.replace(/\.[^/.]+$/, '').trim();
+  const trimmed = originalFileName.trim();
+  // Master rows already store the GitHub MP4 name, including _V1-0003 suffixes
+  // and leftover .R3D.mp4 names. Leave those intact.
+  if (/\.mp4$/i.test(trimmed)) {
+    return trimmed;
+  }
+  const base = trimmed.replace(/\.[^/.]+$/, '');
   const reelBase = base.replace(/_\d{3}$/, '');
   return `${reelBase}.mp4`;
 }

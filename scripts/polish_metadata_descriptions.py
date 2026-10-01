@@ -390,6 +390,8 @@ def polish_description(text: str) -> str:
         (r'\bbig eye trevally\b', 'bigeye trevally'),
         (r'\bBig Eye Trevally\b', 'Bigeye Trevally'),
         (r'\bBig eye trevally\b', 'Bigeye trevally'),
+        (r'\bA big trevally\b', 'A bigeye trevally'),
+        (r'\btoward the camera\b', 'towards the camera'),
         (r'Caranx sexfasciatus hunts\b', 'Caranx sexfasciatus, hunts'),
         (r'An archer fish, Toxotes jaculatrix, swim among\b',
          'An archer fish, Toxotes jaculatrix, swims among'),

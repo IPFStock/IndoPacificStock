@@ -430,8 +430,14 @@ def assign_mp4_names(exports: list[dict[str, str]], github_mp4s: list[str]) -> l
     for reel, entries in grouped.items():
         entries.sort(key=subclip_sort_key)
         candidates = [name for name in by_reel.get(reel, []) if name.lower() not in used_global]
-        if len(candidates) != len(entries):
-            print(f'  Warning: {reel}: {len(entries)} CSV rows vs {len(candidates)} GitHub MP4s')
+        # Equal counts of 2+ still need duration matching: GitHub suffixes
+        # (_V1-0009) are not in CSV subclip order, and an unsuffixed MP4 may
+        # already belong to _S001 rather than the full clip.
+        if len(candidates) != len(entries) or len(candidates) > 1:
+            if len(candidates) != len(entries):
+                print(f'  Warning: {reel}: {len(entries)} CSV rows vs {len(candidates)} GitHub MP4s')
+            else:
+                print(f'  Duration-matching {reel}: {len(entries)} rows, {len(candidates)} MP4s')
             leftover = list(entries)
             for candidate in candidates:
                 mp4_seconds = probe_github_seconds(candidate)

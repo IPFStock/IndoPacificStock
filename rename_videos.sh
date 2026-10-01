@@ -1292,4 +1292,32 @@ mv "A059_D038_0306IM.mp4" "trevally-hunting-schools-of-baitfish-a059-d038-0306im
 mv "A059_D039_03061G.mp4" "sunrays-streaming-through-underwater-mangroves-a059-d039-03061g.mp4" 2>/dev/null || mv "A059_D039_03061G.mp4" "A059_D039_03061G.mp4" 2>/dev/null || true
 # Beautiful Sunrays Streaming Through Mangroves On To Shallow Coral
 mv "A059_D043_030687.mp4" "beautiful-sunrays-streaming-through-mangroves-on-to-shallow-coral-a059-d043-030687.mp4" 2>/dev/null || mv "A059_D043_030687.mp4" "A059_D043_030687.mp4" 2>/dev/null || true
+# Static Shallow Mangrove Scene
+mv "A059_D003_0306KQ_V1-0003.mp4" "static-shallow-mangrove-scene-a059-d003-0306kq-v1-0003.mp4" 2>/dev/null || mv "A059_D003_0306KQ_V1-0003.mp4" "A059_D003_0306KQ_V1-0003.mp4" 2>/dev/null || true
+# Banded Sea Krait Exploring Shallow Mangroves
+mv "A059_D010_0306TZ_V1-0009.mp4" "banded-sea-krait-exploring-shallow-mangroves-a059-d010-0306tz-v1-0009.mp4" 2>/dev/null || mv "A059_D010_0306TZ_V1-0009.mp4" "A059_D010_0306TZ_V1-0009.mp4" 2>/dev/null || true
+# Banded Sea Krait Swims Along Shallow Coral
+mv "A059_D010_0306TZ_V1-0010.mp4" "banded-sea-krait-swims-along-shallow-coral-a059-d010-0306tz-v1-0010.mp4" 2>/dev/null || mv "A059_D010_0306TZ_V1-0010.mp4" "A059_D010_0306TZ_V1-0010.mp4" 2>/dev/null || true
+# Archer Fish And Mangrove Trees
+mv "A059_D021_0306F6_V1-0020.mp4" "archer-fish-and-mangrove-trees-a059-d021-0306f6-v1-0020.mp4" 2>/dev/null || mv "A059_D021_0306F6_V1-0020.mp4" "A059_D021_0306F6_V1-0020.mp4" 2>/dev/null || true
+# Mangrove Trees Seen Through Calm Water
+mv "A059_D021_0306F6_V1-0021.mp4" "mangrove-trees-seen-through-calm-water-a059-d021-0306f6-v1-0021.mp4" 2>/dev/null || mv "A059_D021_0306F6_V1-0021.mp4" "A059_D021_0306F6_V1-0021.mp4" 2>/dev/null || true
+# Shallow Coral Reef Under Mangroves
+mv "A059_D023_0306US_V1-0023.mp4" "shallow-coral-reef-under-mangroves-a059-d023-0306us-v1-0023.mp4" 2>/dev/null || mv "A059_D023_0306US_V1-0023.mp4" "A059_D023_0306US_V1-0023.mp4" 2>/dev/null || true
+# Archer Fish In Shallow Water Mangroves
+mv "A059_D024_0306KO_V1-0025.mp4" "archer-fish-in-shallow-water-mangroves-a059-d024-0306ko-v1-0025.mp4" 2>/dev/null || mv "A059_D024_0306KO_V1-0025.mp4" "A059_D024_0306KO_V1-0025.mp4" 2>/dev/null || true
+# Archer Fish Spits Water
+mv "A059_D025_0306X2_V1-0027.mp4" "archer-fish-spits-water-a059-d025-0306x2-v1-0027.mp4" 2>/dev/null || mv "A059_D025_0306X2_V1-0027.mp4" "A059_D025_0306X2_V1-0027.mp4" 2>/dev/null || true
+# Reflecting Archer Fish In Mangroves
+mv "A059_D027_03066F_V1-0030.mp4" "reflecting-archer-fish-in-mangroves-a059-d027-03066f-v1-0030.mp4" 2>/dev/null || mv "A059_D027_03066F_V1-0030.mp4" "A059_D027_03066F_V1-0030.mp4" 2>/dev/null || true
+# Two Archer Fish At The Surface
+mv "A059_D031_0306GE_V1-0033.mp4" "two-archer-fish-at-the-surface-a059-d031-0306ge-v1-0033.mp4" 2>/dev/null || mv "A059_D031_0306GE_V1-0033.mp4" "A059_D031_0306GE_V1-0033.mp4" 2>/dev/null || true
+# Camera Pushes Into Shallow Blue Water Mangrove
+mv "A059_D034_0306FO_V1-0036.mp4" "camera-pushes-into-shallow-blue-water-mangrove-a059-d034-0306fo-v1-0036.mp4" 2>/dev/null || mv "A059_D034_0306FO_V1-0036.mp4" "A059_D034_0306FO_V1-0036.mp4" 2>/dev/null || true
+# Trevally Hunting Small Fish In Shallow Mangroves
+mv "A059_D035_0306XK_V1-0038.mp4" "trevally-hunting-small-fish-in-shallow-mangroves-a059-d035-0306xk-v1-0038.mp4" 2>/dev/null || mv "A059_D035_0306XK_V1-0038.mp4" "A059_D035_0306XK_V1-0038.mp4" 2>/dev/null || true
+# Hunting Trevally And Archer Fish In Mangroves
+mv "A059_D039_03061G_V1-0041.mp4" "hunting-trevally-and-archer-fish-in-mangroves-a059-d039-03061g-v1-0041.mp4" 2>/dev/null || mv "A059_D039_03061G_V1-0041.mp4" "A059_D039_03061G_V1-0041.mp4" 2>/dev/null || true
+# Archer Fish Swim In Mangroves
+mv "A059_D039_03061G_V1-0042.mp4" "archer-fish-swim-in-mangroves-a059-d039-03061g-v1-0042.mp4" 2>/dev/null || mv "A059_D039_03061G_V1-0042.mp4" "A059_D039_03061G_V1-0042.mp4" 2>/dev/null || true
 echo "Rename pass complete."
