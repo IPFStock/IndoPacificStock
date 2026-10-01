@@ -22,7 +22,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 VIDEOS_DIR = ROOT / 'videos'
-MASTER_CSV = ROOT / 'Raja Stock Clips 3 Clips Metadata.csv'
+MASTER_CSV = ROOT / 'MasterMetaData.csv'
 GITHUB_RAW = 'https://raw.githubusercontent.com/IPFStock/ip-assets-01/main'
 TAIL_BYTES = 4 * 1024 * 1024
 USER_AGENT = 'IPFStock-duration-probe/1.0'

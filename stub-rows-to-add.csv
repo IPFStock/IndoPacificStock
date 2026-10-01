@@ -1,4 +1,4 @@
-# Paste these rows into Raja Stock Clips 3 Clips Metadata.csv (or Numbers master)
+# Paste these rows into MasterMetaData.csv (or Numbers master)
 # File Name = R3D reel ID | Comments = URL slug | fill Description + Duration TC
 # Then run: node ingest.js
 

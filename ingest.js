@@ -19,7 +19,8 @@ function findNumbersFile() {
   const files = fs
     .readdirSync(__dirname)
     .filter((file) => file.toLowerCase().endsWith('.numbers') && /metadata|stock|clips|davinci/i.test(file));
-  const master = files.find((file) => /^Raja Stock Clips 3 Clips Metadata\.numbers$/i.test(file));
+  const master = files.find((file) => /^MasterMetaData\.numbers$/i.test(file))
+    || files.find((file) => /^Raja Stock Clips 3 Clips Metadata\.numbers$/i.test(file));
   return master || files[0] || undefined;
 }
 
@@ -76,9 +77,9 @@ Optional: ffmpeg/ffprobe (brew install ffmpeg) probes clip length from GitHub MP
     return preferred;
   }
 
-  const masterCsv = path.join(__dirname, 'Raja Stock Clips 3 Clips Metadata.csv');
+  const masterCsv = path.join(__dirname, 'MasterMetaData.csv');
   if (flags.useCsvOnly && fs.existsSync(masterCsv)) {
-    console.log('Using master CSV (--use-csv-only): Raja Stock Clips 3 Clips Metadata.csv');
+    console.log('Using master CSV (--use-csv-only): MasterMetaData.csv');
     return masterCsv;
   }
 
@@ -114,7 +115,10 @@ Optional: ffmpeg/ffprobe (brew install ffmpeg) probes clip length from GitHub MP
 
   const preferredMaster = fs
     .readdirSync(__dirname)
-    .find((file) => /^Raja Stock Clips 3 Clips Metadata\.csv$/i.test(file));
+    .find((file) => /^MasterMetaData\.csv$/i.test(file))
+    || fs
+      .readdirSync(__dirname)
+      .find((file) => /^Raja Stock Clips 3 Clips Metadata\.csv$/i.test(file));
   if (preferredMaster) {
     console.log(`Using master CSV: ${preferredMaster}`);
     return path.join(__dirname, preferredMaster);
@@ -382,6 +386,24 @@ const TAXON_BY_LATIN = {
     family: 'Lutjanidae (Snappers)',
     latinName: 'Macolor macularis',
   },
+  'toxotes jaculatrix': {
+    category: BROAD_TAXA.REEF_FISH,
+    species: 'Banded Archerfish',
+    family: 'Toxotidae (Archerfish)',
+    latinName: 'Toxotes jaculatrix',
+  },
+  'laticauda colubrina': {
+    category: BROAD_TAXA.MEGFAUNA,
+    species: 'Banded Sea Krait',
+    family: 'Elapidae (Sea Kraits)',
+    latinName: 'Laticauda colubrina',
+  },
+  'caranx sexfasciatus': {
+    category: BROAD_TAXA.PELAGIC,
+    species: 'Bigeye Trevally',
+    family: 'Carangidae (Jacks)',
+    latinName: 'Caranx sexfasciatus',
+  },
 };
 
 const TAXON_PATTERN_RULES = [
@@ -458,6 +480,27 @@ const TAXON_PATTERN_RULES = [
   {
     pattern: /sweeper|parapriacanthus|golden.?sweeper/i,
     taxon: TAXON_BY_LATIN['parapriacanthus ransonneti'],
+  },
+  {
+    pattern: /sea.?krait|laticauda/i,
+    taxon: TAXON_BY_LATIN['laticauda colubrina'],
+  },
+  {
+    pattern: /archer.?fish|toxotes/i,
+    taxon: TAXON_BY_LATIN['toxotes jaculatrix'],
+  },
+  {
+    pattern: /trevally|caranx|big.?eye trevally/i,
+    taxon: TAXON_BY_LATIN['caranx sexfasciatus'],
+  },
+  {
+    pattern: /mangrove/i,
+    taxon: {
+      category: BROAD_TAXA.HABITATS,
+      species: 'Mangrove Habitat',
+      family: '',
+      latinName: '',
+    },
   },
   {
     pattern: /anthias|damselfish|pomacentrid|school/i,

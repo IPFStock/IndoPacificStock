@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-MASTER = ROOT / 'Raja Stock Clips 3 Clips Metadata.csv'
+MASTER = ROOT / 'MasterMetaData.csv'
 
 MELIBE_FEED = (
     'A Melibe nudibranch, Melibe viridis, feeding with its hooded oral veil, '
@@ -383,6 +383,18 @@ def polish_description(text: str) -> str:
         (r'\bPanning from left to right\b', 'Panning from left to right'),
         (r'\bParrotfish \(Scarus tricolor\), sea bream \(Monotaxis heterodon\), chromis and ribbon sweetlips \(Plectorhinchus polytaenia\) on a coral reef in Komodo\b',
          'Parrotfish (Scarus tricolor), sea bream (Monotaxis heterodon), chromis and ribbon sweetlips (Plectorhinchus polytaenia) on a coral reef, Komodo'),
+        (r'\bUndrewater\b', 'Underwater'),
+        (r'\bManroves\b', 'Mangroves'),
+        (r'\bleafs\b', 'leaves'),
+        (r'\bin the in the\b', 'in the'),
+        (r'\bbig eye trevally\b', 'bigeye trevally'),
+        (r'\bBig Eye Trevally\b', 'Bigeye Trevally'),
+        (r'\bBig eye trevally\b', 'Bigeye trevally'),
+        (r'Caranx sexfasciatus hunts\b', 'Caranx sexfasciatus, hunts'),
+        (r'An archer fish, Toxotes jaculatrix, swim among\b',
+         'An archer fish, Toxotes jaculatrix, swims among'),
+        (r'shallow waters in the shallows\b', 'shallow waters'),
+        (r'  +', ' '),
     ]
 
     for pattern, repl in replacements:

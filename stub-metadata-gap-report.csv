@@ -3,7 +3,7 @@
 #
 # CSV master rows: 69 | Rich catalog entries: 59 | GitHub MP4s: 170
 #
-# To fix stubs: add a row to Raja Stock Clips 3 Clips Metadata.csv using reel_id_r3d + Description + Comments (slug) + Duration TC
+# To fix stubs: add a row to MasterMetaData.csv using reel_id_r3d + Description + Comments (slug) + Duration TC
 # Then run: node ingest.js
 
 mp4_file,reel_id_r3d,current_slug,current_title,metadata_status,in_csv_master,csv_comments,duration_tc,location,description_in_csv,has_duration_in_json,sync_source

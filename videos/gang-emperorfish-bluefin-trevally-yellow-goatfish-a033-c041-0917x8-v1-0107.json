@@ -1,8 +1,8 @@
 {
   "title": "Gang Emperorfish Bluefin Trevally Yellow Goatfish",
-  "category": "Benthic Reef Aggregations & Schooling Fish",
+  "category": "Pelagic & Open Ocean Schooling Fish",
   "region": "Komodo",
-  "species": "Anthias",
+  "species": "Bigeye Trevally",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -22,11 +22,9 @@
     "59.94 fps",
     "5k r3d",
     "5k red raw",
-    "aggregations",
     "and yellow goatfish parupeneus cyclostomus",
-    "anthias",
-    "benthic",
-    "benthic reef aggregations schooling fish",
+    "bigeye",
+    "bigeye trevally",
     "blue",
     "bluefin",
     "caranx",
@@ -50,7 +48,9 @@
     "komodo national park",
     "lethrinus",
     "lethrinus olivaceus",
-    "long"
+    "long",
+    "long nose emperor lethrinus olivaceus",
+    "melampygus"
   ],
   "technicalSpecs": {
     "fileName": "A033_C041_0917X8_V1-0107.mp4",
@@ -66,8 +66,8 @@
     "aspectRatio": "1.09",
     "duration": "00:00:12:07",
     "sceneCategory": "Underwater",
-    "family": "Pomacentridae (Damselfish)",
-    "latinName": "Pseudanthias sp.",
+    "family": "Carangidae (Jacks)",
+    "latinName": "Caranx sexfasciatus",
     "masterDuration": "00:00:12:00",
     "durationSeconds": 12.116,
     "durationSource": "mp4-probe"

@@ -13,8 +13,8 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-MASTER = ROOT / 'Raja Stock Clips 3 Clips Metadata.csv'
-BACKUP = ROOT / 'Raja Stock Clips 3 Clips Metadata.backup.csv'
+MASTER = ROOT / 'MasterMetaData.csv'
+BACKUP = ROOT / 'MasterMetaData.backup.csv'
 IMPORTS_DIR = ROOT / 'imports'
 GITHUB_OWNER = 'IPFStock'
 GITHUB_REPOS = ('ip-assets-01', 'ip-assets-02')
@@ -68,6 +68,8 @@ def slugify_title(title: str) -> str:
         'midnight-snapper-and-ribbon-snappers': 'midnight-snapper-and-ribbon-sweetlips',
         'silhouetted-of-an-island-from-underwater': 'silhouette-of-an-island-from-underwater',
         'young-man-smiles-at-body': 'young-man-smiles-at-camera',
+        'sunrays-streaming-through-undrewater-manroves': 'sunrays-streaming-through-underwater-mangroves',
+        'big-eye-trevally-hunting-baitfish': 'bigeye-trevally-hunting-baitfish',
     }
     return slug_fixes.get(value, value)
 

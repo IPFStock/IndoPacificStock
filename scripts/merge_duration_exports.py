@@ -10,8 +10,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-MASTER = ROOT / 'Raja Stock Clips 3 Clips Metadata.csv'
-BACKUP = ROOT / 'Raja Stock Clips 3 Clips Metadata.backup.csv'
+MASTER = ROOT / 'MasterMetaData.csv'
+BACKUP = ROOT / 'MasterMetaData.backup.csv'
 
 IMPORTS_DIR = ROOT / 'imports'
 

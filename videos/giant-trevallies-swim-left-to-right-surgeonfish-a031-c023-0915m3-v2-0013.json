@@ -1,8 +1,8 @@
 {
   "title": "Giant Trevallies Swim Left To Right Surgeonfish",
-  "category": "Benthic Reef Aggregations & Schooling Fish",
+  "category": "Pelagic & Open Ocean Schooling Fish",
   "region": "Komodo",
-  "species": "Anthias",
+  "species": "Bigeye Trevally",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -24,11 +24,9 @@
     "5k red raw",
     "acanthurus",
     "acanthurus mata",
-    "aggregations",
-    "anthias",
     "behind",
-    "benthic",
-    "benthic reef aggregations schooling fish",
+    "bigeye",
+    "bigeye trevally",
     "caranx",
     "caranx ignobilis",
     "dsmc2",
@@ -50,7 +48,9 @@
     "mata",
     "national",
     "ocean",
-    "pacific"
+    "open",
+    "pacific",
+    "pacific ocean"
   ],
   "technicalSpecs": {
     "fileName": "A031_C023_0915M3_V2-0013.mp4",
@@ -66,8 +66,8 @@
     "aspectRatio": "2.37",
     "duration": "00:00:47:18",
     "sceneCategory": "Underwater",
-    "family": "Pomacentridae (Damselfish)",
-    "latinName": "Pseudanthias sp.",
+    "family": "Carangidae (Jacks)",
+    "latinName": "Caranx sexfasciatus",
     "masterDuration": "00:00:47:59",
     "durationSeconds": 47.295,
     "durationSource": "mp4-probe"
