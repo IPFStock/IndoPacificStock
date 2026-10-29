@@ -2339,10 +2339,10 @@
     'use strict';
 
     const GITHUB_OWNER = 'IPFStock';
-    const GITHUB_REPOS = ['ip-assets-01', 'ip-assets-02'];
+    const GITHUB_REPOS = ['ip-assets-01', 'ip-assets-02', 'ip-assets-03', 'ip-assets-04'];
     const GITHUB_BRANCH = 'main';
     const DEFAULT_ASSET_REPO = GITHUB_REPOS[0];
-    const CATALOG_CACHE_TOKEN = '650-2026-10-01T12:39:33.493Z';
+    const CATALOG_CACHE_TOKEN = '693-2026-10-29T12:36:31.503Z';
     const THUMB_TIME = 0.15;
     const VIDEO_LOAD_CONCURRENCY = 3;
     let activeVideoLoads = 0;
@@ -3533,7 +3533,7 @@
         }
       }
 
-      return { slug: slugFromMp4(file.name), data: buildStubAsset(file.name, file.repo) };
+      return null;
     }
 
     async function syncCatalogWithGithub(loadedCards) {

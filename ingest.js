@@ -7,7 +7,7 @@ const execFileAsync = promisify(execFile);
 
 const outputDir = path.join(__dirname, 'videos');
 const GITHUB_OWNER = 'IPFStock';
-const GITHUB_REPOS = ['ip-assets-01', 'ip-assets-02'];
+const GITHUB_REPOS = ['ip-assets-01', 'ip-assets-02', 'ip-assets-03', 'ip-assets-04'];
 const GITHUB_BRANCH = 'main';
 const GITHUB_RAW_BASE = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPOS[0]}/${GITHUB_BRANCH}`;
 
@@ -1547,6 +1547,7 @@ async function main() {
   const githubMp4Files = await fetchGithubMp4Files();
   const catalog = new Map();
 
+  let skippedWithoutMetadata = 0;
   githubMp4Files.forEach((mp4) => {
     const mp4FileName = mp4.name;
     const csvEntry = csvByMp4.get(mp4FileName.toLowerCase());
@@ -1557,11 +1558,11 @@ async function main() {
       return;
     }
 
-    const stub = buildStubFromMp4(mp4FileName);
-    stub.data.videoUrl = mp4.url;
-    catalog.set(stub.slug, stub.data);
-    console.log(`GitHub-only clip (stub metadata): ${mp4FileName} → ${stub.slug}.json`);
+    skippedWithoutMetadata += 1;
   });
+  if (skippedWithoutMetadata) {
+    console.log(`Left ${skippedWithoutMetadata} GitHub clips unpublished (no metadata row).`);
+  }
 
   csvByMp4.forEach((entry, mp4Key) => {
     const onGithub = githubMp4Files.some((item) => item.name.toLowerCase() === mp4Key);

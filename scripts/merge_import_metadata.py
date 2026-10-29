@@ -17,7 +17,7 @@ MASTER = ROOT / 'MasterMetaData.csv'
 BACKUP = ROOT / 'MasterMetaData.backup.csv'
 IMPORTS_DIR = ROOT / 'imports'
 GITHUB_OWNER = 'IPFStock'
-GITHUB_REPOS = ('ip-assets-01', 'ip-assets-02')
+GITHUB_REPOS = ('ip-assets-01', 'ip-assets-02', 'ip-assets-03', 'ip-assets-04')
 GITHUB_BRANCH = 'main'
 
 

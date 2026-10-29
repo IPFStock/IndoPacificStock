@@ -1320,4 +1320,90 @@ mv "A059_D035_0306XK_V1-0038.mp4" "trevally-hunting-small-fish-in-shallow-mangro
 mv "A059_D039_03061G_V1-0041.mp4" "hunting-trevally-and-archer-fish-in-mangroves-a059-d039-03061g-v1-0041.mp4" 2>/dev/null || mv "A059_D039_03061G_V1-0041.mp4" "A059_D039_03061G_V1-0041.mp4" 2>/dev/null || true
 # Archer Fish Swim In Mangroves
 mv "A059_D039_03061G_V1-0042.mp4" "archer-fish-swim-in-mangroves-a059-d039-03061g-v1-0042.mp4" 2>/dev/null || mv "A059_D039_03061G_V1-0042.mp4" "A059_D039_03061G_V1-0042.mp4" 2>/dev/null || true
+# Seafans And Tropical Fish
+mv "A046_D001_0223ET_V1-0001.mp4" "seafans-and-tropical-fish-a046-d001-0223et-v1-0001.mp4" 2>/dev/null || mv "A046_D001_0223ET_V1-0001.mp4" "A046_D001_0223ET_V1-0001.mp4" 2>/dev/null || true
+# Seafans And Soft Corals In The Shallows
+mv "A046_D002_0223E3_V1-0002.mp4" "seafans-and-soft-corals-in-the-shallows-a046-d002-0223e3-v1-0002.mp4" 2>/dev/null || mv "A046_D002_0223E3_V1-0002.mp4" "A046_D002_0223E3_V1-0002.mp4" 2>/dev/null || true
+# Pushing Forward Over Seafans
+mv "A046_D003_022389_V1-0003.mp4" "pushing-forward-over-seafans-a046-d003-022389-v1-0003.mp4" 2>/dev/null || mv "A046_D003_022389_V1-0003.mp4" "A046_D003_022389_V1-0003.mp4" 2>/dev/null || true
+# Red Seafans And Damselfish
+mv "A046_D005_02236G_V1-0004.mp4" "red-seafans-and-damselfish-a046-d005-02236g-v1-0004.mp4" 2>/dev/null || mv "A046_D005_02236G_V1-0004.mp4" "A046_D005_02236G_V1-0004.mp4" 2>/dev/null || true
+# Yellow Tail Fusiliers And Soft Corals
+mv "A046_D006_0223OP_V1-0005.mp4" "yellow-tail-fusiliers-and-soft-corals-a046-d006-0223op-v1-0005.mp4" 2>/dev/null || mv "A046_D006_0223OP_V1-0005.mp4" "A046_D006_0223OP_V1-0005.mp4" 2>/dev/null || true
+# Raja Ampat Reef Scene
+mv "A046_D007_02236Q_V1-0006.mp4" "raja-ampat-reef-scene-a046-d007-02236q-v1-0006.mp4" 2>/dev/null || mv "A046_D007_02236Q_V1-0006.mp4" "A046_D007_02236Q_V1-0006.mp4" 2>/dev/null || true
+# Brain Coral And Gorgonian Seafans
+mv "A046_D008_0223RR_V1-0007.mp4" "brain-coral-and-gorgonian-seafans-a046-d008-0223rr-v1-0007.mp4" 2>/dev/null || mv "A046_D008_0223RR_V1-0007.mp4" "A046_D008_0223RR_V1-0007.mp4" 2>/dev/null || true
+# Orange Spotted Trevally In Raja Ampat
+mv "A046_D010_0223KR_V1-0008.mp4" "orange-spotted-trevally-in-raja-ampat-a046-d010-0223kr-v1-0008.mp4" 2>/dev/null || mv "A046_D010_0223KR_V1-0008.mp4" "A046_D010_0223KR_V1-0008.mp4" 2>/dev/null || true
+# Gorgonian Seafans Below Surface
+mv "A046_D013_0223WV_V1-0009.mp4" "gorgonian-seafans-below-surface-a046-d013-0223wv-v1-0009.mp4" 2>/dev/null || mv "A046_D013_0223WV_V1-0009.mp4" "A046_D013_0223WV_V1-0009.mp4" 2>/dev/null || true
+# Silhouette Of Hawksbill Turtle
+mv "A046_D017_0223KS_V1-0010.mp4" "silhouette-of-hawksbill-turtle-a046-d017-0223ks-v1-0010.mp4" 2>/dev/null || mv "A046_D017_0223KS_V1-0010.mp4" "A046_D017_0223KS_V1-0010.mp4" 2>/dev/null || true
+# Seafans And Sunrays
+mv "A046_D019_0223K5_V1-0011.mp4" "seafans-and-sunrays-a046-d019-0223k5-v1-0011.mp4" 2>/dev/null || mv "A046_D019_0223K5_V1-0011.mp4" "A046_D019_0223K5_V1-0011.mp4" 2>/dev/null || true
+# Gorgonian Seafans Reveal
+mv "A046_D020_02233I_V1-0012.mp4" "gorgonian-seafans-reveal-a046-d020-02233i-v1-0012.mp4" 2>/dev/null || mv "A046_D020_02233I_V1-0012.mp4" "A046_D020_02233I_V1-0012.mp4" 2>/dev/null || true
+# Gorgonian Seafan Silhouette
+mv "A046_D021_0223BU_V1-0013.mp4" "gorgonian-seafan-silhouette-a046-d021-0223bu-v1-0013.mp4" 2>/dev/null || mv "A046_D021_0223BU_V1-0013.mp4" "A046_D021_0223BU_V1-0013.mp4" 2>/dev/null || true
+# Panning Gorgonian Sea Fan Silhouette
+mv "A046_D021_0223BU_V1-0014.mp4" "panning-gorgonian-sea-fan-silhouette-a046-d021-0223bu-v1-0014.mp4" 2>/dev/null || mv "A046_D021_0223BU_V1-0014.mp4" "A046_D021_0223BU_V1-0014.mp4" 2>/dev/null || true
+# Ocellated Anemonefish And Sunrays
+mv "A046_D024_0223GC_V1-0015.mp4" "ocellated-anemonefish-and-sunrays-a046-d024-0223gc-v1-0015.mp4" 2>/dev/null || mv "A046_D024_0223GC_V1-0015.mp4" "A046_D024_0223GC_V1-0015.mp4" 2>/dev/null || true
+# Anemonefish And Seafan
+mv "A046_D025_02234M_V1-0016.mp4" "anemonefish-and-seafan-a046-d025-02234m-v1-0016.mp4" 2>/dev/null || mv "A046_D025_02234M_V1-0016.mp4" "A046_D025_02234M_V1-0016.mp4" 2>/dev/null || true
+# Red Seafans And Brain Coral
+mv "A046_D031_02239F_V1-0017.mp4" "red-seafans-and-brain-coral-a046-d031-02239f-v1-0017.mp4" 2>/dev/null || mv "A046_D031_02239F_V1-0017.mp4" "A046_D031_02239F_V1-0017.mp4" 2>/dev/null || true
+# Red Seafans Under A Ledge
+mv "A046_D033_0223F7_V1-0018.mp4" "red-seafans-under-a-ledge-a046-d033-0223f7-v1-0018.mp4" 2>/dev/null || mv "A046_D033_0223F7_V1-0018.mp4" "A046_D033_0223F7_V1-0018.mp4" 2>/dev/null || true
+# Pushing Forward Through Red Sea Fans
+mv "A046_D033_0223F7_V1-0019.mp4" "pushing-forward-through-red-sea-fans-a046-d033-0223f7-v1-0019.mp4" 2>/dev/null || mv "A046_D033_0223F7_V1-0019.mp4" "A046_D033_0223F7_V1-0019.mp4" 2>/dev/null || true
+# Sunrays And Red Seafans
+mv "A046_D033_0223F7_V1-0020.mp4" "sunrays-and-red-seafans-a046-d033-0223f7-v1-0020.mp4" 2>/dev/null || mv "A046_D033_0223F7_V1-0020.mp4" "A046_D033_0223F7_V1-0020.mp4" 2>/dev/null || true
+# Lone Bumphead Parrotfish Swimming
+mv "A046_D036_0223UB_V1-0021.mp4" "lone-bumphead-parrotfish-swimming-a046-d036-0223ub-v1-0021.mp4" 2>/dev/null || mv "A046_D036_0223UB_V1-0021.mp4" "A046_D036_0223UB_V1-0021.mp4" 2>/dev/null || true
+# Large School Of Blue And Gold Fusiliers
+mv "A046_D038_0223AS_V1-0022.mp4" "large-school-of-blue-and-gold-fusiliers-a046-d038-0223as-v1-0022.mp4" 2>/dev/null || mv "A046_D038_0223AS_V1-0022.mp4" "A046_D038_0223AS_V1-0022.mp4" 2>/dev/null || true
+# Bumphead Parrotfish Eating Substrate
+mv "A046_D038_0223AS_V1-0023.mp4" "bumphead-parrotfish-eating-substrate-a046-d038-0223as-v1-0023.mp4" 2>/dev/null || mv "A046_D038_0223AS_V1-0023.mp4" "A046_D038_0223AS_V1-0023.mp4" 2>/dev/null || true
+# Two Bumphead Parrotfish In The Water Column
+mv "A046_D039_0223OG_V1-0024.mp4" "two-bumphead-parrotfish-in-the-water-column-a046-d039-0223og-v1-0024.mp4" 2>/dev/null || mv "A046_D039_0223OG_V1-0024.mp4" "A046_D039_0223OG_V1-0024.mp4" 2>/dev/null || true
+# Bumphead Parrotfish Swims
+mv "A046_D040_0223FG_V1-0025.mp4" "bumphead-parrotfish-swims-a046-d040-0223fg-v1-0025.mp4" 2>/dev/null || mv "A046_D040_0223FG_V1-0025.mp4" "A046_D040_0223FG_V1-0025.mp4" 2>/dev/null || true
+# Bumphead Parrotfish Swimming On The Bottom
+mv "A046_D040_0223FG_V1-0026.mp4" "bumphead-parrotfish-swimming-on-the-bottom-a046-d040-0223fg-v1-0026.mp4" 2>/dev/null || mv "A046_D040_0223FG_V1-0026.mp4" "A046_D040_0223FG_V1-0026.mp4" 2>/dev/null || true
+# Bumphead Parrotfish And Blue And Gold Fusiliers
+mv "A046_D040_0223FG_V1-0027.mp4" "bumphead-parrotfish-and-blue-and-gold-fusiliers-a046-d040-0223fg-v1-0027.mp4" 2>/dev/null || mv "A046_D040_0223FG_V1-0027.mp4" "A046_D040_0223FG_V1-0027.mp4" 2>/dev/null || true
+# Bumphead Parrotfish On The Reef
+mv "A046_D040_0223FG_V1-0028.mp4" "bumphead-parrotfish-on-the-reef-a046-d040-0223fg-v1-0028.mp4" 2>/dev/null || mv "A046_D040_0223FG_V1-0028.mp4" "A046_D040_0223FG_V1-0028.mp4" 2>/dev/null || true
+# Bumphead Parrotfish School
+mv "A046_D041_0223L7_V1-0029.mp4" "bumphead-parrotfish-school-a046-d041-0223l7-v1-0029.mp4" 2>/dev/null || mv "A046_D041_0223L7_V1-0029.mp4" "A046_D041_0223L7_V1-0029.mp4" 2>/dev/null || true
+# A School Of Bumphead Parrotfish
+mv "A046_D041_0223L7_V1-0030.mp4" "a-school-of-bumphead-parrotfish-a046-d041-0223l7-v1-0030.mp4" 2>/dev/null || mv "A046_D041_0223L7_V1-0030.mp4" "A046_D041_0223L7_V1-0030.mp4" 2>/dev/null || true
+# Bumphead Parrotfish School Swimming
+mv "A046_D041_0223L7_V1-0031.mp4" "bumphead-parrotfish-school-swimming-a046-d041-0223l7-v1-0031.mp4" 2>/dev/null || mv "A046_D041_0223L7_V1-0031.mp4" "A046_D041_0223L7_V1-0031.mp4" 2>/dev/null || true
+# Bumphead Parrotfish School Grazing On Reef
+mv "A046_D042_022336_V1-0032.mp4" "bumphead-parrotfish-school-grazing-on-reef-a046-d042-022336-v1-0032.mp4" 2>/dev/null || mv "A046_D042_022336_V1-0032.mp4" "A046_D042_022336_V1-0032.mp4" 2>/dev/null || true
+# Bumphead Parrotfish Biting Reef
+mv "A046_D043_02234E_V1-0033.mp4" "bumphead-parrotfish-biting-reef-a046-d043-02234e-v1-0033.mp4" 2>/dev/null || mv "A046_D043_02234E_V1-0033.mp4" "A046_D043_02234E_V1-0033.mp4" 2>/dev/null || true
+# Bumphead Parrotfish Closeup
+mv "A046_D044_0223P8_V1-0034.mp4" "bumphead-parrotfish-closeup-a046-d044-0223p8-v1-0034.mp4" 2>/dev/null || mv "A046_D044_0223P8_V1-0034.mp4" "A046_D044_0223P8_V1-0034.mp4" 2>/dev/null || true
+# Bumphead Parrotfish And Small Reef Fish
+mv "A046_D044_0223P8_V1-0035.mp4" "bumphead-parrotfish-and-small-reef-fish-a046-d044-0223p8-v1-0035.mp4" 2>/dev/null || mv "A046_D044_0223P8_V1-0035.mp4" "A046_D044_0223P8_V1-0035.mp4" 2>/dev/null || true
+# Jellyfish On Tubastrea Coral
+mv "A046_D045_0223FX_V1-0036.mp4" "jellyfish-on-tubastrea-coral-a046-d045-0223fx-v1-0036.mp4" 2>/dev/null || mv "A046_D045_0223FX_V1-0036.mp4" "A046_D045_0223FX_V1-0036.mp4" 2>/dev/null || true
+# Jellyfish Stuck On Black Coral
+mv "A046_D047_0223CM_V1-0037.mp4" "jellyfish-stuck-on-black-coral-a046-d047-0223cm-v1-0037.mp4" 2>/dev/null || mv "A046_D047_0223CM_V1-0037.mp4" "A046_D047_0223CM_V1-0037.mp4" 2>/dev/null || true
+# Fish Silhouette In Underwater Chimney
+mv "A046_D048_02238R_V1-0038.mp4" "fish-silhouette-in-underwater-chimney-a046-d048-02238r-v1-0038.mp4" 2>/dev/null || mv "A046_D048_02238R_V1-0038.mp4" "A046_D048_02238R_V1-0038.mp4" 2>/dev/null || true
+# Tropical Fish And Soft Corals
+mv "A046_D054_0223NC_V1-0039.mp4" "tropical-fish-and-soft-corals-a046-d054-0223nc-v1-0039.mp4" 2>/dev/null || mv "A046_D054_0223NC_V1-0039.mp4" "A046_D054_0223NC_V1-0039.mp4" 2>/dev/null || true
+# Underwater Pinnacle Silhouettes
+mv "A046_D056_0223XK_V1-0040.mp4" "underwater-pinnacle-silhouettes-a046-d056-0223xk-v1-0040.mp4" 2>/dev/null || mv "A046_D056_0223XK_V1-0040.mp4" "A046_D056_0223XK_V1-0040.mp4" 2>/dev/null || true
+# Gorgonian Seafan Silhouettes
+mv "A046_D058_0223K3_V1-0041.mp4" "gorgonian-seafan-silhouettes-a046-d058-0223k3-v1-0041.mp4" 2>/dev/null || mv "A046_D058_0223K3_V1-0041.mp4" "A046_D058_0223K3_V1-0041.mp4" 2>/dev/null || true
+# Jellyfish Drifts Toward Camera
+mv "A046_D059_022357_V1-0042.mp4" "jellyfish-drifts-toward-camera-a046-d059-022357-v1-0042.mp4" 2>/dev/null || mv "A046_D059_022357_V1-0042.mp4" "A046_D059_022357_V1-0042.mp4" 2>/dev/null || true
+# Water Surging Under A Karst Island
+mv "A046_D061_0223IE_V1-0043.mp4" "water-surging-under-a-karst-island-a046-d061-0223ie-v1-0043.mp4" 2>/dev/null || mv "A046_D061_0223IE_V1-0043.mp4" "A046_D061_0223IE_V1-0043.mp4" 2>/dev/null || true
 echo "Rename pass complete."
