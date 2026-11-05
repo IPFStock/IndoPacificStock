@@ -345,17 +345,74 @@ PREVIEW_TERMS = {
 }
 
 
-def preview_still(clips: list[dict], terms: tuple[str, ...] = ()) -> tuple[str, str]:
-    """A real clip still for link previews, plus a short description."""
+def still_alt(clip: dict) -> str:
+    title = (clip.get("title") or "").strip()
+    place = (clip.get("region") or "").strip()
+    if place and place.lower() not in title.lower():
+        return f"{title}, {place}" if title else place
+    return title
 
-    def alt_for(clip: dict) -> str:
-        title = (clip.get("title") or "").strip()
-        place = (clip.get("region") or "").strip()
-        if place and place.lower() not in title.lower():
-            return f"{title}, {place}" if title else place
-        return title
 
+def still_species(clip: dict) -> str:
+    return (clip.get("species") or "").strip().lower()
+
+
+def still_roll(clip: dict) -> str:
+    """Camera roll, so two frames from the same setup count as one photo."""
+    code = (clip.get("technicalSpecs") or {}).get("originalCameraCode") or ""
+    stem = Path(str(code)).stem.lower()
+    return re.sub(r"[-_]v\d+[-_]\d+$", "", stem)
+
+
+_TITLE_STOP = {
+    "a", "an", "and", "the", "of", "on", "in", "to", "from", "with", "under",
+    "over", "into", "at", "for", "by", "as", "or",
+}
+_TITLE_GENERIC = {
+    "coral", "corals", "reef", "fish", "water", "blue", "green", "camera",
+    "group", "small", "hard", "soft", "shallow", "deep", "wide", "mid",
+    "stock", "footage", "indonesia", "underwater", "sea", "marine",
+}
+
+
+def title_keys(clip: dict) -> set[str]:
+    """Distinctive two-word phrases, so a second bumphead shot does not slip through on a wrong species label."""
+    words = [
+        word
+        for word in re.findall(r"[a-z0-9]+", (clip.get("title") or "").lower())
+        if word not in _TITLE_STOP and len(word) > 2
+    ]
+    keys = set()
+    for left, right in zip(words, words[1:]):
+        if left in _TITLE_GENERIC and right in _TITLE_GENERIC:
+            continue
+        keys.add(f"{left} {right}")
+    species = still_species(clip)
+    if species:
+        keys.add(species)
+    return keys
+
+
+def ranked_stills(clips: list[dict], terms: tuple[str, ...] = ()) -> list[dict]:
     pool = [clip for clip in clips if thumb_url(clip.get("slug") or "")]
+    terms_l = tuple(term.lower() for term in terms)
+
+    def rank(clip: dict) -> tuple:
+        species = still_species(clip)
+        title = (clip.get("title") or "").lower()
+        blob = text_blob(clip)
+        term_ok = 1 if terms_l and any(term in blob for term in terms_l) else 0
+        title_hit = 1 if terms_l and any(term in title for term in terms_l) else 0
+        species_hit = 1 if terms_l and any(term in species for term in terms_l) else 0
+        return (-term_ok, -title_hit, -species_hit, -int(clip.get("rating") or 0), title)
+
+    pool.sort(key=rank)
+    return pool
+
+
+def preview_still(clips: list[dict], terms: tuple[str, ...] = ()) -> tuple[str, str]:
+    """Best real clip still for a page's link preview."""
+    pool = ranked_stills(clips, terms)
     if terms:
         terms_l = tuple(term.lower() for term in terms)
         preferred = [clip for clip in pool if any(term in text_blob(clip) for term in terms_l)]
@@ -363,18 +420,80 @@ def preview_still(clips: list[dict], terms: tuple[str, ...] = ()) -> tuple[str, 
             pool = preferred
     if not pool:
         return "", ""
-    terms_l = tuple(term.lower() for term in terms)
+    return thumb_url(pool[0]["slug"]), still_alt(pool[0])
 
-    def rank(clip: dict) -> tuple:
-        species = (clip.get("species") or "").lower()
-        title = (clip.get("title") or "").lower()
-        title_hit = 1 if terms_l and any(term in title for term in terms_l) else 0
-        species_hit = 1 if terms_l and any(term in species for term in terms_l) else 0
-        return (-title_hit, -species_hit, -int(clip.get("rating") or 0), title)
 
-    pool.sort(key=rank)
-    chosen = pool[0]
-    return thumb_url(chosen["slug"]), alt_for(chosen)
+def distinct_card_stills(
+    defs: list[dict], matched_by_slug: dict[str, list[dict]]
+) -> dict[str, tuple[str, str]]:
+    """One unused still per collection card.
+
+    Subject pages keep their animal. Every other card skips a photo, a camera
+    roll, or a species that is already on the grid, so overlapping places do
+    not all show the same frame.
+    """
+    used_urls: set[str] = set()
+    used_rolls: set[str] = set()
+    used_species: set[str] = set()
+    used_keys: set[str] = set()
+
+    def claim_order(defn: dict) -> tuple:
+        group_rank = {"subject": 0, "location": 1, "format": 2}.get(defn.get("group") or "", 1)
+        return (group_rank, len(matched_by_slug.get(defn["slug"]) or []))
+
+    def take(clip: dict) -> tuple[str, str]:
+        url = thumb_url(clip["slug"])
+        used_urls.add(url)
+        roll = still_roll(clip)
+        if roll:
+            used_rolls.add(roll)
+        species = still_species(clip)
+        if species:
+            used_species.add(species)
+        used_keys.update(title_keys(clip))
+        return url, still_alt(clip)
+
+    def blocked(clip: dict, *, species: bool, phrase: bool) -> bool:
+        url = thumb_url(clip.get("slug") or "")
+        if not url or url in used_urls:
+            return True
+        roll = still_roll(clip)
+        if roll and roll in used_rolls:
+            return True
+        if species and still_species(clip) in used_species:
+            return True
+        if phrase and title_keys(clip) & used_keys:
+            return True
+        return False
+
+    chosen: dict[str, tuple[str, str]] = {}
+    for defn in sorted(defs, key=claim_order):
+        slug = defn["slug"]
+        terms = PREVIEW_TERMS.get(slug, ())
+        ranked = ranked_stills(matched_by_slug.get(slug) or [], terms)
+        # Prefer a subject the grid has not shown yet. Fall back to another
+        # frame only when this collection is that animal and every frame shares it.
+        pick = None
+        if terms:
+            pick = next(
+                (
+                    clip
+                    for clip in ranked
+                    if not blocked(clip, species=True, phrase=True)
+                    and any(term in text_blob(clip) for term in terms)
+                ),
+                None,
+            )
+        if pick is None:
+            pick = next((clip for clip in ranked if not blocked(clip, species=True, phrase=True)), None)
+        if pick is None:
+            pick = next((clip for clip in ranked if not blocked(clip, species=True, phrase=False)), None)
+        if pick is None:
+            pick = next((clip for clip in ranked if not blocked(clip, species=False, phrase=False)), None)
+        if pick is None and ranked:
+            pick = ranked[0]
+        chosen[slug] = take(pick) if pick else ("", "")
+    return chosen
 
 
 def parse_fps(raw: object) -> float:
@@ -2220,37 +2339,37 @@ def main() -> None:
 
     defs = collection_defs()
     counts: dict[str, int] = {}
-    previews: dict[str, tuple[str, str]] = {}
-    hub_preview = ""
-    hub_preview_alt = ""
+    matched_by_slug: dict[str, list[dict]] = {}
+    shown_by_slug: dict[str, list[dict]] = {}
     for defn in defs:
         matched = [c for c in clips if defn["match"](c)]
         if not matched:
             raise SystemExit(f"Collection {defn['slug']} matched 0 clips")
         counts[defn["slug"]] = len(matched)
+        matched_by_slug[defn["slug"]] = matched
         limit = int(defn.get("limit") or 48)
         if defn.get("diversify"):
-            shown = diversify_clips(matched, str(defn["diversify"]), limit)
+            shown_by_slug[defn["slug"]] = diversify_clips(matched, str(defn["diversify"]), limit)
         else:
-            shown = matched[:limit]
-        still, still_alt = preview_still(matched, PREVIEW_TERMS.get(defn["slug"], ()))
-        previews[defn["slug"]] = (still, still_alt)
-        if defn["slug"] == "underwater-stock-footage":
-            hub_preview, hub_preview_alt = still, still_alt
+            shown_by_slug[defn["slug"]] = matched[:limit]
+    previews = distinct_card_stills(defs, matched_by_slug)
+    hub_preview, hub_preview_alt = previews.get("underwater-stock-footage", ("", ""))
+    for defn in defs:
+        still, still_alt = previews[defn["slug"]]
         out = COLLECTIONS_DIR / defn["slug"] / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(
             build_collection_page(
                 defn,
-                shown,
+                shown_by_slug[defn["slug"]],
                 defs,
                 take_labels,
-                total=len(matched),
+                total=counts[defn["slug"]],
                 preview_image=(still, still_alt),
             ),
             encoding="utf-8",
         )
-        print(f"  collection /collections/{defn['slug']}/ → {len(matched)} clips")
+        print(f"  collection /collections/{defn['slug']}/ → {counts[defn['slug']]} clips")
 
     (COLLECTIONS_DIR / "index.html").write_text(
         build_collections_hub(defs, counts, previews, hub_preview, hub_preview_alt),
