@@ -17,18 +17,18 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://indopacificstock.com/collections/indonesia-stock-footage/" />
   <meta property="og:site_name" content="Indo Pacific Stock" />
-  <meta property="og:image" content="https://indopacificstock.com/thumbs/banded-sea-krait-swims-along-shallow-coral-a059-d010-0306tz-v1-0010.jpg" />
-  <meta property="og:image:alt" content="Banded Sea Krait Swims Along Shallow Coral, Raja Ampat" />
-  <meta name="twitter:image:alt" content="Banded Sea Krait Swims Along Shallow Coral, Raja Ampat" />
+  <meta property="og:image" content="https://indopacificstock.com/thumbs/hawksbill-sea-turtle-eating-on-the-reef-a056-d039-0304sx-v1-0028.jpg" />
+  <meta property="og:image:alt" content="Hawksbill Sea Turtle Eating On The Reef, Raja Ampat" />
+  <meta name="twitter:image:alt" content="Hawksbill Sea Turtle Eating On The Reef, Raja Ampat" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Indonesia Stock Footage | Indo Pacific Stock" />
   <meta name="twitter:description" content="License Indonesia stock footage — underwater, aerial, and cultural cinema from Raja Ampat, Komodo, Cenderawasih Bay, and Sumbawa, rights-managed as R3D." />
-  <meta name="twitter:image" content="https://indopacificstock.com/thumbs/banded-sea-krait-swims-along-shallow-coral-a059-d010-0306tz-v1-0010.jpg" />
+  <meta name="twitter:image" content="https://indopacificstock.com/thumbs/hawksbill-sea-turtle-eating-on-the-reef-a056-d039-0304sx-v1-0028.jpg" />
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "Organization", "@id": "https://indopacificstock.com/#organization", "name": "Indo Pacific Stock", "url": "https://indopacificstock.com", "logo": {"@type": "ImageObject", "url": "https://indopacificstock.com/images/logo.png", "width": 512, "height": 512}, "email": "licensingips@gmail.com"}
   </script>
   <script type="application/ld+json">
-  {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Indonesia Stock Footage", "description": "License Indonesia stock footage — underwater, aerial, and cultural cinema from Raja Ampat, Komodo, Cenderawasih Bay, and Sumbawa, rights-managed as R3D.", "url": "https://indopacificstock.com/collections/indonesia-stock-footage/", "isPartOf": {"@type": "WebSite", "name": "Indo Pacific Stock", "url": "https://indopacificstock.com"}, "about": "Indonesia Stock Footage", "spatialCoverage": {"@type": "Place", "name": "Indonesia"}, "image": "https://indopacificstock.com/thumbs/banded-sea-krait-swims-along-shallow-coral-a059-d010-0306tz-v1-0010.jpg", "primaryImageOfPage": {"@type": "ImageObject", "url": "https://indopacificstock.com/thumbs/banded-sea-krait-swims-along-shallow-coral-a059-d010-0306tz-v1-0010.jpg"}}
+  {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Indonesia Stock Footage", "description": "License Indonesia stock footage — underwater, aerial, and cultural cinema from Raja Ampat, Komodo, Cenderawasih Bay, and Sumbawa, rights-managed as R3D.", "url": "https://indopacificstock.com/collections/indonesia-stock-footage/", "isPartOf": {"@type": "WebSite", "name": "Indo Pacific Stock", "url": "https://indopacificstock.com"}, "about": "Indonesia Stock Footage", "spatialCoverage": {"@type": "Place", "name": "Indonesia"}, "image": "https://indopacificstock.com/thumbs/hawksbill-sea-turtle-eating-on-the-reef-a056-d039-0304sx-v1-0028.jpg", "primaryImageOfPage": {"@type": "ImageObject", "url": "https://indopacificstock.com/thumbs/hawksbill-sea-turtle-eating-on-the-reef-a056-d039-0304sx-v1-0028.jpg"}}
   </script>
   <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -158,11 +158,15 @@ main { flex: 1; padding-top: calc(var(--header-h) + 2.25rem); padding-bottom: 3.
   gap: 1rem; margin-top: 1.75rem;
 }
 .collection-card {
-  display: block; padding: 1.2rem 1.25rem; background: var(--surface);
+  display: flex; flex-direction: column; padding: 0; overflow: hidden; background: var(--surface);
   border: 1px solid var(--border); border-radius: var(--radius-sm); text-decoration: none; color: inherit;
 }
 .collection-card:hover { border-color: rgba(29, 111, 168, 0.45); }
-.collection-card h2 { font-size: 1.05rem; margin: 0 0 0.45rem; }
+.collection-card-still {
+  display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #0F172A;
+}
+.collection-card-body { padding: 0.95rem 1.1rem 1.1rem; display: grid; gap: 0.4rem; }
+.collection-card h2 { font-size: 1.05rem; margin: 0; line-height: 1.3; }
 .collection-card p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
 .collection-group { margin-top: 2.25rem; }
 .collection-group h2 {

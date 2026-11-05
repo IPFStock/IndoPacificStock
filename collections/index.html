@@ -158,11 +158,15 @@ main { flex: 1; padding-top: calc(var(--header-h) + 2.25rem); padding-bottom: 3.
   gap: 1rem; margin-top: 1.75rem;
 }
 .collection-card {
-  display: block; padding: 1.2rem 1.25rem; background: var(--surface);
+  display: flex; flex-direction: column; padding: 0; overflow: hidden; background: var(--surface);
   border: 1px solid var(--border); border-radius: var(--radius-sm); text-decoration: none; color: inherit;
 }
 .collection-card:hover { border-color: rgba(29, 111, 168, 0.45); }
-.collection-card h2 { font-size: 1.05rem; margin: 0 0 0.45rem; }
+.collection-card-still {
+  display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #0F172A;
+}
+.collection-card-body { padding: 0.95rem 1.1rem 1.1rem; display: grid; gap: 0.4rem; }
+.collection-card h2 { font-size: 1.05rem; margin: 0; line-height: 1.3; }
 .collection-card p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
 .collection-group { margin-top: 2.25rem; }
 .collection-group h2 {
@@ -224,189 +228,282 @@ main { flex: 1; padding-top: calc(var(--header-h) + 2.25rem); padding-bottom: 3.
       <p class="page-lead">Rights-managed underwater, aerial, and cultural footage from Indonesia. Browse by location, species, or camera format.</p>
       <section class="collection-group"><h2>Locations</h2><div class="collection-list">
       <a class="collection-card" href="/collections/underwater-stock-footage/">
-        <h2>Underwater Stock Footage Indonesia</h2>
-        <p>License underwater stock footage from Indonesia — Raja Ampat, Komodo National Park, and Cenderawasih Bay. Rights-managed reef and marine wildlife on R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">450 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/banded-sea-krait-swims-along-shallow-coral-a059-d010-0306tz-v1-0010.jpg" alt="Banded Sea Krait Swims Along Shallow Coral, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Underwater Stock Footage Indonesia</h2>
+          <p>License underwater stock footage from Indonesia — Raja Ampat, Komodo National Park, and Cenderawasih Bay. Rights-managed reef and marine wildlife on R3D.</p>
+          <p class="clip-card-meta">450 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/indonesia-stock-footage/">
-        <h2>Indonesia Stock Footage</h2>
-        <p>License Indonesia stock footage — underwater, aerial, and cultural cinema from Raja Ampat, Komodo, Cenderawasih Bay, and Sumbawa, rights-managed as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">693 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/hawksbill-sea-turtle-eating-on-the-reef-a056-d039-0304sx-v1-0028.jpg" alt="Hawksbill Sea Turtle Eating On The Reef, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Indonesia Stock Footage</h2>
+          <p>License Indonesia stock footage — underwater, aerial, and cultural cinema from Raja Ampat, Komodo, Cenderawasih Bay, and Sumbawa, rights-managed as R3D.</p>
+          <p class="clip-card-meta">693 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/papua-stock-footage/">
-        <h2>Papua Stock Footage</h2>
-        <p>License Papua stock footage from Indonesia — Raja Ampat underwater cinema and Cenderawasih Bay whale sharks, reefs, and Papuan cultural scenes, as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">526 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/hawksbill-sea-turtle-eating-on-the-reef-a056-d039-0304sx-v1-0028.jpg" alt="Hawksbill Sea Turtle Eating On The Reef, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Papua Stock Footage</h2>
+          <p>License Papua stock footage from Indonesia — Raja Ampat underwater cinema and Cenderawasih Bay whale sharks, reefs, and Papuan cultural scenes, as R3D.</p>
+          <p class="clip-card-meta">526 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/raja-ampat-stock-footage/">
-        <h2>Raja Ampat Stock Footage</h2>
-        <p>License Raja Ampat underwater stock footage from West Papua, Indonesia — Dampier Strait, Gam Island, and coral triangle reefs, rights-managed as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">195 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/banded-sea-krait-swims-along-shallow-coral-a059-d010-0306tz-v1-0010.jpg" alt="Banded Sea Krait Swims Along Shallow Coral, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Raja Ampat Stock Footage</h2>
+          <p>License Raja Ampat underwater stock footage from West Papua, Indonesia — Dampier Strait, Gam Island, and coral triangle reefs, rights-managed as R3D.</p>
+          <p class="clip-card-meta">195 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/dampier-strait-stock-footage/">
-        <h2>Dampier Strait Stock Footage</h2>
-        <p>License Dampier Strait stock footage from Raja Ampat, Indonesia — rights-managed reef and marine sequences filmed in West Papua, available as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">93 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/banded-sea-krait-swims-along-shallow-coral-a059-d010-0306tz-v1-0010.jpg" alt="Banded Sea Krait Swims Along Shallow Coral, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Dampier Strait Stock Footage</h2>
+          <p>License Dampier Strait stock footage from Raja Ampat, Indonesia — rights-managed reef and marine sequences filmed in West Papua, available as R3D.</p>
+          <p class="clip-card-meta">93 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/gam-island-stock-footage/">
-        <h2>Gam Island Stock Footage</h2>
-        <p>License Gam Island stock footage from Raja Ampat, Indonesia — blue-water mangroves and reef edges in Dampier Strait, rights-managed as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">44 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/banded-sea-krait-swims-along-shallow-coral-a059-d010-0306tz-v1-0010.jpg" alt="Banded Sea Krait Swims Along Shallow Coral, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Gam Island Stock Footage</h2>
+          <p>License Gam Island stock footage from Raja Ampat, Indonesia — blue-water mangroves and reef edges in Dampier Strait, rights-managed as R3D.</p>
+          <p class="clip-card-meta">44 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/cenderawasih-stock-footage/">
-        <h2>Cenderawasih Bay Stock Footage</h2>
-        <p>License Cenderawasih Bay stock footage from Central Papua, Indonesia — whale sharks, reefs, Nabire, and Kwatisore, rights-managed as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">331 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/beautiful-whalesharks-covered-in-remoras-and-fish-a006-a045-0413m6-v1-0055.jpg" alt="Beautiful Whalesharks Covered In Remoras And Fish, Cenderawasih" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Cenderawasih Bay Stock Footage</h2>
+          <p>License Cenderawasih Bay stock footage from Central Papua, Indonesia — whale sharks, reefs, Nabire, and Kwatisore, rights-managed as R3D.</p>
+          <p class="clip-card-meta">331 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/nabire-stock-footage/">
-        <h2>Nabire Stock Footage</h2>
-        <p>License Nabire stock footage from Central Papua, Indonesia — fish market, town, and Cenderawasih Bay editorial scenes, rights-managed.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">88 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/buying-and-selling-in-nabire-market-a003-a059-0408ch-v1-0014.jpg" alt="Buying And Selling In Nabire Market, Cenderawasih" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Nabire Stock Footage</h2>
+          <p>License Nabire stock footage from Central Papua, Indonesia — fish market, town, and Cenderawasih Bay editorial scenes, rights-managed.</p>
+          <p class="clip-card-meta">88 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/kwatisore-stock-footage/">
-        <h2>Kwatisore Stock Footage</h2>
-        <p>License Kwatisore stock footage from Cenderawasih Bay, Indonesia — village and cultural scenes in Central Papua, rights-managed.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">38 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/a-crowd-of-local-villagers-watching-a-traditional-dance-a005-a045-0412ai-v1-0019.jpg" alt="A Crowd Of Local Villagers Watching A Traditional Dance, Cenderawasih" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Kwatisore Stock Footage</h2>
+          <p>License Kwatisore stock footage from Cenderawasih Bay, Indonesia — village and cultural scenes in Central Papua, rights-managed.</p>
+          <p class="clip-card-meta">38 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/komodo-stock-footage/">
-        <h2>Komodo Stock Footage</h2>
-        <p>License Komodo underwater stock footage from Komodo National Park, Indonesia — reefs, reef sharks, turtles, and seahorses, rights-managed as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">137 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/following-green-turtle-from-behind-a032-c145-0918y1-001.jpg" alt="Following Green Turtle From Behind, Komodo" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Komodo Stock Footage</h2>
+          <p>License Komodo underwater stock footage from Komodo National Park, Indonesia — reefs, reef sharks, turtles, and seahorses, rights-managed as R3D.</p>
+          <p class="clip-card-meta">137 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/sumbawa-stock-footage/">
-        <h2>Sumbawa Stock Footage</h2>
-        <p>License Sumbawa stock footage from Indonesia — Sangeang Island and Bontoh village cultural and coastal scenes, rights-managed as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">29 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/boat-being-built-from-below-up-a032-c104-09176d-v2-0031.jpg" alt="Boat Being Built From Below Up, Sumbawa" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Sumbawa Stock Footage</h2>
+          <p>License Sumbawa stock footage from Indonesia — Sangeang Island and Bontoh village cultural and coastal scenes, rights-managed as R3D.</p>
+          <p class="clip-card-meta">29 clips</p>
+        </div>
       </a>
 </div></section><section class="collection-group"><h2>Species and scenes</h2><div class="collection-list">
       <a class="collection-card" href="/collections/whale-shark-stock-footage/">
-        <h2>Whale Shark Stock Footage Indonesia</h2>
-        <p>License whale shark stock footage from Cenderawasih Bay, Indonesia — rights-managed bagan and open-water sequences from Central Papua, as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">105 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/beautiful-whalesharks-covered-in-remoras-and-fish-a006-a045-0413m6-v1-0055.jpg" alt="Beautiful Whalesharks Covered In Remoras And Fish, Cenderawasih" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Whale Shark Stock Footage Indonesia</h2>
+          <p>License whale shark stock footage from Cenderawasih Bay, Indonesia — rights-managed bagan and open-water sequences from Central Papua, as R3D.</p>
+          <p class="clip-card-meta">105 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/coral-reef-stock-footage/">
-        <h2>Coral Reef Stock Footage</h2>
-        <p>License coral reef stock footage from Indonesia — Raja Ampat, Komodo National Park, and Cenderawasih Bay reefscapes, rights-managed as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">308 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/banded-sea-krait-swims-along-shallow-coral-a059-d010-0306tz-v1-0010.jpg" alt="Banded Sea Krait Swims Along Shallow Coral, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Coral Reef Stock Footage</h2>
+          <p>License coral reef stock footage from Indonesia — Raja Ampat, Komodo National Park, and Cenderawasih Bay reefscapes, rights-managed as R3D.</p>
+          <p class="clip-card-meta">308 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/aerial-drone-stock-footage/">
-        <h2>Drone Stock Footage Indonesia</h2>
-        <p>License drone stock footage from Indonesia — coastal and landscape aerials from Papua and nearby islands, rights-managed for professional use.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">21 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/central-papuan-jungle-a005-a066-041256-v2-0027.jpg" alt="Central Papuan Jungle, Cenderawasih" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Drone Stock Footage Indonesia</h2>
+          <p>License drone stock footage from Indonesia — coastal and landscape aerials from Papua and nearby islands, rights-managed for professional use.</p>
+          <p class="clip-card-meta">21 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/manta-ray-stock-footage/">
-        <h2>Manta Ray Stock Footage</h2>
-        <p>License manta ray stock footage from Indonesia — reef mantas filmed in Komodo National Park and Raja Ampat, rights-managed as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">7 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/reef-manta-ray-at-cleaning-station-a045-d019-02228b.jpg" alt="Reef Manta Ray At Cleaning Station, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Manta Ray Stock Footage</h2>
+          <p>License manta ray stock footage from Indonesia — reef mantas filmed in Komodo National Park and Raja Ampat, rights-managed as R3D.</p>
+          <p class="clip-card-meta">7 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/sea-turtle-stock-footage/">
-        <h2>Sea Turtle Stock Footage</h2>
-        <p>License sea turtle stock footage from Indonesia — hawksbill and green turtles in Raja Ampat and Komodo, rights-managed as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">17 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/hawksbill-sea-turtle-eating-on-the-reef-a056-d039-0304sx-v1-0028.jpg" alt="Hawksbill Sea Turtle Eating On The Reef, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Sea Turtle Stock Footage</h2>
+          <p>License sea turtle stock footage from Indonesia — hawksbill and green turtles in Raja Ampat and Komodo, rights-managed as R3D.</p>
+          <p class="clip-card-meta">17 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/reef-shark-stock-footage/">
-        <h2>Reef Shark Stock Footage</h2>
-        <p>License reef shark stock footage from Indonesia — whitetip reef sharks filmed in Komodo National Park, rights-managed as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">10 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/grey-reef-shark-rainbowrunners-wide-mid-a031-c020-09150a-v2-0010.jpg" alt="Grey Reef Shark Rainbowrunners Wide Mid, Komodo" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Reef Shark Stock Footage</h2>
+          <p>License reef shark stock footage from Indonesia — whitetip reef sharks filmed in Komodo National Park, rights-managed as R3D.</p>
+          <p class="clip-card-meta">10 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/seahorse-stock-footage/">
-        <h2>Seahorse Stock Footage</h2>
-        <p>License seahorse stock footage from Komodo National Park, Indonesia — rights-managed macro marine sequences available as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">11 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/yellow-thorny-seahorse-macro-closeup-a032-c080-091632-v1-0145.jpg" alt="Yellow Thorny Seahorse Macro Closeup, Komodo" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Seahorse Stock Footage</h2>
+          <p>License seahorse stock footage from Komodo National Park, Indonesia — rights-managed macro marine sequences available as R3D.</p>
+          <p class="clip-card-meta">11 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/mangrove-stock-footage/">
-        <h2>Mangrove Stock Footage</h2>
-        <p>License mangrove stock footage from Indonesia — blue-water mangroves at Gam Island, Raja Ampat, rights-managed as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">44 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/banded-sea-krait-swims-along-shallow-coral-a059-d010-0306tz-v1-0010.jpg" alt="Banded Sea Krait Swims Along Shallow Coral, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Mangrove Stock Footage</h2>
+          <p>License mangrove stock footage from Indonesia — blue-water mangroves at Gam Island, Raja Ampat, rights-managed as R3D.</p>
+          <p class="clip-card-meta">44 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/schooling-fish-stock-footage/">
-        <h2>Schooling Fish Stock Footage</h2>
-        <p>License schooling fish stock footage from Indonesia — anthias, fusiliers, and reef aggregations in Raja Ampat, Komodo, and Cenderawasih, as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">118 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/blue-green-chromis-and-cabbage-coral-a044-d023-02227w-v1-0032.jpg" alt="Blue Green Chromis And Cabbage Coral, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Schooling Fish Stock Footage</h2>
+          <p>License schooling fish stock footage from Indonesia — anthias, fusiliers, and reef aggregations in Raja Ampat, Komodo, and Cenderawasih, as R3D.</p>
+          <p class="clip-card-meta">118 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/anemonefish-stock-footage/">
-        <h2>Anemonefish Stock Footage</h2>
-        <p>License clownfish and anemonefish stock footage from Indonesia — Amphiprion on reefs in Raja Ampat and Cenderawasih Bay, as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">8 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/anemonefish-and-hard-corals-a044-d032-0222pg-v1-0021.jpg" alt="Anemonefish And Hard Corals, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Anemonefish Stock Footage</h2>
+          <p>License clownfish and anemonefish stock footage from Indonesia — Amphiprion on reefs in Raja Ampat and Cenderawasih Bay, as R3D.</p>
+          <p class="clip-card-meta">8 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/bumphead-parrotfish-stock-footage/">
-        <h2>Bumphead Parrotfish Stock Footage</h2>
-        <p>License bumphead parrotfish stock footage from Raja Ampat, Indonesia — Bolbometopon muricatum on the reef, rights-managed as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">14 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/bumphead-parrotfish-biting-reef-a046-d043-02234e-v1-0033.jpg" alt="Bumphead Parrotfish Biting Reef, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Bumphead Parrotfish Stock Footage</h2>
+          <p>License bumphead parrotfish stock footage from Raja Ampat, Indonesia — Bolbometopon muricatum on the reef, rights-managed as R3D.</p>
+          <p class="clip-card-meta">14 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/sweetlips-stock-footage/">
-        <h2>Sweetlips Stock Footage</h2>
-        <p>License sweetlips stock footage from Indonesia — giant and ribboned sweetlips on reefs in Raja Ampat and Komodo, rights-managed as R3D.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">14 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/baitfish-and-coral-head-a056-d006-0304bk-v1-0004.jpg" alt="Baitfish And Coral Head, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Sweetlips Stock Footage</h2>
+          <p>License sweetlips stock footage from Indonesia — giant and ribboned sweetlips on reefs in Raja Ampat and Komodo, rights-managed as R3D.</p>
+          <p class="clip-card-meta">14 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/bird-of-paradise-stock-footage/">
-        <h2>Bird of Paradise Stock Footage</h2>
-        <p>License bird of paradise stock footage from Central Papua, Indonesia — lesser bird of paradise display filmed at Cenderawasih Bay.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">15 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/camera-pans-to-lesser-bird-of-paradise-a005-a055-0412re-v1-0014.jpg" alt="Camera Pans To Lesser Bird Of Paradise, Cenderawasih" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Bird of Paradise Stock Footage</h2>
+          <p>License bird of paradise stock footage from Central Papua, Indonesia — lesser bird of paradise display filmed at Cenderawasih Bay.</p>
+          <p class="clip-card-meta">15 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/papuan-cultural-stock-footage/">
-        <h2>Papuan Cultural Stock Footage</h2>
-        <p>License Papuan cultural stock footage from Indonesia — villages, markets, and ceremonies in Central Papua and Raja Ampat, rights-managed.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">198 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/papuan-children-cutting-coconuts-a002-a014-0218v7.jpg" alt="Papuan Children Cutting Coconuts, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Papuan Cultural Stock Footage</h2>
+          <p>License Papuan cultural stock footage from Indonesia — villages, markets, and ceremonies in Central Papua and Raja Ampat, rights-managed.</p>
+          <p class="clip-card-meta">198 clips</p>
+        </div>
       </a>
 </div></section><section class="collection-group"><h2>Format and licensing</h2><div class="collection-list">
       <a class="collection-card" href="/collections/license-r3d-footage/">
-        <h2>License R3D Footage</h2>
-        <p>License cinematic R3D stock footage from Indo Pacific Stock — rights-managed underwater and aerial masters at native camera resolution for documentary and commercial use.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">693 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/staghorn-hard-corals-and-chromis-a044-d034-02224s-v1-0023.jpg" alt="Staghorn Hard Corals And Chromis, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>License R3D Footage</h2>
+          <p>License cinematic R3D stock footage from Indo Pacific Stock — rights-managed underwater and aerial masters at native camera resolution for documentary and commercial use.</p>
+          <p class="clip-card-meta">693 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/red-raptor-stock-footage/">
-        <h2>RED Raptor Stock Footage</h2>
-        <p>License RED Raptor and R3D stock footage from Indo Pacific Stock — cinema-camera underwater and aerial masters for high-end finishing.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">693 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/staghorn-hard-corals-and-chromis-a044-d034-02224s-v1-0023.jpg" alt="Staghorn Hard Corals And Chromis, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>RED Raptor Stock Footage</h2>
+          <p>License RED Raptor and R3D stock footage from Indo Pacific Stock — cinema-camera underwater and aerial masters for high-end finishing.</p>
+          <p class="clip-card-meta">693 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/rights-managed-wildlife-footage/">
-        <h2>Rights-Managed Wildlife Footage</h2>
-        <p>License rights-managed wildlife footage from the Indo-Pacific — marine megafauna, predators, and natural-history behavior shot on cinema cameras.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">144 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/banded-sea-krait-swims-along-shallow-coral-a059-d010-0306tz-v1-0010.jpg" alt="Banded Sea Krait Swims Along Shallow Coral, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Rights-Managed Wildlife Footage</h2>
+          <p>License rights-managed wildlife footage from the Indo-Pacific — marine megafauna, predators, and natural-history behavior shot on cinema cameras.</p>
+          <p class="clip-card-meta">144 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/documentary-b-roll-indo-pacific/">
-        <h2>Documentary B-Roll — Indo-Pacific</h2>
-        <p>License documentary B-roll from the Indo-Pacific — rights-managed natural history, cultural, and underwater cinema for long-form storytelling.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">693 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/staghorn-hard-corals-and-chromis-a044-d034-02224s-v1-0023.jpg" alt="Staghorn Hard Corals And Chromis, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>Documentary B-Roll — Indo-Pacific</h2>
+          <p>License documentary B-roll from the Indo-Pacific — rights-managed natural history, cultural, and underwater cinema for long-form storytelling.</p>
+          <p class="clip-card-meta">693 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/4k-underwater-stock-footage/">
-        <h2>4K Underwater Stock Footage</h2>
-        <p>License 4K underwater stock footage from Indonesia — rights-managed reef and marine clips captured as 4K R3D in Raja Ampat, Komodo, and Cenderawasih.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">63 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/a-school-of-yellow-scad-split-past-the-camera-a005-a088-041476-v1-0020.jpg" alt="A School Of Yellow Scad Split Past The Camera, Cenderawasih" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>4K Underwater Stock Footage</h2>
+          <p>License 4K underwater stock footage from Indonesia — rights-managed reef and marine clips captured as 4K R3D in Raja Ampat, Komodo, and Cenderawasih.</p>
+          <p class="clip-card-meta">63 clips</p>
+        </div>
       </a>
 
       <a class="collection-card" href="/collections/8k-underwater-stock-footage/">
-        <h2>8K Underwater Stock Footage</h2>
-        <p>License 8K underwater stock footage from Indonesia — RED V-Raptor R3D masters from Raja Ampat, Komodo, and Cenderawasih Bay.</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">166 clips</p>
+        <img class="collection-card-still" src="https://indopacificstock.com/thumbs/banded-sea-krait-swims-along-shallow-coral-a059-d010-0306tz-v1-0010.jpg" alt="Banded Sea Krait Swims Along Shallow Coral, Raja Ampat" width="640" height="360" loading="lazy">
+        <div class="collection-card-body">
+          <h2>8K Underwater Stock Footage</h2>
+          <p>License 8K underwater stock footage from Indonesia — RED V-Raptor R3D masters from Raja Ampat, Komodo, and Cenderawasih Bay.</p>
+          <p class="clip-card-meta">166 clips</p>
+        </div>
       </a>
 </div></section>
     </div>

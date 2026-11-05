@@ -184,11 +184,15 @@ main { flex: 1; padding-top: calc(var(--header-h) + 2.25rem); padding-bottom: 3.
   gap: 1rem; margin-top: 1.75rem;
 }
 .collection-card {
-  display: block; padding: 1.2rem 1.25rem; background: var(--surface);
+  display: flex; flex-direction: column; padding: 0; overflow: hidden; background: var(--surface);
   border: 1px solid var(--border); border-radius: var(--radius-sm); text-decoration: none; color: inherit;
 }
 .collection-card:hover { border-color: rgba(29, 111, 168, 0.45); }
-.collection-card h2 { font-size: 1.05rem; margin: 0 0 0.45rem; }
+.collection-card-still {
+  display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #0F172A;
+}
+.collection-card-body { padding: 0.95rem 1.1rem 1.1rem; display: grid; gap: 0.4rem; }
+.collection-card h2 { font-size: 1.05rem; margin: 0; line-height: 1.3; }
 .collection-card p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
 .collection-group { margin-top: 2.25rem; }
 .collection-group h2 {
@@ -1870,6 +1874,7 @@ def build_collection_page(
     all_defs: list[CollectionDef],
     take_labels: dict[str, str] | None = None,
     total: int | None = None,
+    preview_image: tuple[str, str] | None = None,
 ) -> str:
     cards = "".join(clip_card_html(c, take_labels) for c in matched)
     bullets = "".join(f"<li>{esc(b)}</li>" for b in defn.get("bullets") or [])
@@ -1880,7 +1885,10 @@ def build_collection_page(
         for d in others
     )
     count = total if total is not None else len(matched)
-    preview, preview_alt = preview_still(matched, PREVIEW_TERMS.get(defn["slug"], ()))
+    if preview_image:
+        preview, preview_alt = preview_image
+    else:
+        preview, preview_alt = preview_still(matched, PREVIEW_TERMS.get(defn["slug"], ()))
     body = f"""
   <main>
     <div class="layout-rail">
@@ -1941,20 +1949,35 @@ def build_collection_page(
 def build_collections_hub(
     defs: list[CollectionDef],
     counts: dict[str, int],
+    previews: dict[str, tuple[str, str]] | None = None,
     preview: str = "",
     preview_alt: str = "",
 ) -> str:
+    previews = previews or {}
+
     def cards_for(group_defs: list[CollectionDef]) -> str:
-        return "".join(
-            f"""
+        cards = []
+        for d in group_defs:
+            still, still_alt = previews.get(d["slug"], ("", ""))
+            image = ""
+            if still:
+                image = (
+                    f'<img class="collection-card-still" src="{esc(still)}" '
+                    f'alt="{esc(still_alt or d["title"])}" width="640" height="360" loading="lazy">'
+                )
+            cards.append(
+                f"""
       <a class="collection-card" href="/collections/{esc(d['slug'])}/">
-        <h2>{esc(d['title'])}</h2>
-        <p>{esc(d['description'])}</p>
-        <p class="clip-card-meta" style="margin-top:0.65rem">{counts.get(d['slug'], 0)} clips</p>
+        {image}
+        <div class="collection-card-body">
+          <h2>{esc(d['title'])}</h2>
+          <p>{esc(d['description'])}</p>
+          <p class="clip-card-meta">{counts.get(d['slug'], 0)} clips</p>
+        </div>
       </a>
 """
-            for d in group_defs
-        )
+            )
+        return "".join(cards)
 
     groups = [
         ("location", "Locations"),
@@ -2197,6 +2220,7 @@ def main() -> None:
 
     defs = collection_defs()
     counts: dict[str, int] = {}
+    previews: dict[str, tuple[str, str]] = {}
     hub_preview = ""
     hub_preview_alt = ""
     for defn in defs:
@@ -2209,18 +2233,28 @@ def main() -> None:
             shown = diversify_clips(matched, str(defn["diversify"]), limit)
         else:
             shown = matched[:limit]
+        still, still_alt = preview_still(matched, PREVIEW_TERMS.get(defn["slug"], ()))
+        previews[defn["slug"]] = (still, still_alt)
         if defn["slug"] == "underwater-stock-footage":
-            hub_preview, hub_preview_alt = preview_still(shown)
+            hub_preview, hub_preview_alt = still, still_alt
         out = COLLECTIONS_DIR / defn["slug"] / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(
-            build_collection_page(defn, shown, defs, take_labels, total=len(matched)),
+            build_collection_page(
+                defn,
+                shown,
+                defs,
+                take_labels,
+                total=len(matched),
+                preview_image=(still, still_alt),
+            ),
             encoding="utf-8",
         )
         print(f"  collection /collections/{defn['slug']}/ → {len(matched)} clips")
 
     (COLLECTIONS_DIR / "index.html").write_text(
-        build_collections_hub(defs, counts, hub_preview, hub_preview_alt), encoding="utf-8"
+        build_collections_hub(defs, counts, previews, hub_preview, hub_preview_alt),
+        encoding="utf-8",
     )
 
     # Keep old 8K collection URL working for anyone who already indexed it.
