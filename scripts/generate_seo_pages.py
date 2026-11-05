@@ -328,6 +328,51 @@ def thumb_url(slug: str) -> str:
     return ""
 
 
+# Prefer a recognizable subject when the first grid clip would be a poor share image.
+PREVIEW_TERMS = {
+    "cenderawasih-stock-footage": ("whale shark", "whaleshark", "rhincodon"),
+    "komodo-stock-footage": ("turtle",),
+    "indonesia-stock-footage": ("whale shark", "whaleshark", "turtle", "manta"),
+    "papua-stock-footage": ("whale shark", "whaleshark", "turtle", "manta"),
+    "license-r3d-footage": ("coral", "reef", "whale shark"),
+    "red-raptor-stock-footage": ("coral", "reef"),
+    "documentary-b-roll-indo-pacific": ("whale shark", "coral", "reef"),
+    "seahorse-stock-footage": ("seahorse", "hippocampus"),
+}
+
+
+def preview_still(clips: list[dict], terms: tuple[str, ...] = ()) -> tuple[str, str]:
+    """A real clip still for link previews, plus a short description."""
+
+    def alt_for(clip: dict) -> str:
+        title = (clip.get("title") or "").strip()
+        place = (clip.get("region") or "").strip()
+        if place and place.lower() not in title.lower():
+            return f"{title}, {place}" if title else place
+        return title
+
+    pool = [clip for clip in clips if thumb_url(clip.get("slug") or "")]
+    if terms:
+        terms_l = tuple(term.lower() for term in terms)
+        preferred = [clip for clip in pool if any(term in text_blob(clip) for term in terms_l)]
+        if preferred:
+            pool = preferred
+    if not pool:
+        return "", ""
+    terms_l = tuple(term.lower() for term in terms)
+
+    def rank(clip: dict) -> tuple:
+        species = (clip.get("species") or "").lower()
+        title = (clip.get("title") or "").lower()
+        title_hit = 1 if terms_l and any(term in title for term in terms_l) else 0
+        species_hit = 1 if terms_l and any(term in species for term in terms_l) else 0
+        return (-title_hit, -species_hit, -int(clip.get("rating") or 0), title)
+
+    pool.sort(key=rank)
+    chosen = pool[0]
+    return thumb_url(chosen["slug"]), alt_for(chosen)
+
+
 def parse_fps(raw: object) -> float:
     value = str(raw or "").strip()
     if not value:
@@ -467,6 +512,7 @@ def page_shell(
     json_ld: dict | list | None = None,
     og_type: str = "website",
     og_image: str | None = None,
+    og_image_alt: str | None = None,
     active_nav: str | None = None,
     keywords: str | None = None,
 ) -> str:
@@ -475,6 +521,12 @@ def page_shell(
     )
     image = og_image or LOGO_URL
     twitter_card = "summary_large_image" if og_image else "summary"
+    image_alt = ""
+    if og_image and og_image_alt:
+        image_alt = (
+            f'  <meta property="og:image:alt" content="{esc(og_image_alt)}" />\n'
+            f'  <meta name="twitter:image:alt" content="{esc(og_image_alt)}" />\n'
+        )
     ld_blocks = [
         '  <script type="application/ld+json">\n'
         f"  {json.dumps(ORGANIZATION_LD, ensure_ascii=False)}\n"
@@ -501,7 +553,7 @@ def page_shell(
   <meta property="og:url" content="{esc(canonical)}" />
   <meta property="og:site_name" content="{esc(SITE_NAME)}" />
   <meta property="og:image" content="{esc(image)}" />
-  <meta name="twitter:card" content="{twitter_card}" />
+{image_alt}  <meta name="twitter:card" content="{twitter_card}" />
   <meta name="twitter:title" content="{esc(title)}" />
   <meta name="twitter:description" content="{esc(description)}" />
   <meta name="twitter:image" content="{esc(image)}" />
@@ -1828,6 +1880,7 @@ def build_collection_page(
         for d in others
     )
     count = total if total is not None else len(matched)
+    preview, preview_alt = preview_still(matched, PREVIEW_TERMS.get(defn["slug"], ()))
     body = f"""
   <main>
     <div class="layout-rail">
@@ -1869,6 +1922,9 @@ def build_collection_page(
     }
     if defn.get("place"):
         json_ld["spatialCoverage"] = {"@type": "Place", "name": defn["place"]}
+    if preview:
+        json_ld["image"] = preview
+        json_ld["primaryImageOfPage"] = {"@type": "ImageObject", "url": preview}
     return page_shell(
         title=f"{defn['title']} | {SITE_NAME}",
         description=defn["description"],
@@ -1877,10 +1933,17 @@ def build_collection_page(
         json_ld=json_ld,
         active_nav="collections",
         keywords=defn.get("keywords"),
+        og_image=preview or None,
+        og_image_alt=preview_alt or defn["h1"],
     )
 
 
-def build_collections_hub(defs: list[CollectionDef], counts: dict[str, int]) -> str:
+def build_collections_hub(
+    defs: list[CollectionDef],
+    counts: dict[str, int],
+    preview: str = "",
+    preview_alt: str = "",
+) -> str:
     def cards_for(group_defs: list[CollectionDef]) -> str:
         return "".join(
             f"""
@@ -1926,6 +1989,16 @@ def build_collections_hub(defs: list[CollectionDef], counts: dict[str, int]) -> 
     </div>
   </main>
 """
+    hub_ld = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Stock Footage Collections",
+        "url": f"{SITE}/collections/",
+        "isPartOf": {"@type": "WebSite", "name": SITE_NAME, "url": SITE},
+    }
+    if preview:
+        hub_ld["image"] = preview
+        hub_ld["primaryImageOfPage"] = {"@type": "ImageObject", "url": preview}
     return page_shell(
         title=f"Indonesia Stock Footage Collections | {SITE_NAME}",
         description=(
@@ -1936,13 +2009,9 @@ def build_collections_hub(defs: list[CollectionDef], counts: dict[str, int]) -> 
         body=body,
         active_nav="collections",
         keywords="indonesia stock footage, underwater stock footage indonesia, Raja Ampat stock footage, Komodo stock footage, Cenderawasih stock footage",
-        json_ld={
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            "name": "Stock Footage Collections",
-            "url": f"{SITE}/collections/",
-            "isPartOf": {"@type": "WebSite", "name": SITE_NAME, "url": SITE},
-        },
+        json_ld=hub_ld,
+        og_image=preview or None,
+        og_image_alt=preview_alt or "Underwater stock footage from Indonesia",
     )
 
 
@@ -2128,6 +2197,8 @@ def main() -> None:
 
     defs = collection_defs()
     counts: dict[str, int] = {}
+    hub_preview = ""
+    hub_preview_alt = ""
     for defn in defs:
         matched = [c for c in clips if defn["match"](c)]
         if not matched:
@@ -2138,6 +2209,8 @@ def main() -> None:
             shown = diversify_clips(matched, str(defn["diversify"]), limit)
         else:
             shown = matched[:limit]
+        if defn["slug"] == "underwater-stock-footage":
+            hub_preview, hub_preview_alt = preview_still(shown)
         out = COLLECTIONS_DIR / defn["slug"] / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(
@@ -2147,7 +2220,7 @@ def main() -> None:
         print(f"  collection /collections/{defn['slug']}/ → {len(matched)} clips")
 
     (COLLECTIONS_DIR / "index.html").write_text(
-        build_collections_hub(defs, counts), encoding="utf-8"
+        build_collections_hub(defs, counts, hub_preview, hub_preview_alt), encoding="utf-8"
     )
 
     # Keep old 8K collection URL working for anyone who already indexed it.
