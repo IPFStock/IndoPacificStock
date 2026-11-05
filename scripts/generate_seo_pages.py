@@ -106,6 +106,8 @@ main { flex: 1; padding-top: calc(var(--header-h) + 2.25rem); padding-bottom: 3.
 }
 .page-lead { margin: 0.85rem 0 0; font-size: 1rem; color: var(--text-secondary); max-width: 46rem; }
 .page-meta { margin: 0.75rem 0 0; font-size: 0.85rem; color: var(--muted); }
+.page-meta a { color: var(--accent); text-decoration: none; }
+.page-meta a:hover { text-decoration: underline; }
 .badge {
   display: inline-block; margin-top: 0.85rem; padding: 0.2rem 0.55rem; border-radius: 999px;
   border: 1px solid rgba(29, 111, 168, 0.35); background: rgba(29, 111, 168, 0.08);
@@ -188,6 +190,11 @@ main { flex: 1; padding-top: calc(var(--header-h) + 2.25rem); padding-bottom: 3.
 .collection-card:hover { border-color: rgba(29, 111, 168, 0.45); }
 .collection-card h2 { font-size: 1.05rem; margin: 0 0 0.45rem; }
 .collection-card p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+.collection-group { margin-top: 2.25rem; }
+.collection-group h2 {
+  margin: 0 0 0.35rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted);
+}
 .site-footer {
   padding: 0.85rem 1.25rem; background: rgba(255, 255, 255, 0.94);
   border-top: 1px solid var(--border); text-align: center;
@@ -220,6 +227,17 @@ LOGO_SVG = """
 
 def esc(value: object) -> str:
     return html.escape(str(value or ""), quote=True)
+
+
+SURFACE_CATEGORIES = {
+    "Coastal Landscapes Drone Aerials",
+    "Indo-Pacific Cultural Documentations & Editorial Scenes",
+    "Avian Bird Species",
+}
+
+
+def is_underwater(clip: dict) -> bool:
+    return (clip.get("category") or "") not in SURFACE_CATEGORIES
 
 
 def text_blob(clip: dict) -> str:
@@ -649,6 +667,13 @@ def build_clip_page(clip: dict, catalog: list[dict], take_labels: dict[str, str]
     related = related_clips(clip, catalog)
     related_html = "".join(clip_card_html(item, take_labels) for item in related)
     poster_attr = f' poster="{esc(still)}"' if still else ""
+    browse_links = " · ".join(
+        f'<a href="/collections/{esc(slug)}/">{esc(label)}</a>'
+        for slug, label in collection_links_for_clip(clip)
+    )
+    browse_html = (
+        f'<p class="page-meta">Browse: {browse_links}</p>' if browse_links else ""
+    )
 
     body = f"""
   <main>
@@ -662,6 +687,7 @@ def build_clip_page(clip: dict, catalog: list[dict], take_labels: dict[str, str]
       <h1 class="page-title">{esc(title)}</h1>
       <p class="page-lead">{esc(description)}</p>
       <span class="badge">License R3D · Rights Managed</span>
+      {browse_html}
 
       <div class="clip-layout">
         <div class="video-panel">
@@ -741,6 +767,7 @@ def collection_defs() -> list[CollectionDef]:
     return [
         {
             "slug": "license-r3d-footage",
+            "group": "format",
             "title": "License R3D Footage",
             "h1": "License R3D Footage from the Indo-Pacific",
             "description": (
@@ -762,112 +789,379 @@ def collection_defs() -> list[CollectionDef]:
         },
         {
             "slug": "underwater-stock-footage",
-            "title": "Underwater Stock Footage",
-            "h1": "Underwater Stock Footage — Rights Managed",
+            "group": "location",
+            "place": "Indonesia",
+            "diversify": "region",
+            "title": "Underwater Stock Footage Indonesia",
+            "h1": "Underwater Stock Footage Indonesia",
             "description": (
-                "Browse rights-managed underwater stock footage from Raja Ampat, Komodo, and Cenderawasih — "
-                "license cinematic reef and marine wildlife clips as R3D."
-            ),
-            "keywords": "underwater stock footage, underwater cinema, license underwater video, marine stock footage",
-            "match": lambda c: (c.get("category") or "") != "Coastal Landscapes Drone Aerials"
-            and (c.get("category") or "") != "Indo-Pacific Cultural Documentations & Editorial Scenes",
-            "limit": 48,
-            "paragraphs": [
-                "Our underwater stock footage is filmed on cinema cameras for natural-history and documentary productions that need authentic Indo-Pacific environments.",
-                "Search by species, behavior, or location, then request a rights-managed license for the exact timecode you need.",
-            ],
-            "bullets": [
-                "Reef fish, megafauna, benthic life, and open-ocean sequences",
-                "Shot across Indonesia’s richest marine regions",
-                "Available to license as R3D / ProRes masters",
-            ],
-        },
-        {
-            "slug": "raja-ampat-stock-footage",
-            "title": "Raja Ampat Stock Footage",
-            "h1": "Raja Ampat Stock Footage",
-            "description": (
-                "License Raja Ampat stock footage — rights-managed underwater cinema from West Papua’s "
-                "coral triangle, available as R3D."
-            ),
-            "keywords": "Raja Ampat stock footage, Raja Ampat underwater video, West Papua film footage",
-            "match": match_region("Raja Ampat"),
-            "limit": 48,
-            "paragraphs": [
-                "Raja Ampat is one of the most biodiverse marine regions on Earth. This collection gathers rights-managed clips captured on location for productions that need authentic West Papua imagery.",
-            ],
-            "bullets": [
-                "Coral reefs, schooling fish, and regional wildlife",
-                "Cinema-camera capture suitable for broadcast finishing",
-                "Commercial and documentary licensing available",
-            ],
-        },
-        {
-            "slug": "cenderawasih-stock-footage",
-            "title": "Cenderawasih Bay Stock Footage",
-            "h1": "Cenderawasih Bay Stock Footage",
-            "description": (
-                "License Cenderawasih Bay stock footage — rights-managed whale shark, reef, and "
-                "Papuan cultural cinema from Central Papua, available as R3D."
+                "License underwater stock footage from Indonesia — Raja Ampat, Komodo National Park, "
+                "and Cenderawasih Bay. Rights-managed reef and marine wildlife on R3D."
             ),
             "keywords": (
-                "Cenderawasih Bay stock footage, Cendrawasih Bay video, Teluk Cenderawasih footage, "
-                "Nabire stock footage, whale shark Papua footage"
+                "underwater stock footage indonesia, indonesia underwater video, "
+                "Raja Ampat underwater footage, Komodo underwater footage, Cenderawasih underwater footage"
             ),
-            "match": match_region("Cenderawasih"),
+            "match": is_underwater,
             "limit": 48,
+            "related": [
+                "indonesia-stock-footage",
+                "raja-ampat-stock-footage",
+                "komodo-stock-footage",
+                "cenderawasih-stock-footage",
+                "4k-underwater-stock-footage",
+                "8k-underwater-stock-footage",
+            ],
             "paragraphs": [
-                "Cenderawasih Bay (also spelled Cendrawasih) is the largest location set in this archive: whale sharks at traditional bagan fishing platforms, reef and seagrass sequences, and editorial cultural scenes from Nabire and Central Papua.",
-                "Productions that need location-accurate Bird’s Head / Cenderawasih imagery can license these clips as R3D at native resolution, plus 4K ProRes or 1080p masters.",
+                "This is a rights-managed library of underwater stock footage filmed in Indonesia: Raja Ampat and Dampier Strait in West Papua, Komodo National Park, and Cenderawasih Bay in Central Papua.",
+                "Producers licensing marine B-roll can search by location or species, then request the seconds they need as R3D at native resolution, 4K ProRes, or a 1080p master.",
             ],
             "bullets": [
-                "Whale sharks, bagans, and Cenderawasih marine life",
-                "Papuan cultural and market scenes (many editorial / no model release)",
+                "Underwater stock footage from Indonesia, not a generic ocean library",
+                "Raja Ampat, Komodo National Park, and Cenderawasih Bay",
+                "Reefs, whale sharks, mantas, turtles, schooling fish, and mangroves",
+            ],
+        },
+        {
+            "slug": "indonesia-stock-footage",
+            "group": "location",
+            "place": "Indonesia",
+            "diversify": "region",
+            "title": "Indonesia Stock Footage",
+            "h1": "Indonesia Stock Footage",
+            "description": (
+                "License Indonesia stock footage — underwater, aerial, and cultural cinema from "
+                "Raja Ampat, Komodo, Cenderawasih Bay, and Sumbawa, rights-managed as R3D."
+            ),
+            "keywords": (
+                "indonesia stock footage, indonesia video footage, stock footage indonesia, "
+                "indonesian underwater footage, papua stock footage"
+            ),
+            "match": lambda c: True,
+            "limit": 36,
+            "related": [
+                "underwater-stock-footage",
+                "papua-stock-footage",
+                "raja-ampat-stock-footage",
+                "komodo-stock-footage",
+                "cenderawasih-stock-footage",
+                "sumbawa-stock-footage",
+                "aerial-drone-stock-footage",
+                "papuan-cultural-stock-footage",
+            ],
+            "paragraphs": [
+                "Indo Pacific Stock licenses original Indonesia stock footage for documentary, broadcast, and commercial productions. The archive was filmed on location in West Papua, Central Papua, Komodo National Park, and Sumbawa.",
+                "Underwater sequences sit alongside drone coastal aerials and editorial cultural scenes from Nabire, Kwatisore, and Sangeang Island. Usage is rights-managed, so territory and term stay clear.",
+            ],
+            "bullets": [
+                "Indonesia locations: Raja Ampat, Komodo, Cenderawasih Bay, Sumbawa",
+                "Underwater, drone, and cultural editorial footage",
+                "R3D masters at native 4K, 5K, or 8K plus ProRes delivery",
+            ],
+        },
+        {
+            "slug": "papua-stock-footage",
+            "group": "location",
+            "place": "Papua, Indonesia",
+            "diversify": "species",
+            "title": "Papua Stock Footage",
+            "h1": "Papua Stock Footage, Indonesia",
+            "description": (
+                "License Papua stock footage from Indonesia — Raja Ampat underwater cinema and "
+                "Cenderawasih Bay whale sharks, reefs, and Papuan cultural scenes, as R3D."
+            ),
+            "keywords": (
+                "papua stock footage, west papua stock footage, central papua video, "
+                "papua underwater footage, stock footage papua indonesia"
+            ),
+            "match": match_region("Raja Ampat", "Cenderawasih"),
+            "limit": 48,
+            "related": [
+                "raja-ampat-stock-footage",
+                "cenderawasih-stock-footage",
+                "dampier-strait-stock-footage",
+                "nabire-stock-footage",
+                "underwater-stock-footage",
+                "papuan-cultural-stock-footage",
+            ],
+            "paragraphs": [
+                "Papua stock footage in this archive covers two Indonesian filming regions: Raja Ampat in South West Papua, and Cenderawasih Bay in Central Papua.",
+                "Raja Ampat holds the reef, mangrove, and Dampier Strait material. Cenderawasih holds whale sharks at bagan platforms, plus Nabire and Kwatisore editorial scenes.",
+            ],
+            "bullets": [
+                "West Papua and Central Papua, Indonesia",
+                "Underwater reefs and whale sharks, plus cultural B-roll",
                 "Rights-managed licensing with cinema-camera masters",
             ],
         },
         {
-            "slug": "whale-shark-stock-footage",
-            "title": "Whale Shark Stock Footage",
-            "h1": "Whale Shark Stock Footage",
+            "slug": "raja-ampat-stock-footage",
+            "group": "location",
+            "place": "Raja Ampat, West Papua, Indonesia",
+            "diversify": "species",
+            "title": "Raja Ampat Stock Footage",
+            "h1": "Raja Ampat Stock Footage, West Papua",
             "description": (
-                "License whale shark stock footage from Cenderawasih and the Indo-Pacific — "
-                "rights-managed cinematic masters available as R3D."
+                "License Raja Ampat underwater stock footage from West Papua, Indonesia — "
+                "Dampier Strait, Gam Island, and coral triangle reefs, rights-managed as R3D."
             ),
-            "keywords": "whale shark stock footage, whale shark video license, Rhincodon typus footage",
-            "match": match_any("whale shark", "whaleshark", "rhincodon"),
+            "keywords": (
+                "Raja Ampat stock footage, Raja Ampat underwater footage, West Papua stock footage, "
+                "Dampier Strait footage, South West Papua video"
+            ),
+            "match": match_region("Raja Ampat"),
             "limit": 48,
+            "related": [
+                "dampier-strait-stock-footage",
+                "gam-island-stock-footage",
+                "mangrove-stock-footage",
+                "underwater-stock-footage",
+                "papua-stock-footage",
+                "coral-reef-stock-footage",
+            ],
             "paragraphs": [
-                "Whale shark sequences from our Indo-Pacific archive are rights-managed for documentary and commercial use, with master delivery as R3D at native resolution or ProRes.",
+                "Raja Ampat stock footage in this library was filmed in South West Papua, Indonesia, including Dampier Strait and the mangroves of Gam Island.",
+                "The set is rights-managed underwater and coastal cinema for natural-history, travel, and conservation films that need location-accurate West Papua imagery.",
             ],
             "bullets": [
-                "Natural swimming and approach behavior",
-                "Shot for editorial and natural-history storytelling",
-                "Request timecode-based licensing for your cut",
+                "Raja Ampat, West Papua, Indonesia",
+                "Reefs, schooling fish, mangroves, and marine life",
+                "Also browse Dampier Strait and Gam Island",
+            ],
+        },
+        {
+            "slug": "dampier-strait-stock-footage",
+            "group": "location",
+            "place": "Dampier Strait, Raja Ampat, Indonesia",
+            "diversify": "species",
+            "title": "Dampier Strait Stock Footage",
+            "h1": "Dampier Strait Stock Footage, Raja Ampat",
+            "description": (
+                "License Dampier Strait stock footage from Raja Ampat, Indonesia — "
+                "rights-managed reef and marine sequences filmed in West Papua, available as R3D."
+            ),
+            "keywords": (
+                "Dampier Strait stock footage, Dampier Strait Raja Ampat, "
+                "Raja Ampat underwater footage, West Papua reef video"
+            ),
+            "match": match_any("dampier strait"),
+            "limit": 48,
+            "related": [
+                "raja-ampat-stock-footage",
+                "gam-island-stock-footage",
+                "underwater-stock-footage",
+                "coral-reef-stock-footage",
+            ],
+            "paragraphs": [
+                "Dampier Strait is the channel between Waigeo and Batanta in Raja Ampat, West Papua, Indonesia. These clips were filmed in that strait for productions that need a specific Raja Ampat location rather than a generic reef.",
+            ],
+            "bullets": [
+                "Filmed in Dampier Strait, Raja Ampat",
+                "Reef and marine sequences, rights-managed",
+                "Part of the wider Raja Ampat and Indonesia underwater archive",
+            ],
+        },
+        {
+            "slug": "gam-island-stock-footage",
+            "group": "location",
+            "place": "Gam Island, Raja Ampat, Indonesia",
+            "diversify": "species",
+            "title": "Gam Island Stock Footage",
+            "h1": "Gam Island Stock Footage, Raja Ampat",
+            "description": (
+                "License Gam Island stock footage from Raja Ampat, Indonesia — "
+                "blue-water mangroves and reef edges in Dampier Strait, rights-managed as R3D."
+            ),
+            "keywords": (
+                "Gam Island stock footage, Gam Island Raja Ampat, mangrove footage Raja Ampat, "
+                "Dampier Strait mangrove video"
+            ),
+            "match": match_any("gam island"),
+            "limit": 48,
+            "related": [
+                "mangrove-stock-footage",
+                "dampier-strait-stock-footage",
+                "raja-ampat-stock-footage",
+                "underwater-stock-footage",
+            ],
+            "paragraphs": [
+                "Gam Island sits in the Dampier Strait, Raja Ampat, South West Papua, Indonesia. This set is the blue-water mangrove system and nearby reef filmed around the island, including archerfish under the mangrove canopy.",
+            ],
+            "bullets": [
+                "Gam Island, Dampier Strait, Raja Ampat",
+                "Mangrove shallows and associated reef life",
+                "Rights-managed R3D for documentary and commercial use",
+            ],
+        },
+        {
+            "slug": "cenderawasih-stock-footage",
+            "group": "location",
+            "place": "Cenderawasih Bay, Central Papua, Indonesia",
+            "diversify": "species",
+            "title": "Cenderawasih Bay Stock Footage",
+            "h1": "Cenderawasih Bay Stock Footage, Central Papua",
+            "description": (
+                "License Cenderawasih Bay stock footage from Central Papua, Indonesia — "
+                "whale sharks, reefs, Nabire, and Kwatisore, rights-managed as R3D."
+            ),
+            "keywords": (
+                "Cenderawasih Bay stock footage, Cendrawasih Bay video, Teluk Cenderawasih footage, "
+                "Central Papua stock footage, Nabire footage, Kwatisore footage, whale shark Indonesia"
+            ),
+            "match": match_region("Cenderawasih"),
+            "limit": 48,
+            "related": [
+                "whale-shark-stock-footage",
+                "nabire-stock-footage",
+                "kwatisore-stock-footage",
+                "papua-stock-footage",
+                "underwater-stock-footage",
+                "bird-of-paradise-stock-footage",
+            ],
+            "paragraphs": [
+                "Cenderawasih Bay (also spelled Cendrawasih, Teluk Cenderawasih) in Central Papua, Indonesia is the largest location in this archive. It includes whale sharks at traditional bagan fishing platforms, reef sequences, and editorial scenes from Nabire and Kwatisore village.",
+                "Productions that need location-accurate Central Papua imagery can license these clips as R3D at native resolution, plus 4K ProRes or 1080p masters.",
+            ],
+            "bullets": [
+                "Cenderawasih Bay, Central Papua, Indonesia",
+                "Whale sharks and bagans, plus Nabire and Kwatisore",
+                "Many cultural clips are editorial and have no model release",
+            ],
+        },
+        {
+            "slug": "nabire-stock-footage",
+            "group": "location",
+            "place": "Nabire, Central Papua, Indonesia",
+            "diversify": "species",
+            "title": "Nabire Stock Footage",
+            "h1": "Nabire Stock Footage, Central Papua",
+            "description": (
+                "License Nabire stock footage from Central Papua, Indonesia — "
+                "fish market, town, and Cenderawasih Bay editorial scenes, rights-managed."
+            ),
+            "keywords": (
+                "Nabire stock footage, Nabire fish market video, Central Papua footage, "
+                "Cenderawasih Bay cultural footage"
+            ),
+            "match": match_any("nabire"),
+            "limit": 48,
+            "related": [
+                "cenderawasih-stock-footage",
+                "kwatisore-stock-footage",
+                "papuan-cultural-stock-footage",
+                "papua-stock-footage",
+            ],
+            "paragraphs": [
+                "Nabire is the port town on Cenderawasih Bay in Central Papua, Indonesia. These clips cover the fish market, vendors, and daily town scenes filmed for documentary B-roll.",
+                "Most Nabire material is editorial and was filmed without model or property releases. Confirm usage before you license it for advertising.",
+            ],
+            "bullets": [
+                "Nabire, Central Papua, Indonesia",
+                "Markets, vendors, and town life beside Cenderawasih Bay",
+                "Editorial licensing — check model-release notes on each clip",
+            ],
+        },
+        {
+            "slug": "kwatisore-stock-footage",
+            "group": "location",
+            "place": "Kwatisore, Cenderawasih Bay, Indonesia",
+            "diversify": "species",
+            "title": "Kwatisore Stock Footage",
+            "h1": "Kwatisore Stock Footage, Cenderawasih Bay",
+            "description": (
+                "License Kwatisore stock footage from Cenderawasih Bay, Indonesia — "
+                "village and cultural scenes in Central Papua, rights-managed."
+            ),
+            "keywords": (
+                "Kwatisore stock footage, Kwatisore village video, Cenderawasih village footage, "
+                "Central Papua cultural footage"
+            ),
+            "match": match_any("kwatisore"),
+            "limit": 48,
+            "related": [
+                "cenderawasih-stock-footage",
+                "nabire-stock-footage",
+                "papuan-cultural-stock-footage",
+                "whale-shark-stock-footage",
+            ],
+            "paragraphs": [
+                "Kwatisore is a coastal village on Cenderawasih Bay, Central Papua, Indonesia, near the whale-shark bagan grounds. This set is village life and traditional gatherings filmed there.",
+                "Treat these clips as editorial. Many have no model release.",
+            ],
+            "bullets": [
+                "Kwatisore village, Cenderawasih Bay, Indonesia",
+                "Cultural and village documentary B-roll",
+                "Pair with the Cenderawasih whale shark collection for the same region",
+            ],
+        },
+        {
+            "slug": "whale-shark-stock-footage",
+            "group": "subject",
+            "place": "Cenderawasih Bay, Indonesia",
+            "diversify": "species",
+            "title": "Whale Shark Stock Footage Indonesia",
+            "h1": "Whale Shark Stock Footage from Indonesia",
+            "description": (
+                "License whale shark stock footage from Cenderawasih Bay, Indonesia — "
+                "rights-managed bagan and open-water sequences from Central Papua, as R3D."
+            ),
+            "keywords": (
+                "whale shark stock footage, whale shark footage indonesia, Cenderawasih whale shark, "
+                "Rhincodon typus video, bagan whale shark footage"
+            ),
+            "match": match_any("whale shark", "whaleshark", "rhincodon"),
+            "limit": 48,
+            "related": [
+                "cenderawasih-stock-footage",
+                "underwater-stock-footage",
+                "papua-stock-footage",
+                "8k-underwater-stock-footage",
+            ],
+            "paragraphs": [
+                "These whale sharks were filmed in Cenderawasih Bay, Central Papua, Indonesia, including animals around traditional bagan fishing platforms. The behavior is location-specific to that bay, not a mixed ocean library.",
+                "License the timecode you need as R3D at native resolution or as ProRes. Rights are managed for documentary and commercial productions.",
+            ],
+            "bullets": [
+                "Whale shark stock footage from Indonesia",
+                "Cenderawasih Bay and bagan platforms",
+                "Rhincodon typus, rights-managed",
             ],
         },
         {
             "slug": "coral-reef-stock-footage",
+            "group": "subject",
+            "place": "Indonesia",
+            "diversify": "region",
             "title": "Coral Reef Stock Footage",
-            "h1": "Coral Reef Stock Footage",
+            "h1": "Coral Reef Stock Footage Indonesia",
             "description": (
-                "License coral reef stock footage from the Indo-Pacific — rights-managed reefscapes "
-                "and associated marine life available as R3D."
+                "License coral reef stock footage from Indonesia — Raja Ampat, Komodo National Park, "
+                "and Cenderawasih Bay reefscapes, rights-managed as R3D."
             ),
-            "keywords": "coral reef stock footage, reef video license, Indo-Pacific coral footage",
+            "keywords": (
+                "coral reef stock footage, indonesia coral reef video, Raja Ampat reef footage, "
+                "Komodo reef footage"
+            ),
             "match": match_any("coral", "reef"),
             "limit": 48,
+            "related": [
+                "underwater-stock-footage",
+                "raja-ampat-stock-footage",
+                "komodo-stock-footage",
+                "schooling-fish-stock-footage",
+            ],
             "paragraphs": [
-                "Coral reef stock footage from Komodo, Raja Ampat, and Cenderawasih supports climate, conservation, and travel storytelling with cinema-camera fidelity.",
+                "Coral reef stock footage from Raja Ampat, Komodo National Park, and Cenderawasih Bay, Indonesia, for climate, conservation, and travel films that need a real coral-triangle location.",
             ],
             "bullets": [
-                "Reefscapes, benthic detail, and associated fish life",
-                "Rights-managed for broadcast and commercial projects",
-                "R3D master options for finishing",
+                "Hard coral, soft coral, and reef fish from Indonesia",
+                "Raja Ampat, Komodo, and Cenderawasih Bay",
+                "Rights-managed R3D masters",
             ],
         },
         {
             "slug": "red-raptor-stock-footage",
+            "group": "format",
             "title": "RED Raptor Stock Footage",
             "h1": "RED Raptor & R3D Stock Footage",
             "description": (
@@ -888,26 +1182,39 @@ def collection_defs() -> list[CollectionDef]:
         },
         {
             "slug": "aerial-drone-stock-footage",
-            "title": "Aerial Drone Stock Footage",
-            "h1": "Aerial & Drone Stock Footage — Indo-Pacific",
+            "group": "subject",
+            "place": "Indonesia",
+            "diversify": "region",
+            "title": "Drone Stock Footage Indonesia",
+            "h1": "Drone Stock Footage Indonesia",
             "description": (
-                "License aerial and drone stock footage from the Indo-Pacific — coastal landscapes "
-                "and cinematic overflights, rights-managed for professional use."
+                "License drone stock footage from Indonesia — coastal and landscape aerials "
+                "from Papua and nearby islands, rights-managed for professional use."
             ),
-            "keywords": "aerial stock footage Indo-Pacific, drone stock footage Indonesia, coastal aerial video",
+            "keywords": (
+                "drone stock footage indonesia, aerial stock footage indonesia, "
+                "papua drone footage, indonesia aerial video"
+            ),
             "match": match_category("coastal", "drone", "aerial"),
             "limit": 48,
+            "related": [
+                "indonesia-stock-footage",
+                "cenderawasih-stock-footage",
+                "raja-ampat-stock-footage",
+                "underwater-stock-footage",
+            ],
             "paragraphs": [
-                "Aerial and drone stock footage from our archive covers Indo-Pacific coastlines and landscape context for documentary openers, travel films, and commercial spot work.",
+                "Drone and aerial stock footage from Indonesia in this archive is coastal and landscape coverage, useful as establishing shots beside the underwater library.",
             ],
             "bullets": [
-                "Coastal landscapes and establishing shots",
-                "Rights-managed aerial licensing",
-                "High-resolution masters for finishing",
+                "Indonesia coastal aerials and landscapes",
+                "Rights-managed drone licensing",
+                "Pair with underwater footage from the same regions",
             ],
         },
         {
             "slug": "rights-managed-wildlife-footage",
+            "group": "format",
             "title": "Rights-Managed Wildlife Footage",
             "h1": "Rights-Managed Wildlife Footage",
             "description": (
@@ -928,6 +1235,8 @@ def collection_defs() -> list[CollectionDef]:
         },
         {
             "slug": "documentary-b-roll-indo-pacific",
+            "group": "format",
+            "diversify": "region",
             "title": "Documentary B-Roll — Indo-Pacific",
             "h1": "Documentary B-Roll from the Indo-Pacific",
             "description": (
@@ -949,56 +1258,558 @@ def collection_defs() -> list[CollectionDef]:
         },
         {
             "slug": "komodo-stock-footage",
+            "group": "location",
+            "place": "Komodo National Park, Indonesia",
+            "diversify": "species",
             "title": "Komodo Stock Footage",
-            "h1": "Komodo Stock Footage",
+            "h1": "Komodo National Park Underwater Stock Footage",
             "description": (
-                "License Komodo stock footage — rights-managed underwater and marine cinema from "
-                "Komodo National Park and surrounding waters, available as R3D."
+                "License Komodo underwater stock footage from Komodo National Park, Indonesia — "
+                "reefs, reef sharks, turtles, and seahorses, rights-managed as R3D."
             ),
-            "keywords": "Komodo stock footage, Komodo underwater video, Komodo National Park film footage",
+            "keywords": (
+                "Komodo stock footage, Komodo underwater footage, Komodo National Park video, "
+                "underwater stock footage komodo indonesia"
+            ),
             "match": match_region("Komodo"),
             "limit": 48,
+            "related": [
+                "underwater-stock-footage",
+                "reef-shark-stock-footage",
+                "sea-turtle-stock-footage",
+                "seahorse-stock-footage",
+                "manta-ray-stock-footage",
+                "coral-reef-stock-footage",
+            ],
             "paragraphs": [
-                "Komodo sequences in the archive cover reef life and marine subjects filmed for natural-history and travel productions that need location-accurate Indonesia imagery.",
+                "Komodo stock footage here is underwater cinema from Komodo National Park, Indonesia: reefs, whitetip reef sharks, turtles, seahorses, anthias, and manta rays. It is marine material from the park, not Komodo dragon coverage.",
             ],
             "bullets": [
-                "Location-specific Komodo / Nusa Tenggara waters",
-                "Cinema-camera underwater capture",
-                "Rights-managed licensing with R3D masters",
+                "Komodo National Park, Indonesia",
+                "Underwater reefs, sharks, turtles, and seahorses",
+                "Rights-managed R3D for natural-history and travel films",
             ],
         },
         {
             "slug": "sumbawa-stock-footage",
+            "group": "location",
+            "place": "Sumbawa, Indonesia",
+            "diversify": "species",
             "title": "Sumbawa Stock Footage",
-            "h1": "Sumbawa & Sangeang Stock Footage",
+            "h1": "Sumbawa and Sangeang Island Stock Footage",
             "description": (
-                "License Sumbawa stock footage — rights-managed cultural and coastal cinema from "
-                "Sangeang Island and Bontoh village, available as R3D."
+                "License Sumbawa stock footage from Indonesia — Sangeang Island and Bontoh village "
+                "cultural and coastal scenes, rights-managed as R3D."
             ),
             "keywords": (
-                "Sumbawa stock footage, Sangeang Island video, Bontoh village footage, "
+                "Sumbawa stock footage, Sangeang Island footage, Bontoh village video, "
                 "Sumbawa Indonesia film footage"
             ),
             "match": match_region("Sumbawa"),
             "limit": 48,
+            "related": [
+                "indonesia-stock-footage",
+                "papuan-cultural-stock-footage",
+                "aerial-drone-stock-footage",
+            ],
             "paragraphs": [
-                "Sumbawa clips in the archive were filmed around Sangeang Island and Bontoh village: boat building, village life, coastal landscape, and related editorial scenes from eastern Indonesia.",
+                "Sumbawa stock footage in this archive was filmed around Sangeang Island and Bontoh village in Indonesia: boat building, village life, and coastal landscape. Sangeang is the location; there is not a separate Sangeang-only cut of this set.",
             ],
             "bullets": [
-                "Sangeang Island and Bontoh village cultural scenes",
-                "Coastal and village context for documentary B-roll",
-                "Rights-managed licensing; many clips are editorial / no model release",
+                "Sumbawa, Sangeang Island, and Bontoh village, Indonesia",
+                "Cultural and coastal documentary B-roll",
+                "Many clips are editorial and have no model release",
+            ],
+        },
+        {
+            "slug": "manta-ray-stock-footage",
+            "group": "subject",
+            "place": "Indonesia",
+            "title": "Manta Ray Stock Footage",
+            "h1": "Manta Ray Stock Footage Indonesia",
+            "description": (
+                "License manta ray stock footage from Indonesia — reef mantas filmed in "
+                "Komodo National Park and Raja Ampat, rights-managed as R3D."
+            ),
+            "keywords": (
+                "manta ray stock footage, manta ray footage indonesia, reef manta video, "
+                "Mobula alfredi stock footage, Komodo manta footage, Raja Ampat manta"
+            ),
+            "match": match_any("manta", "mobula alfredi"),
+            "limit": 24,
+            "related": [
+                "komodo-stock-footage",
+                "raja-ampat-stock-footage",
+                "underwater-stock-footage",
+            ],
+            "paragraphs": [
+                "Reef manta rays, Mobula alfredi, filmed in Komodo National Park and Raja Ampat, Indonesia. The set is small and location-specific, for productions that need an Indonesian manta rather than an unidentified ocean shot.",
+            ],
+            "bullets": [
+                "Manta ray stock footage from Indonesia",
+                "Komodo National Park and Raja Ampat",
+                "Rights-managed R3D",
+            ],
+        },
+        {
+            "slug": "sea-turtle-stock-footage",
+            "group": "subject",
+            "place": "Indonesia",
+            "diversify": "species",
+            "title": "Sea Turtle Stock Footage",
+            "h1": "Sea Turtle Stock Footage Indonesia",
+            "description": (
+                "License sea turtle stock footage from Indonesia — hawksbill and green turtles "
+                "in Raja Ampat and Komodo, rights-managed as R3D."
+            ),
+            "keywords": (
+                "sea turtle stock footage, turtle footage indonesia, hawksbill turtle video, "
+                "green turtle stock footage, Raja Ampat turtle"
+            ),
+            "match": match_any("turtle"),
+            "limit": 36,
+            "related": [
+                "raja-ampat-stock-footage",
+                "komodo-stock-footage",
+                "underwater-stock-footage",
+            ],
+            "paragraphs": [
+                "Hawksbill and green turtles filmed on reefs in Raja Ampat and Komodo National Park, Indonesia. Each clip is rights-managed for documentary and commercial natural-history use.",
+            ],
+            "bullets": [
+                "Sea turtle stock footage from Indonesia",
+                "Hawksbill and green turtles",
+                "Raja Ampat and Komodo National Park",
+            ],
+        },
+        {
+            "slug": "reef-shark-stock-footage",
+            "group": "subject",
+            "place": "Komodo National Park, Indonesia",
+            "title": "Reef Shark Stock Footage",
+            "h1": "Reef Shark Stock Footage Indonesia",
+            "description": (
+                "License reef shark stock footage from Indonesia — whitetip reef sharks "
+                "filmed in Komodo National Park, rights-managed as R3D."
+            ),
+            "keywords": (
+                "reef shark stock footage, whitetip reef shark video, shark footage indonesia, "
+                "Komodo shark footage, Triaenodon obesus"
+            ),
+            "match": lambda c: (c.get("species") or "") == "Whitetip Reef Shark"
+            or (
+                "whale shark" not in text_blob(c)
+                and "whaleshark" not in text_blob(c)
+                and any(n in text_blob(c) for n in ("whitetip", "triaenodon", "reef shark"))
+            ),
+            "limit": 24,
+            "related": [
+                "komodo-stock-footage",
+                "whale-shark-stock-footage",
+                "underwater-stock-footage",
+            ],
+            "paragraphs": [
+                "Whitetip reef sharks, Triaenodon obesus, filmed in Komodo National Park, Indonesia. Whale sharks from Cenderawasih Bay are a separate collection.",
+            ],
+            "bullets": [
+                "Reef shark stock footage from Indonesia",
+                "Whitetip reef sharks in Komodo National Park",
+                "Rights-managed cinema-camera masters",
+            ],
+        },
+        {
+            "slug": "seahorse-stock-footage",
+            "group": "subject",
+            "place": "Komodo National Park, Indonesia",
+            "title": "Seahorse Stock Footage",
+            "h1": "Seahorse Stock Footage Indonesia",
+            "description": (
+                "License seahorse stock footage from Komodo National Park, Indonesia — "
+                "rights-managed macro marine sequences available as R3D."
+            ),
+            "keywords": "seahorse stock footage, seahorse video indonesia, Komodo seahorse, Hippocampus footage",
+            "match": match_any("seahorse", "hippocampus"),
+            "limit": 24,
+            "related": ["komodo-stock-footage", "underwater-stock-footage"],
+            "paragraphs": [
+                "Seahorses filmed in Komodo National Park, Indonesia, for natural-history productions that need a named location on macro marine behavior.",
+            ],
+            "bullets": [
+                "Seahorse stock footage from Indonesia",
+                "Komodo National Park",
+                "Rights-managed R3D",
+            ],
+        },
+        {
+            "slug": "mangrove-stock-footage",
+            "group": "subject",
+            "place": "Gam Island, Raja Ampat, Indonesia",
+            "diversify": "species",
+            "title": "Mangrove Stock Footage",
+            "h1": "Mangrove Stock Footage Indonesia",
+            "description": (
+                "License mangrove stock footage from Indonesia — blue-water mangroves at "
+                "Gam Island, Raja Ampat, rights-managed as R3D."
+            ),
+            "keywords": (
+                "mangrove stock footage, mangrove underwater video, Gam Island mangrove, "
+                "Raja Ampat mangrove footage"
+            ),
+            "match": match_any("mangrove"),
+            "limit": 48,
+            "related": [
+                "gam-island-stock-footage",
+                "dampier-strait-stock-footage",
+                "raja-ampat-stock-footage",
+            ],
+            "paragraphs": [
+                "Mangrove stock footage from the blue-water mangrove system of Gam Island, Dampier Strait, Raja Ampat, Indonesia, including archerfish under the roots and canopy.",
+            ],
+            "bullets": [
+                "Underwater mangrove footage from Indonesia",
+                "Gam Island, Raja Ampat",
+                "Rights-managed R3D",
+            ],
+        },
+        {
+            "slug": "schooling-fish-stock-footage",
+            "group": "subject",
+            "place": "Indonesia",
+            "diversify": "region",
+            "title": "Schooling Fish Stock Footage",
+            "h1": "Schooling Fish Stock Footage Indonesia",
+            "description": (
+                "License schooling fish stock footage from Indonesia — anthias, fusiliers, "
+                "and reef aggregations in Raja Ampat, Komodo, and Cenderawasih, as R3D."
+            ),
+            "keywords": (
+                "schooling fish stock footage, anthias footage, fish school video indonesia, "
+                "reef fish stock footage"
+            ),
+            "match": match_category("schooling", "benthic reef"),
+            "limit": 48,
+            "related": [
+                "coral-reef-stock-footage",
+                "underwater-stock-footage",
+                "raja-ampat-stock-footage",
+                "komodo-stock-footage",
+            ],
+            "paragraphs": [
+                "Schooling fish and reef aggregations filmed in Indonesia, including anthias, scad, fusiliers, and other water-column schools over coral in Raja Ampat, Komodo National Park, and Cenderawasih Bay.",
+            ],
+            "bullets": [
+                "Schooling fish stock footage from Indonesia",
+                "Anthias, scad, fusiliers, and reef aggregations",
+                "Rights-managed R3D",
+            ],
+        },
+        {
+            "slug": "anemonefish-stock-footage",
+            "group": "subject",
+            "place": "Indonesia",
+            "title": "Anemonefish Stock Footage",
+            "h1": "Clownfish and Anemonefish Stock Footage",
+            "description": (
+                "License clownfish and anemonefish stock footage from Indonesia — "
+                "Amphiprion on reefs in Raja Ampat and Cenderawasih Bay, as R3D."
+            ),
+            "keywords": (
+                "clownfish stock footage, anemonefish footage, Amphiprion video, "
+                "clownfish indonesia, Raja Ampat anemonefish"
+            ),
+            "match": match_any("clownfish", "anemonefish", "amphiprion"),
+            "limit": 24,
+            "related": ["raja-ampat-stock-footage", "coral-reef-stock-footage", "underwater-stock-footage"],
+            "paragraphs": [
+                "Clownfish and anemonefish, Amphiprion, filmed on Indonesian reefs in Raja Ampat and Cenderawasih Bay. A short, species-specific set for productions that need the animal in a named location.",
+            ],
+            "bullets": [
+                "Clownfish and anemonefish stock footage",
+                "Raja Ampat and Cenderawasih Bay, Indonesia",
+                "Rights-managed R3D",
+            ],
+        },
+        {
+            "slug": "bumphead-parrotfish-stock-footage",
+            "group": "subject",
+            "place": "Raja Ampat, Indonesia",
+            "title": "Bumphead Parrotfish Stock Footage",
+            "h1": "Bumphead Parrotfish Stock Footage",
+            "description": (
+                "License bumphead parrotfish stock footage from Raja Ampat, Indonesia — "
+                "Bolbometopon muricatum on the reef, rights-managed as R3D."
+            ),
+            "keywords": (
+                "bumphead parrotfish stock footage, Bolbometopon muricatum video, "
+                "parrotfish footage Raja Ampat"
+            ),
+            "match": match_any("bumphead", "bolbometopon"),
+            "limit": 24,
+            "related": ["raja-ampat-stock-footage", "coral-reef-stock-footage", "schooling-fish-stock-footage"],
+            "paragraphs": [
+                "Bumphead parrotfish, Bolbometopon muricatum, filmed on reefs in Raja Ampat, Indonesia.",
+            ],
+            "bullets": [
+                "Bumphead parrotfish from Raja Ampat",
+                "Schooling and reef behavior",
+                "Rights-managed R3D",
+            ],
+        },
+        {
+            "slug": "sweetlips-stock-footage",
+            "group": "subject",
+            "place": "Indonesia",
+            "title": "Sweetlips Stock Footage",
+            "h1": "Sweetlips Stock Footage Indonesia",
+            "description": (
+                "License sweetlips stock footage from Indonesia — giant and ribboned sweetlips "
+                "on reefs in Raja Ampat and Komodo, rights-managed as R3D."
+            ),
+            "keywords": "sweetlips stock footage, giant sweetlips video, Plectorhinchus footage, Raja Ampat sweetlips",
+            "match": match_any("sweetlips", "plectorhinchus"),
+            "limit": 24,
+            "related": ["raja-ampat-stock-footage", "schooling-fish-stock-footage", "coral-reef-stock-footage"],
+            "paragraphs": [
+                "Sweetlips filmed on Indonesian reefs, mostly in Raja Ampat, with additional Komodo coverage. Useful as recognizable reef-fish B-roll with a real location in the caption.",
+            ],
+            "bullets": [
+                "Sweetlips stock footage from Indonesia",
+                "Raja Ampat and Komodo",
+                "Rights-managed R3D",
+            ],
+        },
+        {
+            "slug": "bird-of-paradise-stock-footage",
+            "group": "subject",
+            "place": "Cenderawasih Bay, Central Papua, Indonesia",
+            "title": "Bird of Paradise Stock Footage",
+            "h1": "Bird of Paradise Stock Footage",
+            "description": (
+                "License bird of paradise stock footage from Central Papua, Indonesia — "
+                "lesser bird of paradise display filmed at Cenderawasih Bay."
+            ),
+            "keywords": (
+                "bird of paradise stock footage, lesser bird of paradise video, "
+                "Paradisaea minor footage, Papua bird footage"
+            ),
+            "match": match_any("bird of paradise", "paradisaea"),
+            "limit": 24,
+            "related": [
+                "cenderawasih-stock-footage",
+                "papua-stock-footage",
+                "papuan-cultural-stock-footage",
+            ],
+            "paragraphs": [
+                "Lesser bird of paradise, Paradisaea minor, filmed in forest at Cenderawasih Bay, Central Papua, Indonesia, including display behavior. This is terrestrial natural-history coverage, separate from the underwater library.",
+            ],
+            "bullets": [
+                "Bird of paradise stock footage from Papua, Indonesia",
+                "Lesser bird of paradise display",
+                "Cenderawasih Bay, Central Papua",
+            ],
+        },
+        {
+            "slug": "papuan-cultural-stock-footage",
+            "group": "subject",
+            "place": "Papua, Indonesia",
+            "diversify": "region",
+            "title": "Papuan Cultural Stock Footage",
+            "h1": "Papuan Cultural Stock Footage",
+            "description": (
+                "License Papuan cultural stock footage from Indonesia — villages, markets, "
+                "and ceremonies in Central Papua and Raja Ampat, rights-managed."
+            ),
+            "keywords": (
+                "papuan cultural footage, papua village stock footage, indonesia cultural stock footage, "
+                "Nabire market footage, Kwatisore ceremony"
+            ),
+            "match": match_category("cultural"),
+            "limit": 48,
+            "related": [
+                "nabire-stock-footage",
+                "kwatisore-stock-footage",
+                "cenderawasih-stock-footage",
+                "sumbawa-stock-footage",
+                "papua-stock-footage",
+            ],
+            "paragraphs": [
+                "Cultural and editorial stock footage from Papua, Indonesia: markets and daily life in Nabire, village gatherings in Kwatisore, and related scenes in Raja Ampat. Sumbawa village footage is a separate collection.",
+                "Many clips have no model release and are licensed for editorial use. Read the release note on the clip before you cut it into an advertisement.",
+            ],
+            "bullets": [
+                "Papuan cultural and village footage",
+                "Nabire, Kwatisore, and Raja Ampat",
+                "Editorial terms on clips without a model release",
+            ],
+        },
+        {
+            "slug": "4k-underwater-stock-footage",
+            "group": "format",
+            "place": "Indonesia",
+            "diversify": "region",
+            "title": "4K Underwater Stock Footage",
+            "h1": "4K Underwater Stock Footage Indonesia",
+            "description": (
+                "License 4K underwater stock footage from Indonesia — rights-managed reef and "
+                "marine clips captured as 4K R3D in Raja Ampat, Komodo, and Cenderawasih."
+            ),
+            "keywords": (
+                "4k underwater stock footage, 4k underwater video indonesia, "
+                "4k reef footage, 4k marine stock footage"
+            ),
+            "match": lambda c: is_underwater(c) and (c.get("nativeFormatBadge") or "") == "4K R3D",
+            "limit": 48,
+            "related": [
+                "8k-underwater-stock-footage",
+                "underwater-stock-footage",
+                "license-r3d-footage",
+            ],
+            "paragraphs": [
+                "Underwater clips whose camera original is 4K R3D, filmed in Indonesia. Native resolution is 4K on these shots. Other clips in the archive were captured at 5K or 8K and are listed separately.",
+            ],
+            "bullets": [
+                "4K underwater stock footage from Indonesia",
+                "Camera-original 4K R3D, plus ProRes on request",
+                "Raja Ampat, Komodo, and Cenderawasih Bay",
+            ],
+        },
+        {
+            "slug": "8k-underwater-stock-footage",
+            "group": "format",
+            "place": "Indonesia",
+            "diversify": "region",
+            "title": "8K Underwater Stock Footage",
+            "h1": "8K Underwater Stock Footage Indonesia",
+            "description": (
+                "License 8K underwater stock footage from Indonesia — RED V-Raptor R3D masters "
+                "from Raja Ampat, Komodo, and Cenderawasih Bay."
+            ),
+            "keywords": (
+                "8k underwater stock footage, 8k underwater video indonesia, "
+                "RED V-Raptor underwater footage, 8k reef footage"
+            ),
+            "match": lambda c: is_underwater(c) and (c.get("nativeFormatBadge") or "") == "8K R3D",
+            "limit": 48,
+            "related": [
+                "4k-underwater-stock-footage",
+                "red-raptor-stock-footage",
+                "underwater-stock-footage",
+                "license-r3d-footage",
+            ],
+            "paragraphs": [
+                "Underwater clips captured at 8K on RED V-Raptor in Indonesia. These are the camera-original R3D files for finishing work that needs more than a 4K master.",
+            ],
+            "bullets": [
+                "8K underwater stock footage from Indonesia",
+                "RED V-Raptor R3D",
+                "Raja Ampat, Komodo National Park, and Cenderawasih Bay",
             ],
         },
     ]
 
 
-REGION_COLLECTION_SLUGS = {
-    "raja-ampat-stock-footage",
-    "cenderawasih-stock-footage",
-    "komodo-stock-footage",
-    "sumbawa-stock-footage",
-}
+def collection_links_for_clip(clip: dict) -> list[tuple[str, str]]:
+    """Location and subject collections this clip should link to."""
+    links: list[tuple[str, str]] = []
+    seen: set[str] = set()
+
+    def add(slug: str, label: str) -> None:
+        if slug in seen:
+            return
+        seen.add(slug)
+        links.append((slug, label))
+
+    region_map = {
+        "Raja Ampat": ("raja-ampat-stock-footage", "Raja Ampat stock footage"),
+        "Komodo": ("komodo-stock-footage", "Komodo National Park stock footage"),
+        "Cenderawasih": ("cenderawasih-stock-footage", "Cenderawasih Bay stock footage"),
+        "Sumbawa": ("sumbawa-stock-footage", "Sumbawa stock footage"),
+    }
+    region = region_map.get(clip.get("region") or "")
+    if region:
+        add(*region)
+    blob = text_blob(clip)
+    for needle, slug, label in (
+        ("dampier strait", "dampier-strait-stock-footage", "Dampier Strait stock footage"),
+        ("gam island", "gam-island-stock-footage", "Gam Island stock footage"),
+        ("nabire", "nabire-stock-footage", "Nabire stock footage"),
+        ("kwatisore", "kwatisore-stock-footage", "Kwatisore stock footage"),
+        ("sangeang", "sumbawa-stock-footage", "Sangeang Island stock footage"),
+    ):
+        if needle in blob:
+            add(slug, label)
+    if is_underwater(clip):
+        add("underwater-stock-footage", "Underwater stock footage Indonesia")
+    elif (clip.get("category") or "") == "Indo-Pacific Cultural Documentations & Editorial Scenes":
+        add("papuan-cultural-stock-footage", "Papuan cultural stock footage")
+    elif (clip.get("category") or "") == "Coastal Landscapes Drone Aerials":
+        add("aerial-drone-stock-footage", "Drone stock footage Indonesia")
+    elif "bird of paradise" in blob or "paradisaea" in blob:
+        add("bird-of-paradise-stock-footage", "Bird of paradise stock footage")
+    if any(n in blob for n in ("whale shark", "whaleshark", "rhincodon")):
+        add("whale-shark-stock-footage", "Whale shark stock footage")
+    if "manta" in blob:
+        add("manta-ray-stock-footage", "Manta ray stock footage")
+    if "turtle" in blob:
+        add("sea-turtle-stock-footage", "Sea turtle stock footage")
+    if (clip.get("species") or "") == "Whitetip Reef Shark":
+        add("reef-shark-stock-footage", "Reef shark stock footage")
+    if "seahorse" in blob or "hippocampus" in blob:
+        add("seahorse-stock-footage", "Seahorse stock footage")
+    add("indonesia-stock-footage", "Indonesia stock footage")
+    return links[:6]
+
+
+def diversify_clips(clips: list[dict], key: str, limit: int) -> list[dict]:
+    buckets: dict[str, list[dict]] = defaultdict(list)
+    for clip in clips:
+        if key == "region":
+            bucket = clip.get("region") or "Other"
+        else:
+            bucket = clip.get("species") or clip.get("category") or "Other"
+        buckets[bucket].append(clip)
+    for bucket in buckets.values():
+        bucket.sort(key=lambda c: (-int(c.get("rating") or 0), (c.get("title") or "").lower()))
+    ordered = sorted(buckets, key=lambda name: -len(buckets[name]))
+    out: list[dict] = []
+    while len(out) < limit:
+        progressed = False
+        for name in ordered:
+            if buckets[name]:
+                out.append(buckets[name].pop(0))
+                progressed = True
+                if len(out) >= limit:
+                    break
+        if not progressed:
+            break
+    return out
+
+
+def related_collection_defs(
+    defn: CollectionDef, all_defs: list[CollectionDef], limit: int = 8
+) -> list[CollectionDef]:
+    by_slug = {d["slug"]: d for d in all_defs}
+    picked: list[CollectionDef] = []
+    seen = {defn["slug"]}
+
+    def take(slug: str) -> None:
+        item = by_slug.get(slug)
+        if item and slug not in seen:
+            seen.add(slug)
+            picked.append(item)
+
+    for slug in defn.get("related") or []:
+        take(slug)
+    for item in all_defs:
+        if len(picked) >= limit:
+            break
+        if item.get("group") == defn.get("group"):
+            take(item["slug"])
+    for item in all_defs:
+        if len(picked) >= limit:
+            break
+        take(item["slug"])
+    return picked[:limit]
 
 
 def build_collection_page(
@@ -1006,20 +1817,17 @@ def build_collection_page(
     matched: list[dict],
     all_defs: list[CollectionDef],
     take_labels: dict[str, str] | None = None,
+    total: int | None = None,
 ) -> str:
-    cards = "".join(clip_card_html(c, take_labels) for c in matched[: defn.get("limit", 48)])
+    cards = "".join(clip_card_html(c, take_labels) for c in matched)
     bullets = "".join(f"<li>{esc(b)}</li>" for b in defn.get("bullets") or [])
     paragraphs = "".join(f"<p>{esc(p)}</p>" for p in defn.get("paragraphs") or [])
-    others = [d for d in all_defs if d["slug"] != defn["slug"]]
-    if defn["slug"] in REGION_COLLECTION_SLUGS:
-        region_others = [d for d in others if d["slug"] in REGION_COLLECTION_SLUGS]
-        rest = [d for d in others if d["slug"] not in REGION_COLLECTION_SLUGS]
-        others = region_others + rest
-    others = others[:6]
+    others = related_collection_defs(defn, all_defs)
     other_links = "".join(
         f'<li><a href="/collections/{esc(d["slug"])}/">{esc(d["title"])}</a></li>'
         for d in others
     )
+    count = total if total is not None else len(matched)
     body = f"""
   <main>
     <div class="layout-rail">
@@ -1028,10 +1836,10 @@ def build_collection_page(
         <a href="/collections/">Collections</a><span>/</span>
         <span>{esc(defn["title"])}</span>
       </nav>
-      <p class="kicker">SEO collection</p>
+      <p class="kicker">Rights-managed collection</p>
       <h1 class="page-title">{esc(defn["h1"])}</h1>
       <p class="page-lead">{esc(defn["description"])}</p>
-      <span class="badge">{len(matched)} clips · Rights Managed</span>
+      <span class="badge">{count} clips · Rights Managed</span>
 
       <div class="prose">
         {paragraphs}
@@ -1059,6 +1867,8 @@ def build_collection_page(
         "isPartOf": {"@type": "WebSite", "name": SITE_NAME, "url": SITE},
         "about": defn["title"],
     }
+    if defn.get("place"):
+        json_ld["spatialCoverage"] = {"@type": "Place", "name": defn["place"]}
     return page_shell(
         title=f"{defn['title']} | {SITE_NAME}",
         description=defn["description"],
@@ -1071,16 +1881,37 @@ def build_collection_page(
 
 
 def build_collections_hub(defs: list[CollectionDef], counts: dict[str, int]) -> str:
-    cards = "".join(
-        f"""
+    def cards_for(group_defs: list[CollectionDef]) -> str:
+        return "".join(
+            f"""
       <a class="collection-card" href="/collections/{esc(d['slug'])}/">
         <h2>{esc(d['title'])}</h2>
         <p>{esc(d['description'])}</p>
         <p class="clip-card-meta" style="margin-top:0.65rem">{counts.get(d['slug'], 0)} clips</p>
       </a>
 """
-        for d in defs
-    )
+            for d in group_defs
+        )
+
+    groups = [
+        ("location", "Locations"),
+        ("subject", "Species and scenes"),
+        ("format", "Format and licensing"),
+    ]
+    sections = []
+    used: set[str] = set()
+    for key, label in groups:
+        group_defs = [d for d in defs if d.get("group") == key]
+        used.update(d["slug"] for d in group_defs)
+        if not group_defs:
+            continue
+        sections.append(
+            f'<section class="collection-group"><h2>{esc(label)}</h2>'
+            f'<div class="collection-list">{cards_for(group_defs)}</div></section>'
+        )
+    rest = [d for d in defs if d["slug"] not in used]
+    if rest:
+        sections.append(f'<div class="collection-list">{cards_for(rest)}</div>')
     body = f"""
   <main>
     <div class="layout-rail">
@@ -1088,25 +1919,23 @@ def build_collections_hub(defs: list[CollectionDef], counts: dict[str, int]) -> 
         <a href="/">Home</a><span>/</span>
         <span>Collections</span>
       </nav>
-      <p class="kicker">Keyword collections</p>
-      <h1 class="page-title">License Indo-Pacific Stock Footage by Topic</h1>
-      <p class="page-lead">Focused landing pages for producers searching to license R3D footage, underwater cinema, location-specific archives, and rights-managed wildlife film.</p>
-      <div class="collection-list">
-        {cards}
-      </div>
+      <p class="kicker">Locations and subjects</p>
+      <h1 class="page-title">Indonesia Stock Footage by Location</h1>
+      <p class="page-lead">Rights-managed underwater, aerial, and cultural footage from Indonesia. Browse by location, species, or camera format.</p>
+      {''.join(sections)}
     </div>
   </main>
 """
     return page_shell(
-        title=f"Stock Footage Collections | {SITE_NAME}",
+        title=f"Indonesia Stock Footage Collections | {SITE_NAME}",
         description=(
-            "Browse Indo Pacific Stock collections — license R3D footage, underwater cinema, "
-            "Raja Ampat, Cenderawasih Bay, Komodo, Sumbawa, whale sharks, and rights-managed wildlife film."
+            "Browse Indonesia stock footage by location — Raja Ampat, Komodo, Cenderawasih Bay, "
+            "Sumbawa — plus whale sharks, reefs, and rights-managed R3D."
         ),
         canonical=f"{SITE}/collections/",
         body=body,
         active_nav="collections",
-        keywords="license R3D footage, underwater stock footage, Raja Ampat stock footage, rights managed wildlife",
+        keywords="indonesia stock footage, underwater stock footage indonesia, Raja Ampat stock footage, Komodo stock footage, Cenderawasih stock footage",
         json_ld={
             "@context": "https://schema.org",
             "@type": "CollectionPage",
@@ -1301,11 +2130,20 @@ def main() -> None:
     counts: dict[str, int] = {}
     for defn in defs:
         matched = [c for c in clips if defn["match"](c)]
-        # Prefer diversified order: keep catalog order but cap
+        if not matched:
+            raise SystemExit(f"Collection {defn['slug']} matched 0 clips")
         counts[defn["slug"]] = len(matched)
+        limit = int(defn.get("limit") or 48)
+        if defn.get("diversify"):
+            shown = diversify_clips(matched, str(defn["diversify"]), limit)
+        else:
+            shown = matched[:limit]
         out = COLLECTIONS_DIR / defn["slug"] / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(build_collection_page(defn, matched, defs, take_labels), encoding="utf-8")
+        out.write_text(
+            build_collection_page(defn, shown, defs, take_labels, total=len(matched)),
+            encoding="utf-8",
+        )
         print(f"  collection /collections/{defn['slug']}/ → {len(matched)} clips")
 
     (COLLECTIONS_DIR / "index.html").write_text(
