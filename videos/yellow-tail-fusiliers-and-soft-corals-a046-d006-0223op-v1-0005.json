@@ -67,7 +67,10 @@
     "duration": "00:00:07:06",
     "sceneCategory": "Underwater",
     "family": "Caesionidae (Fusiliers)",
-    "latinName": "Caesio cuning"
+    "latinName": "Caesio cuning",
+    "masterDuration": "00:00:07:06",
+    "durationSeconds": 7.257,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

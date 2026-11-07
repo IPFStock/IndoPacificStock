@@ -1,12 +1,12 @@
 {
   "title": "Bumphead Parrotfish And Blue And Gold Fusiliers",
-  "category": "Avian Bird Species",
+  "category": "Reef Associated Fish",
   "region": "Raja Ampat",
-  "species": "Bird",
+  "species": "Bumphead Parrotfish",
   "format": "8K RED RAW",
   "nativeFormatBadge": "8K R3D",
   "licenseType": "commercial",
-  "pricingTier": "standard",
+  "pricingTier": "premium",
   "rating": 4,
   "hero": false,
   "availableSizes": [
@@ -23,9 +23,7 @@
     "8k r3d",
     "8k red raw",
     "ampat",
-    "avian",
-    "avian bird species",
-    "bird",
+    "associated",
     "biting",
     "blue",
     "bolbometopon",
@@ -37,6 +35,7 @@
     "caesio",
     "caesio caerulaurea",
     "coral",
+    "fish",
     "fusiliers",
     "gold",
     "in raja ampat",
@@ -50,7 +49,8 @@
     "r3d",
     "raja",
     "raja ampat",
-    "raw"
+    "raw",
+    "red"
   ],
   "technicalSpecs": {
     "fileName": "A046_D040_0223FG_V1-0027.mp4",
@@ -64,10 +64,13 @@
     "cameraFormat": "MQ",
     "fps": "23.976",
     "aspectRatio": "1.78",
-    "duration": "00:00:39:09",
+    "duration": "00:00:39:10",
     "sceneCategory": "Underwater",
-    "family": "Aves",
-    "latinName": "Aves sp."
+    "family": "Scaridae (Parrotfish)",
+    "latinName": "Bolbometopon muricatum",
+    "masterDuration": "00:00:39:09",
+    "durationSeconds": 39.456,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

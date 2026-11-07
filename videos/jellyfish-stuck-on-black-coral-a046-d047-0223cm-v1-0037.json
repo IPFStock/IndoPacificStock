@@ -6,7 +6,7 @@
   "format": "8K RED RAW",
   "nativeFormatBadge": "8K R3D",
   "licenseType": "commercial",
-  "pricingTier": "standard",
+  "pricingTier": "premium",
   "rating": 4,
   "hero": false,
   "availableSizes": [
@@ -66,7 +66,10 @@
     "duration": "00:00:05:23",
     "sceneCategory": "Underwater",
     "family": "",
-    "latinName": ""
+    "latinName": "",
+    "masterDuration": "00:00:05:23",
+    "durationSeconds": 5.964,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

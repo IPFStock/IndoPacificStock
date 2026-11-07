@@ -1,12 +1,12 @@
 {
   "title": "Lone Bumphead Parrotfish Swimming",
-  "category": "Avian Bird Species",
+  "category": "Reef Associated Fish",
   "region": "Raja Ampat",
-  "species": "Bird",
+  "species": "Bumphead Parrotfish",
   "format": "8K RED RAW",
   "nativeFormatBadge": "8K R3D",
   "licenseType": "commercial",
-  "pricingTier": "standard",
+  "pricingTier": "premium",
   "rating": 4,
   "hero": false,
   "availableSizes": [
@@ -23,13 +23,13 @@
     "8k r3d",
     "8k red raw",
     "ampat",
-    "avian",
-    "avian bird species",
-    "bird",
+    "associated",
     "blue",
     "bolbometopon",
     "bolbometopon muricatum",
     "bumphead",
+    "bumphead parrotfish",
+    "fish",
     "indonesia",
     "large",
     "large bumphead parrotfish",
@@ -46,11 +46,11 @@
     "raja ampat",
     "raw",
     "red",
+    "reef",
+    "reef associated fish",
     "south",
     "south papua",
-    "species",
-    "swimming",
-    "v-raptor"
+    "swimming"
   ],
   "technicalSpecs": {
     "fileName": "A046_D036_0223UB_V1-0021.mp4",
@@ -66,8 +66,11 @@
     "aspectRatio": "1.78",
     "duration": "00:00:14:02",
     "sceneCategory": "Underwater",
-    "family": "Aves",
-    "latinName": "Aves sp."
+    "family": "Scaridae (Parrotfish)",
+    "latinName": "Bolbometopon muricatum",
+    "masterDuration": "00:00:14:02",
+    "durationSeconds": 14.097,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

@@ -63,10 +63,13 @@
     "cameraFormat": "MQ",
     "fps": "23.976",
     "aspectRatio": "1.78",
-    "duration": "00:00:28:14",
+    "duration": "00:00:28:15",
     "sceneCategory": "Underwater",
     "family": "",
-    "latinName": ""
+    "latinName": "",
+    "masterDuration": "00:00:28:14",
+    "durationSeconds": 28.654,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

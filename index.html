@@ -2375,7 +2375,7 @@
     const GITHUB_REPOS = ['ip-assets-01', 'ip-assets-02', 'ip-assets-03', 'ip-assets-04'];
     const GITHUB_BRANCH = 'main';
     const DEFAULT_ASSET_REPO = GITHUB_REPOS[0];
-    const CATALOG_CACHE_TOKEN = '693-2026-10-29T12:36:31.503Z';
+    const CATALOG_CACHE_TOKEN = '719-2026-11-07T12:22:09.768Z';
     const THUMB_TIME = 0.15;
     const VIDEO_LOAD_CONCURRENCY = 3;
     let activeVideoLoads = 0;
@@ -2877,6 +2877,9 @@
     }
 
     function resolvePricingTier(data) {
+      const stars = Number(data?.rating) || 0;
+      if (stars >= 4) return 'premium';
+      if (stars >= 1) return 'standard';
       const value = String(data?.pricingTier || 'standard').toLowerCase().trim();
       return value === 'premium' ? 'premium' : 'standard';
     }

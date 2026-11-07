@@ -67,7 +67,10 @@
     "duration": "00:00:13:07",
     "sceneCategory": "Underwater",
     "family": "Pomacentridae (Damselfish)",
-    "latinName": "Amphiprion ocellaris"
+    "latinName": "Amphiprion ocellaris",
+    "masterDuration": "00:00:13:07",
+    "durationSeconds": 13.305,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

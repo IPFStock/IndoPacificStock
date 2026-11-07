@@ -2,7 +2,7 @@
   "title": "Gang Emperorfish Bluefin Trevally Yellow Goatfish",
   "category": "Pelagic & Open Ocean Schooling Fish",
   "region": "Komodo",
-  "species": "Bigeye Trevally",
+  "species": "Bluefin Trevally",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -23,10 +23,9 @@
     "5k r3d",
     "5k red raw",
     "and yellow goatfish parupeneus cyclostomus",
-    "bigeye",
-    "bigeye trevally",
     "blue",
     "bluefin",
+    "bluefin trevally",
     "caranx",
     "caranx melampygus",
     "cooperative",
@@ -50,7 +49,8 @@
     "lethrinus olivaceus",
     "long",
     "long nose emperor lethrinus olivaceus",
-    "melampygus"
+    "melampygus",
+    "mixed"
   ],
   "technicalSpecs": {
     "fileName": "A033_C041_0917X8_V1-0107.mp4",
@@ -67,7 +67,7 @@
     "duration": "00:00:12:07",
     "sceneCategory": "Underwater",
     "family": "Carangidae (Jacks)",
-    "latinName": "Caranx sexfasciatus",
+    "latinName": "Caranx melampygus",
     "masterDuration": "00:00:12:00",
     "durationSeconds": 12.116,
     "durationSource": "mp4-probe"

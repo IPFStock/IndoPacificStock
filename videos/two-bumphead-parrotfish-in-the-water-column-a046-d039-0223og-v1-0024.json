@@ -1,12 +1,12 @@
 {
   "title": "Two Bumphead Parrotfish In The Water Column",
-  "category": "Avian Bird Species",
+  "category": "Reef Associated Fish",
   "region": "Raja Ampat",
-  "species": "Bird",
+  "species": "Bumphead Parrotfish",
   "format": "8K RED RAW",
   "nativeFormatBadge": "8K R3D",
   "licenseType": "commercial",
-  "pricingTier": "standard",
+  "pricingTier": "premium",
   "rating": 4,
   "hero": false,
   "availableSizes": [
@@ -23,13 +23,13 @@
     "8k r3d",
     "8k red raw",
     "ampat",
-    "avian",
-    "avian bird species",
-    "bird",
+    "associated",
     "bolbometopon",
     "bolbometopon muricatum",
     "bumphead",
+    "bumphead parrotfish",
     "column",
+    "fish",
     "indonesia",
     "muricatum",
     "ocean",
@@ -42,15 +42,15 @@
     "raja ampat",
     "raw",
     "red",
+    "reef",
+    "reef associated fish",
     "south",
     "south papua",
-    "species",
     "swim in the water column",
     "two",
     "two bumphead parrotfish",
     "two bumphead parrotfish in the water column",
-    "v-raptor",
-    "v-raptor 8k vv"
+    "v-raptor"
   ],
   "technicalSpecs": {
     "fileName": "A046_D039_0223OG_V1-0024.mp4",
@@ -64,10 +64,13 @@
     "cameraFormat": "MQ",
     "fps": "23.976",
     "aspectRatio": "1.78",
-    "duration": "00:00:26:20",
+    "duration": "00:00:26:21",
     "sceneCategory": "Underwater",
-    "family": "Aves",
-    "latinName": "Aves sp."
+    "family": "Scaridae (Parrotfish)",
+    "latinName": "Bolbometopon muricatum",
+    "masterDuration": "00:00:26:20",
+    "durationSeconds": 26.902,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

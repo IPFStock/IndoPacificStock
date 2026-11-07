@@ -1,12 +1,12 @@
 {
   "title": "Bumphead Parrotfish On The Reef",
-  "category": "Benthic Reef Aggregations & Schooling Fish",
+  "category": "Reef Associated Fish",
   "region": "Raja Ampat",
-  "species": "Anthias",
+  "species": "Bumphead Parrotfish",
   "format": "8K RED RAW",
   "nativeFormatBadge": "8K R3D",
   "licenseType": "commercial",
-  "pricingTier": "standard",
+  "pricingTier": "premium",
   "rating": 4,
   "hero": false,
   "availableSizes": [
@@ -22,14 +22,12 @@
     "23.976 fps",
     "8k r3d",
     "8k red raw",
-    "aggregations",
     "ampat",
-    "anthias",
-    "benthic",
-    "benthic reef aggregations schooling fish",
+    "associated",
     "bolbometopon",
     "bolbometopon muricatum",
     "bumphead",
+    "bumphead parrotfish",
     "bumphead parrotfish on the reef",
     "coral",
     "eating",
@@ -48,9 +46,11 @@
     "raw",
     "red",
     "reef",
+    "reef associated fish",
     "schooling",
     "schooling bumphead parrotfish",
-    "south"
+    "south",
+    "south papua"
   ],
   "technicalSpecs": {
     "fileName": "A046_D040_0223FG_V1-0028.mp4",
@@ -64,10 +64,13 @@
     "cameraFormat": "MQ",
     "fps": "23.976",
     "aspectRatio": "1.78",
-    "duration": "00:01:05:21",
+    "duration": "00:01:06:23",
     "sceneCategory": "Underwater",
-    "family": "Pomacentridae (Damselfish)",
-    "latinName": "Pseudanthias sp."
+    "family": "Scaridae (Parrotfish)",
+    "latinName": "Bolbometopon muricatum",
+    "masterDuration": "00:01:05:21",
+    "durationSeconds": 66.024,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

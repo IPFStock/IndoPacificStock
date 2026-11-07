@@ -114,6 +114,19 @@ def normalize_rating(raw: str) -> str:
     return match.group(1) if match else ''
 
 
+def pricing_from_rating(rating: str, explicit: str) -> str:
+    """DaVinci stars set the tier. 4–5 are Premium, 1–3 are Standard."""
+    stars = normalize_rating(rating)
+    if stars in {'4', '5'}:
+        return 'Premium'
+    if stars in {'1', '2', '3'}:
+        return 'Standard'
+    value = str(explicit or '').strip()
+    if value.lower().startswith('premium'):
+        return 'Premium'
+    return 'Standard'
+
+
 def normalize_license_type(raw: str) -> str:
     value = str(raw or '').strip()
     if not value:
@@ -332,8 +345,9 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
             license_type = row[index['Scene']].strip()
         if pricing_tier.lower() in {'commercial', 'editorial'}:
             pricing_tier, license_type = license_type, pricing_tier
-        pricing_tier = pricing_tier or 'Standard'
         license_type = normalize_license_type(license_type or 'Commercial')
+        rating = normalize_rating(row[index['Rating']] if 'Rating' in index else '')
+        pricing_tier = pricing_from_rating(rating, pricing_tier)
 
         raw_category = row[index['Category']].strip() if 'Category' in index else ''
         raw_type = row[index['Type']].strip() if 'Type' in index else ''
@@ -364,8 +378,8 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
             'fps': fps,
             'aspect_ratio': row[index['Aspect Ratio Notes']].strip() if 'Aspect Ratio Notes' in index else '',
             'license_type': license_type or 'Commercial',
-            'pricing_tier': pricing_tier or 'Standard',
-            'rating': normalize_rating(row[index['Rating']] if 'Rating' in index else ''),
+            'pricing_tier': pricing_tier,
+            'rating': rating,
         })
 
     return parsed

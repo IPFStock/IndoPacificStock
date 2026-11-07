@@ -1,12 +1,12 @@
 {
   "title": "Bumphead Parrotfish Biting Reef",
-  "category": "Avian Bird Species",
+  "category": "Reef Associated Fish",
   "region": "Raja Ampat",
-  "species": "Bird",
+  "species": "Bumphead Parrotfish",
   "format": "8K RED RAW",
   "nativeFormatBadge": "8K R3D",
   "licenseType": "commercial",
-  "pricingTier": "standard",
+  "pricingTier": "premium",
   "rating": 5,
   "hero": true,
   "availableSizes": [
@@ -23,15 +23,15 @@
     "8k r3d",
     "8k red raw",
     "ampat",
-    "avian",
-    "avian bird species",
-    "bird",
+    "associated",
     "biting",
     "biting the reef",
     "bolbometopon",
     "bolbometopon muricatum",
     "bumphead",
+    "bumphead parrotfish",
     "bumphead parrotfish biting reef",
+    "fish",
     "indonesia",
     "large",
     "large bumphead parrotfish",
@@ -47,9 +47,9 @@
     "raw",
     "red",
     "reef",
+    "reef associated fish",
     "south",
     "south papua",
-    "species",
     "v-raptor"
   ],
   "technicalSpecs": {
@@ -64,10 +64,13 @@
     "cameraFormat": "MQ",
     "fps": "23.976",
     "aspectRatio": "1.78",
-    "duration": "00:00:27:07",
+    "duration": "00:00:27:08",
     "sceneCategory": "Underwater",
-    "family": "Aves",
-    "latinName": "Aves sp."
+    "family": "Scaridae (Parrotfish)",
+    "latinName": "Bolbometopon muricatum",
+    "masterDuration": "00:00:27:07",
+    "durationSeconds": 27.361,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

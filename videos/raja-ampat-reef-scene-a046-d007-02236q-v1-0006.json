@@ -67,7 +67,10 @@
     "duration": "00:00:12:12",
     "sceneCategory": "Underwater",
     "family": "Petrosiidae (Barrel Sponges)",
-    "latinName": "Xestospongia testudinaria"
+    "latinName": "Xestospongia testudinaria",
+    "masterDuration": "00:00:12:12",
+    "durationSeconds": 12.513,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

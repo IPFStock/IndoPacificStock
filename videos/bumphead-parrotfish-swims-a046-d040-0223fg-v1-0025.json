@@ -1,12 +1,12 @@
 {
   "title": "Bumphead Parrotfish Swims",
-  "category": "Avian Bird Species",
+  "category": "Reef Associated Fish",
   "region": "Raja Ampat",
-  "species": "Bird",
+  "species": "Bumphead Parrotfish",
   "format": "8K RED RAW",
   "nativeFormatBadge": "8K R3D",
   "licenseType": "commercial",
-  "pricingTier": "standard",
+  "pricingTier": "premium",
   "rating": 4,
   "hero": false,
   "availableSizes": [
@@ -23,9 +23,7 @@
     "8k r3d",
     "8k red raw",
     "ampat",
-    "avian",
-    "avian bird species",
-    "bird",
+    "associated",
     "bites",
     "bites the reef",
     "bolbometopon",
@@ -33,6 +31,7 @@
     "bumphead",
     "bumphead parrotfish",
     "bumphead parrotfish swims",
+    "fish",
     "indonesia",
     "muricatum",
     "ocean",
@@ -46,11 +45,12 @@
     "raw",
     "red",
     "reef",
+    "reef associated fish",
     "south",
     "south papua",
-    "species",
     "swims",
-    "v-raptor"
+    "v-raptor",
+    "v-raptor 8k vv"
   ],
   "technicalSpecs": {
     "fileName": "A046_D040_0223FG_V1-0025.mp4",
@@ -64,10 +64,13 @@
     "cameraFormat": "MQ",
     "fps": "23.976",
     "aspectRatio": "1.78",
-    "duration": "00:00:22:14",
+    "duration": "00:00:22:15",
     "sceneCategory": "Underwater",
-    "family": "Aves",
-    "latinName": "Aves sp."
+    "family": "Scaridae (Parrotfish)",
+    "latinName": "Bolbometopon muricatum",
+    "masterDuration": "00:00:22:14",
+    "durationSeconds": 22.648,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

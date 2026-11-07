@@ -1,12 +1,12 @@
 {
   "title": "Bumphead Parrotfish And Small Reef Fish",
-  "category": "Avian Bird Species",
+  "category": "Reef Associated Fish",
   "region": "Raja Ampat",
-  "species": "Bird",
+  "species": "Bumphead Parrotfish",
   "format": "8K RED RAW",
   "nativeFormatBadge": "8K R3D",
   "licenseType": "commercial",
-  "pricingTier": "standard",
+  "pricingTier": "premium",
   "rating": 4,
   "hero": false,
   "availableSizes": [
@@ -23,14 +23,13 @@
     "8k r3d",
     "8k red raw",
     "ampat",
-    "avian",
-    "avian bird species",
-    "bird",
+    "associated",
     "bites",
     "bolbometopon",
     "bolbometopon muricatum",
     "bumpead",
     "bumphead",
+    "bumphead parrotfish",
     "bumphead parrotfish and small reef fish",
     "fish",
     "indonesia",
@@ -46,11 +45,12 @@
     "raw",
     "red",
     "reef",
+    "reef associated fish",
     "small",
     "small fish surround bumpead parrotfish",
     "south",
     "south papua",
-    "species"
+    "surround"
   ],
   "technicalSpecs": {
     "fileName": "A046_D044_0223P8_V1-0035.mp4",
@@ -66,8 +66,11 @@
     "aspectRatio": "1.78",
     "duration": "00:00:13:07",
     "sceneCategory": "Underwater",
-    "family": "Aves",
-    "latinName": "Aves sp."
+    "family": "Scaridae (Parrotfish)",
+    "latinName": "Bolbometopon muricatum",
+    "masterDuration": "00:00:13:07",
+    "durationSeconds": 13.305,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

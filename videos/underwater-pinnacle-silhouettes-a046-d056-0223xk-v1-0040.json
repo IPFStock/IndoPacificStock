@@ -67,7 +67,10 @@
     "duration": "00:00:06:18",
     "sceneCategory": "Underwater",
     "family": "",
-    "latinName": ""
+    "latinName": "",
+    "masterDuration": "00:00:06:18",
+    "durationSeconds": 6.757,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

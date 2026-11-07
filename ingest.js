@@ -404,6 +404,36 @@ const TAXON_BY_LATIN = {
     family: 'Carangidae (Jacks)',
     latinName: 'Caranx sexfasciatus',
   },
+  'caranx melampygus': {
+    category: BROAD_TAXA.PELAGIC,
+    species: 'Bluefin Trevally',
+    family: 'Carangidae (Jacks)',
+    latinName: 'Caranx melampygus',
+  },
+  'sphyraena qenie': {
+    category: BROAD_TAXA.PELAGIC,
+    species: 'Blackfin Barracuda',
+    family: 'Sphyraenidae (Barracudas)',
+    latinName: 'Sphyraena qenie',
+  },
+  'balistoides conspicillum': {
+    category: BROAD_TAXA.REEF_FISH,
+    species: 'Clown Triggerfish',
+    family: 'Balistidae (Triggerfish)',
+    latinName: 'Balistoides conspicillum',
+  },
+  'caesio caerulaurea': {
+    category: BROAD_TAXA.BENTHIC_SCHOOLING,
+    species: 'Blue and Gold Fusilier',
+    family: 'Caesionidae (Fusiliers)',
+    latinName: 'Caesio caerulaurea',
+  },
+  'bolbometopon muricatum': {
+    category: BROAD_TAXA.REEF_FISH,
+    species: 'Bumphead Parrotfish',
+    family: 'Scaridae (Parrotfish)',
+    latinName: 'Bolbometopon muricatum',
+  },
 };
 
 const TAXON_PATTERN_RULES = [
@@ -490,8 +520,21 @@ const TAXON_PATTERN_RULES = [
     taxon: TAXON_BY_LATIN['toxotes jaculatrix'],
   },
   {
+    pattern: /dogtooth|gymnosarda/i,
+    taxon: {
+      category: BROAD_TAXA.PELAGIC,
+      species: 'Dogtooth Tuna',
+      family: 'Scombridae (Mackerels and Tunas)',
+      latinName: 'Gymnosarda unicolor',
+    },
+  },
+  {
     pattern: /trevally|caranx|big.?eye trevally/i,
     taxon: TAXON_BY_LATIN['caranx sexfasciatus'],
+  },
+  {
+    pattern: /bumphead|bolbometopon|parrotfish/i,
+    taxon: TAXON_BY_LATIN['bolbometopon muricatum'],
   },
   {
     pattern: /mangrove/i,
@@ -620,7 +663,7 @@ const TAXON_PATTERN_RULES = [
     },
   },
   {
-    pattern: /avian|bird of prey|hornbill|parrot|kingfisher|\btern\b|seabird|cockatoo|\bheron\b|\begret\b|pelican|eagle|osprey|frigatebird|(?<![a-z])bird/i,
+    pattern: /avian|bird of prey|hornbill|parrot(?!fish)|kingfisher|\btern\b|seabird|cockatoo|\bheron\b|\begret\b|pelican|eagle|osprey|frigatebird|(?<![a-z])bird/i,
     taxon: {
       category: BROAD_TAXA.AVIAN,
       species: 'Bird',
@@ -1169,6 +1212,13 @@ function normalizePricingTier(raw) {
   return 'standard';
 }
 
+function pricingTierFromRating(rating, explicitTier) {
+  const stars = Number(rating) || 0;
+  if (stars >= 4) return 'premium';
+  if (stars >= 1) return 'standard';
+  return normalizePricingTier(explicitTier);
+}
+
 function normalizeRating(raw) {
   const match = String(raw || '').trim().match(/^([1-5])\b/);
   return match ? Number(match[1]) : 0;
@@ -1281,8 +1331,8 @@ function parseCsvRows(csvFilePath) {
     const aspectRatio = clean(idxRatio);
     const duration = normalizeCsvDuration(clean(idxDuration), fps);
     const licenseType = normalizeLicenseType(clean(idxLicense));
-    const pricingTier = normalizePricingTier(clean(idxTier));
     const rating = normalizeRating(clean(idxRating));
+    const pricingTier = pricingTierFromRating(rating, clean(idxTier));
     const hero = isHeroRating(rating);
     const shootCategory = clean(idxCategory) || 'Underwater';
     const taxon = resolveTaxonomy({

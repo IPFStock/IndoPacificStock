@@ -67,7 +67,10 @@
     "duration": "00:00:12:08",
     "sceneCategory": "Underwater",
     "family": "Pomacentridae (Damselfish)",
-    "latinName": "Pseudanthias sp."
+    "latinName": "Pseudanthias sp.",
+    "masterDuration": "00:00:12:08",
+    "durationSeconds": 12.346,
+    "durationSource": "ffprobe"
   },
   "syncSource": "csv"
 }

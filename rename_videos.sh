@@ -1406,4 +1406,56 @@ mv "A046_D058_0223K3_V1-0041.mp4" "gorgonian-seafan-silhouettes-a046-d058-0223k3
 mv "A046_D059_022357_V1-0042.mp4" "jellyfish-drifts-toward-camera-a046-d059-022357-v1-0042.mp4" 2>/dev/null || mv "A046_D059_022357_V1-0042.mp4" "A046_D059_022357_V1-0042.mp4" 2>/dev/null || true
 # Water Surging Under A Karst Island
 mv "A046_D061_0223IE_V1-0043.mp4" "water-surging-under-a-karst-island-a046-d061-0223ie-v1-0043.mp4" 2>/dev/null || mv "A046_D061_0223IE_V1-0043.mp4" "A046_D061_0223IE_V1-0043.mp4" 2>/dev/null || true
+# Blue Green Fusiliers
+mv "A008_D001_03080S_V1-0001.mp4" "blue-green-fusiliers-a008-d001-03080s-v1-0001.mp4" 2>/dev/null || mv "A008_D001_03080S_V1-0001.mp4" "A008_D001_03080S_V1-0001.mp4" 2>/dev/null || true
+# Clown Triggerfish At Cleaning Station
+mv "A008_D003_0308DJ_V1-0002.mp4" "clown-triggerfish-at-cleaning-station-a008-d003-0308dj-v1-0002.mp4" 2>/dev/null || mv "A008_D003_0308DJ_V1-0002.mp4" "A008_D003_0308DJ_V1-0002.mp4" 2>/dev/null || true
+# Clown Triggerfish Cleaning Behaviour
+mv "A008_D004_0308KQ_V1-0003.mp4" "clown-triggerfish-cleaning-behaviour-a008-d004-0308kq-v1-0003.mp4" 2>/dev/null || mv "A008_D004_0308KQ_V1-0003.mp4" "A008_D004_0308KQ_V1-0003.mp4" 2>/dev/null || true
+# Close Up Of Clown Triggerfish Cleaning
+mv "A008_D005_0308Z7_V1-0004.mp4" "close-up-of-clown-triggerfish-cleaning-a008-d005-0308z7-v1-0004.mp4" 2>/dev/null || mv "A008_D005_0308Z7_V1-0004.mp4" "A008_D005_0308Z7_V1-0004.mp4" 2>/dev/null || true
+# Close Clown Triggerfish Cleaning
+mv "A008_D005_0308Z7_V1-0005.mp4" "close-clown-triggerfish-cleaning-a008-d005-0308z7-v1-0005.mp4" 2>/dev/null || mv "A008_D005_0308Z7_V1-0005.mp4" "A008_D005_0308Z7_V1-0005.mp4" 2>/dev/null || true
+# Clown Triggerfish Being Cleaned
+mv "A008_D005_0308Z7_V1-0006.mp4" "clown-triggerfish-being-cleaned-a008-d005-0308z7-v1-0006.mp4" 2>/dev/null || mv "A008_D005_0308Z7_V1-0006.mp4" "A008_D005_0308Z7_V1-0006.mp4" 2>/dev/null || true
+# Fusiliers And School Of Barracuda
+mv "A008_D006_03084G_V1-0007.mp4" "fusiliers-and-school-of-barracuda-a008-d006-03084g-v1-0007.mp4" 2>/dev/null || mv "A008_D006_03084G_V1-0007.mp4" "A008_D006_03084G_V1-0007.mp4" 2>/dev/null || true
+# Schooling Black Finned Barracuda
+mv "A008_D006_03084G_V1-0008.mp4" "schooling-black-finned-barracuda-a008-d006-03084g-v1-0008.mp4" 2>/dev/null || mv "A008_D006_03084G_V1-0008.mp4" "A008_D006_03084G_V1-0008.mp4" 2>/dev/null || true
+# School Of Barracuda
+mv "A008_D007_0308KI_V1-0009.mp4" "school-of-barracuda-a008-d007-0308ki-v1-0009.mp4" 2>/dev/null || mv "A008_D007_0308KI_V1-0009.mp4" "A008_D007_0308KI_V1-0009.mp4" 2>/dev/null || true
+# Closeup Schooling Barracuda
+mv "A008_D008_0308IQ_V1-0010.mp4" "closeup-schooling-barracuda-a008-d008-0308iq-v1-0010.mp4" 2>/dev/null || mv "A008_D008_0308IQ_V1-0010.mp4" "A008_D008_0308IQ_V1-0010.mp4" 2>/dev/null || true
+# Silhouette Of A Dogtooth Tuna Swimming Through Fusiliers
+mv "A008_D017_03084K_V1-0011.mp4" "silhouette-of-a-dogtooth-tuna-swimming-through-fusiliers-a008-d017-03084k-v1-0011.mp4" 2>/dev/null || mv "A008_D017_03084K_V1-0011.mp4" "A008_D017_03084K_V1-0011.mp4" 2>/dev/null || true
+# Blue Fin Trevally Swimming Through Fusiliers
+mv "A008_D023_03089S_V1-0012.mp4" "blue-fin-trevally-swimming-through-fusiliers-a008-d023-03089s-v1-0012.mp4" 2>/dev/null || mv "A008_D023_03089S_V1-0012.mp4" "A008_D023_03089S_V1-0012.mp4" 2>/dev/null || true
+# Silhouetted Blackfin Barracuda
+mv "A008_D024_0308PG_V1-0013.mp4" "silhouetted-blackfin-barracuda-a008-d024-0308pg-v1-0013.mp4" 2>/dev/null || mv "A008_D024_0308PG_V1-0013.mp4" "A008_D024_0308PG_V1-0013.mp4" 2>/dev/null || true
+# Blackfin Barracuda Schooling
+mv "A008_D034_0308QV_V1-0014.mp4" "blackfin-barracuda-schooling-a008-d034-0308qv-v1-0014.mp4" 2>/dev/null || mv "A008_D034_0308QV_V1-0014.mp4" "A008_D034_0308QV_V1-0014.mp4" 2>/dev/null || true
+# Looking Up At Blackfin Barracuda School
+mv "A008_D037_0308HI_V1-0015.mp4" "looking-up-at-blackfin-barracuda-school-a008-d037-0308hi-v1-0015.mp4" 2>/dev/null || mv "A008_D037_0308HI_V1-0015.mp4" "A008_D037_0308HI_V1-0015.mp4" 2>/dev/null || true
+# Barracuda School Silhouette
+mv "A008_D038_0308XJ_V1-0016.mp4" "barracuda-school-silhouette-a008-d038-0308xj-v1-0016.mp4" 2>/dev/null || mv "A008_D038_0308XJ_V1-0016.mp4" "A008_D038_0308XJ_V1-0016.mp4" 2>/dev/null || true
+# Camera Push Over Tropical Reef
+mv "A008_D040_0308MP_V1-0017.mp4" "camera-push-over-tropical-reef-a008-d040-0308mp-v1-0017.mp4" 2>/dev/null || mv "A008_D040_0308MP_V1-0017.mp4" "A008_D040_0308MP_V1-0017.mp4" 2>/dev/null || true
+# Camera Push Over Tropical Reef
+mv "A008_D040_0308MP_V1-0018.mp4" "camera-push-over-tropical-reef-a008-d040-0308mp-v1-0018.mp4" 2>/dev/null || mv "A008_D040_0308MP_V1-0018.mp4" "A008_D040_0308MP_V1-0018.mp4" 2>/dev/null || true
+# Swimming With Schooling Barracuda
+mv "A008_D044_03082O_V1-0019.mp4" "swimming-with-schooling-barracuda-a008-d044-03082o-v1-0019.mp4" 2>/dev/null || mv "A008_D044_03082O_V1-0019.mp4" "A008_D044_03082O_V1-0019.mp4" 2>/dev/null || true
+# Swimming With Schooling Barracuda
+mv "A008_D044_03082O_V1-0020.mp4" "swimming-with-schooling-barracuda-a008-d044-03082o-v1-0020.mp4" 2>/dev/null || mv "A008_D044_03082O_V1-0020.mp4" "A008_D044_03082O_V1-0020.mp4" 2>/dev/null || true
+# Large School Of Blackfin Barracuda
+mv "A008_D047_0308RT_V1-0021.mp4" "large-school-of-blackfin-barracuda-a008-d047-0308rt-v1-0021.mp4" 2>/dev/null || mv "A008_D047_0308RT_V1-0021.mp4" "A008_D047_0308RT_V1-0021.mp4" 2>/dev/null || true
+# Large School Of Blackfin Barracuda
+mv "A008_D047_0308RT_V1-0024.mp4" "large-school-of-blackfin-barracuda-a008-d047-0308rt-v1-0024.mp4" 2>/dev/null || mv "A008_D047_0308RT_V1-0024.mp4" "A008_D047_0308RT_V1-0024.mp4" 2>/dev/null || true
+# Large School Of Blackfin Barracuda
+mv "A008_D047_0308RT_V1-0025.mp4" "large-school-of-blackfin-barracuda-a008-d047-0308rt-v1-0025.mp4" 2>/dev/null || mv "A008_D047_0308RT_V1-0025.mp4" "A008_D047_0308RT_V1-0025.mp4" 2>/dev/null || true
+# Large School Of Blackfin Barracuda
+mv "A008_D047_0308RT_V1-0026.mp4" "large-school-of-blackfin-barracuda-a008-d047-0308rt-v1-0026.mp4" 2>/dev/null || mv "A008_D047_0308RT_V1-0026.mp4" "A008_D047_0308RT_V1-0026.mp4" 2>/dev/null || true
+# Large School Of Blackfin Barracuda
+mv "A008_D047_0308RT_V1-0022.mp4" "large-school-of-blackfin-barracuda-a008-d047-0308rt-v1-0022.mp4" 2>/dev/null || mv "A008_D047_0308RT_V1-0022.mp4" "A008_D047_0308RT_V1-0022.mp4" 2>/dev/null || true
+# Large School Of Blackfin Barracuda
+mv "A008_D047_0308RT_V1-0023.mp4" "large-school-of-blackfin-barracuda-a008-d047-0308rt-v1-0023.mp4" 2>/dev/null || mv "A008_D047_0308RT_V1-0023.mp4" "A008_D047_0308RT_V1-0023.mp4" 2>/dev/null || true
 echo "Rename pass complete."
