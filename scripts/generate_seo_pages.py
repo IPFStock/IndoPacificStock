@@ -2315,6 +2315,10 @@ def reset_dir(path: Path) -> None:
 def main() -> None:
     catalog_data = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
     clips = catalog_data.get("clips") or []
+    withheld = [clip for clip in clips if int(clip.get("rating") or 0) == 1]
+    if withheld:
+        print(f"Leaving {len(withheld)} one-star clip(s) unpublished.")
+        clips = [clip for clip in clips if clip not in withheld]
     if not clips:
         raise SystemExit("No clips found in videos/catalog.json")
 

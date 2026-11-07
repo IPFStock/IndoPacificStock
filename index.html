@@ -3682,7 +3682,7 @@
           const bundle = await bundleRes.json();
           if (Array.isArray(bundle?.clips) && bundle.clips.length > 0) {
             return bundle.clips
-              .filter((entry) => entry?.slug)
+              .filter((entry) => entry?.slug && Number(entry.rating) !== 1)
               .map(({ slug, ...data }) => ({ slug, data }));
           }
         }
@@ -3715,7 +3715,9 @@
           try {
             const response = await fetch(`videos/${slug}.json${cacheQuery}`);
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            entries.push({ slug, data: await response.json() });
+            const data = await response.json();
+            if (Number(data.rating) === 1) return;
+            entries.push({ slug, data });
           } catch (err) {
             console.error(`Failed to load videos/${slug}.json`, err);
           }
@@ -3930,7 +3932,7 @@
     function openModalBySlug(requested, options = {}) {
       const slug = resolveClipSlug(requested);
       const data = slug ? assetCatalog.get(slug) : null;
-      if (!data) {
+      if (!data || Number(data.rating) === 1) {
         showToast('That clip is not in the catalog.');
         return false;
       }

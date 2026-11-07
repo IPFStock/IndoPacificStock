@@ -1598,11 +1598,17 @@ async function main() {
   const catalog = new Map();
 
   let skippedWithoutMetadata = 0;
+  let withheldOneStar = 0;
   githubMp4Files.forEach((mp4) => {
     const mp4FileName = mp4.name;
     const csvEntry = csvByMp4.get(mp4FileName.toLowerCase());
 
     if (csvEntry) {
+      if (Number(csvEntry.data.rating) === 1) {
+        withheldOneStar += 1;
+        console.log(`Withholding 1-star clip: ${mp4FileName}`);
+        return;
+      }
       csvEntry.data.videoUrl = mp4.url;
       catalog.set(csvEntry.slug, csvEntry.data);
       return;
@@ -1610,11 +1616,15 @@ async function main() {
 
     skippedWithoutMetadata += 1;
   });
+  if (withheldOneStar) {
+    console.log(`Left ${withheldOneStar} one-star clip${withheldOneStar === 1 ? '' : 's'} unpublished.`);
+  }
   if (skippedWithoutMetadata) {
     console.log(`Left ${skippedWithoutMetadata} GitHub clips unpublished (no metadata row).`);
   }
 
   csvByMp4.forEach((entry, mp4Key) => {
+    if (Number(entry.data.rating) === 1) return;
     const onGithub = githubMp4Files.some((item) => item.name.toLowerCase() === mp4Key);
     if (!onGithub) {
       console.warn(`CSV clip not on GitHub yet: ${entry.data.technicalSpecs.fileName}`);
