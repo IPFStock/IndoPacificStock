@@ -422,6 +422,12 @@ const TAXON_BY_LATIN = {
     family: 'Lethrinidae (Emperors)',
     latinName: 'Lethrinus olivaceus',
   },
+  'cheilinus undulatus': {
+    category: BROAD_TAXA.REEF_FISH,
+    species: 'Napoleon Wrasse',
+    family: 'Labridae (Wrasses)',
+    latinName: 'Cheilinus undulatus',
+  },
   'dendronephthya sp': {
     category: BROAD_TAXA.HABITATS,
     species: 'Soft Coral',
@@ -575,6 +581,10 @@ const TAXON_PATTERN_RULES = [
       family: 'Scombridae (Mackerels and Tunas)',
       latinName: 'Gymnosarda unicolor',
     },
+  },
+  {
+    pattern: /napoleon wrasse|humphead wrasse|cheilinus undulatus/i,
+    taxon: TAXON_BY_LATIN['cheilinus undulatus'],
   },
   {
     pattern: /longnose emperor|lethrinus olivaceus/i,

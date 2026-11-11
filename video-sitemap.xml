@@ -5154,6 +5154,20 @@
     </video:video>
   </url>
   <url>
+    <loc>https://indopacificstock.com/clip/napoleon-wrasse-and-a-giant-trevally-a010-d036-0309ae-v1-0021/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://indopacificstock.com/thumbs/napoleon-wrasse-and-a-giant-trevally-a010-d036-0309ae-v1-0021.jpg</video:thumbnail_loc>
+      <video:title>Napoleon Wrasse And A Giant Trevally</video:title>
+      <video:description>A Napoleon wrasse, Cheilinus undulatus, and a giant trevally, Caranx ignobilis, on a reef, Raja Ampat, South West Papua, Indonesia, Pacific Ocean</video:description>
+      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-03/main/A010_D036_0309AE_V1-0021.mp4</video:content_loc>
+      <video:duration>20</video:duration>
+      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://indopacificstock.com/clip/ocean-waves-washing-ashore-on-papuan-beach-a005-a103-0414i8-v2-0004/</loc>
     <video:video>
       <video:thumbnail_loc>https://indopacificstock.com/thumbs/ocean-waves-washing-ashore-on-papuan-beach-a005-a103-0414i8-v2-0004.jpg</video:thumbnail_loc>
@@ -6183,20 +6197,6 @@
       <video:description>A longnose emperor, Lethrinus olivaceus, bluefin trevally, Caranx melampygus, and giant trevally, Caranx ignobilis, patrolling a reef, Raja Ampat, South West Papua, Indonesia, Pacific Ocean</video:description>
       <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-03/main/A010_D036_0309AE_V1-0020.mp4</video:content_loc>
       <video:duration>16</video:duration>
-      <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:requires_subscription>no</video:requires_subscription>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://indopacificstock.com/clip/predator-fish-hunting-on-the-reef-a010-d036-0309ae-v1-0021/</loc>
-    <video:video>
-      <video:thumbnail_loc>https://indopacificstock.com/thumbs/predator-fish-hunting-on-the-reef-a010-d036-0309ae-v1-0021.jpg</video:thumbnail_loc>
-      <video:title>Predator Fish Hunting On The Reef</video:title>
-      <video:description>A longnose emperor, Lethrinus olivaceus, bluefin trevally, Caranx melampygus, and giant trevally, Caranx ignobilis, patrolling a reef, Raja Ampat, South West Papua, Indonesia, Pacific Ocean</video:description>
-      <video:content_loc>https://raw.githubusercontent.com/IPFStock/ip-assets-03/main/A010_D036_0309AE_V1-0021.mp4</video:content_loc>
-      <video:duration>20</video:duration>
       <video:publication_date>2026-03-01T00:00:00+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:requires_subscription>no</video:requires_subscription>

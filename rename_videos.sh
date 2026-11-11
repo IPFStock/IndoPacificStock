@@ -1562,8 +1562,8 @@ mv "A010_D030_0309Z8_V1-0018.mp4" "archive-a010-d030-0309z8-v1-0018.mp4" 2>/dev/
 mv "A010_D036_0309AE_V1-0019.mp4" "longnose-emperor-and-trevallies-patrolling-a-reef-a010-d036-0309ae-v1-0019.mp4" 2>/dev/null || mv "A010_D036_0309AE_V1-0019.mp4" "A010_D036_0309AE_V1-0019.mp4" 2>/dev/null || true
 # Predator Fish Hunting On The Reef
 mv "A010_D036_0309AE_V1-0020.mp4" "predator-fish-hunting-on-the-reef-a010-d036-0309ae-v1-0020.mp4" 2>/dev/null || mv "A010_D036_0309AE_V1-0020.mp4" "A010_D036_0309AE_V1-0020.mp4" 2>/dev/null || true
-# Predator Fish Hunting On The Reef
-mv "A010_D036_0309AE_V1-0021.mp4" "predator-fish-hunting-on-the-reef-a010-d036-0309ae-v1-0021.mp4" 2>/dev/null || mv "A010_D036_0309AE_V1-0021.mp4" "A010_D036_0309AE_V1-0021.mp4" 2>/dev/null || true
+# Napoleon Wrasse And A Giant Trevally
+mv "A010_D036_0309AE_V1-0021.mp4" "napoleon-wrasse-and-a-giant-trevally-a010-d036-0309ae-v1-0021.mp4" 2>/dev/null || mv "A010_D036_0309AE_V1-0021.mp4" "A010_D036_0309AE_V1-0021.mp4" 2>/dev/null || true
 # A Giant Trevally Watches Fusiliers
 mv "A010_D040_0309TR_V1-0022.mp4" "a-giant-trevally-watches-fusiliers-a010-d040-0309tr-v1-0022.mp4" 2>/dev/null || mv "A010_D040_0309TR_V1-0022.mp4" "A010_D040_0309TR_V1-0022.mp4" 2>/dev/null || true
 # Green Coloured Soft Corals

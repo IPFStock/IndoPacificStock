@@ -2,7 +2,7 @@
   "title": "Giant Napoleon Wrasse Sideview Right To Left Up",
   "category": "Reef Associated Fish",
   "region": "Komodo",
-  "species": "Wrasse",
+  "species": "Napoleon Wrasse",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -67,7 +67,7 @@
     "duration": "00:00:34:22",
     "sceneCategory": "Underwater",
     "family": "Labridae (Wrasses)",
-    "latinName": "Labridae sp.",
+    "latinName": "Cheilinus undulatus",
     "masterDuration": "00:00:58:44",
     "durationSeconds": 34.367,
     "durationSource": "mp4-probe"

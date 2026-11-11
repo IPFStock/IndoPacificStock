@@ -1,8 +1,8 @@
 {
   "title": "Following Giant Napoleon Wrasse Reef",
-  "category": "Benthic Reef Aggregations & Schooling Fish",
+  "category": "Reef Associated Fish",
   "region": "Komodo",
-  "species": "Anthias",
+  "species": "Napoleon Wrasse",
   "format": "5K RED RAW",
   "nativeFormatBadge": "5K R3D",
   "licenseType": "commercial",
@@ -24,11 +24,8 @@
     "5k red raw",
     "acanthurus",
     "acanthurus mata",
-    "aggregations",
     "along",
-    "anthias",
-    "benthic",
-    "benthic reef aggregations schooling fish",
+    "associated",
     "cheilinus",
     "cheilinus undulatus",
     "dsmc2",
@@ -50,7 +47,10 @@
     "pacific",
     "pacific ocean",
     "park",
-    "r3d"
+    "r3d",
+    "raw",
+    "red",
+    "redcode"
   ],
   "technicalSpecs": {
     "fileName": "A031_C025_0915XL_V2-0015.mp4",
@@ -66,8 +66,8 @@
     "aspectRatio": "2.37",
     "duration": "00:00:24:33",
     "sceneCategory": "Underwater",
-    "family": "Pomacentridae (Damselfish)",
-    "latinName": "Pseudanthias sp.",
+    "family": "Labridae (Wrasses)",
+    "latinName": "Cheilinus undulatus",
     "masterDuration": "00:01:01:58",
     "durationSeconds": 24.554,
     "durationSource": "mp4-probe"
