@@ -223,19 +223,23 @@ def fetch_github_mp4s() -> list[str]:
     names: list[str] = []
     seen: set[str] = set()
     for repo in GITHUB_REPOS:
-        url = f'https://api.github.com/repos/{GITHUB_OWNER}/{repo}/contents/?ref={GITHUB_BRANCH}'
+        # The contents API returns 500 once a repo root grows past a few hundred files.
+        url = f'https://api.github.com/repos/{GITHUB_OWNER}/{repo}/git/trees/{GITHUB_BRANCH}'
         request = urllib.request.Request(
             url,
             headers={'Accept': 'application/vnd.github+json', 'User-Agent': 'IndoPacificStock-merge'},
         )
         with urllib.request.urlopen(request, timeout=30) as response:
             payload = json.load(response)
-        if not isinstance(payload, list):
+        tree = payload.get('tree') if isinstance(payload, dict) else None
+        if not isinstance(tree, list):
             raise SystemExit(f'Unexpected GitHub response for {repo}: {payload}')
         repo_count = 0
-        for entry in payload:
-            name = str(entry.get('name') or '')
-            if not name.lower().endswith('.mp4'):
+        for entry in tree:
+            if entry.get('type') != 'blob':
+                continue
+            name = str(entry.get('path') or '')
+            if '/' in name or not name.lower().endswith('.mp4'):
                 continue
             key = name.lower()
             if key in seen:

@@ -1522,4 +1522,54 @@ mv "A009_D042_0309GH_V1-0030.mp4" "diver-exits-cavern-toward-schooling-fish-a009
 mv "A009_D044_0309PE_V1-0031.mp4" "double-lined-fusilier-school-a009-d044-0309pe-v1-0031.mp4" 2>/dev/null || mv "A009_D044_0309PE_V1-0031.mp4" "A009_D044_0309PE_V1-0031.mp4" 2>/dev/null || true
 # Schooling Fusiliers Swim Over The Reef
 mv "A009_D044_0309PE_V1-0032.mp4" "schooling-fusiliers-swim-over-the-reef-a009-d044-0309pe-v1-0032.mp4" 2>/dev/null || mv "A009_D044_0309PE_V1-0032.mp4" "A009_D044_0309PE_V1-0032.mp4" 2>/dev/null || true
+# Colourful Soft Corals And Tropical Fish
+mv "A010_D001_030936_V1-0001.mp4" "colourful-soft-corals-and-tropical-fish-a010-d001-030936-v1-0001.mp4" 2>/dev/null || mv "A010_D001_030936_V1-0001.mp4" "A010_D001_030936_V1-0001.mp4" 2>/dev/null || true
+# Sea Whips And Black Coral In The Shallows
+mv "A010_D002_0309NZ_V1-0002.mp4" "sea-whips-and-black-coral-in-the-shallows-a010-d002-0309nz-v1-0002.mp4" 2>/dev/null || mv "A010_D002_0309NZ_V1-0002.mp4" "A010_D002_0309NZ_V1-0002.mp4" 2>/dev/null || true
+# Small Red Seafan
+mv "A010_D003_030936_V1-0003.mp4" "small-red-seafan-a010-d003-030936-v1-0003.mp4" 2>/dev/null || mv "A010_D003_030936_V1-0003.mp4" "A010_D003_030936_V1-0003.mp4" 2>/dev/null || true
+# Soft Corals And Fusiliers
+mv "A010_D005_030958_V1-0004.mp4" "soft-corals-and-fusiliers-a010-d005-030958-v1-0004.mp4" 2>/dev/null || mv "A010_D005_030958_V1-0004.mp4" "A010_D005_030958_V1-0004.mp4" 2>/dev/null || true
+# Soft Coral Close Up
+mv "A010_D006_030985_V1-0005.mp4" "soft-coral-close-up-a010-d006-030985-v1-0005.mp4" 2>/dev/null || mv "A010_D006_030985_V1-0005.mp4" "A010_D006_030985_V1-0005.mp4" 2>/dev/null || true
+# Red Sea Whips In The Shallows
+mv "A010_D014_03097U_V1-0006.mp4" "red-sea-whips-in-the-shallows-a010-d014-03097u-v1-0006.mp4" 2>/dev/null || mv "A010_D014_03097U_V1-0006.mp4" "A010_D014_03097U_V1-0006.mp4" 2>/dev/null || true
+# Red Seawhips And Sponge
+mv "A010_D015_0309N3_V1-0007.mp4" "red-seawhips-and-sponge-a010-d015-0309n3-v1-0007.mp4" 2>/dev/null || mv "A010_D015_0309N3_V1-0007.mp4" "A010_D015_0309N3_V1-0007.mp4" 2>/dev/null || true
+# Archive
+mv "A010_D019_0309UI_V1-0008.mp4" "archive-a010-d019-0309ui-v1-0008.mp4" 2>/dev/null || mv "A010_D019_0309UI_V1-0008.mp4" "A010_D019_0309UI_V1-0008.mp4" 2>/dev/null || true
+# Archive
+mv "A010_D020_0309BP_V1-0009.mp4" "archive-a010-d020-0309bp-v1-0009.mp4" 2>/dev/null || mv "A010_D020_0309BP_V1-0009.mp4" "A010_D020_0309BP_V1-0009.mp4" 2>/dev/null || true
+# Soft Corals And Seafans
+mv "A010_D021_0309N7_V1-0010.mp4" "soft-corals-and-seafans-a010-d021-0309n7-v1-0010.mp4" 2>/dev/null || mv "A010_D021_0309N7_V1-0010.mp4" "A010_D021_0309N7_V1-0010.mp4" 2>/dev/null || true
+# Wider Soft Corals And Seafans
+mv "A010_D021_0309N7_V1-0011.mp4" "wider-soft-corals-and-seafans-a010-d021-0309n7-v1-0011.mp4" 2>/dev/null || mv "A010_D021_0309N7_V1-0011.mp4" "A010_D021_0309N7_V1-0011.mp4" 2>/dev/null || true
+# Pink Soft Coral And Sponge
+mv "A010_D024_03093O_V1-0012.mp4" "pink-soft-coral-and-sponge-a010-d024-03093o-v1-0012.mp4" 2>/dev/null || mv "A010_D024_03093O_V1-0012.mp4" "A010_D024_03093O_V1-0012.mp4" 2>/dev/null || true
+# Soft Coral Reef And Schooling Fusiliers
+mv "A010_D025_0309E4_V1-0013.mp4" "soft-coral-reef-and-schooling-fusiliers-a010-d025-0309e4-v1-0013.mp4" 2>/dev/null || mv "A010_D025_0309E4_V1-0013.mp4" "A010_D025_0309E4_V1-0013.mp4" 2>/dev/null || true
+# Rich Raja Ampat Coral Reef
+mv "A010_D026_03090K_V1-0014.mp4" "rich-raja-ampat-coral-reef-a010-d026-03090k-v1-0014.mp4" 2>/dev/null || mv "A010_D026_03090K_V1-0014.mp4" "A010_D026_03090K_V1-0014.mp4" 2>/dev/null || true
+# Soft Coral Bommie
+mv "A010_D027_0309QC_V1-0015.mp4" "soft-coral-bommie-a010-d027-0309qc-v1-0015.mp4" 2>/dev/null || mv "A010_D027_0309QC_V1-0015.mp4" "A010_D027_0309QC_V1-0015.mp4" 2>/dev/null || true
+# Soft Coral Bommie
+mv "A010_D028_0309PV_V1-0016.mp4" "soft-coral-bommie-a010-d028-0309pv-v1-0016.mp4" 2>/dev/null || mv "A010_D028_0309PV_V1-0016.mp4" "A010_D028_0309PV_V1-0016.mp4" 2>/dev/null || true
+# Giant Trevally Chase Fish On The Reef
+mv "A010_D029_03094C_V1-0017.mp4" "giant-trevally-chase-fish-on-the-reef-a010-d029-03094c-v1-0017.mp4" 2>/dev/null || mv "A010_D029_03094C_V1-0017.mp4" "A010_D029_03094C_V1-0017.mp4" 2>/dev/null || true
+# Archive
+mv "A010_D030_0309Z8_V1-0018.mp4" "archive-a010-d030-0309z8-v1-0018.mp4" 2>/dev/null || mv "A010_D030_0309Z8_V1-0018.mp4" "A010_D030_0309Z8_V1-0018.mp4" 2>/dev/null || true
+# Longnose Emperor And Trevallies Patrolling A Reef
+mv "A010_D036_0309AE_V1-0019.mp4" "longnose-emperor-and-trevallies-patrolling-a-reef-a010-d036-0309ae-v1-0019.mp4" 2>/dev/null || mv "A010_D036_0309AE_V1-0019.mp4" "A010_D036_0309AE_V1-0019.mp4" 2>/dev/null || true
+# Predator Fish Hunting On The Reef
+mv "A010_D036_0309AE_V1-0020.mp4" "predator-fish-hunting-on-the-reef-a010-d036-0309ae-v1-0020.mp4" 2>/dev/null || mv "A010_D036_0309AE_V1-0020.mp4" "A010_D036_0309AE_V1-0020.mp4" 2>/dev/null || true
+# Predator Fish Hunting On The Reef
+mv "A010_D036_0309AE_V1-0021.mp4" "predator-fish-hunting-on-the-reef-a010-d036-0309ae-v1-0021.mp4" 2>/dev/null || mv "A010_D036_0309AE_V1-0021.mp4" "A010_D036_0309AE_V1-0021.mp4" 2>/dev/null || true
+# A Giant Trevally Watches Fusiliers
+mv "A010_D040_0309TR_V1-0022.mp4" "a-giant-trevally-watches-fusiliers-a010-d040-0309tr-v1-0022.mp4" 2>/dev/null || mv "A010_D040_0309TR_V1-0022.mp4" "A010_D040_0309TR_V1-0022.mp4" 2>/dev/null || true
+# Green Coloured Soft Corals
+mv "A010_D044_0309DW_V1-0023.mp4" "green-coloured-soft-corals-a010-d044-0309dw-v1-0023.mp4" 2>/dev/null || mv "A010_D044_0309DW_V1-0023.mp4" "A010_D044_0309DW_V1-0023.mp4" 2>/dev/null || true
+# Fusiliers Swimming Over Hard And Soft Corals
+mv "A010_D045_0309ZG_V1-0024.mp4" "fusiliers-swimming-over-hard-and-soft-corals-a010-d045-0309zg-v1-0024.mp4" 2>/dev/null || mv "A010_D045_0309ZG_V1-0024.mp4" "A010_D045_0309ZG_V1-0024.mp4" 2>/dev/null || true
+# Archive
+mv "A010_D046_0309G9_V1-0025.mp4" "archive-a010-d046-0309g9-v1-0025.mp4" 2>/dev/null || mv "A010_D046_0309G9_V1-0025.mp4" "A010_D046_0309G9_V1-0025.mp4" 2>/dev/null || true
 echo "Rename pass complete."

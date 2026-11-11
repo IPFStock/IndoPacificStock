@@ -410,6 +410,36 @@ const TAXON_BY_LATIN = {
     family: 'Carangidae (Jacks)',
     latinName: 'Caranx melampygus',
   },
+  'caranx ignobilis': {
+    category: BROAD_TAXA.PELAGIC,
+    species: 'Giant Trevally',
+    family: 'Carangidae (Jacks)',
+    latinName: 'Caranx ignobilis',
+  },
+  'lethrinus olivaceus': {
+    category: BROAD_TAXA.REEF_FISH,
+    species: 'Longnose Emperor',
+    family: 'Lethrinidae (Emperors)',
+    latinName: 'Lethrinus olivaceus',
+  },
+  'dendronephthya sp': {
+    category: BROAD_TAXA.HABITATS,
+    species: 'Soft Coral',
+    family: 'Nephtheidae (Soft Corals)',
+    latinName: 'Dendronephthya sp.',
+  },
+  'ellisella sp': {
+    category: BROAD_TAXA.HABITATS,
+    species: 'Sea Whip',
+    family: 'Ellisellidae (Sea Whips)',
+    latinName: 'Ellisella sp.',
+  },
+  'carteriospongia sp': {
+    category: BROAD_TAXA.HABITATS,
+    species: 'Foliate Sponge',
+    family: 'Thorectidae (Sponges)',
+    latinName: 'Carteriospongia sp.',
+  },
   'sphyraena qenie': {
     category: BROAD_TAXA.PELAGIC,
     species: 'Blackfin Barracuda',
@@ -545,6 +575,20 @@ const TAXON_PATTERN_RULES = [
       family: 'Scombridae (Mackerels and Tunas)',
       latinName: 'Gymnosarda unicolor',
     },
+  },
+  {
+    pattern: /longnose emperor|lethrinus olivaceus/i,
+    taxon: TAXON_BY_LATIN['lethrinus olivaceus'],
+  },
+  {
+    pattern: /bluefin trevally|caranx melampygus/i,
+    taxon: TAXON_BY_LATIN['caranx melampygus'],
+  },
+  {
+    // Surgeonfish schools that also name a lurking giant trevally stay with the school.
+    pattern: /giant trevally|caranx ignobilis/i,
+    taxon: TAXON_BY_LATIN['caranx ignobilis'],
+    unless: /surgeonfish|acanthurus/i,
   },
   {
     pattern: /trevally|caranx|big.?eye trevally/i,
@@ -715,7 +759,7 @@ const TAXON_PATTERN_RULES = [
     },
   },
   {
-    pattern: /healthy soft corals|barrel sponge|reef habitat|coral head|coral garden|sponge|seafan|sea fan|staghorn|hard coral/i,
+    pattern: /healthy soft corals|barrel sponge|reef habitat|coral head|coral garden|sponge|seafan|sea fan|sea whip|black coral|staghorn|hard coral|soft coral/i,
     taxon: {
       category: BROAD_TAXA.HABITATS,
       species: 'Coral Reef Habitat',
@@ -762,13 +806,19 @@ function resolveTaxonomy({ description, comments, shootCategory, title }) {
   const sceneCategory = normalizeSceneCategory(shootCategory);
   const haystack = `${description || ''} ${comments || ''} ${title || ''}`.toLowerCase();
 
+  const latinBlocked = (latin) => (
+    latin === 'caranx ignobilis' && /surgeonfish|acanthurus/i.test(haystack)
+  );
+
   for (const latin of extractLatinBinomials(description)) {
+    if (latinBlocked(latin)) continue;
     if (TAXON_BY_LATIN[latin]) {
       return { ...TAXON_BY_LATIN[latin], sceneCategory };
     }
   }
 
   for (const [latin, taxon] of Object.entries(TAXON_BY_LATIN)) {
+    if (latinBlocked(latin)) continue;
     if (haystack.includes(latin)) {
       return { ...taxon, sceneCategory };
     }
@@ -806,6 +856,7 @@ function resolveTaxonomy({ description, comments, shootCategory, title }) {
   }
 
   for (const rule of TAXON_PATTERN_RULES) {
+    if (rule.unless && rule.unless.test(haystack)) continue;
     if (rule.pattern.test(haystack)) {
       return { ...rule.taxon, sceneCategory };
     }
@@ -1276,28 +1327,30 @@ async function fetchGithubMp4Files() {
   const seen = new Set();
 
   for (const repo of GITHUB_REPOS) {
-    const url = `https://api.github.com/repos/${GITHUB_OWNER}/${repo}/contents/?ref=${GITHUB_BRANCH}`;
+    // The contents API returns 500 once a repo root grows past a few hundred files.
+    const url = `https://api.github.com/repos/${GITHUB_OWNER}/${repo}/git/trees/${GITHUB_BRANCH}`;
     const response = await fetch(url);
 
     if (!response.ok) {
       throw new Error(`GitHub API returned ${response.status} for ${repo}`);
     }
 
-    const entries = await response.json();
+    const payload = await response.json();
+    const entries = payload && payload.tree;
     if (!Array.isArray(entries)) {
       throw new Error(`Unexpected GitHub response for ${repo}`);
     }
 
     let repoCount = 0;
     entries.forEach((entry) => {
-      if (entry.type !== 'file' || !/\.mp4$/i.test(entry.name)) return;
-      const key = entry.name.toLowerCase();
+      if (entry.type !== 'blob' || !entry.path || entry.path.includes('/') || !/\.mp4$/i.test(entry.path)) return;
+      const key = entry.path.toLowerCase();
       if (seen.has(key)) return;
       seen.add(key);
       files.push({
-        name: entry.name,
+        name: entry.path,
         repo,
-        url: githubRawUrl(repo, entry.name),
+        url: githubRawUrl(repo, entry.path),
       });
       repoCount += 1;
     });
