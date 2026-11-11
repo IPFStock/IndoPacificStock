@@ -347,6 +347,12 @@ def load_export_rows(path: Path) -> list[dict[str, str]]:
             pricing_tier, license_type = license_type, pricing_tier
         license_type = normalize_license_type(license_type or 'Commercial')
         rating = normalize_rating(row[index['Rating']] if 'Rating' in index else '')
+        # Some DaVinci exports put the 1–5 star rating in the Pricing Tier column.
+        if not rating:
+            star_rating = normalize_rating(pricing_tier)
+            if star_rating and pricing_tier.strip() == star_rating:
+                rating = star_rating
+                pricing_tier = ''
         pricing_tier = pricing_from_rating(rating, pricing_tier)
 
         raw_category = row[index['Category']].strip() if 'Category' in index else ''
@@ -460,17 +466,29 @@ def assign_mp4_names(exports: list[dict[str, str]], github_mp4s: list[str]) -> l
                 if mp4_seconds is None:
                     entry = leftover.pop(0)
                 else:
-                    entry = min(
+                    ranked = sorted(
                         leftover,
                         key=lambda item: abs((entry_duration_seconds(item) or 0) - mp4_seconds),
                     )
-                    leftover.remove(entry)
-                    csv_seconds = entry_duration_seconds(entry)
-                    print(
-                        f'    duration {candidate}: {mp4_seconds:.2f}s ~ CSV {csv_seconds:.2f}s'
-                        if csv_seconds is not None else
-                        f'    duration {candidate}: {mp4_seconds:.2f}s'
-                    )
+                    best = ranked[0]
+                    csv_seconds = entry_duration_seconds(best)
+                    delta = abs((csv_seconds or 0) - mp4_seconds)
+                    # Preview exports are sometimes trimmed, so a multi-second gap
+                    # is not a real match. Keep subclip order in that case.
+                    if delta > 1.0:
+                        entry = leftover.pop(0)
+                        print(
+                            f'    duration {candidate}: {mp4_seconds:.2f}s is {delta:.2f}s off '
+                            f'the nearest CSV row; keeping subclip order'
+                        )
+                    else:
+                        entry = best
+                        leftover.remove(entry)
+                        print(
+                            f'    duration {candidate}: {mp4_seconds:.2f}s ~ CSV {csv_seconds:.2f}s'
+                            if csv_seconds is not None else
+                            f'    duration {candidate}: {mp4_seconds:.2f}s'
+                        )
                 print(f'    {Path(entry.get("clip_directory") or entry["file_name"]).name} → {candidate}')
                 used_global.add(candidate.lower())
                 merged = dict(entry)

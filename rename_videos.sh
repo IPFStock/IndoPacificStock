@@ -1458,4 +1458,68 @@ mv "A008_D047_0308RT_V1-0026.mp4" "large-school-of-blackfin-barracuda-a008-d047-
 mv "A008_D047_0308RT_V1-0022.mp4" "large-school-of-blackfin-barracuda-a008-d047-0308rt-v1-0022.mp4" 2>/dev/null || mv "A008_D047_0308RT_V1-0022.mp4" "A008_D047_0308RT_V1-0022.mp4" 2>/dev/null || true
 # Large School Of Blackfin Barracuda
 mv "A008_D047_0308RT_V1-0023.mp4" "large-school-of-blackfin-barracuda-a008-d047-0308rt-v1-0023.mp4" 2>/dev/null || mv "A008_D047_0308RT_V1-0023.mp4" "A008_D047_0308RT_V1-0023.mp4" 2>/dev/null || true
+# Archive
+mv "A009_D001_0309HU_V1-0001.mp4" "archive-a009-d001-0309hu-v1-0001.mp4" 2>/dev/null || mv "A009_D001_0309HU_V1-0001.mp4" "A009_D001_0309HU_V1-0001.mp4" 2>/dev/null || true
+# Archive
+mv "A009_D002_0309OT_V1-0002.mp4" "archive-a009-d002-0309ot-v1-0002.mp4" 2>/dev/null || mv "A009_D002_0309OT_V1-0002.mp4" "A009_D002_0309OT_V1-0002.mp4" 2>/dev/null || true
+# Looking Up At Red Seafans
+mv "A009_D003_0309WI_V1-0003.mp4" "looking-up-at-red-seafans-a009-d003-0309wi-v1-0003.mp4" 2>/dev/null || mv "A009_D003_0309WI_V1-0003.mp4" "A009_D003_0309WI_V1-0003.mp4" 2>/dev/null || true
+# Red Seafans And Schooling Fish
+mv "A009_D004_030980_V1-0004.mp4" "red-seafans-and-schooling-fish-a009-d004-030980-v1-0004.mp4" 2>/dev/null || mv "A009_D004_030980_V1-0004.mp4" "A009_D004_030980_V1-0004.mp4" 2>/dev/null || true
+# Red Seafans On A Wall
+mv "A009_D005_0309M6_V1-0005.mp4" "red-seafans-on-a-wall-a009-d005-0309m6-v1-0005.mp4" 2>/dev/null || mv "A009_D005_0309M6_V1-0005.mp4" "A009_D005_0309M6_V1-0005.mp4" 2>/dev/null || true
+# Red Seafans With Silhouetted Tropical Fish
+mv "A009_D006_0309UF_V1-0006.mp4" "red-seafans-with-silhouetted-tropical-fish-a009-d006-0309uf-v1-0006.mp4" 2>/dev/null || mv "A009_D006_0309UF_V1-0006.mp4" "A009_D006_0309UF_V1-0006.mp4" 2>/dev/null || true
+# Red Seafans And A Trevally
+mv "A009_D007_0309D5_V1-0007.mp4" "red-seafans-and-a-trevally-a009-d007-0309d5-v1-0007.mp4" 2>/dev/null || mv "A009_D007_0309D5_V1-0007.mp4" "A009_D007_0309D5_V1-0007.mp4" 2>/dev/null || true
+# Red Seafans In Shallow Water
+mv "A009_D008_0309G3_V1-0008.mp4" "red-seafans-in-shallow-water-a009-d008-0309g3-v1-0008.mp4" 2>/dev/null || mv "A009_D008_0309G3_V1-0008.mp4" "A009_D008_0309G3_V1-0008.mp4" 2>/dev/null || true
+# Healthy Red Seafans
+mv "A009_D011_03097V_V1-0009.mp4" "healthy-red-seafans-a009-d011-03097v-v1-0009.mp4" 2>/dev/null || mv "A009_D011_03097V_V1-0009.mp4" "A009_D011_03097V_V1-0009.mp4" 2>/dev/null || true
+# Red Seafan On A Wall
+mv "A009_D013_030983_V1-0010.mp4" "red-seafan-on-a-wall-a009-d013-030983-v1-0010.mp4" 2>/dev/null || mv "A009_D013_030983_V1-0010.mp4" "A009_D013_030983_V1-0010.mp4" 2>/dev/null || true
+# Archive
+mv "A009_D014_0309QN_V1-0011.mp4" "archive-a009-d014-0309qn-v1-0011.mp4" 2>/dev/null || mv "A009_D014_0309QN_V1-0011.mp4" "A009_D014_0309QN_V1-0011.mp4" 2>/dev/null || true
+# Archive
+mv "A009_D015_0309AJ_V1-0012.mp4" "archive-a009-d015-0309aj-v1-0012.mp4" 2>/dev/null || mv "A009_D015_0309AJ_V1-0012.mp4" "A009_D015_0309AJ_V1-0012.mp4" 2>/dev/null || true
+# Archive
+mv "A009_D015_0309AJ_V1-0013.mp4" "archive-a009-d015-0309aj-v1-0013.mp4" 2>/dev/null || mv "A009_D015_0309AJ_V1-0013.mp4" "A009_D015_0309AJ_V1-0013.mp4" 2>/dev/null || true
+# A Trevally Chases Baitfish
+mv "A009_D017_03095G_V1-0014.mp4" "a-trevally-chases-baitfish-a009-d017-03095g-v1-0014.mp4" 2>/dev/null || mv "A009_D017_03095G_V1-0014.mp4" "A009_D017_03095G_V1-0014.mp4" 2>/dev/null || true
+# Panning Left Coral Wall With Baitfish
+mv "A009_D019_0309QF_V1-0015.mp4" "panning-left-coral-wall-with-baitfish-a009-d019-0309qf-v1-0015.mp4" 2>/dev/null || mv "A009_D019_0309QF_V1-0015.mp4" "A009_D019_0309QF_V1-0015.mp4" 2>/dev/null || true
+# Archive
+mv "A009_D020_0309S5_V1-0016.mp4" "archive-a009-d020-0309s5-v1-0016.mp4" 2>/dev/null || mv "A009_D020_0309S5_V1-0016.mp4" "A009_D020_0309S5_V1-0016.mp4" 2>/dev/null || true
+# Archive
+mv "A009_D021_0309MO_V1-0017.mp4" "archive-a009-d021-0309mo-v1-0017.mp4" 2>/dev/null || mv "A009_D021_0309MO_V1-0017.mp4" "A009_D021_0309MO_V1-0017.mp4" 2>/dev/null || true
+# Bumphead Parrotfish Silhouettes
+mv "A009_D021_0309MO_V1-0018.mp4" "bumphead-parrotfish-silhouettes-a009-d021-0309mo-v1-0018.mp4" 2>/dev/null || mv "A009_D021_0309MO_V1-0018.mp4" "A009_D021_0309MO_V1-0018.mp4" 2>/dev/null || true
+# Two Species Of Bannerfish And A Giant Barrel Sponge
+mv "A009_D023_0309XL_V1-0019.mp4" "two-species-of-bannerfish-and-a-giant-barrel-sponge-a009-d023-0309xl-v1-0019.mp4" 2>/dev/null || mv "A009_D023_0309XL_V1-0019.mp4" "A009_D023_0309XL_V1-0019.mp4" 2>/dev/null || true
+# Giant Barrel Sponge And Coral Reef
+mv "A009_D025_03098C_V1-0020.mp4" "giant-barrel-sponge-and-coral-reef-a009-d025-03098c-v1-0020.mp4" 2>/dev/null || mv "A009_D025_03098C_V1-0020.mp4" "A009_D025_03098C_V1-0020.mp4" 2>/dev/null || true
+# Schools Of Tropical Fish Swim Above Coral Reef
+mv "A009_D026_0309OG_V1-0021.mp4" "schools-of-tropical-fish-swim-above-coral-reef-a009-d026-0309og-v1-0021.mp4" 2>/dev/null || mv "A009_D026_0309OG_V1-0021.mp4" "A009_D026_0309OG_V1-0021.mp4" 2>/dev/null || true
+# Panning Seafan And Fusiliers
+mv "A009_D027_0309AC_V1-0022.mp4" "panning-seafan-and-fusiliers-a009-d027-0309ac-v1-0022.mp4" 2>/dev/null || mv "A009_D027_0309AC_V1-0022.mp4" "A009_D027_0309AC_V1-0022.mp4" 2>/dev/null || true
+# Giant Barrel Sponge And Red Seafan
+mv "A009_D028_0309QS_V1-0023.mp4" "giant-barrel-sponge-and-red-seafan-a009-d028-0309qs-v1-0023.mp4" 2>/dev/null || mv "A009_D028_0309QS_V1-0023.mp4" "A009_D028_0309QS_V1-0023.mp4" 2>/dev/null || true
+# Hard Coral With Damage From Parrotfish
+mv "A009_D030_0309RH_V1-0024.mp4" "hard-coral-with-damage-from-parrotfish-a009-d030-0309rh-v1-0024.mp4" 2>/dev/null || mv "A009_D030_0309RH_V1-0024.mp4" "A009_D030_0309RH_V1-0024.mp4" 2>/dev/null || true
+# Parrotfish Damage On A Hard Coral
+mv "A009_D031_0309T5_V1-0025.mp4" "parrotfish-damage-on-a-hard-coral-a009-d031-0309t5-v1-0025.mp4" 2>/dev/null || mv "A009_D031_0309T5_V1-0025.mp4" "A009_D031_0309T5_V1-0025.mp4" 2>/dev/null || true
+# Barren Reef Top
+mv "A009_D034_030941_V1-0026.mp4" "barren-reef-top-a009-d034-030941-v1-0026.mp4" 2>/dev/null || mv "A009_D034_030941_V1-0026.mp4" "A009_D034_030941_V1-0026.mp4" 2>/dev/null || true
+# Shallow Reef And Shadow Of Trees
+mv "A009_D034_030941_V1-0027.mp4" "shallow-reef-and-shadow-of-trees-a009-d034-030941-v1-0027.mp4" 2>/dev/null || mv "A009_D034_030941_V1-0027.mp4" "A009_D034_030941_V1-0027.mp4" 2>/dev/null || true
+# Boo Windows Hole In The Rock
+mv "A009_D037_0309VW_V1-0028.mp4" "boo-windows-hole-in-the-rock-a009-d037-0309vw-v1-0028.mp4" 2>/dev/null || mv "A009_D037_0309VW_V1-0028.mp4" "A009_D037_0309VW_V1-0028.mp4" 2>/dev/null || true
+# Cavern Entrance And Schooling Fish
+mv "A009_D039_03096V_V1-0029.mp4" "cavern-entrance-and-schooling-fish-a009-d039-03096v-v1-0029.mp4" 2>/dev/null || mv "A009_D039_03096V_V1-0029.mp4" "A009_D039_03096V_V1-0029.mp4" 2>/dev/null || true
+# Diver Exits Cavern Toward Schooling Fish
+mv "A009_D042_0309GH_V1-0030.mp4" "diver-exits-cavern-toward-schooling-fish-a009-d042-0309gh-v1-0030.mp4" 2>/dev/null || mv "A009_D042_0309GH_V1-0030.mp4" "A009_D042_0309GH_V1-0030.mp4" 2>/dev/null || true
+# Double Lined Fusilier School
+mv "A009_D044_0309PE_V1-0031.mp4" "double-lined-fusilier-school-a009-d044-0309pe-v1-0031.mp4" 2>/dev/null || mv "A009_D044_0309PE_V1-0031.mp4" "A009_D044_0309PE_V1-0031.mp4" 2>/dev/null || true
+# Schooling Fusiliers Swim Over The Reef
+mv "A009_D044_0309PE_V1-0032.mp4" "schooling-fusiliers-swim-over-the-reef-a009-d044-0309pe-v1-0032.mp4" 2>/dev/null || mv "A009_D044_0309PE_V1-0032.mp4" "A009_D044_0309PE_V1-0032.mp4" 2>/dev/null || true
 echo "Rename pass complete."

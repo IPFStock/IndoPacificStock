@@ -428,6 +428,24 @@ const TAXON_BY_LATIN = {
     family: 'Caesionidae (Fusiliers)',
     latinName: 'Caesio caerulaurea',
   },
+  'pterocaesio digramma': {
+    category: BROAD_TAXA.BENTHIC_SCHOOLING,
+    species: 'Double-lined Fusilier',
+    family: 'Caesionidae (Fusiliers)',
+    latinName: 'Pterocaesio digramma',
+  },
+  'heniochus varius': {
+    category: BROAD_TAXA.REEF_FISH,
+    species: 'Horned Bannerfish',
+    family: 'Chaetodontidae (Butterflyfish)',
+    latinName: 'Heniochus varius',
+  },
+  'heniochus acuminatus': {
+    category: BROAD_TAXA.REEF_FISH,
+    species: 'Longfin Bannerfish',
+    family: 'Chaetodontidae (Butterflyfish)',
+    latinName: 'Heniochus acuminatus',
+  },
   'bolbometopon muricatum': {
     category: BROAD_TAXA.REEF_FISH,
     species: 'Bumphead Parrotfish',
@@ -535,6 +553,31 @@ const TAXON_PATTERN_RULES = [
   {
     pattern: /bumphead|bolbometopon|parrotfish/i,
     taxon: TAXON_BY_LATIN['bolbometopon muricatum'],
+  },
+  {
+    pattern: /pterocaesio|double-?lined fusilier/i,
+    taxon: TAXON_BY_LATIN['pterocaesio digramma'],
+  },
+  {
+    pattern: /heniochus varius|horned bannerfish/i,
+    taxon: TAXON_BY_LATIN['heniochus varius'],
+  },
+  {
+    pattern: /heniochus acuminatus|longfin bannerfish/i,
+    taxon: TAXON_BY_LATIN['heniochus acuminatus'],
+  },
+  {
+    pattern: /bannerfish|heniochus/i,
+    taxon: TAXON_BY_LATIN['heniochus varius'],
+  },
+  {
+    pattern: /fusilier/i,
+    taxon: {
+      category: BROAD_TAXA.BENTHIC_SCHOOLING,
+      species: 'Fusilier',
+      family: 'Caesionidae (Fusiliers)',
+      latinName: 'Caesionidae sp.',
+    },
   },
   {
     pattern: /mangrove/i,
